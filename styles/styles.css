@@ -233,4 +233,22 @@
    max-width: var(--grid-container-width);
    margin: 0 auto;
  }
- 
+
+ .white-columns .col {
+  background: white;
+  margin: 80px 0;
+  padding: 40px;
+}
+
+.icon-headings .col img {
+  display: block;
+  float: left;
+  width: 24px;
+  margin-right: 20px;
+  position: relative;
+  top:10px;
+}
+
+.caas-data-hidden ul {
+  display: none;
+ }
