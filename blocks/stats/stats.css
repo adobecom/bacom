@@ -45,12 +45,12 @@
 
 .stats .stats-intro {
   text-align: center;
-  margin-bottom: var(--spacing-xs);
+  margin: var(--spacing-xs) auto;
 }
 
 .stats .stats-intro img {
-  max-width: 100%;
-  width: 320px;
+  height: 85px;
+  width: auto;
 }
 
 .stats h1, .stats h2, .stats h3, .stats h4, .stats h5, .stats h6 {
