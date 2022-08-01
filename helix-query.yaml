@@ -7,7 +7,7 @@ indices:
       - '/**'
     exclude:
       - '**/fragments/**'
-    target: https://adobe.sharepoint.com/:x:/r/sites/adobecom/Shared%20Documents/bacom/customer-success-stories/query-index.xlsx
+    target: /query-index.xlsx
     properties:
       title:
         select: head > meta[property="og:title"]
