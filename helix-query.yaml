@@ -2,7 +2,7 @@ version: 1
 # See https://www.hlx.live/docs/setup-indexing.
 
 indices:
-  site:
+  customer-success-stories:
     include:
       - '/**'
     exclude:

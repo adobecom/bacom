@@ -1,0 +1,13 @@
+
+version: 1
+
+sitemaps:
+  customer-success-stories:
+    origin: https://business.adobe.com/customer-success-stories
+    lastmod: YYYY-MM-DD
+    languages:
+      default:
+        source: /query-index.json
+        destination: /sitemap.xml
+        hreflang: en
+        alternate: /{path}
