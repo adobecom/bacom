@@ -19,10 +19,22 @@ function decorateRow(row) {
     const headers = row.querySelectorAll('h1, h2, h3, h4, h5, h6');
     if (headers) {
       headers.forEach((header) => {
-        if (row.classList.contains('stat')) {
-          header.classList.add('heading-XL');
-        } else {
-          header.classList.add('heading-XS');
+        const expr = header.localName;
+        switch (expr) {
+          case 'h1':
+            header.classList.add('heading-XL');
+            break;
+          case 'h2':
+            header.classList.add('heading-L');
+            break;
+          case 'h3':
+            header.classList.add('heading-M');
+            break;
+          case 'h4':
+            header.classList.add('heading-S');
+            break;
+          default:
+            header.classList.add('heading-XS');
         }
       });
     }
