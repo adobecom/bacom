@@ -1,61 +1,71 @@
-import { getMiloLibs, getMiloBlocks } from './milo.js';
+/*
+ * Copyright 2022 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
 
-const ROOT = '';
+// This can be changed to 'https://milo.adobe.com/libs'
+// if you don't have your /libs mapped to the milo origin.
+const PROD_LIBS = '/libs';
 
-const MILO_LIBS = getMiloLibs();
-const MILO_BLOCKS = await getMiloBlocks();
+const config = {
+  imsClientId: 'bacom',
+  projectRoot: `${window.location.origin}`,
+  locales: {
+    '': { ietf: 'en-US', tk: 'hah7vzn.css' },
+    de: { ietf: 'de-DE', tk: 'hah7vzn.css' },
+    cn: { ietf: 'zh-CN', tk: 'puu3xkp' },
+  },
+};
 
-// Replace or add if you want your own styles.
-const STYLES = `${MILO_LIBS}/styles/styles.css`;
+/*
+ * ------------------------------------------------------------
+ * Edit below at your own risk
+ * ------------------------------------------------------------
+ */
+
+function getMiloLibs() {
+  const { hostname } = window.location;
+  if (!hostname.includes('hlx.page')
+    && !hostname.includes('hlx.live')
+    && !hostname.includes('localhost')) return PROD_LIBS;
+  const branch = new URLSearchParams(window.location.search).get('milolibs') || 'main';
+  return branch === 'local' ? 'http://localhost:6456/libs' : `https://${branch}.milo.pink/libs`;
+}
+config.miloLibs = getMiloLibs();
+
+(async function loadStyle() {
+  const link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', `${config.miloLibs}/styles/styles.css`);
+  document.head.appendChild(link);
+}());
 
 const {
   decorateArea,
   decorateNavs,
-  loadArea,
   loadLCP,
-  loadStyle,
+  loadArea,
   loadDelayed,
-} = await import(`${MILO_LIBS}/utils/utils.js`);
-
-async function loadBlock(block) {
-  const { status } = block.dataset;
-  if (!status === 'loaded') return block;
-  block.dataset.status = 'loading';
-  const name = block.classList[0];
-  const base = MILO_BLOCKS.includes(name) ? MILO_LIBS : ROOT;
-  const styleLoaded = new Promise((resolve) => {
-    loadStyle(`${base}/blocks/${name}/${name}.css`, resolve);
-  });
-  const scriptLoaded = new Promise((resolve) => {
-    (async () => {
-      try {
-        const { default: init } = await import(`${base}/blocks/${name}/${name}.js`);
-        await init(block);
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.log(`Failed loading ${name}`, err);
-      }
-      resolve();
-    })();
-  });
-  await Promise.all([styleLoaded, scriptLoaded]);
-  delete block.dataset.status;
-  const section = block.closest('.section[data-status]');
-  if (section) {
-    const decoratedBlock = section.querySelector(':scope > [data-status]');
-    if (!decoratedBlock) { delete section.dataset.status; }
-  }
-  return block;
-}
+  loadTemplate,
+  setConfig,
+} = await import(`${config.miloLibs}/utils/utils.js`);
 
 (async function loadPage() {
-  await loadStyle(STYLES);
-  await loadStyle(`${MILO_LIBS}/styles/variables.css`);
+  setConfig(config);
   const blocks = decorateArea();
   const navs = decorateNavs();
-  await loadLCP({ blocks, loader: loadBlock });
-  await loadArea({ blocks: [...navs, ...blocks], loader: loadBlock });
-  const { default: loadModals } = await import(`${MILO_LIBS}/blocks/modals/modals.js`);
+  await loadLCP({ blocks });
+  import(`${config.miloLibs}/utils/fonts.js`);
+  loadTemplate();
+  await loadArea({ blocks: [...navs, ...blocks] });
+  const { default: loadModals } = await import(`${config.miloLibs}/blocks/modals/modals.js`);
   loadModals();
   loadDelayed();
 }());
