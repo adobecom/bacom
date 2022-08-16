@@ -48,8 +48,10 @@ config.miloLibs = getMiloLibs();
 }());
 
 const {
+  createTag,
   decorateArea,
   decorateNavs,
+  getMetadata,
   loadLCP,
   loadArea,
   loadDelayed,
@@ -57,7 +59,16 @@ const {
   setConfig,
 } = await import(`${config.miloLibs}/utils/utils.js`);
 
+function fixFeaturedTemplate() {
+  const template = getMetadata('template');
+  if (template && template === 'Template sidebar') {
+    document.head.querySelector('meta[content="Template sidebar"]').setAttribute('content', 'featured-story');
+  }
+}
+
 (async function loadPage() {
+  fixFeaturedTemplate();
+
   setConfig(config);
   const blocks = decorateArea();
   const navs = decorateNavs();
