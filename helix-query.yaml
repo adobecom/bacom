@@ -7,7 +7,7 @@ indices:
       - '/**'
     exclude:
       - '**/fragments/**'
-    target: /query-index.xlsx
+    target: /customer-success-stories/query-index.xlsx
     properties:
       title:
         select: head > meta[property="og:title"]
