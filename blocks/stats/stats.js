@@ -13,6 +13,7 @@
 /*
 * Stats for Customer Stories
 */
+import { createMiloTag as createTag } from '../../scripts/scripts.js';
 
 function decorateRow(row) {
   const headers = row.querySelectorAll('h1, h2, h3, h4, h5, h6');
@@ -35,10 +36,8 @@ export default function init(el) {
   }
   const rows = el.querySelectorAll(':scope > div:not([class])');
   if (rows.length) {
-    const stats = document.createElement('div');
-    stats.classList.add('stats-wrapper');
-    const solutions = document.createElement('div');
-    solutions.classList.add('solutions-wrapper');
+    const stats = createTag('div', { class: 'stats-wrapper' });
+    const solutions = createTag('div', { class: 'solutions-wrapper' });
     let statCount = 0;
     let solutionCount = 0;
     rows.forEach((row, i) => {
@@ -53,8 +52,7 @@ export default function init(el) {
         solutionCount += 1;
       }
     });
-    const container = document.createElement('div');
-    container.classList.add('stats-container');
+    const container = createTag('div', { class: 'stats-container' });
     stats.classList.add(`count-${statCount}`);
     solutions.classList.add(`count-${solutionCount}`);
     container.appendChild(stats);

@@ -59,6 +59,8 @@ const {
   setConfig,
 } = await import(`${config.miloLibs}/utils/utils.js`);
 
+export const createMiloTag = createTag;
+
 function fixFeaturedTemplate() {
   const template = getMetadata('template');
   if (template && template === 'Template sidebar') {

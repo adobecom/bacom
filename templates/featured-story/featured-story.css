@@ -1,31 +1,22 @@
 /*
-Template: Sidebar
-theme: sidebar-right
+Template: Featured Story
 */
 
-.section-sidebar {
-  display: block;
-}
-
-.sidebar-wrapper {
+.featured-story-wrapper {
   padding: var(--spacing-s) 0;
 }
 
 @media screen and (min-width: 1200px) {
-  .sidebar-wrapper {
+  .featured-story-wrapper {
     display: flex;
     gap: var(--spacing-xl);
   }
 
-  .sidebar-wrapper .sidebar-col-1 {
+  .featured-story-wrapper .col-1 {
     width: 30%;
   }
 
-  .sidebar-wrapper .sidebar-col-2 {
+  .featured-story-wrapper .col-2 {
     width: 70%;
-  }
-
-  .sidebar-right .section-sidebar .sidebar-wrapper {
-    flex-direction: row-reverse;
   }
 }
