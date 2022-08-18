@@ -1,10 +1,10 @@
 /*
-Template: Sidebar
+Templates - featured story
 */
 
-import { createTag } from "../../utils/utils.js";
+import { createMiloTag as createTag } from '../../scripts/scripts.js';
 
-function templateSidebar() {
+function init() {
   const i = 1;
   const sections = document.querySelectorAll('body > main > div.section');
   if (!sections.length > i + 1) return;
@@ -13,16 +13,14 @@ function templateSidebar() {
   if (!nextSection) return;
   section.classList.add('section-1');
   nextSection.classList.add('section-2');
-  const sidebarWrapper = createTag( 'div', { class: 'sidebar-wrapper container' });
-  const sidebarSection = createTag( 'div', { class: 'section-sidebar' }, sidebarWrapper);
-  section.insertAdjacentElement('afterend', sidebarSection);
-  const col1 = createTag( 'div', { class: 'sidebar-col-1' }, section);
-  const col2 = createTag( 'div', { class: 'sidebar-col-2' }, nextSection);
-  sidebarWrapper.insertAdjacentElement('afterbegin', col1);
-  sidebarWrapper.insertAdjacentElement('beforeend', col2);
-  if (nextSection.style) sidebarSection.style.backgroundColor = nextSection.style.backgroundColor;
+  const sectionWrapper = createTag('div', { class: 'featured-story-wrapper container' });
+  const featuredSection = createTag('div', {}, sectionWrapper);
+  section.insertAdjacentElement('afterend', featuredSection);
+  const col1 = createTag('div', { class: 'col-1' }, section);
+  const col2 = createTag('div', { class: 'col-2' }, nextSection);
+  sectionWrapper.insertAdjacentElement('afterbegin', col1);
+  sectionWrapper.insertAdjacentElement('beforeend', col2);
+  if (nextSection.style) featuredSection.style.backgroundColor = nextSection.style.backgroundColor;
 }
 
-export default templateSidebar;
-
-templateSidebar();
+init();

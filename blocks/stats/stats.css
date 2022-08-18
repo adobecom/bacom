@@ -74,33 +74,33 @@
   font-weight: bolder;
 }
 
-/* [template] .template-sidebar */
-.template-sidebar .sidebar-wrapper .stats-intro,
-.template-sidebar .sidebar-wrapper .stats-container {
+/* [template] .featured-story */
+.featured-story .featured-story-wrapper .stats-intro,
+.featured-story .featured-story-wrapper .stats-container {
   max-width: initial;
 }
 
-.template-sidebar .sidebar-wrapper .stats .stats-wrapper {
+.featured-story .featured-story-wrapper .stats .stats-wrapper {
   display: block;
   margin: 0 0 var(--spacing-m);
 }
 
-.template-sidebar.container .sidebar-wrapper .stats .stats-container {
+.featured-story.container .featured-story-wrapper .stats .stats-container {
   width: 100%;
 }
 
-.template-sidebar .sidebar-wrapper .stats .stat {
+.featured-story .featured-story-wrapper .stats .stat {
   margin: 0;
   text-align: unset;
   background-color: #fff;
   padding: 0 var(--spacing-s) var(--spacing-s);
 }
 
-.template-sidebar .sidebar-wrapper .stats .stat:first-of-type {
+.featured-story .featured-story-wrapper .stats .stat:first-of-type {
   padding-top: var(--spacing-s);
 }
 
-.template-sidebar .sidebar-wrapper .stats .solution {
+.featured-story .featured-story-wrapper .stats .solution {
   background-color: unset;
   margin: 0;
   padding: 0;
@@ -124,26 +124,26 @@
     padding-bottom: 0;
   }
 
-  /* [template] .template-sidebar */
-  .template-sidebar .sidebar-wrapper .stats .stats-container {
+  /* [template] .featured-story */
+  .featured-story .featured-story-wrapper .stats .stats-container {
     display: flex;
     width: auto;
     flex-direction: row;
   }
 
-  .template-sidebar .sidebar-wrapper .stats .stat:first-of-type {
+  .featured-story .featured-story-wrapper .stats .stat:first-of-type {
     padding-top: var(--spacing-s);
   }
 
-  .template-sidebar .sidebar-wrapper .stats .stats-wrapper .stat {
+  .featured-story .featured-story-wrapper .stats .stats-wrapper .stat {
     flex-basis: 50%;
   }
 
-  .template-sidebar .sidebar-wrapper .stats .stats-wrapper {
+  .featured-story .featured-story-wrapper .stats .stats-wrapper {
     flex-basis: 33%;
   }
 
-  .template-sidebar .sidebar-wrapper .stats .solutions-wrapper {
+  .featured-story .featured-story-wrapper .stats .solutions-wrapper {
     flex-basis: 66%;
   }
 }
@@ -166,10 +166,10 @@
     flex-basis: 33%;
   }
 
-  /* [template] .template-sidebar */
-  .template-sidebar .sidebar-wrapper .stats .stats-container,
-  .template-sidebar .sidebar-wrapper .stats .stats-wrapper,
-  .template-sidebar .sidebar-wrapper .stats .solutions-wrapper {
+  /* [template] .featured-story */
+  .featured-story .featured-story-wrapper .stats .stats-container,
+  .featured-story .featured-story-wrapper .stats .stats-wrapper,
+  .featured-story .featured-story-wrapper .stats .solutions-wrapper {
     display: block;
   }
 
