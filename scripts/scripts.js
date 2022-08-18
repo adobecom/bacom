@@ -70,16 +70,17 @@ function fixFeaturedTemplate() {
   fixFeaturedTemplate();
   setConfig(config);
 
-  if (decorateArea) {
-    const blocks = decorateArea();
-    const navs = decorateNavs();
-    await loadLCP({ blocks });
-    import(`${config.miloLibs}/utils/fonts.js`);
-    loadTemplate();
-    await loadArea({ blocks: [...navs, ...blocks] });
-  } else {
-    await loadArea();
-  }
+// Backwards & forwards compatible with perf branch
+if (decorateArea) {
+  const blocks = decorateArea();
+  const navs = decorateNavs();
+  await loadLCP({ blocks });
+  import(`${config.miloLibs}/utils/fonts.js`);
+  loadTemplate();
+  await loadArea({ blocks: [...navs, ...blocks] });
+} else {
+  await loadArea();
+}
   const { default: loadModals } = await import(`${config.miloLibs}/blocks/modals/modals.js`);
   loadModals();
   loadDelayed();
