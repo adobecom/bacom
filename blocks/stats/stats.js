@@ -13,7 +13,9 @@
 /*
 * Stats for Customer Stories
 */
-import { createMiloTag as createTag } from '../../scripts/scripts.js';
+
+import { getLibs } from '../../scripts/utils.js';
+const { createTag } = await import(`${getLibs()}/utils/utils.js`);
 
 function decorateRow(row) {
   const headers = row.querySelectorAll('h1, h2, h3, h4, h5, h6');

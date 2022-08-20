@@ -12,16 +12,9 @@
 
 import { setLibs } from './utils.js';
 
-// Add project-wide styles here.
-const STYLES = '/styles/styles.css';
-
-// Use '/libs' if your live site maps '/libs' to milo's origin.
 const LIBS = '/libs';
-
-// Add any config options.
+const STYLES = '/styles/styles.css';
 const CONFIG = {
-  // codeRoot: '',
-  // contentRoot: '',
   imsClientId: 'bacom',
   locales: {
     '': { ietf: 'en-US', tk: 'hah7vzn.css' },
