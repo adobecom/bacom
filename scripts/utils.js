@@ -30,15 +30,12 @@ export const [setLibs, getLibs] = (() => {
         libs = prodLibs;
       } else {
         const branch = new URLSearchParams(window.location.search).get('milolibs') || 'main';
-        switch (branch) {
-          case branch === 'local':
-            libs = 'http://localhost:6456/libs';
-            break;
-          case branch.indexOf('--') > -1:
-            libs = `https://${branch}.hlx.page/libs`;
-            break;
-          default:
-            libs = `https://${branch}--milo--adobecom.hlx.page/libs`;
+        if (branch === 'local') {
+          libs = 'http://localhost:6456/libs';
+        } else if (branch.indexOf('--') > -1) {
+          `https://${branch}.hlx.page/libs`;
+        } else {
+          libs = `https://${branch}--milo--adobecom.hlx.page/libs`;
         }
       }
       return libs;
