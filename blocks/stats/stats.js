@@ -15,6 +15,7 @@
 */
 
 import { getLibs } from '../../scripts/utils.js';
+
 const { createTag } = await import(`${getLibs()}/utils/utils.js`);
 
 function decorateRow(row) {
