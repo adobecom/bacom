@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+const MILO_DOMAIN = 'https://main--milo--adobecom.hlx.page';
+
 function hasSchema(host) {
   if (window.location.hostname === host) {
     const schema = document.querySelector('script[type="application/ld+json"]');
@@ -26,7 +28,7 @@ function hasSchema(host) {
       {
         text: 'Blocks',
         paths: [
-          'https://main--milo--adobecom.hlx.page/docs/library/blocks.json',
+          `${MILO_DOMAIN}/docs/library/blocks.json`,
           'https://main--bacom--adobecom.hlx.page/docs/library/blocks.json',
         ]
       },
@@ -39,17 +41,16 @@ function hasSchema(host) {
         button: {
           text: 'Library',
           action: (_, s) => {
-            const domain = 'https://main--milo--adobecom.hlx.page';
             const { config } = s;
             const script = document.createElement('script');
             script.onload = () => {
               const skEvent = new CustomEvent(
                 'hlx:library-loaded',
-                { detail: { domain, libraries: config.libraries } },
+                { detail: { MILO_DOMAIN, libraries: config.libraries } },
               );
               document.dispatchEvent(skEvent);
             };
-            script.src = `${domain}/libs/ui/library/library.js`;
+            script.src = `${MILO_DOMAIN}/libs/ui/library/library.js`;
             document.head.appendChild(script);
           },
         },
@@ -72,7 +73,7 @@ function hasSchema(host) {
           text: 'Translate',
           action: (_, sk) => {
             const { config } = sk;
-            window.open(`${config.pluginHost ? config.pluginHost : `http://${config.innerHost}`}/tools/translation/index.html?sp=${encodeURIComponent(window.location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation');
+            window.open(`${MILO_DOMAIN}/tools/translation/index.html?sp=${encodeURIComponent(window.location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation');
           },
         },
       },

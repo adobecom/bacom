@@ -33,7 +33,7 @@ export const [setLibs, getLibs] = (() => {
         if (branch === 'local') {
           libs = 'http://localhost:6456/libs';
         } else if (branch.indexOf('--') > -1) {
-          `https://${branch}.hlx.page/libs`;
+          libs = `https://${branch}.hlx.page/libs`;
         } else {
           libs = `https://${branch}--milo--adobecom.hlx.page/libs`;
         }
