@@ -2,7 +2,9 @@
 Templates - featured story
 */
 
-import { createMiloTag as createTag } from '../../scripts/scripts.js';
+import { getLibs } from '../../scripts/utils.js';
+
+const { createTag } = await import(`${getLibs()}/utils/utils.js`);
 
 function init() {
   const i = 1;
