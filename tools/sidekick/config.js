@@ -73,7 +73,7 @@ function hasSchema(host) {
           action: (_, sk) => {
             const domain = 'https://main--milo--adobecom.hlx.page';
             const { config } = sk;
-            window.open(`${config.pluginHost ? config.pluginHost : `${domain}/tools/translation/index.html?sp=${encodeURIComponent(window.location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation' });
+            window.open(`${domain}/tools/translation/index.html?sp=${encodeURIComponent(window.location.href)}&owner=${config.owner}&repo=${config.repo}&ref=${config.ref}`, 'hlx-sidekick-spark-translation');
           },
         },
       },
