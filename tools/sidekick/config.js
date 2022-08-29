@@ -32,6 +32,17 @@ function hasSchema(host) {
       },
     ],
     plugins: [
+      {
+        id: 'send-to-caas',
+        condition: (s) => s.isHelix() && s.isContent() && !window.location.pathname.endsWith('.json'),
+        button: {
+          text: 'Send to CaaS',
+          action: async (_, sk) => {
+            const { default: sendToCaaS } = await import('https://draftsidekick--milo--adobecom.hlx.page/tools/send-to-caas/sidekick.js');
+            sendToCaaS(_, sk);
+          },
+        },
+      },
       // TOOLS ---------------------------------------------------------------------
       {
         id: 'library',
