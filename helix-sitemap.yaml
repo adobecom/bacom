@@ -8,11 +8,11 @@ sitemaps:
     languages:
       default:
         source: /customer-success-stories/query-index.json
-        destination: /customer-success-stories.sitemap.xml
+        destination: /sitemap.xml
         hreflang: en-US
         alternate: /{path}
       germany:
         source: /de/customer-success-stories/query-index.json
-        destination: /de/customer-success-stories.sitemap.xml
+        destination: /de/sitemap.xml
         hreflang: de-DE
         alternate: /de/{path}
