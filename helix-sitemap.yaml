@@ -5,10 +5,10 @@ sitemaps:
     origin: https://business.adobe.com
     source: /customer-success-stories/query-index.json
     destination: /customer-success-stories.sitemap.xml
-    hreflang: us
+    hreflang: en-US
     alternate: /{path}
   de-css:
     source: /de/customer-success-stories/query-index.json
     destination: /de/customer-success-stories.sitemap.xml
-    hreflang: de
+    hreflang: de-DE
     alternate: /de/{path}
