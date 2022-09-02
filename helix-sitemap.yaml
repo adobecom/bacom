@@ -1,6 +1,3 @@
-
-version: 1
-
 sitemaps:
   customer-success-stories:
     origin: https://business.adobe.com/customer-success-stories
