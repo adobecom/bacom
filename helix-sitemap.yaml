@@ -1,7 +1,14 @@
 version: 1
 
 sitemaps:
-  blog:
+  us-css:
     origin: https://business.adobe.com
     source: /customer-success-stories/query-index.json
     destination: /customer-success-stories.sitemap.xml
+    hreflang: us
+    alternate: /{path}
+  de-css:
+    source: /de/customer-success-stories/query-index.json
+    destination: /de/customer-success-stories.sitemap.xml
+    hreflang: de
+    alternate: /de/{path}
