@@ -1,15 +1,17 @@
+version: 2
+
 sitemaps:
   website:
     origin: https://business.adobe.com
     lastmod: YYYY-MM-DD
     languages:
-      us-css:
+      default:
         source: /customer-success-stories/query-index.json
         destination: /customer-success-stories.sitemap.xml
-        hreflang: en-US
+        hreflang: en
         alternate: /{path}
-      de-css:
+      germany:
         source: /de/customer-success-stories/query-index.json
         destination: /de/customer-success-stories.sitemap.xml
-        hreflang: de-DE
+        hreflang: de
         alternate: /de/{path}
