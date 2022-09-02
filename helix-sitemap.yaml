@@ -4,4 +4,4 @@ sitemaps:
   blog:
     origin: https://business.adobe.com
     source: /customer-success-stories/query-index.json
-    destination: /blog/sitemap.xml
+    destination: /sitemap-test.xml
