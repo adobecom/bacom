@@ -7,11 +7,6 @@ sitemaps:
     languages:
       default:
         source: /customer-success-stories/query-index.json
-        destination: /customer-success-stories.sitemap.xml
+        destination: /customer-success-stories/sitemap.xml
         hreflang: en
         alternate: /{path}
-      germany:
-        source: /de/customer-success-stories/query-index.json
-        destination: /de/customer-success-stories.sitemap.xml
-        hreflang: de
-        alternate: /de/{path}
