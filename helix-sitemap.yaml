@@ -9,5 +9,10 @@ sitemaps:
       default:
         source: /customer-success-stories/query-index.json
         destination: /customer-success-stories.sitemap.xml
-        hreflang: en
+        hreflang: en-US
         alternate: /{path}
+      germany:
+        source: /de/customer-success-stories/query-index.json
+        destination: /de/customer-success-stories.sitemap.xml
+        hreflang: de-DE
+        alternate: /de/{path}
