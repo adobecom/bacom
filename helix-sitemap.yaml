@@ -13,6 +13,6 @@ sitemaps:
         alternate: /{path}
       germany:
         source: /de/customer-success-stories/query-index.json
-        destination: /de/sitemap.xml
+        destination: /de/customer-success-stories.sitemap.xml
         hreflang: de-DE
         alternate: /de/{path}
