@@ -1,0 +1,55 @@
+.speaker {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    padding-top: 48px;
+}
+
+.speaker > div:first-child {
+    width: 25%;
+}
+
+.event-speakers .text {
+    width: 75%;
+    margin-left: 24px;
+}
+
+.event-speakers .name {
+    margin-bottom: 14px;
+}
+
+.event-speakers .name > * {
+    margin: 0;
+}
+
+.event-speakers .desc p:first-of-type {
+    margin-top: 0;
+}
+
+.event-speakers .desc p:last-of-type {
+    margin-bottom: 0;
+}
+
+.event-speakers button {
+    border: 0;
+    background: none;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--text-color);
+    font-family: var(--body-font-family);
+    display: block;
+}
+
+@media (min-width: 600px) {
+    .speaker > div:first-child {
+        width: 16.667%;
+    }
+    
+    .event-speakers .text {
+        width: 66.667%;
+        margin-left: 48px;
+    }
+}
