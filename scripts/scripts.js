@@ -53,7 +53,5 @@ const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/uti
 (async function loadPage() {
   setConfig({ ...CONFIG, miloLibs });
   await loadArea();
-  const { default: loadModals } = await import(`${miloLibs}/blocks/modals/modals.js`);
-  loadModals();
   loadDelayed();
 }());
