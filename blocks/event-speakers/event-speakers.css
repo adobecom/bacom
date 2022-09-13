@@ -41,6 +41,7 @@
     color: var(--text-color);
     font-family: var(--body-font-family);
     display: block;
+    line-height: 1.3;
 }
 
 @media (min-width: 600px) {
