@@ -4,7 +4,7 @@ version: 1
 indices:
   customer-success-stories:
     include:
-      - '/**'
+      - '/customer-success-stories/**'
     exclude:
       - '**/fragments/**'
     target: /customer-success-stories/query-index.xlsx
