@@ -61,6 +61,10 @@
   margin-top: 0;
 }
 
+.stats .solution a {
+  display: block;
+}
+
 .stats .solution > div > p:first-of-type {
   margin-top: 0;
   margin-bottom: var(--spacing-xs);
