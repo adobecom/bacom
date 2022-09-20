@@ -16,8 +16,6 @@
 
 import { getLibs } from '../../scripts/utils.js';
 
-const { createTag } = await import(`${getLibs()}/utils/utils.js`);
-
 function decorateRow(row) {
   const headers = row.querySelectorAll('h1, h2, h3, h4, h5, h6');
   if (!headers) return;
@@ -29,7 +27,8 @@ function decorateRow(row) {
   });
 }
 
-export default function init(el) {
+export default async function init(el) {
+  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
   const firstRow = el.querySelector(':scope > div');
   const image = firstRow.querySelector(':scope picture');
   if (image || firstRow.innerText.trim() !== '') {

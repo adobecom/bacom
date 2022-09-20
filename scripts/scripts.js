@@ -26,7 +26,9 @@ const CONFIG = {
 // Default to loading the first image as eager.
 (async function loadLCPImage() {
   const lcpImg = document.querySelector('img');
-  lcpImg?.setAttribute('loading', 'eager');
+  if (lcpImg) {
+    lcpImg.setAttribute('loading', 'eager');
+  }
 }());
 
 /*
@@ -48,9 +50,8 @@ const miloLibs = setLibs(LIBS);
   });
 }());
 
-const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/utils.js`);
-
 (async function loadPage() {
+  const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/utils.js`);
   setConfig({ ...CONFIG, miloLibs });
   await loadArea();
   loadDelayed();
