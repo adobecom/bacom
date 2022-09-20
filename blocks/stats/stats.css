@@ -38,7 +38,7 @@
 }
 
 .stats .stats-intro img {
-  max-height: 85px;
+  max-height: 65px;
   width: auto;
 }
 
@@ -61,6 +61,10 @@
   margin-top: 0;
 }
 
+.stats .solution a {
+  display: block;
+}
+
 .stats .solution > div > p:first-of-type {
   margin-top: 0;
   margin-bottom: var(--spacing-xs);
@@ -72,6 +76,11 @@
 
 .stat .headline {
   font-weight: bolder;
+}
+
+.stats .stats-container .stat:nth-child(2) > div > p img {
+  max-height: 70px;
+  width: auto;
 }
 
 /* [template] .featured-story */
