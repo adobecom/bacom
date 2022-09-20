@@ -38,7 +38,7 @@
 }
 
 .stats .stats-intro img {
-  max-height: 85px;
+  max-height: 65px;
   width: auto;
 }
 
@@ -74,6 +74,11 @@
   font-weight: bolder;
 }
 
+.stats .stats-container .stat:nth-child(2) > div > p img {
+  max-height: 70px;
+  width: auto;
+}
+
 /* [template] .featured-story */
 .featured-story .featured-story-wrapper .stats-intro,
 .featured-story .featured-story-wrapper .stats-container {
@@ -105,7 +110,6 @@
   margin: 0;
   padding: 0;
 }
-
 
 /* Tablet */
 @media screen and (min-width: 600px) {
