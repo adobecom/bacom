@@ -38,7 +38,7 @@
 }
 
 .stats .stats-intro img {
-  max-height: 85px;
+  max-height: 65px;
   width: auto;
 }
 
@@ -76,6 +76,11 @@
 
 .stat .headline {
   font-weight: bolder;
+}
+
+.stats .stats-container .stat:nth-child(2) > div > p img {
+  max-height: 70px;
+  width: auto;
 }
 
 /* [template] .featured-story */

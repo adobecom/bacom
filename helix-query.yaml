@@ -1,13 +1,43 @@
 version: 1
-# See https://www.hlx.live/docs/setup-indexing.
 
 indices:
-  customer-success-stories:
+  customer-success-stories-us:
     include:
-      - '/**'
+      - '/customer-success-stories/**'
     exclude:
       - '**/fragments/**'
     target: /customer-success-stories/query-index.xlsx
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      date:
+        select: head > meta[name="publishdate"]
+        value: |
+          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
+      image:
+        select: head > meta[property="og:image"]
+        value: |
+          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
+      description:
+        select: head > meta[name="description"]
+        value: |
+          attribute(el, 'content')
+      topics:
+        select: head > meta[name="keywords"]
+        value: |
+          attribute(el, 'content')
+      lastModified:
+        select: none
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+  customer-success-stories-de:
+    include:
+      - '/de/customer-success-stories/**'
+    exclude:
+      - '**/fragments/**'
+    target: /de/customer-success-stories/query-index.xlsx
     properties:
       title:
         select: head > meta[property="og:title"]
