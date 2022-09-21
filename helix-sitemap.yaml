@@ -8,4 +8,5 @@ sitemaps:
       default:
         source: /customer-success-stories/query-index.json
         destination: /customer-success-stories.sitemap.xml
+        hreflang: en
         alternate: /{path}
