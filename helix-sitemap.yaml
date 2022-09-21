@@ -1,7 +1,7 @@
 version: 1
 
 sitemaps:
-  css:
+  website:
     origin: https://business.adobe.com
     lastmod: YYYY-MM-DD
     languages:
@@ -10,33 +10,3 @@ sitemaps:
         destination: /customer-success-stories.sitemap.xml
         hreflang: en
         alternate: /{path}
-      japan:
-        source: /jp/customer-success-stories/query-index.json
-        destination: /customer-success-stories.sitemap.xml
-        hreflang: ja
-        alternate: /jp/{path}
-      germany:
-        source: /de/customer-success-stories/query-index.json
-        destination: /customer-success-stories.sitemap.xml
-        hreflang: de
-        alternate: /de/{path}
-      france:
-        source: /fr/customer-success-stories/query-index.json
-        destination: /customer-success-stories.sitemap.xml
-        hreflang: fr
-        alternate: /fr/{path}
-      spain:
-        source: /es/customer-success-stories/query-index.json
-        destination: /customer-success-stories.sitemap.xml
-        hreflang: es
-        alternate: /es/{path}
-      brazil:
-        source: /br/customer-success-stories/query-index.json
-        destination: /customer-success-stories.sitemap.xml
-        hreflang: pt
-        alternate: /br/{path}
-      it:
-        source: /it/customer-success-stories/query-index.json
-        destination: /customer-success-stories.sitemap.xml
-        hreflang: it
-        alternate: /it/{path}
