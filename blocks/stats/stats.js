@@ -16,7 +16,8 @@
 
 import { getLibs } from '../../scripts/utils.js';
 
-function decorateRow(row) {
+async function decorateRow(row) {
+  const { decorateLinkAnalytics } = await import(`${getLibs()}/utils/analytics.js`);
   const headers = row.querySelectorAll('h1, h2, h3, h4, h5, h6');
   if (!headers) return;
   headers.forEach((header) => {
@@ -25,10 +26,13 @@ function decorateRow(row) {
     const size = parseInt(expr[1], 10);
     header.classList.add(`heading-${sizes[size - 1]}`);
   });
+  decorateLinkAnalytics(row, headers);
 }
 
 export default async function init(el) {
   const { createTag } = await import(`${getLibs()}/utils/utils.js`);
+  const { decorateBlockAnalytics } = await import(`${getLibs()}/utils/analytics.js`);
+  decorateBlockAnalytics(el);
   const firstRow = el.querySelector(':scope > div');
   const image = firstRow.querySelector(':scope picture');
   if (image || firstRow.innerText.trim() !== '') {
