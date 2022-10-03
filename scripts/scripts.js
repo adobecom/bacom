@@ -21,6 +21,8 @@ const CONFIG = {
     de: { ietf: 'de-DE', tk: 'hah7vzn.css' },
     kr: { ietf: 'ko-KR', tk: 'zfo3ouc' },
   },
+  pdfViewerClientIdStage: '3b685312b5784de6943647df19f1f492',
+  pdfViewerReportSuiteQA: 'adbadobedxqa',
 };
 
 // Default to loading the first image as eager.
