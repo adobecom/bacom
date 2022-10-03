@@ -53,6 +53,7 @@ function hasSchema(host) {
             const domain = 'https://main--milo--adobecom.hlx.page';
             const { config } = s;
             const script = document.createElement('script');
+            script.type = 'module';
             script.onload = () => {
               const skEvent = new CustomEvent(
                 'hlx:library-loaded',
