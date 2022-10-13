@@ -16,8 +16,8 @@
 
 import { getLibs } from '../../scripts/utils.js';
 
-async function decorateRow(row) {
-  const { decorateLinkAnalytics } = await import(`${getLibs()}/utils/analytics.js`);
+async function decorateRow(row, module) {
+  const { decorateLinkAnalytics } = module;
   const headers = row.querySelectorAll('h1, h2, h3, h4, h5, h6');
   if (!headers) return;
   headers.forEach((header) => {
@@ -31,8 +31,18 @@ async function decorateRow(row) {
 
 export default async function init(el) {
   const { createTag } = await import(`${getLibs()}/utils/utils.js`);
-  const { decorateBlockAnalytics } = await import(`${getLibs()}/utils/analytics.js`);
-  decorateBlockAnalytics(el);
+
+  // Forward compatible with Milo's moving of analytics
+  const module = await new Promise((resolve) => {
+    import(`${getLibs()}/utils/analytics.js`).then((module) => {
+      resolve(module);
+    }).catch(async () => {
+      const module = await import(`${getLibs()}/martech/attributes.js`);
+      resolve(module);
+    });
+  });
+
+  module.decorateBlockAnalytics(el);
   const firstRow = el.querySelector(':scope > div');
   const image = firstRow.querySelector(':scope picture');
   if (image || firstRow.innerText.trim() !== '') {
@@ -49,7 +59,7 @@ export default async function init(el) {
     rows.forEach((row, i) => {
       const rowType = ((rows.length - 1) === i) ? 'solution' : 'stat';
       row.classList.add(rowType);
-      decorateRow(row);
+      decorateRow(row, module);
       if (rowType === 'stat') {
         stats.append(row);
         statCount += 1;
