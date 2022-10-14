@@ -31,16 +31,7 @@ async function decorateRow(row, module) {
 
 export default async function init(el) {
   const { createTag } = await import(`${getLibs()}/utils/utils.js`);
-
-  // Forward compatible with Milo's moving of analytics
-  const module = await new Promise((resolve) => {
-    import(`${getLibs()}/utils/analytics.js`).then((module) => {
-      resolve(module);
-    }).catch(async () => {
-      const module = await import(`${getLibs()}/martech/attributes.js`);
-      resolve(module);
-    });
-  });
+  const module = await import(`${getLibs()}/martech/attributes.js`);
 
   module.decorateBlockAnalytics(el);
   const firstRow = el.querySelector(':scope > div');

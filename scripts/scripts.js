@@ -16,13 +16,19 @@ const LIBS = '/libs';
 const STYLES = '/styles/styles.css';
 const CONFIG = {
   imsClientId: 'bacom',
+  pdfViewerClientIdStage: '3b685312b5784de6943647df19f1f492',
+  pdfViewerReportSuiteQA: 'adbadobedxqa',
+  stage: {
+    edgeConfigId: '7d1ba912-10b6-4384-a8ff-4bfb1178e869'
+  },
+  prod: {
+    edgeConfigId: '65acfd54-d9fe-405c-ba04-8342d6782ab0'
+  },
   locales: {
     '': { ietf: 'en-US', tk: 'hah7vzn.css' },
     de: { ietf: 'de-DE', tk: 'hah7vzn.css' },
     kr: { ietf: 'ko-KR', tk: 'zfo3ouc' },
   },
-  pdfViewerClientIdStage: '3b685312b5784de6943647df19f1f492',
-  pdfViewerReportSuiteQA: 'adbadobedxqa',
 };
 
 // Default to loading the first image as eager.
