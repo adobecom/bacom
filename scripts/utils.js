@@ -10,6 +10,23 @@
  * governing permissions and limitations under the License.
  */
 
+const ORIGIN = 'https://business.adobe.com';
+
+// Temporary rewrite for relative URLs back to fully qualified
+// https://github.com/adobe/helix-html-pipeline/blob/main/src/steps/utils.js
+export const rewriteUrl = (url) => {
+  if (!url) return url;
+
+  const { host, pathname, search, hash } = new URL(url);
+
+  // eslint-disable-next-line no-restricted-globals
+  if (host === location.host && (pathname.endsWith('.pdf') || pathname.endsWith('.html'))) {
+    return `${ORIGIN}${pathname}${search}${hash}`;
+  }
+
+  return url;
+};
+
 /*
  * ------------------------------------------------------------
  * Edit below at your own risk
