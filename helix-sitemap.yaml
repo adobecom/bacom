@@ -10,3 +10,8 @@ sitemaps:
         destination: /customer-success-stories.sitemap.xml
         hreflang: en
         alternate: /{path}
+      de:
+        source: https://business.adobe.com/de/customer-success-stories.sitemap.xml
+        destination: /de/customer-success-stories.sitemap.xml
+        hreflang: de
+        alternate: /{path}.html
