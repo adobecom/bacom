@@ -14,4 +14,4 @@ sitemaps:
         source: https://business.adobe.com/de/customer-success-stories.sitemap.xml
         destination: /de/customer-success-stories.sitemap.xml
         hreflang: de
-        alternate: /{path}.html
+        alternate: /de/{path}.html
