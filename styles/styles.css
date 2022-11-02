@@ -33,4 +33,6 @@
   display: none;
 }
 
-
+body:lang(ja) {
+  --body-font-family: adobe-clean-han-japanese, 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
+}
