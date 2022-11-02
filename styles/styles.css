@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+ @import url('variables.css');
+
 .white-columns .columns > .row {
   padding: 80px 0;
 }
@@ -31,8 +33,4 @@
 
 .caas-data-hidden ul {
   display: none;
-}
-
-body:lang(ja) {
-  --body-font-family: adobe-clean-han-japanese, 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
 }
