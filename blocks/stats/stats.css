@@ -70,6 +70,12 @@
   margin-bottom: var(--spacing-xs);
 }
 
+.stats .solution ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .stats .stat:nth-child(n+2){
   padding-top: 0;
 }
