@@ -16,6 +16,10 @@ const LIBS = '/libs';
 const STYLES = '/styles/styles.css';
 const CONFIG = {
   imsClientId: 'bacom',
+  local: {
+    pdfViewerClientId: '3b685312b5784de6943647df19f1f492',
+    pdfViewerReportSuite: 'adbadobedxqa',
+  },
   stage: {
     edgeConfigId: '7d1ba912-10b6-4384-a8ff-4bfb1178e869',
     pdfViewerClientId: '3b685312b5784de6943647df19f1f492',
