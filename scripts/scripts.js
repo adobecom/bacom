@@ -25,7 +25,7 @@ const CONFIG = {
     edgeConfigId: '65acfd54-d9fe-405c-ba04-8342d6782ab0'
   },
   locales: {
-    '': { ietf: 'en-US', tk: 'hah7vzn.css' },
+    '': { ietf: 'en-US', tk: 'aaz7dvd.css' },
     de: { ietf: 'de-DE', tk: 'hah7vzn.css' },
     kr: { ietf: 'ko-KR', tk: 'zfo3ouc' },
     jp: { ietf: 'ja-JP', tk: 'dvg6awq' },
