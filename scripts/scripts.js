@@ -16,10 +16,10 @@ const LIBS = '/libs';
 const STYLES = '/styles/styles.css';
 const CONFIG = {
   imsClientId: 'bacom',
-  pdfViewerClientIdStage: '3b685312b5784de6943647df19f1f492',
-  pdfViewerReportSuiteQA: 'adbadobedxqa',
   stage: {
-    edgeConfigId: '7d1ba912-10b6-4384-a8ff-4bfb1178e869'
+    edgeConfigId: '7d1ba912-10b6-4384-a8ff-4bfb1178e869',
+    pdfViewerClientId: '3b685312b5784de6943647df19f1f492',
+    pdfViewerReportSuite: 'adbadobedxqa',
   },
   prod: {
     edgeConfigId: '65acfd54-d9fe-405c-ba04-8342d6782ab0'
