@@ -38,7 +38,7 @@
 }
 
 .stats .stats-intro img {
-  height: 65px;
+  max-height: 65px;
   width: auto;
 }
 
