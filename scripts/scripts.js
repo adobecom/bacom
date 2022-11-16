@@ -25,9 +25,7 @@ const CONFIG = {
     pdfViewerClientId: '3b685312b5784de6943647df19f1f492',
     pdfViewerReportSuite: 'adbadobedxqa',
   },
-  prod: {
-    edgeConfigId: '65acfd54-d9fe-405c-ba04-8342d6782ab0'
-  },
+  prod: { edgeConfigId: '65acfd54-d9fe-405c-ba04-8342d6782ab0' },
   locales: {
     '': { ietf: 'en-US', tk: 'hah7vzn.css' },
     de: { ietf: 'de-DE', tk: 'hah7vzn.css' },
