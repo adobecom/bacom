@@ -17,6 +17,13 @@ describe('Comparison Table', () => {
     expect(comparison.querySelector('table')).to.exist;
     expect(comparison.querySelector('thead tr th')).to.exist;
     expect(comparison.querySelector('tbody tr th')).to.exist;
+  });
+
+  it('Verify CTA Row Exists', async () => {
+    const comparison = document.querySelector('.comparison');
+
+    await init(comparison);
+
     expect(comparison.querySelector('.cta-row')).to.exist;
   });
 });
