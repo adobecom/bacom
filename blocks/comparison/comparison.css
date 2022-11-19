@@ -1,0 +1,123 @@
+.comparison {
+  font-size: 14px;
+  max-width: var(--grid-container-width);
+  margin: 0 auto 40px;
+  padding: 20px;
+}
+
+.comparison .comparison-wrapper {
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.comparison table {
+  width: 100%;
+  border-spacing: 0;
+  overflow: scroll;
+}
+
+.comparison tr {
+  margin-bottom: 0;
+  font-size: 14px;
+  align-items: center;
+}
+
+.comparison tr th {
+  max-width: 25vw;
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.comparison tbody tr td {
+  max-width: 100vw;
+}
+
+.comparison thead th {
+  position: sticky;
+  top: 0;
+}
+
+.comparison tbody th {
+  position: sticky;
+  left: 0;
+}
+
+.comparison thead tr th {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.comparison tbody tr th,
+.comparison tbody tr td {
+  font-size: 14px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #d5d5d5;
+  background: var(--color-white);
+  color: #222;
+  padding: 14px 16px;
+}
+
+.comparison.centered tbody tr td {
+  text-align: center;
+}
+
+.comparison thead tr th:first-child {
+  left: 0;
+  z-index: 2;
+}
+
+.comparison tbody tr.cta-row th,
+.comparison tbody tr.cta-row td {
+  border: none;
+  background: transparent;
+  color: inherit;
+}
+
+.comparison tbody tr:not(.cta-row):hover th,
+.comparison tbody tr:not(.cta-row):hover td {
+  background-color: #F0F0F0;
+}
+
+.comparison tbody tr:not(.cta-row):active th,
+.comparison tbody tr:not(.cta-row):active td {
+  background-color: #E5E5E5;
+}
+
+.comparison table thead tr:first-child th:first-child {
+  border-top-left-radius: 5px;
+}
+
+.comparison table thead tr:first-child th:last-child {
+  border-top-right-radius: 5px;
+}
+
+.comparison table tbody tr:last-child th:first-child {
+  border-bottom-left-radius: 5px;
+}
+
+.comparison table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+
+.comparison svg.icon-milo {
+  position: initial;
+}
+
+@media screen and (min-width: 600px) {
+  .comparison tr th {
+    background: transparent;
+    color: inherit;
+  }
+
+  .comparison table tbody tr:first-child th:first-child {
+    border-top-left-radius: 5px;
+  }
+  
+  .comparison table tbody tr:first-child td:last-child {
+    border-top-right-radius: 5px;
+  }
+}
