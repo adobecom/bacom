@@ -1,0 +1,113 @@
+.tree-view {
+  background-color: #fafafa;
+  padding: var(--spacing-m) var(--spacing-m) var(--spacing-xs);
+}
+
+.tree-view .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.tree-view ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tree-view ul.top-list {
+  padding: 12px 0 0;
+}
+
+.tree-view button {
+  border: none;
+  background-color: transparent;
+  padding: 12px 0;
+  display: block;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: var(--type-body-s-size);
+  line-height: var(--type-body-s-lh);
+  font-family: var(--body-font-family);
+  box-sizing: content-box;
+}
+
+.tree-view a {
+  display: block;
+  color: var(--text-color);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.tree-view a.current-page,
+.tree-view a:hover,
+.tree-view a:focus,
+.tree-view button:hover,
+.tree-view button:focus {
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-left: var(--spacing-xs);
+  padding-right: var(--spacing-xs);
+}
+
+.tree-view a:hover,
+.tree-view a:focus,
+.tree-view button:hover,
+.tree-view button:focus {
+  color: #0265dc;
+  background-color: #f5f5f5;
+  text-decoration: none;
+  outline: none;
+}
+
+.tree-view li:last-child button {
+  margin-bottom: 12px;
+}
+
+.tree-view li[aria-expanded=true] button {
+  margin-bottom: 12px;
+}
+
+.tree-view button::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: url("/img/ui/chevron.svg") no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  right: 0;
+}
+
+.tree-view button:hover::after,
+.tree-view button:focus::after {
+  right: var(--spacing-xs);
+}
+
+.tree-view li[aria-expanded=true] button::after {
+  transform: rotate(180deg);
+}
+
+.tree-view ul ul {
+  margin-left: var(--spacing-xs);
+  margin-bottom: 12px;
+}
+
+.tree-view ul li:last-child ul {
+  margin-bottom: 0;
+}
+
+.tree-view a.current-page {
+  background-color: #efefef;
+}
+
+.tree-view.accordion a.current-page,
+.tree-view.accordion a:hover,
+.tree-view.accordion a:focus {
+  margin-left: -32px;
+  padding-left: var(--spacing-m);
+}
