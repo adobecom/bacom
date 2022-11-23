@@ -35,8 +35,9 @@
   display: none;
 }
 
+div[class*='-up'] .con-block.has-bg.text-block.text-list,
 .text-block.text-list {
-  padding: var(--spacing-s);
+  padding: var(--spacing-s) var(--spacing-xs);
 }
 
 .text-block.text-list h2 {
