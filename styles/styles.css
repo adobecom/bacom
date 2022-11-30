@@ -31,6 +31,15 @@
   top:10px;
 }
 
+.icon-headings .col svg {
+  display: block;
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin-right: 20px;
+  position: relative;
+  top: 10px;
+}
 .caas-data-hidden ul {
   display: none;
 }
