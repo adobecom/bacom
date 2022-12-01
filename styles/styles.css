@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
- @import url('variables.css');
+@import url('variables.css');
 
 .white-columns .columns > .row {
   padding: 80px 0;
@@ -28,7 +28,7 @@
   width: 24px;
   margin-right: 20px;
   position: relative;
-  top:10px;
+  top: 4px;
 }
 
 .caas-data-hidden ul {
@@ -54,5 +54,11 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
   .text-block.text-list {
     max-width: 400px;
     box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .icon-headings .col img {
+    top: 10px;
   }
 }
