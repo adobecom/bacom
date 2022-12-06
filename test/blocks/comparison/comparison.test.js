@@ -19,11 +19,11 @@ describe('Comparison Table', () => {
     expect(comparison.querySelector('tbody tr th')).to.exist;
   });
 
-  // it('Verify CTA Row Exists', async () => {
-  //   const comparison = document.querySelector('.comparison');
+  it('Verify CTA Row Exists', async () => {
+    const comparison = document.querySelector('.comparison');
 
-  //   await init(comparison);
+    await init(comparison);
 
-  //   expect(comparison.querySelector('.cta-row')).to.exist;
-  // });
+    expect(comparison.querySelector('.cta-row')).to.exist;
+  });
 });
