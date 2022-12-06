@@ -25,7 +25,15 @@ const CONFIG = {
     pdfViewerClientId: '3b685312b5784de6943647df19f1f492',
     pdfViewerReportSuite: 'adbadobedxqa',
   },
-  prod: { edgeConfigId: '65acfd54-d9fe-405c-ba04-8342d6782ab0' },
+  live: {
+    pdfViewerClientId: '23bd4fff42fc4b4da38b3d89492a0abc',
+    pdfViewerReportSuite: 'adbadobedxqa',
+  },
+  prod: {
+    edgeConfigId: '65acfd54-d9fe-405c-ba04-8342d6782ab0',
+    pdfViewerClientId: '4520c0edfbf147158758d71d18765fec',
+    pdfViewerReportSuite: 'adbadobenonacdcprod,adbadobedxprod,adbadobeprototype',
+  },
   locales: {
     '': { ietf: 'en-US', tk: 'hah7vzn.css' },
     de: { ietf: 'de-DE', tk: 'hah7vzn.css' },
