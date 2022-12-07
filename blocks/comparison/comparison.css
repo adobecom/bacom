@@ -73,8 +73,6 @@
 .comparison tbody tr.cta-row th,
 .comparison tbody tr.cta-row td {
   border: none;
-  background: transparent;
-  color: inherit;
 }
 
 .comparison tbody tr:not(.cta-row):hover th,
@@ -107,8 +105,14 @@
   position: initial;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1200px) {
   .comparison tr th {
+    background: transparent;
+    color: inherit;
+  }
+
+  .comparison tbody tr.cta-row th,
+  .comparison tbody tr.cta-row td {
     background: transparent;
     color: inherit;
   }
