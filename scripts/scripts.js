@@ -12,6 +12,8 @@
 
 import { setLibs } from './utils.js';
 
+const liveDomains = ['business.adobe.com'];
+
 const LIBS = '/libs';
 const STYLES = '/styles/styles.css';
 const CONFIG = {
