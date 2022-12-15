@@ -12,6 +12,7 @@
 
 import { setLibs } from './utils.js';
 
+// eslint-disable-next-line no-unused-vars
 const liveDomains = ['business.adobe.com'];
 
 const LIBS = '/libs';
@@ -39,9 +40,10 @@ const CONFIG = {
   locales: {
     '': { ietf: 'en-US', tk: 'hah7vzn.css' },
     de: { ietf: 'de-DE', tk: 'hah7vzn.css' },
-    kr: { ietf: 'ko-KR', tk: 'zfo3ouc' },
     jp: { ietf: 'ja-JP', tk: 'dvg6awq' },
+    kr: { ietf: 'ko-KR', tk: 'zfo3ouc' },
   },
+  geoRouting: 'on',
 };
 
 // Default to loading the first image as eager.
