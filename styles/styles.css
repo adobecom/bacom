@@ -22,10 +22,12 @@
   padding: 32px;
 }
 
-.icon-headings .col img {
+.icon-headings .col img, 
+.icon-headings .col svg {
   display: block;
   float: left;
   width: 24px;
+  height: 24px;
   margin-right: 20px;
   position: relative;
   top: 4px;
