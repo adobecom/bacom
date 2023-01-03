@@ -23,8 +23,6 @@ export default function init(el) {
       //block on left 
       node.classList.add('right-third');
       elements[0].classList.add('right-fill');
-    } else {
-
     }
   })
 

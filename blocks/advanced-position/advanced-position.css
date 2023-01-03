@@ -1,0 +1,18 @@
+main > .section.grid-12-columns {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-m);
+  align-items: start;
+  padding-left: var(--grid-margins-width);
+  padding-right: var(--grid-margins-width);
+}
+
+.grid-warning {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  background: white;
+  border: 2px solid black;
+  padding: 20px;
+  text-align: center;
+}
