@@ -122,7 +122,6 @@ const CONFIG = {
 };
 
 // Default to loading the first image as eager.
-/* c8 ignore next 6 */
 (async function loadLCPImage() {
   const lcpImg = document.querySelector('img');
   if (lcpImg) {
@@ -137,7 +136,7 @@ const CONFIG = {
  */
 
 const miloLibs = setLibs(LIBS);
-/* c8 ignore next 10] */
+
 (function loadStyles() {
   const paths = [`${miloLibs}/styles/styles.css`];
   if (STYLES) { paths.push(STYLES); }
@@ -148,7 +147,7 @@ const miloLibs = setLibs(LIBS);
     document.head.appendChild(link);
   });
 }());
-/* c8 ignore next 6 */
+
 (async function loadPage() {
   const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/utils.js`);
   setConfig({ ...CONFIG, miloLibs });
