@@ -116,7 +116,7 @@ const CONFIG = {
     kr: { ietf: 'ko-KR', tk: 'qjs5sfm' },
     // Langstore Support.
     langstore: { ietf: 'en-US', tk: 'hah7vzn.css' },
-   },
+  },
   // geoRouting: 'on',
   productionDomain: 'business.adobe.com',
 };

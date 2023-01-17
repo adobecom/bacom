@@ -21,7 +21,7 @@ const init = async (el) => {
     const cells = Array.from(row.querySelectorAll(':scope > div'));
     const headerCell = cells.shift();
 
-    if (idx === rows.length - 1 && headerCell.textContent === '') {
+    if (idx === rows.length - 1 && headerCell?.textContent === '') {
       bodyRow.classList.add('cta-row');
     }
     bodyRow.append(createTag('th', { class: '', scope: 'row' }, headerCell), ...cells.map((cell) => createTag('td', null, cell)));
