@@ -28,7 +28,7 @@ function hasSchema(host) {
         paths: [
           'https://main--milo--adobecom.hlx.page/docs/library/blocks.json',
           'https://main--bacom--adobecom.hlx.page/docs/library/blocks.json',
-        ]
+        ],
       },
     ],
     plugins: [
@@ -38,6 +38,7 @@ function hasSchema(host) {
         button: {
           text: 'Send to CaaS',
           action: async (_, sk) => {
+            // eslint-disable-next-line import/no-unresolved
             const { default: sendToCaaS } = await import('https://milo.adobe.com/tools/send-to-caas/sidekick.js');
             sendToCaaS(_, sk);
           },
