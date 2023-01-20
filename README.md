@@ -8,8 +8,11 @@ The Franklin based project for business.adobe.com. Based off of milo-college.
 
 ### Husky Pre-Commit
 1. After pulling the main branch, make sure to run `npm install` to get the husky pre-commit package.
-2. Husky will run the linter before your commit, and will fail if the linter fails. 
-3. To bypass this, add the `--no-verify` flag after your commit message. e.g. `git commit -m "First" --no-verify`.
+2. Husky will run the linter and the test suite before your commit, and will not accept the commit if the either tool has errors or test failures. 
+3. To bypass this, add the `--no-verify` flag after your commit message:
+```sh
+git commit -m "First" --no-verify
+```
 
 ## Testing Milo Changes on Bacom Pages
 1. Run 'hlx up' in this folder to ensure the bacom site is running locally. 
@@ -34,3 +37,21 @@ or:
 npm run test:watch
 ```
 This will give you several options to debug tests. Note: coverage may not be accurate.
+
+## Linting
+To run the linter run:
+```sh
+npm run lint
+```
+To lint just js or css files, run
+```sh
+npm run lint:css
+```
+or:
+```sh
+npm run lint:js
+```
+If you need to lint just one file, you can run:
+```sh
+npx eslint file1.js
+```
