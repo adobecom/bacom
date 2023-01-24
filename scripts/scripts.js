@@ -119,6 +119,7 @@ const CONFIG = {
   },
   // geoRouting: 'on',
   productionDomain: 'business.adobe.com',
+  prodDomains: ['business.adobe.com', 'www.adobe.com'],
 };
 
 // Default to loading the first image as eager.
