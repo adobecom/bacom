@@ -120,6 +120,10 @@ const CONFIG = {
   // geoRouting: 'on',
   productionDomain: 'business.adobe.com',
   prodDomains: ['business.adobe.com', 'www.adobe.com'],
+  autoBlocks: [
+    { iframe: 'https://adobe-ideacloud.forgedx.com' },
+    { iframe: 'https://adobe.ideacloud.com' },
+  ],
 };
 
 // Default to loading the first image as eager.
