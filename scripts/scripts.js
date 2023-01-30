@@ -150,8 +150,9 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, loadDelayed, loadLana, setConfig } = await import(`${miloLibs}/utils/utils.js`);
   setConfig({ ...CONFIG, miloLibs });
+  loadLana({ clientId: 'bacom' });
   await loadArea();
   loadDelayed();
 }());
