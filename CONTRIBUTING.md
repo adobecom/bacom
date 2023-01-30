@@ -1,74 +1,53 @@
-# Contributing to Project Helix
+# Contributing to BACOM
 
-This project (like almost all of Project Helix) is an Open Development project and welcomes contributions from everyone who finds it useful or lacking.
+## Permissions
+Internal employees can reach out to the team on [slack](https://wiki.corp.adobe.com/display/MKTOMD/BACOM+Owners) to get github permissions to contribute to bacom.
+External community members who want to contribute can fork the repo.
 
-## Code Of Conduct
+## Local Setup
+Once you've pulled down the repo, follow the local setup instructions included in the [README](/README.md).
 
-This project adheres to the Adobe [code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to cstaub at adobe dot com.
+## Authoring Experience
+We strongly recommend reaching out to the milo community for feedback on your prospective authoring experience (AX) before beginning development. This will help avoid AX issues being flagged in code review which could necessitate a lengthy rewrite. You can post your AX ideas in [slack](https://wiki.corp.adobe.com/display/MKTOMD/BACOM+Owners) to receive feedback. Screenshots are always appreciated.
 
-## Contributor License Agreement
+## Pre-PR Checks
+When your code is ready, please make sure all of these items are accounted for prior to creating a PR:
+1. Unit Tests are included for any new features and existing tests pass. We aim for 100% code coverage.
+2. Linters pass.
+3. Performance has been considered. We aim for an upper-90s lighthouse score.
+4. Pre-QA testing has been completed:
+    1. Should meet accessibility standards for: keyboard navigation, screen reader, and zoom to 200%.
+    2. Functionality should work on major browsers for desktop, tablet and mobile devices.
+    3. Layout should match designs on major browsers for desktop, tablet, and mobile breakpoints.
+    4. See [wiki](https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=MKTOMD&title=QA+Guidance) for full guidance.
 
-All third-party contributions to this project must be accompanied by a signed contributor license. This gives Adobe permission to redistribute your contributions as part of the project. [Sign our CLA](http://opensource.adobe.com/cla.html)! You only need to submit an Adobe CLA one time, so if you have submitted one previously, you are good to go!
+## Creating a PR
+Push your branch up to the remote and create a PR into `main`. Please follow the PR template.
 
-## Things to Keep in Mind
+Your PR should have all of the following:
+1. Description.
+2. Ticket or issue number linked.
+3. Test URLs.
+4. Reviewers. Please add the [bacom owners](https://wiki.corp.adobe.com/display/MKTOMD/BACOM+Owners) as reviewers. You can also add the milo core team.
+5. Labels. Please add labels if appropriate. If your code doesn't affect the frontend of the site (e.g. updating lint rules), it should be marked "trivial".
+6. Assignee. If a PR isn't trivial, it needs to be tested by the [bacom QE](https://wiki.corp.adobe.com/display/MKTOMD/BACOM+Owners). Please add them as the assignee. (Note: This is different from the milo process. For bacom, developers shouldn't be performing verification.) 
 
-This project uses a **commit then review** process, which means that for approved maintainers, changes can be merged immediately, but will be reviewed by others.
+## Code Review
+The reviewers you added on your PR should provide feedback in a timely manner. You can also tag them on slack for additional visibility.
 
-For other contributors, a maintainer of the project has to approve the pull request.
+Reviewers will evaluate the PR based on all of the items previously listed (i.e. AX, unit tests, code quality, performance, accessibility) as well as best practices.
 
-# Before You Contribute
+## Verification
+Once the code has been approved, please notify the assignee that they can begin verification testing.
 
-* Check that there is an existing issue in GitHub issues
-* Check if there are other pull requests that might overlap or conflict with your intended contribution
+If the code won't affect the production site, it should have the "trivial" label and can skip verification.
 
-# How to Contribute
+## Merging
+A PR can be merged once all of these items are complete:
+1. PR has at least one approver.
+2. Comments are resolved.
+3. Unit tests pass.
+4. Lighthouse test passes (or a valid justification has been provided about why it doesn't pass).
+5. Code has been tested by QE (if applicable) and PR has either "verified" or "trivial" labels.
 
-1. Fork the repository
-2. Make some changes on a branch on your fork
-3. Create a pull request from your branch
-
-In your pull request, outline:
-
-* What the changes intend
-* How they change the existing code
-* If (and what) they breaks
-* Start the pull request with the GitHub issue ID, e.g. #123
-
-Lastly, please follow the [pull request template](.github/pull_request_template.md) when submitting a pull request!
-
-Each commit message that is not part of a pull request:
-
-* Should contain the issue ID like `#123`
-* Can contain the tag `[trivial]` for trivial changes that don't relate to an issue
-
-
-
-## Coding Styleguides
-
-We enforce a coding styleguide using `eslint`. As part of your build, run `npm run lint` to check if your code is conforming to the style guide. We do the same for every PR in our CI, so PRs will get rejected if they don't follow the style guide.
-
-You can fix some of the issues automatically by running `npx eslint . --fix`.
-
-## Commit Message Format
-
-This project uses a structured commit changelog format that should be used for every commit. Use `npm run commit` instead of your usual `git commit` to generate commit messages using a wizard.
-
-```bash
-# either add all changed files
-$ git add -A
-# or selectively add files
-$ git add package.json
-# then commit using the wizard
-$ npm run commit
-```
-
-# How Contributions get Reviewed
-
-One of the maintainers will look at the pull request within one week. Feedback on the pull request will be given in writing, in GitHub.
-
-# Release Management
-
-The project's committers will release to the [Adobe organization on npmjs.org](https://www.npmjs.com/org/adobe).
-Please contact the [Adobe Open Source Advisory Board](https://git.corp.adobe.com/OpenSourceAdvisoryBoard/discuss/issues) to get access to the npmjs organization.
-
-The release process is fully automated using `semantic-release`, increasing the version numbers, etc. based on the contents of the commit messages found.
+Please notify a [bacom owner](https://wiki.corp.adobe.com/display/MKTOMD/BACOM+Owners) when the PR is ready to be merged.
