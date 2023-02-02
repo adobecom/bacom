@@ -1,6 +1,9 @@
 # Bacom
 The Franklin based project for business.adobe.com. Based off of milo-college.
 
+## Contributing
+Please carefully review the [contributing doc](/CONTRIBUTING.md) *before* beginning development. Understanding the requirements will help facilitate a smooth contribution process.
+
 ## Developing
 1. Install the [Helix CLI](https://github.com/adobe/helix-cli): `sudo npm install -g @adobe/helix-cli`
 2. Run `hlx up` this repo's folder. (opens your browser at `http://localhost:3000`)
