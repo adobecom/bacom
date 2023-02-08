@@ -9,7 +9,7 @@ sitemaps:
         source: /customer-success-stories/query-index.json
         destination: /customer-success-stories.sitemap.xml
         hreflang: en
-        alternate: /{path}
+        alternate: /{path}.html
       de:
         source: https://business.adobe.com/de/customer-success-stories.sitemap.xml
         destination: /de/customer-success-stories/sitemap.xml
