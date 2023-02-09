@@ -4,8 +4,7 @@ const init = async (el) => {
 
   if (window.innerWidth <= 900) {
     const a = cta.querySelector('a');
-    a.classList.add('con-button');
-    a.classList.add('outline');
+    a.classList.add('con-button', 'outline');
   }
 
   window.addEventListener('milo:modal:loaded', () => {

@@ -7,7 +7,7 @@
   height: 48px;
   right: 0;
   bottom: 0;
-  background-color: rgb(20 115 230);
+  background-color: var(--link-color-dark);
 }
 
 .chat-cta .fragment {
@@ -36,13 +36,13 @@
 }
 
 .cta-chat-sticky .con-button.outline {
-  border-color: #FFF;
-  color: #FFF;
+  border-color: var(--color-white);
+  color: var(--color-white);
 }
 
-.cta-chat-sticky .con-button.outli:hover {
-  color: rgb(20 115 230);
-  background-color: #FFF;
+.cta-chat-sticky .con-button.outline:hover {
+  color: var(--link-color-dark);
+  background-color: var(--color-white);
 }
 
 .dialog-modal.chat-cta .icon-block .foreground .icon-area img {
@@ -56,14 +56,14 @@
 }
 
 .dialog-modal.chat-cta .section .foreground .text-content h2 {
-  font-size: 20px;
+  font-size: var(--type-heading-m-size);
   margin: 0;
 }
 
 .dialog-modal.chat-cta .section .foreground .text-content p:not(.action-area) {
-  font-size: 14px;
-  line-height: 18px;
-  margin-bottom: 16px;
+  font-size: var(--type-body-xs-size);
+  line-height: var(--type-heading-xxs-lh);
+  margin-bottom: var(--spacing-xs);
 }
 
 .cta-hidden {
@@ -86,14 +86,14 @@
     height: 56px;
     right: 0;
     bottom: 100px;
-    background-color: #FFF;
+    background-color: var(--color-white);
     border-radius: 6px 0 0 6px;
     box-shadow: 0 0 15px rgba(0 0 0 / 20%);
   }
 
   .cta-chat-sticky a {
     padding: 20px 20px 20px 0;
-    font-size: 12px;
+    font-size: var(--type-body-xxs-size);
     font-weight: bold;
   }
 
@@ -103,14 +103,14 @@
 
   .cta-chat-sticky svg {
     display: block;
-    margin-left: 16px;
+    margin-left: var(--spacing-xs);
     height: 16px;
     width: auto;
     top: 0;
   }
 
   .cta-chat-sticky svg path{
-    fill: rgba(20 115 230);
+    fill: var(--link-color-dark);
   }
 
   .chat-cta .fragment .section .icon-block {
@@ -129,7 +129,7 @@
   }
 
   .dialog-modal.chat-cta .section .icon-block .foreground .text-content p.icon-area {
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-xxs);
   }
 
   .dialog-modal.chat-cta .icon-block .foreground .icon-area img {
@@ -144,14 +144,14 @@
   }
 
   .dialog-modal.chat-cta .section .foreground .text-content h2 {
-    font-size: 18px;
+    font-size: var(--type-body-m-size);
     margin: 0;
   }
 
   .dialog-modal.chat-cta .section .foreground .text-content p:not(.action-area) {
-    font-size: 12px;
-    line-height: 18px;
-    margin-bottom: 16px;
+    font-size: var(--type-body-xxs-size);
+    line-height: var(--type-body-xxs-lh);
+    margin-bottom: var(--spacing-xs);
   }
 
   .dialog-modal.chat-cta .section .text-content {
