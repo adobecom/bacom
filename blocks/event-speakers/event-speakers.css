@@ -1,8 +1,4 @@
 .speaker {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
     padding-top: 48px;
 }
