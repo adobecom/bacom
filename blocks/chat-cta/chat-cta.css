@@ -106,6 +106,9 @@
   .cta-chat-sticky svg {
     display: block;
     margin-left: 16px;
+    height: 16px;
+    width: auto;
+    top: 0;
   }
 
   .cta-chat-sticky svg path{
