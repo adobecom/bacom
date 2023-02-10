@@ -74,9 +74,7 @@
   .modal-curtain.is-open {
     background: transparent;
   }
-}
 
-@media screen and (min-width: 900px) {
   .cta-chat-sticky {
     display: flex;
     align-items: center;
@@ -91,10 +89,12 @@
     box-shadow: 0 0 15px rgba(0 0 0 / 20%);
   }
 
-  .cta-chat-sticky a {
+  .cta-chat-sticky a.con-button.outline {
     padding: 20px 20px 20px 0;
     font-size: var(--type-body-xxs-size);
     font-weight: bold;
+    border: none;
+    color: var(--link-color-dark);
   }
 
   .cta-chat-sticky span {

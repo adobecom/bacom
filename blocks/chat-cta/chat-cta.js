@@ -2,10 +2,8 @@ const init = async (el) => {
   const cta = el.children[0].children[0];
   cta.classList.add('cta-chat-sticky');
 
-  if (window.innerWidth <= 900) {
-    const a = cta.querySelector('a');
-    a.classList.add('con-button', 'outline');
-  }
+  const a = cta.querySelector('a');
+  a.classList.add('con-button', 'outline');
 
   window.addEventListener('milo:modal:loaded', () => {
     cta.classList.add('cta-hidden');

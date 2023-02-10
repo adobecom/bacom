@@ -1,4 +1,4 @@
-import { readFile, setViewport } from '@web/test-runner-commands';
+import { readFile } from '@web/test-runner-commands';
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
 
@@ -7,7 +7,6 @@ const { default: init } = await import('../../../blocks/chat-cta/chat-cta.js');
 
 describe('Chat CTA', () => {
   before(async () => {
-    await setViewport({ width: 480, height: 853 });
     const cta = document.querySelector('.chat-cta');
     sinon.spy(window, 'addEventListener');
     await init(cta);
