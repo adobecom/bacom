@@ -114,6 +114,8 @@ const CONFIG = {
     tw: { ietf: 'zh-TW', tk: 'jay0ecd' },
     jp: { ietf: 'ja-JP', tk: 'dvg6awq' },
     kr: { ietf: 'ko-KR', tk: 'qjs5sfm' },
+    vn_en: { ietf: 'en', tk: 'pps7abe.css' },
+    vn_vi: { ietf: 'vi-VN', tk: 'jii8bki.css' },
     // Langstore Support.
     langstore: { ietf: 'en-US', tk: 'hah7vzn.css' },
   },
