@@ -105,9 +105,9 @@
   background-color: #efefef;
 }
 
-.tree-view.accordion a.current-page,
-.tree-view.accordion a:hover,
-.tree-view.accordion a:focus {
+.tree-view.tree-view-accordion a.current-page,
+.tree-view.tree-view-accordion a:hover,
+.tree-view.tree-view-accordion a:focus {
   margin-left: -32px;
   padding-left: var(--spacing-m);
 }

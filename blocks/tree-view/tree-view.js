@@ -129,7 +129,7 @@ const init = async (el) => {
   const nav = createTag('nav', { 'aria-labelledby': titleId }, ...el.children);
 
   el.append(nav);
-  el.classList.add(`${isAccordion ? 'accordion' : 'simple'}`);
+  el.classList.add(`${isAccordion ? 'tree-view-accordion' : 'tree-view-simple'}`);
   topList.classList.add('top-list', 'body-S');
   title?.classList.add('title', 'heading-XS');
 

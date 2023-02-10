@@ -15,7 +15,7 @@ describe('Tree View', () => {
 
     it('adds styles', async () => {
       await init(document.querySelector('.tree-view'));
-      expect(document.querySelector('.tree-view.simple')).to.exist;
+      expect(document.querySelector('.tree-view.tree-view-simple')).to.exist;
     });
 
     it('has current page', async () => {
@@ -72,7 +72,7 @@ describe('Tree View', () => {
     });
 
     it('adds styles', () => {
-      expect(document.querySelector('.tree-view.accordion')).to.exist;
+      expect(document.querySelector('.tree-view.tree-view-accordion')).to.exist;
     });
 
     it('starts closed', () => {
