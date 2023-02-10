@@ -109,7 +109,7 @@
     top: 0;
   }
 
-  .cta-chat-sticky svg path{
+  .cta-chat-sticky svg path {
     fill: var(--link-color-dark);
   }
 
