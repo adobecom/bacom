@@ -28,6 +28,10 @@ indices:
         select: head > meta[name="keywords"]
         value: |
           attribute(el, 'content')
+      caas-tags:
+        select: main > div > div.card-metadata > div
+        value: |
+          match(el, '[Tt]ags\n(.*)')
       lastModified:
         select: none
         value: |
