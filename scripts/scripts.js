@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { setLibs } from './utils.js';
+import { setLibs, loadChatCTA } from './utils.js';
 
 const LIBS = '/libs';
 const STYLES = '/styles/styles.css';
@@ -159,4 +159,5 @@ const miloLibs = setLibs(LIBS);
   loadLana({ clientId: 'bacom' });
   await loadArea();
   loadDelayed();
+  await loadChatCTA();
 }());

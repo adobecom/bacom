@@ -15,7 +15,6 @@
  * Edit below at your own risk
  * ------------------------------------------------------------
  */
-
 /**
  * The decision engine for where to get Milo's libs from.
  */
@@ -42,3 +41,35 @@ export const [setLibs, getLibs] = (() => {
     }, () => libs,
   ];
 })();
+
+/**
+ *
+ */
+export async function loadChatCTA() {
+  // May be able to use loadBlock from milo libs...
+  const { hostname } = window.location;
+  const branch = hostname.includes('localhost') ? 'http://localhost:3000' : 'https://main--bacom--adobe.com.hlx.page';
+  const cta = document.querySelector('meta[name="chat-cta"]');
+  const ctaStylesPresent = !!document.querySelector(`[href="${branch}/blocks/chat-cta/chat-cta.css"]`);
+  const ctaPresent = !!document.querySelector('.chat-cta');
+
+  console.log(ctaStylesPresent, ctaPresent, cta);
+
+  if (ctaStylesPresent || ctaPresent) {
+    return;
+  }
+
+  if (!cta) {
+    return;
+  }
+
+  const { default: init, getBlockBody } = await import('../blocks/chat-cta/chat-cta.js');
+  const libsPath = getLibs();
+  const ctaBody = await getBlockBody(cta.content, libsPath);
+  init(ctaBody);
+  const link = document.createElement('link');
+  const href = `${branch}/blocks/chat-cta/chat-cta.css`;
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', href);
+  document.head.appendChild(link);
+}

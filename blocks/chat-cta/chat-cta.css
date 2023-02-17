@@ -80,7 +80,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 120px;
+    width: fit-content;
     height: 56px;
     right: 0;
     bottom: 100px;
