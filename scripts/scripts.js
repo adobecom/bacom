@@ -145,7 +145,7 @@ const CONFIG = {
 const miloLibs = setLibs(LIBS);
 
 (function loadStyles() {
-  const paths = [`${miloLibs}/styles/styles.css`];
+  const paths = [`${miloLibs}/styles/styles.css`, `${miloLibs}/blocks/modal/modal.css`];
   if (STYLES) { paths.push(STYLES); }
   paths.forEach((path) => {
     const link = document.createElement('link');
