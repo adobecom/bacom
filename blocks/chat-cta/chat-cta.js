@@ -1,9 +1,5 @@
-export async function getBlockBody(url, libsPath) {
-  const { decorateAutoBlock, getConfig } = await import(`${libsPath}/utils/utils.js`);
-  const { default: loadIcons } = await import(`${libsPath}/features/icons.js`);
-  const config = getConfig();
+export async function getCtaBody(url) {
   const parser = new DOMParser();
-
   const cta = await fetch(url)
     .then((resp) => resp.text())
     .then((text) => parser.parseFromString(text, 'text/html'))
@@ -15,13 +11,18 @@ export async function getBlockBody(url, libsPath) {
   }
 
   cta.classList.add('cta-loaded', 'section');
+  return cta;
+}
 
-  document.querySelector('main').appendChild(cta);
+export async function libsDecorateCta(cta, libsPath) {
+  const { decorateAutoBlock, getConfig } = await import(`${libsPath}/utils/utils.js`);
+  const { default: loadIcons } = await import(`${libsPath}/features/icons.js`);
+  const config = getConfig();
+
   const domIcons = cta.querySelectorAll('span.icon');
   loadIcons(domIcons, config);
   const fragment = cta.querySelector('a');
   decorateAutoBlock(fragment);
-  return cta;
 }
 
 const init = async (el) => {

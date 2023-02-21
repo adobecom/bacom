@@ -159,5 +159,5 @@ const miloLibs = setLibs(LIBS);
   loadLana({ clientId: 'bacom' });
   await loadArea();
   loadDelayed();
-  await loadChatCTA();
+  loadChatCTA();
 }());

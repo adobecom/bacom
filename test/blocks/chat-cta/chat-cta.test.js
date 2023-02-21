@@ -2,11 +2,11 @@ import { readFile } from '@web/test-runner-commands';
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
 
-document.body.innerHTML = await readFile({ path: './mocks/body.html' });
-const { default: init } = await import('../../../blocks/chat-cta/chat-cta.js');
+const { default: init, getCtaBody } = await import('../../../blocks/chat-cta/chat-cta.js');
 
-describe('Chat CTA', () => {
+describe('Chat CTA Initialization', () => {
   before(async () => {
+    document.body.innerHTML = await readFile({ path: './mocks/body.html' });
     const cta = document.querySelector('.chat-cta');
     sinon.spy(window, 'addEventListener');
     await init(cta);
@@ -39,5 +39,18 @@ describe('Chat CTA', () => {
     const closed = new Event('milo:modal:closed');
     window.dispatchEvent(closed);
     expect(document.querySelector('.cta-chat-sticky').classList.contains('cta-hidden')).to.be.false;
+  });
+});
+
+describe('Chat CTA Async Functions', () => {
+  before(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('Returns null from the request', async () => {
+    const url = './mocks/cta-one.html';
+    const cta = await getCtaBody(url);
+    console.log(cta);
+    expect(cta).to.be.null;
   });
 });

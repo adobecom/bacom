@@ -46,30 +46,36 @@ export const [setLibs, getLibs] = (() => {
  *
  */
 export async function loadChatCTA() {
-  // May be able to use loadBlock from milo libs...
   const { hostname } = window.location;
   const branch = hostname.includes('localhost') ? 'http://localhost:3000' : 'https://main--bacom--adobe.com.hlx.page';
-  const cta = document.querySelector('meta[name="chat-cta"]');
-  const ctaStylesPresent = !!document.querySelector(`[href="${branch}/blocks/chat-cta/chat-cta.css"]`);
+  const metaCta = document.querySelector('meta[name="chat-cta"]');
   const ctaPresent = !!document.querySelector('.chat-cta');
+  const ctaExperienceUrl = metaCta.content;
 
-  console.log(ctaStylesPresent, ctaPresent, cta);
-
-  if (ctaStylesPresent || ctaPresent) {
+  if (ctaPresent) {
     return;
   }
 
-  if (!cta) {
+  if (!metaCta) {
     return;
   }
 
-  const { default: init, getBlockBody } = await import('../blocks/chat-cta/chat-cta.js');
+  if (!metaCta?.content || metaCta?.content === 'off') {
+    return;
+  }
+
+  const { default: init, getCtaBody, libsDecorateCta } = await import('../blocks/chat-cta/chat-cta.js');
+  if (!document.querySelector(`[href="${branch}/blocks/chat-cta/chat-cta.css"]`)) {
+    const link = document.createElement('link');
+    const href = `${branch}/blocks/chat-cta/chat-cta.css`;
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', href);
+    document.head.appendChild(link);
+  }
+
   const libsPath = getLibs();
-  const ctaBody = await getBlockBody(cta.content, libsPath);
+  const ctaBody = await getCtaBody(ctaExperienceUrl);
+  await libsDecorateCta(ctaBody, libsPath);
   init(ctaBody);
-  const link = document.createElement('link');
-  const href = `${branch}/blocks/chat-cta/chat-cta.css`;
-  link.setAttribute('rel', 'stylesheet');
-  link.setAttribute('href', href);
-  document.head.appendChild(link);
+  document.querySelector('main').appendChild(ctaBody);
 }
