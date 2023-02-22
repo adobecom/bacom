@@ -2,7 +2,7 @@ import { readFile } from '@web/test-runner-commands';
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
 
-const { default: init, getCtaBody } = await import('../../../blocks/chat-cta/chat-cta.js');
+const { default: init, getCtaBody, libsDecorateCta } = await import('../../../blocks/chat-cta/chat-cta.js');
 
 describe('Chat CTA Initialization', () => {
   before(async () => {
@@ -43,14 +43,31 @@ describe('Chat CTA Initialization', () => {
 });
 
 describe('Chat CTA Async Functions', () => {
-  before(() => {
-    document.body.innerHTML = '';
+  before(async () => {
+    document.body.innerHTML = '<div></div>';
   });
 
   it('Returns null from the request', async () => {
-    const url = './mocks/cta-one.html';
+    const url = '.not-valid';
     const cta = await getCtaBody(url);
-    console.log(cta);
     expect(cta).to.be.null;
+  });
+
+  it('Requests the CTA and appends it to the body', async () => {
+    const url = 'https://main--bacom--adobecom.hlx.page/docs/library/blocks/chat-cta';
+    const cta = await getCtaBody(url);
+    expect(cta.classList.contains('chat-cta')).to.be.true;
+    document.querySelector('div').appendChild(cta);
+    expect(!!document.querySelector('.chat-cta')).to.be.true;
+  });
+
+  it('Calls the decorate function and fails on decorate', async () => {
+    const cta = document.querySelector('.chat-cta');
+    const libsPath = 'https://main--milo--adobecom.hlx.live/libs';
+    sinon.spy(console, 'log');
+
+    await libsDecorateCta(cta, libsPath);
+    const logs = console.log.args[0][0];
+    expect(logs).to.equal('Error in using utils');
   });
 });

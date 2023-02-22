@@ -20,9 +20,13 @@ export async function libsDecorateCta(cta, libsPath) {
   const config = getConfig();
 
   const domIcons = cta.querySelectorAll('span.icon');
-  loadIcons(domIcons, config);
   const fragment = cta.querySelector('a');
-  decorateAutoBlock(fragment);
+  try {
+    loadIcons(domIcons, config);
+    decorateAutoBlock(fragment);
+  } catch (error) {
+    console.log('Error in using utils');
+  }
 }
 
 const init = async (el) => {
