@@ -18,7 +18,6 @@ export async function libsDecorateCta(cta, libsPath) {
   const { decorateAutoBlock, getConfig } = await import(`${libsPath}/utils/utils.js`);
   const { default: loadIcons } = await import(`${libsPath}/features/icons.js`);
   const config = getConfig();
-
   const domIcons = cta.querySelectorAll('span.icon');
   const fragment = cta.querySelector('a');
   try {
