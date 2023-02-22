@@ -47,7 +47,7 @@ export const [setLibs, getLibs] = (() => {
  */
 export async function loadChatCTA() {
   const { hostname } = window.location;
-  const branch = hostname.includes('localhost') ? 'http://localhost:3000' : 'https://main--bacom--adobe.com.hlx.page';
+  const branch = hostname.includes('localhost') ? 'http://localhost:3000' : 'https://main--bacom--adobecom.hlx.page';
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   const ctaPresent = !!document.querySelector('.chat-cta');
   const ctaExperienceUrl = metaCta.content;
