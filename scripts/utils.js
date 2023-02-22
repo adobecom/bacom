@@ -15,6 +15,7 @@
  * Edit below at your own risk
  * ------------------------------------------------------------
  */
+
 /**
  * The decision engine for where to get Milo's libs from.
  */
@@ -43,7 +44,7 @@ export const [setLibs, getLibs] = (() => {
 })();
 
 /**
- *
+ * Loads a chat-cta based on metadata
  */
 export async function loadChatCTA() {
   const { hostname } = window.location;
