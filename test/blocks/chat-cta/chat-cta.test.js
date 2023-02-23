@@ -43,7 +43,7 @@ describe('Chat CTA Initialization', () => {
 });
 
 describe('Chat CTA Async Functions', () => {
-  before(async () => {
+  before(() => {
     document.body.innerHTML = '<div></div>';
   });
 

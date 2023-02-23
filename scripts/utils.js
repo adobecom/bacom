@@ -47,36 +47,21 @@ export const [setLibs, getLibs] = (() => {
  * Loads a chat-cta based on metadata
  */
 export async function loadChatCTA() {
-  const { hostname } = window.location;
-  const branch = hostname.includes('localhost') ? 'http://localhost:3000' : 'https://main--bacom--adobecom.hlx.page';
+  const { origin } = window.location;
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   const ctaPresent = !!document.querySelector('.chat-cta');
   const ctaExperienceUrl = metaCta.content;
 
-  if (ctaPresent) {
-    return;
-  }
-
-  if (!metaCta) {
-    return;
-  }
-
-  if (!metaCta?.content || metaCta?.content === 'off') {
+  if (ctaPresent || !metaCta || !metaCta?.content || metaCta?.content === 'off') {
     return;
   }
 
   const { default: init, getCtaBody, libsDecorateCta } = await import('../blocks/chat-cta/chat-cta.js');
-  if (!document.querySelector(`[href="${branch}/blocks/chat-cta/chat-cta.css"]`)) {
-    const link = document.createElement('link');
-    const href = `${branch}/blocks/chat-cta/chat-cta.css`;
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', href);
-    document.head.appendChild(link);
-  }
+  const cssHref = `${origin}/blocks/chat-cta/chat-cta.css`;
 
   const libsPath = getLibs();
   const ctaBody = await getCtaBody(ctaExperienceUrl);
-  await libsDecorateCta(ctaBody, libsPath);
+  await libsDecorateCta(ctaBody, cssHref, libsPath);
   init(ctaBody);
   document.querySelector('main').appendChild(ctaBody);
 }

@@ -14,13 +14,14 @@ export async function getCtaBody(url) {
   return cta;
 }
 
-export async function libsDecorateCta(cta, libsPath) {
-  const { decorateAutoBlock, getConfig } = await import(`${libsPath}/utils/utils.js`);
+export async function libsDecorateCta(cta, ctaCssHref, libsPath) {
+  const { decorateAutoBlock, getConfig, loadStyle } = await import(`${libsPath}/utils/utils.js`);
   const { default: loadIcons } = await import(`${libsPath}/features/icons.js`);
   const config = getConfig();
   const domIcons = cta.querySelectorAll('span.icon');
   const fragment = cta.querySelector('a');
   try {
+    loadStyle(ctaCssHref);
     loadIcons(domIcons, config);
     decorateAutoBlock(fragment);
   } catch (error) {
