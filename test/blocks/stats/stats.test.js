@@ -16,12 +16,12 @@ describe('Stats', () => {
   it('Decorates headers', async () => {
     document.body.innerHTML = '<div class="stats"><div></div><div><h1>Heading 1</h1><h2>Heading 2</h2><h3Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6></div></div>';
     const headingClasses = {
-      h1: 'XL',
-      h2: 'L',
-      h3: 'M',
-      h4: 'S',
-      h5: 'XS',
-      h6: 'XS',
+      h1: 'xl',
+      h2: 'l',
+      h3: 'm',
+      h4: 's',
+      h5: 'xs',
+      h6: 'xs',
     };
     await init(document.querySelector('.stats'));
     [...document.querySelectorAll('h1, h2, h3, h4, h5, h6')].forEach((heading) => {
