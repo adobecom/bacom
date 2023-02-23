@@ -64,9 +64,10 @@ describe('Chat CTA Async Functions', () => {
   it('Calls the decorate function and fails on decorate', async () => {
     const cta = document.querySelector('.chat-cta');
     const libsPath = 'https://main--milo--adobecom.hlx.live/libs';
+    const cssHref = `${window.location.origin}/blocks/chat-cta/chat-cta.css`;
     sinon.spy(console, 'log');
 
-    await libsDecorateCta(cta, libsPath);
+    await libsDecorateCta(cta, cssHref, libsPath);
     const logs = console.log.args[0][0];
     expect(logs).to.equal('Error in using utils');
   });
