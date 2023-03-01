@@ -1,40 +1,20 @@
-export async function getCtaBody(url) {
-  const parser = new DOMParser();
-  const cta = await fetch(url)
-    .then((resp) => resp.text())
-    .then((text) => parser.parseFromString(text, 'text/html'))
-    .then((doc) => doc.querySelector('.chat-cta'))
-    .catch((err) => console.log(err, 'Failed to load cta'));
+export default async function init(el) {
+  const block = el;
 
-  if (!cta) {
-    return null;
+  if (el.dataset?.content) {
+    const contentUrl = el.dataset.content;
+    const resp = await fetch(contentUrl);
+    if (!resp.ok) return;
+    const text = await resp.text();
+    if (text) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      const ctaBody = doc.querySelector('.chat-cta > div');
+      block.append(ctaBody);
+    }
   }
 
-  cta.classList.add('cta-loaded', 'section');
-  return cta;
-}
-
-export async function libsDecorateCta(cta, ctaCssHref, libsPath) {
-  const { decorateAutoBlock, getConfig, loadStyle } = await import(`${libsPath}/utils/utils.js`);
-  const { default: loadIcons } = await import(`${libsPath}/features/icons.js`);
-  const config = getConfig();
-  const domIcons = cta.querySelectorAll('span.icon');
-  const fragment = cta.querySelector('a');
-  try {
-    loadStyle(ctaCssHref);
-    loadIcons(domIcons, config);
-    decorateAutoBlock(fragment);
-  } catch (error) {
-    console.log('Error in using utils');
-  }
-}
-
-const init = async (el) => {
-  if (el === null) {
-    return;
-  }
-
-  const cta = el.children[0].children[0];
+  const cta = block.children[0].children[0];
   cta.classList.add('cta-chat-sticky');
 
   const a = cta.querySelector('a');
@@ -47,6 +27,4 @@ const init = async (el) => {
   window.addEventListener('milo:modal:closed', () => {
     cta.classList.remove('cta-hidden');
   });
-};
-
-export default init;
+}

@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-import { setLibs, loadChatCTA } from './utils.js';
+import { setLibs } from './utils.js';
 
 const LIBS = '/libs';
 const STYLES = '/styles/styles.css';
@@ -154,10 +154,15 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, loadDelayed, loadLana, setConfig } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, loadDelayed, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
+  const metaCta = document.querySelector('meta[name="chat-cta"]');
+  if (metaCta) {
+    const chatDiv = createTag('div', { class: 'chat-cta meta-cta', 'data-content': metaCta.content });
+    const lastSection = document.body.querySelector('main > div:last-of-type');
+    if (lastSection) lastSection.insertAdjacentElement('beforeend', chatDiv);
+  }
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom' });
   await loadArea();
   loadDelayed();
-  loadChatCTA();
 }());

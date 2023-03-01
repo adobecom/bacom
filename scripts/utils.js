@@ -42,26 +42,3 @@ export const [setLibs, getLibs] = (() => {
     }, () => libs,
   ];
 })();
-
-/**
- * Loads a chat-cta based on metadata
- */
-export async function loadChatCTA() {
-  const { origin } = window.location;
-  const metaCta = document.querySelector('meta[name="chat-cta"]');
-  const ctaPresent = !!document.querySelector('.chat-cta');
-  const ctaExperienceUrl = metaCta.content;
-
-  if (ctaPresent || !metaCta || !metaCta?.content || metaCta?.content === 'off') {
-    return;
-  }
-
-  const { default: init, getCtaBody, libsDecorateCta } = await import('../blocks/chat-cta/chat-cta.js');
-  const cssHref = `${origin}/blocks/chat-cta/chat-cta.css`;
-
-  const libsPath = getLibs();
-  const ctaBody = await getCtaBody(ctaExperienceUrl);
-  await libsDecorateCta(ctaBody, cssHref, libsPath);
-  init(ctaBody);
-  document.querySelector('main').appendChild(ctaBody);
-}
