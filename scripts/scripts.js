@@ -33,6 +33,15 @@ const CONFIG = {
   }
 }());
 
+function localScripts(getMetadata, loadStyle) {
+  // Place local functions here
+  const chatTabMeta = getMetadata('-chat-tab');
+  if (!chatTabMeta) return;
+  loadStyle(`/blocks/chat/chat.css`);
+  const event = new CustomEvent('modal:open', { detail: { hash: '#chat-tab' } });
+  window.dispatchEvent(event);
+}
+
 /*
  * ------------------------------------------------------------
  * Edit below at your own risk
@@ -53,8 +62,9 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, loadDelayed, setConfig } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, loadDelayed, loadStyle, setConfig, getMetadata } = await import(`${miloLibs}/utils/utils.js`);
   setConfig({ ...CONFIG, miloLibs });
   await loadArea();
+  localScripts(getMetadata, loadStyle);
   loadDelayed();
 }());

@@ -1,0 +1,11 @@
+/* This is not a typical block it is loaded through Milo's Event-based modals */
+
+#chat-tab {
+  left: unset;
+  top: unset;
+  bottom: 20px;
+}
+
+#chat-tab .dialog-close {
+  display: none;
+}
