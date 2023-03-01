@@ -156,7 +156,7 @@ const miloLibs = setLibs(LIBS);
 (async function loadPage() {
   const { loadArea, loadDelayed, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
   const metaCta = document.querySelector('meta[name="chat-cta"]');
-  if (metaCta) {
+  if (metaCta && !document.querySelector('.chat-cta')) {
     const chatDiv = createTag('div', { class: 'chat-cta meta-cta', 'data-content': metaCta.content });
     const lastSection = document.body.querySelector('main > div:last-of-type');
     if (lastSection) lastSection.insertAdjacentElement('beforeend', chatDiv);
