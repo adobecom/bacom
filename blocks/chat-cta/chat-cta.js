@@ -10,7 +10,14 @@ export default async function init(el) {
       const parser = new DOMParser();
       const doc = parser.parseFromString(text, 'text/html');
       const ctaBody = doc.querySelector('.chat-cta > div');
+      if (!ctaBody) return;
       block.append(ctaBody);
+      const link = ctaBody.querySelector('a');
+      const url = new URL(link.href);
+      link.dataset.modalPath = url.pathname;
+      link.dataset.modalHash = url.hash;
+      link.href = url.hash;
+      link.className = 'modal link-block';
     }
   }
 
