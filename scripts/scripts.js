@@ -37,7 +37,7 @@ function localScripts(getMetadata, loadStyle) {
   // Place local functions here
   const chatTabMeta = getMetadata('-chat-tab');
   if (!chatTabMeta) return;
-  loadStyle(`/blocks/chat/chat.css`);
+  loadStyle('/blocks/chat/chat.css');
   const event = new CustomEvent('modal:open', { detail: { hash: '#chat-tab' } });
   window.dispatchEvent(event);
 }

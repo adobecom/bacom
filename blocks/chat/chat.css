@@ -1,11 +1,208 @@
 /* This is not a typical block it is loaded through Milo's Event-based modals */
 
 #chat-tab {
-  left: unset;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  max-width:100%;
+  height: 48px;
   top: unset;
-  bottom: 20px;
+  background-color: var(--link-color-dark);
+  overflow: hidden;
+  margin: 0;
+  z-index: 0;
+}
+
+[dir=rtl] #chat-tab {
+  left: 0;
+  right: unset;
 }
 
 #chat-tab .dialog-close {
   display: none;
+}
+
+.chat-cta .fragment .section {
+  margin: 0;
+  padding: 30px;
+}
+
+.chat-cta .fragment .section .icon-block {
+  padding: 50px 0;
+  width: 100%;
+}
+
+.chat-cta .fragment .section .icon-block:first-of-type {
+  border-bottom: 1px solid rgb(112 112 112);
+}
+
+.divider.chat-cta svg {
+  display: block;
+}
+
+#chat-tab svg {
+  display: none;
+}
+
+#chat-tab a {
+  color: #FFF;
+  border: 2px solid;
+  background-color: transparent;
+  border-radius: 16px;
+  display: inline-block;
+  padding: 5px 14px;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+#chat-tab a:hover {
+  color: var(--link-color-dark);
+  background-color: var(--color-white);
+}
+
+.dialog-modal.chat-cta .icon-block .foreground .icon-area img {
+  width: 39px;
+  height: auto;
+}
+
+.dialog-modal.chat-cta {
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.dialog-modal.chat-cta .section {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-modal.chat-cta .section .foreground .text-content h2 {
+  font-size: var(--type-heading-m-size);
+  margin: 0;
+}
+
+.dialog-modal.chat-cta .section .foreground .text-content p:not(.action-area) {
+  font-size: var(--type-body-xs-size);
+  line-height: var(--type-heading-xxs-lh);
+  margin-bottom: var(--spacing-xs);
+}
+
+@media screen and (min-width: 900px) {
+  .modal-curtain.is-open {
+    background: transparent;
+  }
+
+  #chat-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: fit-content;
+    height: 56px;
+    left: unset;
+    bottom: 100px;
+    background-color: var(--color-white);
+    border-radius: 6px 0 0 6px;
+    box-shadow: 0 0 15px rgba(0 0 0 / 20%);
+  }
+
+  .dialog-modal.chat-cta .section .foreground .text-content p:not(.action-area) {
+    font-size: var(--type-body-xxs-size);
+    line-height: var(--type-body-xxs-lh);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  #chat-tab .content p {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #chat-tab a {
+    padding: 20px 20px 20px 0;
+    font-size: var(--type-body-xxs-size);
+    font-weight: bold;
+    border: none;
+    color: var(--link-color-dark);
+  }
+
+  #chat-tab span {
+    display: flex;
+    align-items: center;
+  }
+
+  #chat-tab svg {
+    display: block;
+    margin-left: var(--spacing-xs);
+    height: 16px;
+    width: auto;
+    top: 0;
+  }
+
+  #chat-tab svg path {
+    fill: var(--link-color-dark);
+  }
+
+  .dialog-modal.chat-cta {
+    position: fixed;
+    right: 0;
+    bottom: 100px;
+    top: auto;
+    left: auto;
+    box-shadow: 0 0 15px rgba(0 0 0 / 20%);
+    border-radius: 6px 0 0 6px;
+    height: initial;
+    width: initial;
+  }
+
+  .chat-cta .fragment .section .icon-block {
+    padding: 0;
+    width: 100%;
+  }
+
+  .dialog-modal.chat-cta .section .icon-block .foreground .text-content p.icon-area {
+    margin-bottom: var(--spacing-xxs);
+  }
+
+  .dialog-modal.chat-cta .icon-block .foreground .icon-area img {
+    width: 28.8px;
+    height: auto;
+  }
+
+  .dialog-modal.chat-cta .section {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .dialog-modal.chat-cta .section .foreground .text-content h2 {
+    font-size: var(--type-body-m-size);
+    margin: 0;
+  }
+
+  .dialog-modal.chat-cta .section .text-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    text-align: left;
+    margin: 32px 56px 40px 48px;
+    max-width: 146px;
+  }
+
+  .dialog-modal.chat-cta .section .icon-block:first-of-type .foreground {
+    border-right: 1px solid rgb(112 112 112);
+  }
+
+  .dialog-modal.chat-cta .section .icon-block:first-of-type {
+    border-bottom: 0;
+  }
 }
