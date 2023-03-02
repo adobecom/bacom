@@ -21,7 +21,7 @@ async function decorateRow(row, module) {
   const headers = row.querySelectorAll('h1, h2, h3, h4, h5, h6');
   if (!headers) return;
   headers.forEach((header) => {
-    const sizes = ['XL', 'L', 'M', 'S', 'XS', 'XS'];
+    const sizes = ['xl', 'l', 'm', 's', 'xs', 'xs'];
     const expr = header.localName;
     const size = parseInt(expr[1], 10);
     header.classList.add(`heading-${sizes[size - 1]}`);

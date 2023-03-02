@@ -15,7 +15,7 @@ const init = (el) => {
     const readMoreText = readMore?.innerText || READ_MORE;
 
     name?.classList.add('name');
-    name?.querySelector('h1, h2, h3, h4, h5, h6')?.classList.add('body-S');
+    name?.querySelector('h1, h2, h3, h4, h5, h6')?.classList.add('body-s');
     desc?.classList.add('desc');
     readMore?.remove();
 
@@ -33,7 +33,7 @@ const init = (el) => {
 
     const section = document.createElement('section');
 
-    section.classList.add('text', 'body-XS');
+    section.classList.add('text', 'body-xs');
     name.parentNode.insertBefore(section, name);
     section.append(name, desc);
   });
