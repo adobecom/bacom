@@ -24,10 +24,8 @@ export const [setLibs, getLibs] = (() => {
   return [
     (prodLibs) => {
       const { hostname } = window.location;
-      if (!hostname.includes('hlx.page')
-        && !hostname.includes('hlx.live')
-        && !hostname.includes('localhost')
-        && !hostname.includes('business.stage.adobe.com')) {
+      const stageEnvs = ['localhost', 'hlx.page', 'hlx.live', 'business.stage.adobe.com'];
+      if (!stageEnvs.some((env) => hostname.includes(env))) {
         libs = prodLibs;
       } else {
         const branch = new URLSearchParams(window.location.search).get('milolibs') || 'main';
