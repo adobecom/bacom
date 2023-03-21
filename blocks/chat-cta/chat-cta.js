@@ -1,8 +1,8 @@
 export default async function init(el) {
   const block = el;
+  const contentUrl = el.dataset?.content;
 
-  if (el.dataset?.content) {
-    const contentUrl = el.dataset.content;
+  if (contentUrl) {
     const resp = await fetch(contentUrl);
     if (!resp.ok) return;
     const text = await resp.text();
@@ -13,10 +13,10 @@ export default async function init(el) {
       if (!ctaBody) return;
       block.append(ctaBody);
       const link = ctaBody.querySelector('a');
-      const url = new URL(link.href);
-      link.dataset.modalPath = url.pathname;
-      link.dataset.modalHash = url.hash;
-      link.href = url.hash;
+      const { pathname, hash } = new URL(link.href, window.location.origin);
+      link.dataset.modalPath = pathname;
+      link.dataset.modalHash = hash;
+      link.href = hash;
       link.className = 'modal link-block';
     }
   }
