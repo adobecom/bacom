@@ -10,12 +10,6 @@
   background-color: var(--link-color-dark);
 }
 
-[dir=rtl] .cta-chat-sticky {
-  left: 0;
-  right: unset;
-  flex-direction: row-reverse;
-}
-
 .chat-cta .fragment {
   display: flex;
   justify-content: center;
@@ -86,7 +80,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: fit-content;
+    width: 120px;
     height: 56px;
     right: 0;
     bottom: 100px;
