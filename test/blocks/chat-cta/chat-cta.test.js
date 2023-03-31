@@ -2,11 +2,11 @@ import { readFile } from '@web/test-runner-commands';
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
 
-document.body.innerHTML = await readFile({ path: './mocks/body.html' });
 const { default: init } = await import('../../../blocks/chat-cta/chat-cta.js');
 
-describe('Chat CTA', () => {
+describe('Chat CTA Initialization', () => {
   before(async () => {
+    document.body.innerHTML = await readFile({ path: './mocks/body.html' });
     const cta = document.querySelector('.chat-cta');
     sinon.spy(window, 'addEventListener');
     await init(cta);
