@@ -71,3 +71,7 @@ indices:
         select: .breadcrumbs > ul > li:first-child > a
         value: |
           attribute(el, 'href')
+      breadcrumbsHomeEl:
+        select: .breadcrumbs > ul > li:first-child > a
+        value: |
+          el
