@@ -67,3 +67,7 @@ indices:
         select: none
         value: |
           parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+      breadcrumbsHome:
+        select: .breadcrumbs > ul > li:first-child > a
+        value: |
+          attribute(el, 'href')
