@@ -10,3 +10,388 @@ sitemaps:
         destination: /customer-success-stories/sitemap.xml
         hreflang: en
         alternate: /{path}.html
+      ae_ar:
+        source: /ae_ar/customer-success-stories/query-index.json
+        destination: /ae_ar/customer-success-stories/sitemap.xml
+        hreflang: ar
+        alternate: /ae_ar/{path}.html
+      ae_en:
+        source: /ae_en/customer-success-stories/query-index.json
+        destination: /ae_en/customer-success-stories/sitemap.xml
+        hreflang: en
+        alternate: /ae_en/{path}.html
+      africa:
+        source: /africa/customer-success-stories/query-index.json
+        destination: /africa/customer-success-stories/sitemap.xml
+        hreflang: en
+        alternate: /africa/{path}.html
+      ar:
+        source: /ar/customer-success-stories/query-index.json
+        destination: /ar/customer-success-stories/sitemap.xml
+        hreflang: es-AR
+        alternate: /ar/{path}.html
+      at:
+        source: /at/customer-success-stories/query-index.json
+        destination: /at/customer-success-stories/sitemap.xml
+        hreflang: de-AT
+        alternate: /at/{path}.html
+      au:
+        source: /au/customer-success-stories/query-index.json
+        destination: /au/customer-success-stories/sitemap.xml
+        hreflang: en-AU
+        alternate: /au/{path}.html
+      be_en:
+        source: /be_en/customer-success-stories/query-index.json
+        destination: /be_en/customer-success-stories/sitemap.xml
+        hreflang: en-BE
+        alternate: /be_en/{path}.html
+      be_fr:
+        source: /be_fr/customer-success-stories/query-index.json
+        destination: /be_fr/customer-success-stories/sitemap.xml
+        hreflang: fr-BE
+        alternate: /be_fr/{path}.html
+      be_nl:
+        source: /be_nl/customer-success-stories/query-index.json
+        destination: /be_nl/customer-success-stories/sitemap.xml
+        hreflang: nl-BE
+        alternate: /be_nl/{path}.html
+      bg:
+        source: /bg/customer-success-stories/query-index.json
+        destination: /bg/customer-success-stories/sitemap.xml
+        hreflang: bg-BG
+        alternate: /bg/{path}.html
+      br:
+        source: /br/customer-success-stories/query-index.json
+        destination: /br/customer-success-stories/sitemap.xml
+        hreflang: pt-BR
+        alternate: /br/{path}.html
+      ca_fr:
+        source: /ca_fr/customer-success-stories/query-index.json
+        destination: /ca_fr/customer-success-stories/sitemap.xml
+        hreflang: fr-CA
+        alternate: /ca_fr/{path}.html
+      ca:
+        source: /ca/customer-success-stories/query-index.json
+        destination: /ca/customer-success-stories/sitemap.xml
+        hreflang: en-CA
+        alternate: /ca/{path}.html
+      ch_de:
+        source: /ch_de/customer-success-stories/query-index.json
+        destination: /ch_de/customer-success-stories/sitemap.xml
+        hreflang: de-CH
+        alternate: /ch_de/{path}.html
+      ch_fr:
+        source: /ch_fr/customer-success-stories/query-index.json
+        destination: /ch_fr/customer-success-stories/sitemap.xml
+        hreflang: fr-CH
+        alternate: /ch_fr/{path}.html
+      ch_it:
+        source: /ch_it/customer-success-stories/query-index.json
+        destination: /ch_it/customer-success-stories/sitemap.xml
+        hreflang: it-CH
+        alternate: /ch_it/{path}.html
+      cl:
+        source: /cl/customer-success-stories/query-index.json
+        destination: /cl/customer-success-stories/sitemap.xml
+        hreflang: es-CL
+        alternate: /cl/{path}.html
+      cn:
+        source: /cn/customer-success-stories/query-index.json
+        destination: /cn/customer-success-stories/sitemap.xml
+        hreflang: zh-CN
+        alternate: /cn/{path}.html
+      co:
+        source: /co/customer-success-stories/query-index.json
+        destination: /co/customer-success-stories/sitemap.xml
+        hreflang: es-CO
+        alternate: /co/{path}.html
+      cy_en:
+        source: /cy_en/customer-success-stories/query-index.json
+        destination: /cy_en/customer-success-stories/sitemap.xml
+        hreflang: en-CY
+        alternate: /cy_en/{path}.html
+      cz:
+        source: /cz/customer-success-stories/query-index.json
+        destination: /cz/customer-success-stories/sitemap.xml
+        hreflang: cs-CZ
+        alternate: /cz/{path}.html
+      de:
+        source: /de/customer-success-stories/query-index.json
+        destination: /de/customer-success-stories/sitemap.xml
+        hreflang: de-DE
+        alternate: /de/{path}.html
+      dk:
+        source: /dk/customer-success-stories/query-index.json
+        destination: /dk/customer-success-stories/sitemap.xml
+        hreflang: da-DK
+        alternate: /dk/{path}.html
+      ee:
+        source: /ee/customer-success-stories/query-index.json
+        destination: /ee/customer-success-stories/sitemap.xml
+        hreflang: et-EE
+        alternate: /ee/{path}.html
+      es:
+        source: /es/customer-success-stories/query-index.json
+        destination: /es/customer-success-stories/sitemap.xml
+        hreflang: es-ES
+        alternate: /es/{path}.html
+      fi:
+        source: /fi/customer-success-stories/query-index.json
+        destination: /fi/customer-success-stories/sitemap.xml
+        hreflang: fi-FI
+        alternate: /fi/{path}.html
+      fr:
+        source: /fr/customer-success-stories/query-index.json
+        destination: /fr/customer-success-stories/sitemap.xml
+        hreflang: fr-FR
+        alternate: /fr/{path}.html
+      gr_en:
+        source: /gr_en/customer-success-stories/query-index.json
+        destination: /gr_en/customer-success-stories/sitemap.xml
+        hreflang: en-GR
+        alternate: /gr_en/{path}.html
+      hk_en:
+        source: /hk_en/customer-success-stories/query-index.json
+        destination: /hk_en/customer-success-stories/sitemap.xml
+        hreflang: en-HK
+        alternate: /hk_en/{path}.html
+      hk_zh:
+        source: /hk_zh/customer-success-stories/query-index.json
+        destination: /hk_zh/customer-success-stories/sitemap.xml
+        hreflang: zh-HK
+        alternate: /hk_zh/{path}.html
+      hu:
+        source: /hu/customer-success-stories/query-index.json
+        destination: /hu/customer-success-stories/sitemap.xml
+        hreflang: hu-HU
+        alternate: /hu/{path}.html
+      id_en:
+        source: /id_en/customer-success-stories/query-index.json
+        destination: /id_en/customer-success-stories/sitemap.xml
+        hreflang: en
+        alternate: /id_en/{path}.html
+      id_id:
+        source: /id_id/customer-success-stories/query-index.json
+        destination: /id_id/customer-success-stories/sitemap.xml
+        hreflang: id
+        alternate: /id_id/{path}.html
+      ie:
+        source: /ie/customer-success-stories/query-index.json
+        destination: /ie/customer-success-stories/sitemap.xml
+        hreflang: en-GB
+        alternate: /ie/{path}.html
+      il_en:
+        source: /il_en/customer-success-stories/query-index.json
+        destination: /il_en/customer-success-stories/sitemap.xml
+        hreflang: en-IL
+        alternate: /il_en/{path}.html
+      il_he:
+        source: /il_he/customer-success-stories/query-index.json
+        destination: /il_he/customer-success-stories/sitemap.xml
+        hreflang: he
+        alternate: /il_he/{path}.html
+      in_hi:
+        source: /in_hi/customer-success-stories/query-index.json
+        destination: /in_hi/customer-success-stories/sitemap.xml
+        hreflang: hi
+        alternate: /in_hi/{path}.html
+      in:
+        source: /in/customer-success-stories/query-index.json
+        destination: /in/customer-success-stories/sitemap.xml
+        hreflang: en-GB
+        alternate: /in/{path}.html
+      it:
+        source: /it/customer-success-stories/query-index.json
+        destination: /it/customer-success-stories/sitemap.xml
+        hreflang: it-IT
+        alternate: /it/{path}.html
+      jp:
+        source: /jp/customer-success-stories/query-index.json
+        destination: /jp/customer-success-stories/sitemap.xml
+        hreflang: ja-JP
+        alternate: /jp/{path}.html
+      kr:
+        source: /kr/customer-success-stories/query-index.json
+        destination: /kr/customer-success-stories/sitemap.xml
+        hreflang: ko-KR
+        alternate: /kr/{path}.html
+      la:
+        source: /la/customer-success-stories/query-index.json
+        destination: /la/customer-success-stories/sitemap.xml
+        hreflang: es-LA
+        alternate: /la/{path}.html
+      lt:
+        source: /lt/customer-success-stories/query-index.json
+        destination: /lt/customer-success-stories/sitemap.xml
+        hreflang: lt-LT
+        alternate: /lt/{path}.html
+      lu_de:
+        source: /lu_de/customer-success-stories/query-index.json
+        destination: /lu_de/customer-success-stories/sitemap.xml
+        hreflang: de-LU
+        alternate: /lu_de/{path}.html
+      lu_en:
+        source: /lu_en/customer-success-stories/query-index.json
+        destination: /lu_en/customer-success-stories/sitemap.xml
+        hreflang: en-LU
+        alternate: /lu_en/{path}.html
+      lu_fr:
+        source: /lu_fr/customer-success-stories/query-index.json
+        destination: /lu_fr/customer-success-stories/sitemap.xml
+        hreflang: fr-LU
+        alternate: /lu_fr/{path}.html
+      lv:
+        source: /lv/customer-success-stories/query-index.json
+        destination: /lv/customer-success-stories/sitemap.xml
+        hreflang: lv-LV
+        alternate: /lv/{path}.html
+      mena_ar:
+        source: /mena_ar/customer-success-stories/query-index.json
+        destination: /mena_ar/customer-success-stories/sitemap.xml
+        hreflang: ar
+        alternate: /mena_ar/{path}.html
+      mena_en:
+        source: /mena_en/customer-success-stories/query-index.json
+        destination: /mena_en/customer-success-stories/sitemap.xml
+        hreflang: en
+        alternate: /mena_en/{path}.html
+      mt:
+        source: /mt/customer-success-stories/query-index.json
+        destination: /mt/customer-success-stories/sitemap.xml
+        hreflang: en-MT
+        alternate: /mt/{path}.html
+      mx:
+        source: /mx/customer-success-stories/query-index.json
+        destination: /mx/customer-success-stories/sitemap.xml
+        hreflang: es-MX
+        alternate: /mx/{path}.html
+      my_en:
+        source: /my_en/customer-success-stories/query-index.json
+        destination: /my_en/customer-success-stories/sitemap.xml
+        hreflang: en-GB
+        alternate: /my_en/{path}.html
+      my_ms:
+        source: /my_ms/customer-success-stories/query-index.json
+        destination: /my_ms/customer-success-stories/sitemap.xml
+        hreflang: ms
+        alternate: /my_ms/{path}.html
+      nl:
+        source: /nl/customer-success-stories/query-index.json
+        destination: /nl/customer-success-stories/sitemap.xml
+        hreflang: nl-NL
+        alternate: /nl/{path}.html
+      no:
+        source: /no/customer-success-stories/query-index.json
+        destination: /no/customer-success-stories/sitemap.xml
+        hreflang: no-NO
+        alternate: /no/{path}.html
+      nz:
+        source: /nz/customer-success-stories/query-index.json
+        destination: /nz/customer-success-stories/sitemap.xml
+        hreflang: en-GB
+        alternate: /nz/{path}.html
+      pe:
+        source: /pe/customer-success-stories/query-index.json
+        destination: /pe/customer-success-stories/sitemap.xml
+        hreflang: es-PE
+        alternate: /pe/{path}.html
+      ph_en:
+        source: /ph_en/customer-success-stories/query-index.json
+        destination: /ph_en/customer-success-stories/sitemap.xml
+        hreflang: en
+        alternate: /ph_en/{path}.html
+      ph_fil:
+        source: /ph_fil/customer-success-stories/query-index.json
+        destination: /ph_fil/customer-success-stories/sitemap.xml
+        hreflang: fil-PH
+        alternate: /ph_fil/{path}.html
+      pl:
+        source: /pl/customer-success-stories/query-index.json
+        destination: /pl/customer-success-stories/sitemap.xml
+        hreflang: pl-PL
+        alternate: /pl/{path}.html
+      pt:
+        source: /pt/customer-success-stories/query-index.json
+        destination: /pt/customer-success-stories/sitemap.xml
+        hreflang: pt-PT
+        alternate: /pt/{path}.html
+      ro:
+        source: /ro/customer-success-stories/query-index.json
+        destination: /ro/customer-success-stories/sitemap.xml
+        hreflang: ro-RO
+        alternate: /ro/{path}.html
+      ru:
+        source: /ru/customer-success-stories/query-index.json
+        destination: /ru/customer-success-stories/sitemap.xml
+        hreflang: ru-RU
+        alternate: /ru/{path}.html
+      sa_ar:
+        source: /sa_ar/customer-success-stories/query-index.json
+        destination: /sa_ar/customer-success-stories/sitemap.xml
+        hreflang: ar
+        alternate: /sa_ar/{path}.html
+      sa_en:
+        source: /sa_en/customer-success-stories/query-index.json
+        destination: /sa_en/customer-success-stories/sitemap.xml
+        hreflang: en
+        alternate: /sa_en/{path}.html
+      se:
+        source: /se/customer-success-stories/query-index.json
+        destination: /se/customer-success-stories/sitemap.xml
+        hreflang: sv-SE
+        alternate: /se/{path}.html
+      sg:
+        source: /sg/customer-success-stories/query-index.json
+        destination: /sg/customer-success-stories/sitemap.xml
+        hreflang: en-SG
+        alternate: /sg/{path}.html
+      si:
+        source: /si/customer-success-stories/query-index.json
+        destination: /si/customer-success-stories/sitemap.xml
+        hreflang: sl-SI
+        alternate: /si/{path}.html
+      sk:
+        source: /sk/customer-success-stories/query-index.json
+        destination: /sk/customer-success-stories/sitemap.xml
+        hreflang: sk-SK
+        alternate: /sk/{path}.html
+      th_en:
+        source: /th_en/customer-success-stories/query-index.json
+        destination: /th_en/customer-success-stories/sitemap.xml
+        hreflang: en
+        alternate: /th_en/{path}.html
+      th_th:
+        source: /th_th/customer-success-stories/query-index.json
+        destination: /th_th/customer-success-stories/sitemap.xml
+        hreflang: th
+        alternate: /th_th/{path}.html
+      tr:
+        source: /tr/customer-success-stories/query-index.json
+        destination: /tr/customer-success-stories/sitemap.xml
+        hreflang: tr-TR
+        alternate: /tr/{path}.html
+      tw:
+        source: /tw/customer-success-stories/query-index.json
+        destination: /tw/customer-success-stories/sitemap.xml
+        hreflang: zh-TW
+        alternate: /tw/{path}.html
+      ua:
+        source: /ua/customer-success-stories/query-index.json
+        destination: /ua/customer-success-stories/sitemap.xml
+        hreflang: uk-UA
+        alternate: /ua/{path}.html
+      uk:
+        source: /uk/customer-success-stories/query-index.json
+        destination: /uk/customer-success-stories/sitemap.xml
+        hreflang: en-GB
+        alternate: /uk/{path}.html
+      vn_en:
+        source: /vn_en/customer-success-stories/query-index.json
+        destination: /vn_en/customer-success-stories/sitemap.xml
+        hreflang: en
+        alternate: /vn_en/{path}.html
+      vn_vi:
+        source: /vn_vi/customer-success-stories/query-index.json
+        destination: /vn_vi/customer-success-stories/sitemap.xml
+        hreflang: vi-VN
+        alternate: /vn_vi/{path}.html
