@@ -1,7 +1,7 @@
 version: 1
 
 indices:
-  customer-success-stories-us:
+  customer-success-stories-us: &default
     include:
       - '/customer-success-stories/**'
     exclude:
@@ -41,3122 +41,408 @@ indices:
         value: |
           attribute(el, 'href')
   customer-success-stories-ae_ar:
+    <<: *default
     include:
       - '/ae_ar/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ae_ar/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ae_en:
+    <<: *default
     include:
       - '/ae_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ae_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-africa:
+    <<: *default
     include:
       - '/africa/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /africa/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ar:
+    <<: *default
     include:
       - '/ar/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ar/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-at:
+    <<: *default
     include:
       - '/at/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /at/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-au:
+    <<: *default
     include:
       - '/au/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /au/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-be_en:
+    <<: *default
     include:
       - '/be_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /be_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-be_fr:
+    <<: *default
     include:
       - '/be_fr/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /be_fr/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-be_nl:
+    <<: *default
     include:
       - '/be_nl/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /be_nl/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-bg:
+    <<: *default
     include:
       - '/bg/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /bg/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-br:
+    <<: *default
     include:
       - '/br/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /br/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ca_fr:
+    <<: *default
     include:
       - '/ca_fr/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ca_fr/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ca:
+    <<: *default
     include:
       - '/ca/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ca/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ch_de:
+    <<: *default
     include:
       - '/ch_de/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ch_de/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ch_fr:
+    <<: *default
     include:
       - '/ch_fr/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ch_fr/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ch_it:
+    <<: *default
     include:
       - '/ch_it/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ch_it/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-cis_en:
+    <<: *default
     include:
       - '/cis_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /cis_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-cis_ru:
+    <<: *default
     include:
       - '/cis_ru/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /cis_ru/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-cl:
+    <<: *default
     include:
       - '/cl/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /cl/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-cn:
+    <<: *default
     include:
       - '/cn/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /cn/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-co:
+    <<: *default
     include:
       - '/co/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /co/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-cy_en:
+    <<: *default
     include:
       - '/cy_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /cy_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-cz:
+    <<: *default
     include:
       - '/cz/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /cz/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-de:
+    <<: *default
     include:
       - '/de/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /de/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-dk:
+    <<: *default
     include:
       - '/dk/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /dk/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ee:
+    <<: *default
     include:
       - '/ee/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ee/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-es:
+    <<: *default
     include:
       - '/es/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /es/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-fi:
+    <<: *default
     include:
       - '/fi/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /fi/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-fr:
+    <<: *default
     include:
       - '/fr/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /fr/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-gr_en:
+    <<: *default
     include:
       - '/gr_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /gr_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-hk_en:
+    <<: *default
     include:
       - '/hk_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /hk_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-hk_zh:
+    <<: *default
     include:
       - '/hk_zh/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /hk_zh/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-hu:
+    <<: *default
     include:
       - '/hu/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /hu/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-id_en:
+    <<: *default
     include:
       - '/id_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /id_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-id_id:
+    <<: *default
     include:
       - '/id_id/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /id_id/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ie:
+    <<: *default
     include:
       - '/ie/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ie/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-il_en:
+    <<: *default
     include:
       - '/il_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /il_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-il_he:
+    <<: *default
     include:
       - '/il_he/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /il_he/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-in_hi:
+    <<: *default
     include:
       - '/in_hi/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /in_hi/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-in:
+    <<: *default
     include:
       - '/in/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /in/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-it:
+    <<: *default
     include:
       - '/it/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /it/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-jp:
+    <<: *default
     include:
       - '/jp/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /jp/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-kr:
+    <<: *default
     include:
       - '/kr/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /kr/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-la:
+    <<: *default
     include:
       - '/la/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /la/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-lt:
+    <<: *default
     include:
       - '/lt/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /lt/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-lu_de:
+    <<: *default
     include:
       - '/lu_de/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /lu_de/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-lu_en:
+    <<: *default
     include:
       - '/lu_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /lu_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-lu_fr:
+    <<: *default
     include:
       - '/lu_fr/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /lu_fr/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-lv:
+    <<: *default
     include:
       - '/lv/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /lv/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-mena_ar:
+    <<: *default
     include:
       - '/mena_ar/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /mena_ar/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-mena_en:
+    <<: *default
     include:
       - '/mena_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /mena_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-mt:
+    <<: *default
     include:
       - '/mt/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /mt/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-mx:
+    <<: *default
     include:
       - '/mx/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /mx/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-my_en:
+    <<: *default
     include:
       - '/my_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /my_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-my_ms:
+    <<: *default
     include:
       - '/my_ms/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /my_ms/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-nl:
+    <<: *default
     include:
       - '/nl/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /nl/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-no:
+    <<: *default
     include:
       - '/no/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /no/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-nz:
+    <<: *default
     include:
       - '/nz/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /nz/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-pe:
+    <<: *default
     include:
       - '/pe/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /pe/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ph_en:
+    <<: *default
     include:
       - '/ph_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ph_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ph_fil:
+    <<: *default
     include:
       - '/ph_fil/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ph_fil/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-pl:
+    <<: *default
     include:
       - '/pl/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /pl/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-pt:
+    <<: *default
     include:
       - '/pt/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /pt/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ro:
+    <<: *default
     include:
       - '/ro/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ro/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ru:
+    <<: *default
     include:
       - '/ru/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ru/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-sa_ar:
+    <<: *default
     include:
       - '/sa_ar/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /sa_ar/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-sa_en:
+    <<: *default
     include:
       - '/sa_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /sa_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-se:
+    <<: *default
     include:
       - '/se/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /se/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-sea:
+    <<: *default
     include:
       - '/sea/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /sea/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-sg:
+    <<: *default
     include:
       - '/sg/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /sg/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-si:
+    <<: *default
     include:
       - '/si/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /si/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-sk:
+    <<: *default
     include:
       - '/sk/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /sk/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-th_en:
+    <<: *default
     include:
       - '/th_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /th_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-th_th:
+    <<: *default
     include:
       - '/th_th/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /th_th/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-tr:
+    <<: *default
     include:
       - '/tr/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /tr/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-tw:
+    <<: *default
     include:
       - '/tw/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /tw/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-ua:
+    <<: *default
     include:
       - '/ua/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /ua/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-uk:
+    <<: *default
     include:
       - '/uk/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /uk/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-vn_en:
+    <<: *default
     include:
       - '/vn_en/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /vn_en/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
   customer-success-stories-vn_vi:
+    <<: *default
     include:
       - '/vn_vi/customer-success-stories/**'
-    exclude:
-      - '**/fragments/**'
     target: /vn_vi/customer-success-stories/query-index.xlsx
-    properties:
-      title:
-        select: head > meta[property="og:title"]
-        value: |
-          attribute(el, 'content')
-      date:
-        select: head > meta[name="publishdate"]
-        value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
-      image:
-        select: head > meta[property="og:image"]
-        value: |
-          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      description:
-        select: head > meta[name="description"]
-        value: |
-          attribute(el, 'content')
-      topics:
-        select: head > meta[name="keywords"]
-        value: |
-          attribute(el, 'content')
-      caas-tags:
-        select: main > div > div.card-metadata > div
-        value: |
-          match(el, '[Tt]ags\n(.*)')
-      lastModified:
-        select: none
-        value: |
-          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
-      breadcrumbsHome:
-        select: .breadcrumbs ul li:first-child a
-        value: |
-          attribute(el, 'href')
+  customer-success-stories-videos:
+    <<: *default
+    include:
+      - '**/fragments/customer-success-stories/featured-videos/**'
+    exclude:
+    target: /fragments/customer-success-stories/featured-videos/query-index.xlsx
