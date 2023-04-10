@@ -7,7 +7,7 @@ indices:
     exclude:
       - '**/fragments/**'
     target: /customer-success-stories/query-index.xlsx
-    properties:
+    properties: &defaultProps
       title:
         select: head > meta[property="og:title"]
         value: |
@@ -441,8 +441,8 @@ indices:
       - '/vn_vi/customer-success-stories/**'
     target: /vn_vi/customer-success-stories/query-index.xlsx
   customer-success-stories-videos:
-    <<: *default
     include:
       - '**/fragments/customer-success-stories/featured-videos/**'
-    exclude:
     target: /fragments/customer-success-stories/featured-videos/query-index.xlsx
+    properties:
+      <<: *defaultProps
