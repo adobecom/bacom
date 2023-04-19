@@ -14,6 +14,7 @@ import { setLibs } from './utils.js';
 
 const LIBS = '/libs';
 const STYLES = '/styles/styles.css';
+const BLOCK_STYLES = ['faas'];
 const CONFIG = {
   imsClientId: 'bacom',
   local: {
@@ -159,6 +160,17 @@ const miloLibs = setLibs(LIBS);
   });
 }());
 
+const loadBlockStyles = (selector = 'body > main') => {
+  BLOCK_STYLES.forEach((style) => {
+    if (document.querySelector(`${selector} div.${style}`)) {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'stylesheet');
+      link.setAttribute('href', `/styles/${style}.css`);
+      document.head.appendChild(link);
+    }
+  });
+};
+
 (async function loadPage() {
   const { loadArea, loadDelayed, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
   const metaCta = document.querySelector('meta[name="chat-cta"]');
@@ -173,5 +185,6 @@ const miloLibs = setLibs(LIBS);
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom' });
   await loadArea();
+  loadBlockStyles();
   loadDelayed();
 }());
