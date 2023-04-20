@@ -182,3 +182,58 @@
     padding: 56px 40px;
   }
 }
+
+/** Non next styles above -- remove line later **/
+
+.faas.next {
+  min-width: 600px;
+}
+
+.faas-form.next {
+  flex-direction: column;
+}
+
+.faas-form.next  div.textfield.row.FaaS-1 { /* stylelint-disable-line */
+  display: flex;
+  flex-flow: nowrap;
+  flex-direction: row;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: left;
+}
+
+.faas-form.next .FaaS-1 label { /* stylelint-disable-line */
+  min-width: unset;
+  flex-shrink: 1;
+  width: fit-content;
+}
+
+.faas.next .faas-form.next .textfield.FaaS-1 input { /* stylelint-disable-line */
+  min-width: unset;
+  max-width: unset;
+}
+
+.faas.next .faas-form .row.submit input + div::after {
+  content: unset;
+}
+
+.faas.next .faas-form .row.submit.next {
+  align-self: flex-start;
+}
+
+.faas.next .faas-form .row.submit.next input {
+  color: #FFF;
+  background: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  padding: 7px 18px 8px;
+  line-height: 20px;
+  border-radius: 20px;
+  font-size: 17px;
+  min-height: 21px;
+  margin: 0;
+}
+
+.faas.next .faas-form .row.submit.next input:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
