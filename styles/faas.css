@@ -1,0 +1,184 @@
+.faas-form-79.faas.column2,
+.faas-form-63.faas.column2,
+.faas-form-21.faas.column2 {
+  padding: 56px 30px;
+  background-color: #FAFAFA;
+  box-shadow: none;
+}
+
+.faas-form-79.faas.column2 .faas-title p,
+.faas-form-63.faas.column2 .faas-title p,
+.faas-form-21.faas.column2 .faas-title p {
+  font-size: var(--type-body-s-size);
+  line-height: var(--type-body-s-lh);
+  margin: 0 0 32px;
+}
+
+.faas-form-79.faas.column2 .faas-form,
+.faas-form-63.faas.column2 .faas-form,
+.faas-form-21.faas.column2 .faas-form {
+  justify-content: space-between;
+}
+
+.faas-form-79.faas.column2 .faas-form .row:not(.submit):not(.legal),
+.faas-form-63.faas.column2 .faas-form .row:not(.submit):not(.legal),
+.faas-form-21.faas.column2 .faas-form .row:not(.submit):not(.legal) {
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.faas-form-79.faas.column2 .faas-form .row:not(.submit):not(.legal):not(.checkbox),
+.faas-form-63.faas.column2 .faas-form .row:not(.submit):not(.legal):not(.checkbox),
+.faas-form-21.faas.column2 .faas-form .row:not(.submit):not(.legal):not(.checkbox) {
+  width: 100%;
+}
+
+.faas-form-79.faas.column2 .faas-form label,
+.faas-form-63.faas.column2 .faas-form label,
+.faas-form-21.faas.column2 .faas-form label {
+  line-height: 20px;
+}
+
+.faas-form-79.faas.column2 .faas-form input,
+.faas-form-79.faas.column2 .faas-form select,
+.faas-form-79.faas.column2 .faas-form textarea,
+.faas-form-63.faas.column2 .faas-form input,
+.faas-form-63.faas.column2 .faas-form select,
+.faas-form-63.faas.column2 .faas-form textarea,
+.faas-form-21.faas.column2 .faas-form input,
+.faas-form-21.faas.column2 .faas-form select,
+.faas-form-21.faas.column2 .faas-form textarea {
+  font-family: var(--body-font-family);
+  font-size: var(--type-body-s-size);
+  line-height: 20px;
+}
+
+.faas-form-79.faas.column2 .faas-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),
+.faas-form-79.faas.column2 .faas-form select,
+.faas-form-79.faas.column2 .faas-form textarea,
+.faas-form-63.faas.column2 .faas-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),
+.faas-form-63.faas.column2 .faas-form select,
+.faas-form-63.faas.column2 .faas-form textarea,
+.faas-form-21.faas.column2 .faas-form input:not([type=checkbox]):not([type=radio]):not([type=submit]),
+.faas-form-21.faas.column2 .faas-form select,
+.faas-form-21.faas.column2 .faas-form textarea {
+  border: 1px solid #6E6E6E;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: none;
+  padding: 9px 16px;
+}
+
+.faas-form-79.faas.column2 .faas-form select,
+.faas-form-63.faas.column2 .faas-form select,
+.faas-form-21.faas.column2 .faas-form select {
+  height: max-content;
+}
+
+.faas-form-79.faas.column2 .faas-form input::placeholder,
+.faas-form-63.faas.column2 .faas-form input::placeholder,
+.faas-form-21.faas.column2 .faas-form input::placeholder {
+  visibility: hidden;
+}
+
+.faas-form-79.faas.column2 .faas-form .row.checkbox,
+.faas-form-63.faas.column2 .faas-form .row.checkbox,
+.faas-form-21.faas.column2 .faas-form .row.checkbox {
+  display: inline-block;
+}
+
+.faas-form-79.faas.column2 .faas-form input[type="checkbox"],
+.faas-form-63.faas.column2 .faas-form input[type="checkbox"],
+.faas-form-21.faas.column2 .faas-form input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.faas-form-79.faas.column2 .faas-form input[type="checkbox"] + label,
+.faas-form-63.faas.column2 .faas-form input[type="checkbox"] + label,
+.faas-form-21.faas.column2 .faas-form input[type="checkbox"] + label {
+  margin-bottom: 0;
+}
+
+.faas-form-79.faas.column2 .faas-form .row.legal,
+.faas-form-63.faas.column2 .faas-form .row.legal,
+.faas-form-21.faas.column2 .faas-form .row.legal {
+  margin-top: 8px;
+  border: 0;
+  padding: 0;
+}
+
+.faas-form-79.faas.column2 .faas-form .legalnotice,
+.faas-form-63.faas.column2 .faas-form .legalnotice,
+.faas-form-21.faas.column2 .faas-form .legalnotice {
+  font-size: 14px;
+  line-height: 20px;
+  font-style: normal;
+  margin: 0;
+}
+
+.faas-form-79.faas.column2 .faas-form .legalnotice a,
+.faas-form-63.faas.column2 .faas-form .legalnotice a,
+.faas-form-21.faas.column2 .faas-form .legalnotice a {
+  font-weight: bold;
+}
+
+.faas-form-79.faas.column2 .faas-form .row.submit,
+.faas-form-63.faas.column2 .faas-form .row.submit,
+.faas-form-21.faas.column2 .faas-form .row.submit {
+  padding: 0;
+  margin-top: 32px;
+}
+
+.faas-form-79.faas.column2 .faas-form .row.submit input[type="submit"],
+.faas-form-63.faas.column2 .faas-form .row.submit input[type="submit"],
+.faas-form-21.faas.column2 .faas-form .row.submit input[type="submit"] {
+  background-color: #1373E5;
+  min-width: 114px;
+}
+
+.faas-form-79.faas.column2 .faas-form > div:not(.row),
+.faas-form-63.faas.column2 .faas-form > div:not(.row),
+.faas-form-21.faas.column2 .faas-form > div:not(.row) {
+  display: contents;
+}
+
+@media screen and (min-width: 600px) {
+  .faas-form-79.faas.column2,
+  .faas-form-63.faas.column2,
+  .faas-form-21.faas.column2 {
+    padding: 56px;
+  }
+
+  .faas-form-79.faas.column2 .faas-form .row:not(.submit):not(.legal),
+  .faas-form-63.faas.column2 .faas-form .row:not(.submit):not(.legal),
+  .faas-form-21.faas.column2 .faas-form .row:not(.submit):not(.legal) {
+    margin-bottom: 16px;
+  }
+
+  .faas-form-79.faas.column2 .faas-form .row:not(.submit):not(.legal):not(.checkbox),
+  .faas-form-63.faas.column2 .faas-form .row:not(.submit):not(.legal):not(.checkbox),
+  .faas-form-21.faas.column2 .faas-form .row:not(.submit):not(.legal):not(.checkbox) {
+    width: 47.7%;
+  }
+
+  .faas-form-79.faas.column2 .faas-form .row.legal,
+  .faas-form-63.faas.column2 .faas-form .row.legal,
+  .faas-form-21.faas.column2 .faas-form .row.legal {
+    margin-top: 16px;
+  }
+
+  .faas-form-79.faas.column2 .faas-form .legalnotice a,
+  .faas-form-63.faas.column2 .faas-form .legalnotice a,
+  .faas-form-21.faas.column2 .faas-form .legalnotice a {
+    font-weight: normal;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .faas-form-79.faas.column2,
+  .faas-form-63.faas.column2,
+  .faas-form-21.faas.column2 {
+    padding: 56px 40px;
+  }
+}
