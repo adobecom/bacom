@@ -1,0 +1,67 @@
+.faas.faas-form-115 {
+  padding: 40px 30px;
+}
+
+.faas.faas-form-115 .faas-title {
+  font-size: 16px;
+}
+
+.faas.faas-form-115 .row {
+  align-content: flex-end;
+  align-items: baseline;
+  padding: 8px 0;
+}
+
+.faas.faas-form-115 label {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: initial;
+}
+
+.faas.faas-form-115-form input {
+  font-size: 16px;
+  line-height: 28px;
+  padding: 6px 16px;
+  border-radius: 5px;
+}
+
+.faas.faas-form-115-form input:not([type=checkbox]):not([type=radio]):not([type=submit]), .faas-form select, .faas-form textarea {
+  font-size: 16px;
+  padding: 6px 16px;
+  height: 40px;
+  line-height: 28px;
+  border-radius: 5px;
+}
+
+.faas.faas-form-115 input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=reset]) {
+  min-width: initial;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 28px;
+  padding: 6px 16px;
+}
+
+.faas.faas-form-115 select {
+  min-width: initial;
+}
+
+.faas.faas-form-115 .legal {
+  border-top: none;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .faas.faas-form-115 {
+    padding: 56px 80px;
+  }
+
+  .faas.faas-form-115 .row {
+    padding: 12px 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .faas.faas-form-115 {
+    padding: 56px 72px;
+  }
+}
