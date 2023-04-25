@@ -186,7 +186,8 @@
 /** Non next styles above -- remove line later **/
 
 .faas.next {
-  min-width: 600px;
+  /* min-width: 600px; */
+  padding: 0;
 }
 
 .faas-form.next {
@@ -200,17 +201,20 @@
   width: 100%;
   flex-grow: 1;
   justify-content: left;
+  padding: 0;
 }
 
 .faas-form.next .FaaS-1 label { /* stylelint-disable-line */
   min-width: unset;
   flex-shrink: 1;
   width: fit-content;
+  padding-right: 20px;
 }
 
 .faas.next .faas-form.next .textfield.FaaS-1 input { /* stylelint-disable-line */
   min-width: unset;
   max-width: unset;
+  flex-grow: 2;
 }
 
 .faas.next .faas-form .row.submit input + div::after {
