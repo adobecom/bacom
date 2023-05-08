@@ -186,12 +186,20 @@
 /** Non next styles above -- remove line later **/
 
 .faas.next {
-  /* min-width: 600px; */
-  padding: 0;
+  box-shadow: none;
 }
 
-.faas-form.next {
-  flex-direction: column;
+.faas.next .faas-form {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.faas.next .faas-form-wrapper.next {
+  min-height: unset !important;
+}
+
+.faas.next .faas-title {
+  margin-bottom: 32px;
 }
 
 .faas-form.next  div.textfield.row.FaaS-1 { /* stylelint-disable-line */
@@ -201,7 +209,9 @@
   width: 100%;
   flex-grow: 1;
   justify-content: left;
+  align-items: center;
   padding: 0;
+  margin-bottom: 32px;
 }
 
 .faas-form.next .FaaS-1 label { /* stylelint-disable-line */
@@ -209,6 +219,7 @@
   flex-shrink: 1;
   width: fit-content;
   padding-right: 20px;
+  margin-bottom: 0;
 }
 
 .faas.next .faas-form.next .textfield.FaaS-1 input { /* stylelint-disable-line */
@@ -223,6 +234,7 @@
 
 .faas.next .faas-form .row.submit.next {
   align-self: flex-start;
+  padding: 0;
 }
 
 .faas.next .faas-form .row.submit.next input {
@@ -240,4 +252,31 @@
 .faas.next .faas-form .row.submit.next input:hover {
   background: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
+}
+
+.mobile-max-width.next {
+  margin-left: calc(var(--grid-margins-width) * -1 / 2);
+  margin-right: calc(var(--grid-margins-width) * -1 / 2);
+}
+
+@media screen and (min-width: 600px) {
+  .section.two-up.xxl-spacing.next {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-max-width.next {
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .faas.next {
+    padding: 56px 72px;
+    min-width: 600px;
+  }
+
+  .section.two-up.xxl-spacing.next {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
