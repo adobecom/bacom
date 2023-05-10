@@ -2,9 +2,9 @@
   max-width: unset;
 }
 
-.resource-form .columns .row {
-  display: flex;
-  flex-direction: column;
+.resource-form.section.two-up,
+.resource-form .columns > .row {
+  grid-template-columns: 1fr;
 }
 
 .faas.next {
@@ -17,7 +17,44 @@
   flex-direction: column;
 }
 
+.resource-form .columns.contained {
+  max-width: initial;
+}
+
+.resource-form .faas-form input,
+.resource-form .faas-form textarea,
+.resource-form .faas-form select {
+  font-family: var(--body-font-family);
+  font-size: var(--type-body-s-size);
+  padding: 6px 16px;
+  height: 40px;
+  line-height: 28px;
+  border-radius: 5px;
+}
+
+/* mobile only */
+@media (max-width: 600px) {
+  .resource-form .faas {
+    margin-left: calc(var(--grid-margins-width) * -1 / 2);
+    margin-right: calc(var(--grid-margins-width) * -1 / 2);
+  }
+}
+
+/* desktop up */
+@media screen and (min-width: 1200px) {
+  .resource-form.section.two-up,
+  .resource-form .columns > .row {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
 /** next styles above due to specificity, form specific styles below **/
+
+.faas.faas-form-115 {
+  padding: 40px 30px;
+  background-color: #FAFAFA;
+  box-shadow: none;
+}
 
 .faas-form-79.faas.column2,
 .faas-form-63.faas.column2,
@@ -27,12 +64,24 @@
   box-shadow: none;
 }
 
+.faas.faas-form-115 .faas-title {
+  font-size: var(--type-body-s-size);
+  line-height: var(--type-body-s-lh);
+  margin: 0 0 20px;
+}
+
 .faas-form-79.faas.column2 .faas-title p,
 .faas-form-63.faas.column2 .faas-title p,
 .faas-form-21.faas.column2 .faas-title p {
   font-size: var(--type-body-s-size);
   line-height: var(--type-body-s-lh);
   margin: 0 0 32px;
+}
+
+.faas.faas-form-115 .row {
+  align-content: flex-end;
+  align-items: baseline;
+  padding: 8px 0;
 }
 
 .faas-form-79.faas.column2 .faas-form,
@@ -54,6 +103,12 @@
   width: 100%;
 }
 
+.faas.faas-form-115 label {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: initial;
+}
+
 .faas-form-79.faas.column2 .faas-form label,
 .faas-form-63.faas.column2 .faas-form label,
 .faas-form-21.faas.column2 .faas-form label {
@@ -72,6 +127,13 @@
   font-family: var(--body-font-family);
   font-size: var(--type-body-s-size);
   line-height: 20px;
+}
+
+.faas.faas-form-115 input:not([type=radio]):not([type=checkbox]):not([type=submit]) {
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 28px;
+  padding: 6px 16px;
 }
 
 .faas.next .faas-form .row.submit.next input {
@@ -134,6 +196,11 @@
   margin-bottom: 0;
 }
 
+.faas.faas-form-115 .legal {
+  margin-top: 0;
+  border: 0;
+}
+
 .faas-form-79.faas.column2 .faas-form .row.legal,
 .faas-form-63.faas.column2 .faas-form .row.legal,
 .faas-form-21.faas.column2 .faas-form .row.legal {
@@ -155,6 +222,10 @@
 .faas-form-63.faas.column2 .faas-form .legalnotice a,
 .faas-form-21.faas.column2 .faas-form .legalnotice a {
   font-weight: bold;
+}
+
+.faas.faas-form-115 .row.submit {
+  padding: 20px 0 0;
 }
 
 .faas-form-79.faas.column2 .faas-form .row.submit,
@@ -261,6 +332,7 @@
   margin-right: calc(var(--grid-margins-width) * -1 / 2);
 }
 
+/* tablet up */
 @media screen and (min-width: 600px) {
   .section.two-up.xxl-spacing.next {
     grid-template-columns: 1fr;
@@ -277,11 +349,28 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  .faas.faas-form-115 label,
+  .faas.faas-form-115 input:not([type=checkbox]):not([type=radio]):not([type=submit]),
+  .faas.faas-form-115 select,
+  .faas.faas-form-115 textarea {
+    width: 50%;
+    min-width: initial;
+  }
+
   .faas-form.next .FaaS-1 label { /* stylelint-disable-line */
     margin-bottom: 0;
   }
+
+  .faas.faas-form-115 {
+    padding: 56px 80px;
+  }
+
+  .faas.faas-form-115 .row {
+    padding: 12px 0;
+  }
 }
 
+/* tablet large up */
 @media screen and (min-width: 900px) {
   .faas-form-79.faas.column2,
   .faas-form-63.faas.column2,
@@ -290,11 +379,9 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .resource-form .columns .row {
-    flex-direction: row;
-  }
-  
+
+/* desktop up */
+@media screen and (min-width: 1200px) {  
   .faas.next {
     padding: 56px 72px;
     min-width: 600px;
@@ -302,5 +389,9 @@
 
   .section.two-up.xxl-spacing.next {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .faas.faas-form-115 {
+    padding: 56px 72px;
   }
 }
