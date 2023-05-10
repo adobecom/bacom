@@ -2,9 +2,21 @@
   max-width: unset;
 }
 
+.resource-form.section.two-up {
+  display: flex;
+}
+
 .resource-form .columns .row {
   display: flex;
   flex-direction: column;
+}
+
+.resource-form .columns .row .col-1 {
+  flex-shrink: 2;
+}
+
+.resource-form .columns .row .col-2 {
+  min-width: 573px;
 }
 
 .faas.next {
