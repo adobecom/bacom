@@ -13,8 +13,7 @@
 import { setLibs } from './utils.js';
 
 const LIBS = '/libs';
-const STYLES = '/styles/styles.css';
-const BLOCK_STYLES = ['faas'];
+const STYLES = ['/styles/styles.css', '/styles/faas.css'];
 const CONFIG = {
   imsClientId: 'bacom',
   local: {
@@ -151,7 +150,9 @@ const miloLibs = setLibs(LIBS);
 
 (function loadStyles() {
   const paths = [`${miloLibs}/styles/styles.css`];
-  if (STYLES) { paths.push(STYLES); }
+  if (STYLES) {
+    paths.push(...(Array.isArray(STYLES) ? STYLES : [STYLES]));
+  }
   paths.forEach((path) => {
     const link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
@@ -159,17 +160,6 @@ const miloLibs = setLibs(LIBS);
     document.head.appendChild(link);
   });
 }());
-
-const loadBlockStyles = (selector = 'body > main') => {
-  BLOCK_STYLES.forEach((style) => {
-    if (document.querySelector(`${selector} div.${style}`)) {
-      const link = document.createElement('link');
-      link.setAttribute('rel', 'stylesheet');
-      link.setAttribute('href', `/styles/${style}.css`);
-      document.head.appendChild(link);
-    }
-  });
-};
 
 (async function loadPage() {
   const { loadArea, loadDelayed, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
@@ -185,6 +175,5 @@ const loadBlockStyles = (selector = 'body > main') => {
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom' });
   await loadArea();
-  loadBlockStyles();
   loadDelayed();
 }());
