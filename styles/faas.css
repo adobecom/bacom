@@ -167,7 +167,6 @@
   width: 100% !important;
 }
 
-/* Legal */
 .resource-form .faas.column1 .faas-form .row.legal {
   margin-top: 32px;
   border: 0;
@@ -190,15 +189,9 @@
   font-weight: bold;
 }
 
-/* Submit / Next */
-.resource-form .faas.column1 .faas-form .row.submit {
+.resource-form .faas .faas-form .row.submit {
   padding: 0;
-  margin: 32px 0 0 ;
-}
-
-.resource-form .faas.column2 .faas-form .row.submit {
-  padding: 0;
-  margin-top: 32px;
+  margin: 32px 0 0;
 }
 
 .resource-form .faas.column2 .faas-form .row.submit input[type="submit"] {
