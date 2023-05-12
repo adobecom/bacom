@@ -446,3 +446,15 @@ indices:
     target: /fragments/customer-success-stories/featured-videos/query-index.xlsx
     properties:
       <<: *defaultProps
+  resources-us:
+    include:
+      - '/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /resources/query-index.xlsx
+    properties:
+      <<: *defaultProps
+      faas-url:
+        select: .columns div div a, .text.contained div div a
+        value: |
+          attribute(el, 'href')
