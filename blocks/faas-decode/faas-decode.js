@@ -47,10 +47,9 @@ export default async function init(el) {
     const path = createTag('td', null, pathLink);
     const title = createTag('td', null, page.title);
     tr.append(path, title);
+
     const config = page['faas-url'].split('#')[1];
     const faasData = config ? parseEncodedConfig(config) : null;
-
-    console.log(faasData);
 
     if (faasData) {
       const template = createTag('td', null, faasData.id);
