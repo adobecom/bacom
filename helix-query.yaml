@@ -455,6 +455,6 @@ indices:
     properties:
       <<: *defaultProps
       faas-url:
-        select: .columns div div a, .text.contained div div a
+        select: .columns div div a, .text div div a
         value: |
           attribute(el, 'href')
