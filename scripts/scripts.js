@@ -132,11 +132,18 @@ const CONFIG = {
   ],
 };
 
+const eagerLoad = (img) => {
+  img?.setAttribute('loading', 'eager');
+  img?.setAttribute('fetchpriority', 'high');
+};
+
 // Default to loading the first image as eager.
 (async function loadLCPImage() {
-  const lcpImg = document.querySelector('img');
-  if (lcpImg) {
-    lcpImg.setAttribute('loading', 'eager');
+  const firstDiv = document.querySelector('body > main > div:nth-child(1) > div');
+  if (firstDiv?.classList.contains('marquee')) {
+    firstDiv.querySelectorAll('img').forEach(eagerLoad);
+  } else {
+    eagerLoad(document.querySelector('img'));
   }
 }());
 
