@@ -162,7 +162,7 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, loadDelayed, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
     const isMetaCtaDisabled = metaCta?.content === 'off';
@@ -175,5 +175,4 @@ const miloLibs = setLibs(LIBS);
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom' });
   await loadArea();
-  loadDelayed();
 }());
