@@ -139,7 +139,7 @@ const eagerLoad = (img) => {
 
 // Default to loading the first image as eager.
 (async function loadLCPImage() {
-  const firstDiv = document.querySelector('body > main > div:nth-child(1) > div');
+  const firstDiv = document.querySelector('body > main > div:first-child > div');
   if (firstDiv?.classList.contains('marquee')) {
     firstDiv.querySelectorAll('img').forEach(eagerLoad);
   } else {
