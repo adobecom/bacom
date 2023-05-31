@@ -132,11 +132,17 @@ const CONFIG = {
   ],
 };
 
-// Default to loading the first image as eager.
+const eagerLoad = (img) => {
+  img?.setAttribute('loading', 'eager');
+  img?.setAttribute('fetchpriority', 'high');
+};
+
 (async function loadLCPImage() {
-  const lcpImg = document.querySelector('img');
-  if (lcpImg) {
-    lcpImg.setAttribute('loading', 'eager');
+  const marquee = document.querySelector('.marquee');
+  if (marquee) {
+    marquee.querySelectorAll('img').forEach(eagerLoad);
+  } else {
+    eagerLoad(document.querySelector('img'));
   }
 }());
 
