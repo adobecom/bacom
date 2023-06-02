@@ -1,6 +1,742 @@
 version: 1
 
 indices:
+  sitemap-us:
+    include:
+      - '/customer-success-stories/**'
+      - '/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /query-index.xlsx
+    properties: &minProps
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      lastModified:
+        select: none
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+  sitemap-ae_ar:
+    include:
+      - '/ae_ar/customer-success-stories/**'
+      - '/ae_ar/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ae_ar/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ae_en:
+    include:
+      - '/ae_en/customer-success-stories/**'
+      - '/ae_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ae_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-africa:
+    include:
+      - '/africa/customer-success-stories/**'
+      - '/africa/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /africa/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ar:
+    include:
+      - '/ar/customer-success-stories/**'
+      - '/ar/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ar/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-at:
+    include:
+      - '/at/customer-success-stories/**'
+      - '/at/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /at/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-au:
+    include:
+      - '/au/customer-success-stories/**'
+      - '/au/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /au/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-be_en:
+    include:
+      - '/be_en/customer-success-stories/**'
+      - '/be_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /be_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-be_fr:
+    include:
+      - '/be_fr/customer-success-stories/**'
+      - '/be_fr/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /be_fr/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-be_nl:
+    include:
+      - '/be_nl/customer-success-stories/**'
+      - '/be_nl/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /be_nl/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-bg:
+    include:
+      - '/bg/customer-success-stories/**'
+      - '/bg/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /bg/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-br:
+    include:
+      - '/br/customer-success-stories/**'
+      - '/br/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /br/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ca:
+    include:
+      - '/ca/customer-success-stories/**'
+      - '/ca/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ca/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ca_fr:
+    include:
+      - '/ca_fr/customer-success-stories/**'
+      - '/ca_fr/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ca_fr/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ch_de:
+    include:
+      - '/ch_de/customer-success-stories/**'
+      - '/ch_de/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ch_de/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ch_fr:
+    include:
+      - '/ch_fr/customer-success-stories/**'
+      - '/ch_fr/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ch_fr/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ch_it:
+    include:
+      - '/ch_it/customer-success-stories/**'
+      - '/ch_it/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ch_it/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-cis_en:
+    include:
+      - '/cis_en/customer-success-stories/**'
+      - '/cis_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cis_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-cis_ru:
+    include:
+      - '/cis_ru/customer-success-stories/**'
+      - '/cis_ru/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cis_ru/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-cl:
+    include:
+      - '/cl/customer-success-stories/**'
+      - '/cl/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cl/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-cl:
+    include:
+      - '/cl/customer-success-stories/**'
+      - '/cl/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cl/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-cn:
+    include:
+      - '/cn/customer-success-stories/**'
+      - '/cn/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cn/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-co:
+    include:
+      - '/co/customer-success-stories/**'
+      - '/co/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /co/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-cy_en:
+    include:
+      - '/cy_en/customer-success-stories/**'
+      - '/cy_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cy_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-cz:
+    include:
+      - '/cz/customer-success-stories/**'
+      - '/cz/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cz/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-de:
+    include:
+      - '/de/customer-success-stories/**'
+      - '/de/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /de/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-dk:
+    include:
+      - '/dk/customer-success-stories/**'
+      - '/dk/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /dk/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ee:
+    include:
+      - '/ee/customer-success-stories/**'
+      - '/ee/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ee/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-es:
+    include:
+      - '/es/customer-success-stories/**'
+      - '/es/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /es/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-fi:
+    include:
+      - '/fi/customer-success-stories/**'
+      - '/fi/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /fi/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-fr:
+    include:
+      - '/fr/customer-success-stories/**'
+      - '/fr/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /fr/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-gr_en:
+    include:
+      - '/gr_en/customer-success-stories/**'
+      - '/gr_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /gr_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-hk_en:
+    include:
+      - '/hk_en/customer-success-stories/**'
+      - '/hk_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /hk_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-hk_zh:
+    include:
+      - '/hk_zh/customer-success-stories/**'
+      - '/hk_zh/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /hk_zh/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-hu:
+    include:
+      - '/hu/customer-success-stories/**'
+      - '/hu/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /hu/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-id_en:
+    include:
+      - '/id_en/customer-success-stories/**'
+      - '/id_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /id_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-id_id:
+    include:
+      - '/id_id/customer-success-stories/**'
+      - '/id_id/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /id_id/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ie:
+    include:
+      - '/ie/customer-success-stories/**'
+      - '/ie/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ie/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-il_en:
+    include:
+      - '/il_en/customer-success-stories/**'
+      - '/il_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /il_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-il_he:
+    include:
+      - '/il_he/customer-success-stories/**'
+      - '/il_he/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /il_he/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-in:
+    include:
+      - '/in/customer-success-stories/**'
+      - '/in/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /in/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-in_hi:
+    include:
+      - '/in_hi/customer-success-stories/**'
+      - '/in_hi/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /in_hi/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-it:
+    include:
+      - '/it/customer-success-stories/**'
+      - '/it/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /it/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-jp:
+    include:
+      - '/jp/customer-success-stories/**'
+      - '/jp/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /jp/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-kr:
+    include:
+      - '/kr/customer-success-stories/**'
+      - '/kr/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /kr/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-la:
+    include:
+      - '/la/customer-success-stories/**'
+      - '/la/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /la/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-lt:
+    include:
+      - '/lt/customer-success-stories/**'
+      - '/lt/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lt/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-lu_de:
+    include:
+      - '/lu_de/customer-success-stories/**'
+      - '/lu_de/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lu_de/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-lu_en:
+    include:
+      - '/lu_en/customer-success-stories/**'
+      - '/lu_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lu_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-lu_fr:
+    include:
+      - '/lu_fr/customer-success-stories/**'
+      - '/lu_fr/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lu_fr/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-lv:
+    include:
+      - '/lv/customer-success-stories/**'
+      - '/lv/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lv/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-mena_ar:
+    include:
+      - '/mena_ar/customer-success-stories/**'
+      - '/mena_ar/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /mena_ar/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-mena_en:
+    include:
+      - '/mena_en/customer-success-stories/**'
+      - '/mena_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /mena_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-mt:
+    include:
+      - '/mt/customer-success-stories/**'
+      - '/mt/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /mt/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-mx:
+    include:
+      - '/mx/customer-success-stories/**'
+      - '/mx/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /mx/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-my_en:
+    include:
+      - '/my_en/customer-success-stories/**'
+      - '/my_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /my_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-my_ms:
+    include:
+      - '/my_ms/customer-success-stories/**'
+      - '/my_ms/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /my_ms/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-nl:
+    include:
+      - '/nl/customer-success-stories/**'
+      - '/nl/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /nl/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-no:
+    include:
+      - '/no/customer-success-stories/**'
+      - '/no/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /no/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-nz:
+    include:
+      - '/nz/customer-success-stories/**'
+      - '/nz/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /nz/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-pe:
+    include:
+      - '/pe/customer-success-stories/**'
+      - '/pe/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /pe/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ph_en:
+    include:
+      - '/ph_en/customer-success-stories/**'
+      - '/ph_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ph_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ph_fil:
+    include:
+      - '/ph_fil/customer-success-stories/**'
+      - '/ph_fil/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ph_fil/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-pl:
+    include:
+      - '/pl/customer-success-stories/**'
+      - '/pl/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /pl/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-pt:
+    include:
+      - '/pt/customer-success-stories/**'
+      - '/pt/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /pt/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ro:
+    include:
+      - '/ro/customer-success-stories/**'
+      - '/ro/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ro/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ru:
+    include:
+      - '/ru/customer-success-stories/**'
+      - '/ru/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ru/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-sa_ar:
+    include:
+      - '/sa_ar/customer-success-stories/**'
+      - '/sa_ar/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /sa_ar/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-sa_en:
+    include:
+      - '/sa_en/customer-success-stories/**'
+      - '/sa_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /sa_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-se:
+    include:
+      - '/se/customer-success-stories/**'
+      - '/se/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /se/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-sg:
+    include:
+      - '/sg/customer-success-stories/**'
+      - '/sg/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /sg/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-si:
+    include:
+      - '/si/customer-success-stories/**'
+      - '/si/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /si/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-sk:
+    include:
+      - '/sk/customer-success-stories/**'
+      - '/sk/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /sk/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-th_en:
+    include:
+      - '/th_en/customer-success-stories/**'
+      - '/th_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /th_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-th_th:
+    include:
+      - '/th_th/customer-success-stories/**'
+      - '/th_th/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /th_th/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-tr:
+    include:
+      - '/tr/customer-success-stories/**'
+      - '/tr/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /tr/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-tw:
+    include:
+      - '/tw/customer-success-stories/**'
+      - '/tw/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /tw/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-ua:
+    include:
+      - '/ua/customer-success-stories/**'
+      - '/ua/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ua/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-uk:
+    include:
+      - '/uk/customer-success-stories/**'
+      - '/uk/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /uk/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-vn_en:
+    include:
+      - '/vn_en/customer-success-stories/**'
+      - '/vn_en/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /vn_en/query-index.xlsx
+    properties:
+      <<: *minProps
+  sitemap-vn_vi:
+    include:
+      - '/vn_vi/customer-success-stories/**'
+      - '/vn_vi/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /vn_vi/query-index.xlsx
+    properties:
+      <<: *minProps
   customer-success-stories-us: &default
     include:
       - '/customer-success-stories/**'
