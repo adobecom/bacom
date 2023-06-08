@@ -96,32 +96,6 @@ sitemaps:
         alternate: /ch_it/{path}.html
         destination: /ch_it/sitemap.xml
         hreflang: it-CH
-      cis_en:
-        source: /cis_en/query-index.json
-        alternate: /cis_en/{path}.html
-        destination: /cis_en/sitemap.xml
-        hreflang:
-          - en-AM
-          - en-AZ
-          - en-BY
-          - en-KG
-          - en-KZ
-          - en-MD
-          - en-TJ
-          - en-UZ
-      cis_ru:
-        source: /cis_ru/query-index.json
-        alternate: /cis_ru/{path}.html
-        destination: /cis_ru/sitemap.xml
-        hreflang:
-          - ru-AM
-          - ru-AZ
-          - ru-BY
-          - ru-KG
-          - ru-KZ
-          - ru-MD
-          - ru-TJ
-          - ru-UZ
       cl:
         source: /cl/query-index.json
         alternate: /cl/{path}.html
