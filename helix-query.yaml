@@ -161,24 +161,6 @@ indices:
     target: /ch_it/query-index.xlsx
     properties:
       <<: *minProps
-  sitemap-cis_en:
-    include:
-      - '/cis_en/customer-success-stories/**'
-      - '/cis_en/resources/**'
-    exclude:
-      - '**/fragments/**'
-    target: /cis_en/query-index.xlsx
-    properties:
-      <<: *minProps
-  sitemap-cis_ru:
-    include:
-      - '/cis_ru/customer-success-stories/**'
-      - '/cis_ru/resources/**'
-    exclude:
-      - '**/fragments/**'
-    target: /cis_ru/query-index.xlsx
-    properties:
-      <<: *minProps
   sitemap-cl:
     include:
       - '/cl/customer-success-stories/**'
@@ -856,16 +838,6 @@ indices:
     include:
       - '/ch_it/customer-success-stories/**'
     target: /ch_it/customer-success-stories/query-index.xlsx
-  customer-success-stories-cis_en:
-    <<: *default
-    include:
-      - '/cis_en/customer-success-stories/**'
-    target: /cis_en/customer-success-stories/query-index.xlsx
-  customer-success-stories-cis_ru:
-    <<: *default
-    include:
-      - '/cis_ru/customer-success-stories/**'
-    target: /cis_ru/customer-success-stories/query-index.xlsx
   customer-success-stories-cl:
     <<: *default
     include:
