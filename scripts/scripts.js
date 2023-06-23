@@ -42,7 +42,7 @@ const CONFIG = {
     ca_fr: { ietf: 'fr-CA', tk: 'vrk5vyv.css' },
     cl: { ietf: 'es-CL', tk: 'oln4yqj.css' },
     co: { ietf: 'es-CO', tk: 'oln4yqj.css' },
-    la: { ietf: 'es-LA', tk: 'oln4yqj.css' },
+    la: { ietf: 'es-419', tk: 'oln4yqj.css' },
     mx: { ietf: 'es-MX', tk: 'oln4yqj.css' },
     pe: { ietf: 'es-PE', tk: 'oln4yqj.css' },
     '': { ietf: 'en-US', tk: 'hah7vzn.css' },
