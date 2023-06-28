@@ -5,6 +5,8 @@ indices:
     include:
       - '/customer-success-stories/**'
       - '/resources/**'
+      - '/why-adobe/**'
+      - '/support/**'
     exclude:
       - '**/fragments/**'
     target: /query-index.xlsx
