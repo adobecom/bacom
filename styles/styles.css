@@ -62,3 +62,8 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
     top: 10px;
   }
 }
+
+ /* CaaS Height Styles  */
+.caas-spacing-m {
+  min-height: 500px;
+}
