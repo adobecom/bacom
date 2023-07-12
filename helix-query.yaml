@@ -19,6 +19,10 @@ indices:
         select: none
         value: |
           parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+      robots:
+        select: head > meta[name="robots"]
+        value: |
+          attribute(el, 'content')
   sitemap-ae_ar:
     include:
       - '/ae_ar/customer-success-stories/**'
