@@ -1,0 +1,14 @@
+# BACOM CODEOWNERS
+# When you create a new block or tool please establish ownership in this file.
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+
+# BACOM Core
+* @brandon32 @JasonHowellSlavin @meganthecoder
+
+# BACOM Blocks - last matching pattern takes precedence
+/blocks/chat-cta @JasonHowellSlavin
+/blocks/comparison @brandon32
+/blocks/event-speakers @meganthecoder
+/blocks/faas-decode @meganthecoder
+/blocks/tree-view @meganthecoder
