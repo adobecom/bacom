@@ -1,0 +1,85 @@
+main .form {
+  background-color: white;
+  max-width: var(--grid-container-width);
+  margin: 0 auto;
+}
+
+main .section .content.hide {
+  display: none;
+}
+
+main .form input {
+  border: 1px solid rgb(193 193 195);
+  padding: 11px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 50rem;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+main .form p {
+  font-size: var(--type-heading-l-size);
+  line-height: var(--type-heading-l-lh);
+}
+
+main form .form-text-field-wrapper p {
+  font-size: 18px;
+  color: red;
+  margin: 0;
+}
+
+.form-container .default-content-wrapper.hide,
+main form.hide {
+  display: none;
+}
+
+main .form-container .trial-sign-up-message {
+  margin-left: 10%;
+}
+
+.form-container .default-content-wrapper p {
+  font-size: 18px;
+}
+
+main .form input:hover {
+  border-color: rgb(90 92 96);
+}
+
+main .form label.required::after {
+  content: '*';
+  color: red;
+  padding-left: 5px;
+}
+
+main .form .field-wrapper {
+  margin-bottom: 20px;
+}
+
+main .form .button {
+  font-size: 24px;
+}
+
+main .form .highlight {
+  border-color: red;
+}
+
+main .form .form-submit-wrapper .button.primary {
+  font-family: var(--body-font-family);
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: 2px solid transparent;
+  padding: 5px 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--background-color);
+  background-color: var(--link-color);
+  margin: 16px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 30px;
+}
