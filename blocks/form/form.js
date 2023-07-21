@@ -15,7 +15,6 @@ function constructPayload(form) {
  */
 async function submitForm(form) {
   const payload = constructPayload(form);
-
   const resp = await fetch(form.dataset.action, {
     method: 'POST',
     cache: 'no-cache',
@@ -93,15 +92,6 @@ function createInput(field) {
   return input;
 }
 
-function fill(form) {
-  const { action } = form.dataset;
-  if (action === '/tools/bot/register-form') {
-    const loc = new URL(window.location.href);
-    form.querySelector('#owner').value = loc.searchParams.get('owner') || '';
-    form.querySelector('#installationId').value = loc.searchParams.get('id') || '';
-  }
-}
-
 /**
  * We create the form and add the submit button and input text field to it.
  */
@@ -113,10 +103,8 @@ async function createForm(formURL) {
   // eslint-disable-next-line prefer-destructuring
   form.dataset.action = pathname.split('.json')[0];
   json.data.forEach((field) => {
-    field.Type = field.Type || 'text';
     const fieldWrapper = document.createElement('div');
-    const style = field.Style ? ` form-${field.Style}` : '';
-    const fieldId = `form-${field.Type}-wrapper${style}`;
+    const fieldId = `form-${field.Type}-wrapper`;
     fieldWrapper.className = fieldId;
     fieldWrapper.classList.add('field-wrapper');
     switch (field.Type) {
@@ -129,7 +117,6 @@ async function createForm(formURL) {
     form.append(fieldWrapper);
   });
 
-  fill(form);
   return form;
 }
 
