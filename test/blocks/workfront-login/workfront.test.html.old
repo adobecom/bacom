@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "https://main--milo--adobecom.hlx.live/libs/utils/utils.js": "./mocks/workfront-utils.js",
+          "https://main--milo--adobecom.hlx.live/libs/features/placeholders.js": "./mocks/workfront-utils.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="workfront-login proof"></div>
+  </body>
+  <script type="module">
+    import { runTests } from '@web/test-runner-mocha';
+    import { expect } from '@esm-bundle/chai';
+    // import { stub } from 'sinon';
+    import waitForElement from '../../helpers/waitForElement.js';
+    import { setLibs } from '../../../scripts/utils.js';
+    import { createTag, getConfig } from 'https://main--milo--adobecom.hlx.live/libs/utils/utils.js';
+    import { replaceKey } from 'https://main--milo--adobecom.hlx.live/libs/features/placeholders.js';
+    import init from '../../../blocks/workfront-login/workfront-login.js';
+
+    setLibs('libs');
+
+    runTests(() => {
+      describe('Workfront Login', () => {
+        describe('Subdomain', () => {
+          beforeEach(() => {
+            document.body.innerHTML = '<div class="workfront-login"></div>';
+          });
+
+          // it('shows error if submitted with no input', async () => {
+          //   await init();
+
+          //   const error = waitForElement(document.querySelector('.error-text'));
+          //   expect(error).to.exist;
+          // });
+        });
+
+        describe('Proof', () => {
+          // beforeEach(() => {
+          //   document.body.innerHTML = '<div class="workfront-login proof"></div>';
+          // });
+
+          it('has a secure form action', async () => {
+            await init(document.querySelector('.workfront-login'));
+
+            const action = document.querySelector('form').getAttribute('action');
+            expect(action.includes('https://')).to.be.true;
+          });
+
+          // it('has the correct http method', async () => {
+          //   await init(document.querySelector('.workfront-login'));
+
+          //   const method = document.querySelector('form').getAttribute('method');
+          //   expect(method.toLowerCase()).to.equal('post');
+          // });
+        });
+      });
+    });
+  </script>
+</html>
