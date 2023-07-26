@@ -127,8 +127,7 @@ const CONFIG = {
     { iframe: 'https://adobe.ideacloud.com' },
   ],
   htmlExclude: [
-    /business\.adobe\.com\/blog\/.*/,
-    /business\.adobe\.com\/(\w\w|(\w\w_\w\w))\/blog\/.*/,
+    /business\.adobe\.com\/(\w\w(_\w\w)?\/)?blog(\/.*)?/,
   ],
 };
 
