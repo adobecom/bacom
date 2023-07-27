@@ -4,9 +4,410 @@ sitemaps:
   website:
     origin: https://business.adobe.com
     lastmod: YYYY-MM-DD
+    default: en-US
     languages:
-      default:
-        source: /customer-success-stories/query-index.json
-        destination: /customer-success-stories/sitemap.xml
-        hreflang: en
+      us:
+        source: /query-index.json
         alternate: /{path}.html
+        destination: /sitemap.xml
+        hreflang: en-US
+      ae_ar:
+        source: /ae_ar/query-index.json
+        alternate: /ae_ar/{path}.html
+        destination: /ae_ar/sitemap.xml
+        hreflang: ar-AE
+      ae_en:
+        source: /ae_en/query-index.json
+        alternate: /ae_en/{path}.html
+        destination: /ae_en/sitemap.xml
+        hreflang: en-AE
+      africa:
+        source: /africa/query-index.json
+        alternate: /africa/{path}.html
+        destination: /africa/sitemap.xml
+        hreflang:
+          - en-BJ
+          - en-CM
+          - en-MA
+          - en-TG
+          - en-TN
+      ar:
+        source: /ar/query-index.json
+        alternate: /ar/{path}.html
+        destination: /ar/sitemap.xml
+        hreflang: es-AR
+      at:
+        source: /at/query-index.json
+        alternate: /at/{path}.html
+        destination: /at/sitemap.xml
+        hreflang: de-AT
+      au:
+        source: /au/query-index.json
+        alternate: /au/{path}.html
+        destination: /au/sitemap.xml
+        hreflang: en-AU
+      be_en:
+        source: /be_en/query-index.json
+        alternate: /be_en/{path}.html
+        destination: /be_en/sitemap.xml
+        hreflang: en-BE
+      be_fr:
+        source: /be_fr/query-index.json
+        alternate: /be_fr/{path}.html
+        destination: /be_fr/sitemap.xml
+        hreflang: fr-BE
+      be_nl:
+        source: /be_nl/query-index.json
+        alternate: /be_nl/{path}.html
+        destination: /be_nl/sitemap.xml
+        hreflang: nl-BE
+      bg:
+        source: /bg/query-index.json
+        alternate: /bg/{path}.html
+        destination: /bg/sitemap.xml
+        hreflang: bg-BG
+      br:
+        source: /br/query-index.json
+        alternate: /br/{path}.html
+        destination: /br/sitemap.xml
+        hreflang: pt-BR
+      ca:
+        source: /ca/query-index.json
+        alternate: /ca/{path}.html
+        destination: /ca/sitemap.xml
+        hreflang: en-CA
+      ca_fr:
+        source: /ca_fr/query-index.json
+        alternate: /ca_fr/{path}.html
+        destination: /ca_fr/sitemap.xml
+        hreflang: fr-CA
+      ch_de:
+        source: /ch_de/query-index.json
+        alternate: /ch_de/{path}.html
+        destination: /ch_de/sitemap.xml
+        hreflang: de-CH
+      ch_fr:
+        source: /ch_fr/query-index.json
+        alternate: /ch_fr/{path}.html
+        destination: /ch_fr/sitemap.xml
+        hreflang: fr-CH
+      ch_it:
+        source: /ch_it/query-index.json
+        alternate: /ch_it/{path}.html
+        destination: /ch_it/sitemap.xml
+        hreflang: it-CH
+      cl:
+        source: /cl/query-index.json
+        alternate: /cl/{path}.html
+        destination: /cl/sitemap.xml
+        hreflang: es-CL
+      cn:
+        source: /cn/query-index.json
+        alternate: /cn/{path}.html
+        destination: /cn/sitemap.xml
+        hreflang: zh-CN
+      co:
+        source: /co/query-index.json
+        alternate: /co/{path}.html
+        destination: /co/sitemap.xml
+        hreflang: es-CO
+      cy_en:
+        source: /cy_en/query-index.json
+        alternate: /cy_en/{path}.html
+        destination: /cy_en/sitemap.xml
+        hreflang: en-CY
+      cz:
+        source: /cz/query-index.json
+        alternate: /cz/{path}.html
+        destination: /cz/sitemap.xml
+        hreflang: cs-CZ
+      de:
+        source: /de/query-index.json
+        alternate: /de/{path}.html
+        destination: /de/sitemap.xml
+        hreflang: de-DE
+      dk:
+        source: /dk/query-index.json
+        alternate: /dk/{path}.html
+        destination: /dk/sitemap.xml
+        hreflang: da-DK
+      ee:
+        source: /ee/query-index.json
+        alternate: /ee/{path}.html
+        destination: /ee/sitemap.xml
+        hreflang: et-EE
+      es:
+        source: /es/query-index.json
+        alternate: /es/{path}.html
+        destination: /es/sitemap.xml
+        hreflang: es-ES
+      fi:
+        source: /fi/query-index.json
+        alternate: /fi/{path}.html
+        destination: /fi/sitemap.xml
+        hreflang: fi-FI
+      fr:
+        source: /fr/query-index.json
+        alternate: /fr/{path}.html
+        destination: /fr/sitemap.xml
+        hreflang: fr-FR
+      gr_en:
+        source: /gr_en/query-index.json
+        alternate: /gr_en/{path}.html
+        destination: /gr_en/sitemap.xml
+        hreflang: en-GR
+      hk_en:
+        source: /hk_en/query-index.json
+        alternate: /hk_en/{path}.html
+        destination: /hk_en/sitemap.xml
+        hreflang: en-HK
+      hk_zh:
+        source: /hk_zh/query-index.json
+        alternate: /hk_zh/{path}.html
+        destination: /hk_zh/sitemap.xml
+        hreflang: zh-HK
+      hu:
+        source: /hu/query-index.json
+        alternate: /hu/{path}.html
+        destination: /hu/sitemap.xml
+        hreflang: hu-HU
+      id_en:
+        source: /id_en/query-index.json
+        alternate: /id_en/{path}.html
+        destination: /id_en/sitemap.xml
+        hreflang: en-ID
+      id_id:
+        source: /id_id/query-index.json
+        alternate: /id_id/{path}.html
+        destination: /id_id/sitemap.xml
+        hreflang: id-ID
+      ie:
+        source: /ie/query-index.json
+        alternate: /ie/{path}.html
+        destination: /ie/sitemap.xml
+        hreflang: en-IE
+      il_en:
+        source: /il_en/query-index.json
+        alternate: /il_en/{path}.html
+        destination: /il_en/sitemap.xml
+        hreflang: en-IL
+      il_he:
+        source: /il_he/query-index.json
+        alternate: /il_he/{path}.html
+        destination: /il_he/sitemap.xml
+        hreflang: he
+      in:
+        source: /in/query-index.json
+        alternate: /in/{path}.html
+        destination: /in/sitemap.xml
+        hreflang: en-GB
+      in_hi:
+        source: /in_hi/query-index.json
+        alternate: /in_hi/{path}.html
+        destination: /in_hi/sitemap.xml
+        hreflang: hi
+      it:
+        source: /it/query-index.json
+        alternate: /it/{path}.html
+        destination: /it/sitemap.xml
+        hreflang: it-IT
+      jp:
+        source: /jp/query-index.json
+        alternate: /jp/{path}.html
+        destination: /jp/sitemap.xml
+        hreflang: ja-JP
+      kr:
+        source: /kr/query-index.json
+        alternate: /kr/{path}.html
+        destination: /kr/sitemap.xml
+        hreflang: ko-KR
+      la:
+        source: /la/query-index.json
+        alternate: /la/{path}.html
+        destination: /la/sitemap.xml
+        hreflang:
+          - es-PA
+          - es-SV
+          - es-VE
+      lt:
+        source: /lt/query-index.json
+        alternate: /lt/{path}.html
+        destination: /lt/sitemap.xml
+        hreflang: lt-LT
+      lu_de:
+        source: /lu_de/query-index.json
+        alternate: /lu_de/{path}.html
+        destination: /lu_de/sitemap.xml
+        hreflang: de-LU
+      lu_en:
+        source: /lu_en/query-index.json
+        alternate: /lu_en/{path}.html
+        destination: /lu_en/sitemap.xml
+        hreflang: en-LU
+      lu_fr:
+        source: /lu_fr/query-index.json
+        alternate: /lu_fr/{path}.html
+        destination: /lu_fr/sitemap.xml
+        hreflang: fr-LU
+      lv:
+        source: /lv/query-index.json
+        alternate: /lv/{path}.html
+        destination: /lv/sitemap.xml
+        hreflang: lv-LV
+      mena_ar:
+        source: /mena_ar/query-index.json
+        alternate: /mena_ar/{path}.html
+        destination: /mena_ar/sitemap.xml
+        hreflang:
+          - ar-IL
+          - ar-IQ
+          - ar-JO
+          - ar-LB
+          - ar-MA
+          - ar-OM
+      mena_en:
+        source: /mena_en/query-index.json
+        alternate: /mena_en/{path}.html
+        destination: /mena_en/sitemap.xml
+        hreflang:
+          - en-DZ
+      mt:
+        source: /mt/query-index.json
+        alternate: /mt/{path}.html
+        destination: /mt/sitemap.xml
+        hreflang: en-MT
+      mx:
+        source: /mx/query-index.json
+        alternate: /mx/{path}.html
+        destination: /mx/sitemap.xml
+        hreflang: es-MX
+      my_en:
+        source: /my_en/query-index.json
+        alternate: /my_en/{path}.html
+        destination: /my_en/sitemap.xml
+        hreflang: en-MY
+      my_ms:
+        source: /my_ms/query-index.json
+        alternate: /my_ms/{path}.html
+        destination: /my_ms/sitemap.xml
+        hreflang: ms-MY
+      nl:
+        source: /nl/query-index.json
+        alternate: /nl/{path}.html
+        destination: /nl/sitemap.xml
+        hreflang: nl-NL
+      no:
+        source: /no/query-index.json
+        alternate: /no/{path}.html
+        destination: /no/sitemap.xml
+        hreflang: no-NO
+      nz:
+        source: /nz/query-index.json
+        alternate: /nz/{path}.html
+        destination: /nz/sitemap.xml
+        hreflang: en-NZ
+      pe:
+        source: /pe/query-index.json
+        alternate: /pe/{path}.html
+        destination: /pe/sitemap.xml
+        hreflang: es-PE
+      ph_en:
+        source: /ph_en/query-index.json
+        alternate: /ph_en/{path}.html
+        destination: /ph_en/sitemap.xml
+        hreflang: en-PH
+      ph_fil:
+        source: /ph_fil/query-index.json
+        alternate: /ph_fil/{path}.html
+        destination: /ph_fil/sitemap.xml
+        hreflang: fil-PH
+      pl:
+        source: /pl/query-index.json
+        alternate: /pl/{path}.html
+        destination: /pl/sitemap.xml
+        hreflang: pl-PL
+      pt:
+        source: /pt/query-index.json
+        alternate: /pt/{path}.html
+        destination: /pt/sitemap.xml
+        hreflang: pt-PT
+      ro:
+        source: /ro/query-index.json
+        alternate: /ro/{path}.html
+        destination: /ro/sitemap.xml
+        hreflang: ro-RO
+      ru:
+        source: /ru/query-index.json
+        alternate: /ru/{path}.html
+        destination: /ru/sitemap.xml
+        hreflang: ru-RU
+      sa_ar:
+        source: /sa_ar/query-index.json
+        alternate: /sa_ar/{path}.html
+        destination: /sa_ar/sitemap.xml
+        hreflang: ar-SA
+      sa_en:
+        source: /sa_en/query-index.json
+        alternate: /sa_en/{path}.html
+        destination: /sa_en/sitemap.xml
+        hreflang: en-SA
+      se:
+        source: /se/query-index.json
+        alternate: /se/{path}.html
+        destination: /se/sitemap.xml
+        hreflang: sv-SE
+      sg:
+        source: /sg/query-index.json
+        alternate: /sg/{path}.html
+        destination: /sg/sitemap.xml
+        hreflang: en-SG
+      si:
+        source: /si/query-index.json
+        alternate: /si/{path}.html
+        destination: /si/sitemap.xml
+        hreflang: sl-SI
+      sk:
+        source: /sk/query-index.json
+        alternate: /sk/{path}.html
+        destination: /sk/sitemap.xml
+        hreflang: sk-SK
+      th_en:
+        source: /th_en/query-index.json
+        alternate: /th_en/{path}.html
+        destination: /th_en/sitemap.xml
+        hreflang: en-TH
+      th_th:
+        source: /th_th/query-index.json
+        alternate: /th_th/{path}.html
+        destination: /th_th/sitemap.xml
+        hreflang: th-TH
+      tr:
+        source: /tr/query-index.json
+        alternate: /tr/{path}.html
+        destination: /tr/sitemap.xml
+        hreflang: tr-TR
+      tw:
+        source: /tw/query-index.json
+        alternate: /tw/{path}.html
+        destination: /tw/sitemap.xml
+        hreflang: zh-TW
+      ua:
+        source: /ua/query-index.json
+        alternate: /ua/{path}.html
+        destination: /ua/sitemap.xml
+        hreflang: uk-UA
+      uk:
+        source: /uk/query-index.json
+        alternate: /uk/{path}.html
+        destination: /uk/sitemap.xml
+        hreflang: en-GB
+      vn_en:
+        source: /vn_en/query-index.json
+        alternate: /vn_en/{path}.html
+        destination: /vn_en/sitemap.xml
+        hreflang: en-VN
+      vn_vi:
+        source: /vn_vi/query-index.json
+        alternate: /vn_vi/{path}.html
+        destination: /vn_vi/sitemap.xml
+        hreflang: vi-VN

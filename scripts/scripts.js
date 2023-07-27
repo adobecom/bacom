@@ -90,10 +90,10 @@ const CONFIG = {
     bg: { ietf: 'bg-BG', tk: 'aaz7dvd.css' },
     ru: { ietf: 'ru-RU', tk: 'aaz7dvd.css' },
     ua: { ietf: 'uk-UA', tk: 'aaz7dvd.css' },
-    il_he: { ietf: 'he', tk: 'nwq1mna.css' },
-    ae_ar: { ietf: 'ar', tk: 'nwq1mna.css' },
-    mena_ar: { ietf: 'ar', tk: 'dis2dpj.css' },
-    sa_ar: { ietf: 'ar', tk: 'nwq1mna.css' },
+    il_he: { ietf: 'he', tk: 'nwq1mna.css', dir: 'rtl' },
+    ae_ar: { ietf: 'ar', tk: 'nwq1mna.css', dir: 'rtl' },
+    mena_ar: { ietf: 'ar', tk: 'dis2dpj.css', dir: 'rtl' },
+    sa_ar: { ietf: 'ar', tk: 'nwq1mna.css', dir: 'rtl' },
     // Asia Pacific
     au: { ietf: 'en-AU', tk: 'pps7abe.css' },
     hk_en: { ietf: 'en-HK', tk: 'pps7abe.css' },
@@ -127,8 +127,7 @@ const CONFIG = {
     { iframe: 'https://adobe.ideacloud.com' },
   ],
   htmlExclude: [
-    /business\.adobe\.com\/blog\/.*/,
-    /business\.adobe\.com\/(\w\w|(\w\w_\w\w))\/blog\/.*/,
+    /business\.adobe\.com\/(\w\w(_\w\w)?\/)?blog(\/.*)?/,
   ],
 };
 
