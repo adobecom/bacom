@@ -11,8 +11,7 @@
 .workfront-login {
   --error: #c9252d;
 
-  /* width: 260px; */
-  max-width: var(--grid-container-width);
+  width: 275px;
   margin: auto;
 }
 
@@ -130,4 +129,10 @@
 
 .workfront-login.proof button[type='submit'] {
   margin-top: 24px;
+}
+
+@media screen and (min-width: 1200px) {
+  .workfront-login {
+    width: 310px;
+  }
 }
