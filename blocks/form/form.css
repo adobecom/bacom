@@ -1,7 +1,19 @@
 main .form {
-  background-color: white;
-  max-width: var(--grid-container-width);
-  margin: 0 auto;
+  background-color: #3E3E3E;
+  padding-top: 34px;
+  min-height: 218px;
+}
+
+main .form > div {
+  margin-left: 40%;
+}
+
+main .form h2 {
+  color: white;
+}
+
+main .form.hide h2 {
+  display: none;
 }
 
 main .section .content.hide {
@@ -25,7 +37,7 @@ main .form p {
 
 main form .form-text-field-wrapper p {
   font-size: 18px;
-  color: red;
+  color: white;
   margin: 0;
 }
 
@@ -34,22 +46,28 @@ main form.hide {
   display: none;
 }
 
-main .form-container .trial-sign-up-message {
-  margin-left: 10%;
+main .form .trial-sign-up-message {
+  color: white;
+  max-width: 40%;
 }
 
 .form-container .default-content-wrapper p {
   font-size: 18px;
 }
 
-main .form input:hover {
-  border-color: rgb(90 92 96);
+main .form label.form-label {
+  position: relative;
 }
 
-main .form label.required::after {
-  content: '*';
-  color: red;
-  padding-left: 5px;
+main .form label.form-label.alert::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  margin-top: 14px;
+  margin-bottom: 7px;
+  background: url("/img/ui/Alert.svg") no-repeat;
 }
 
 main .form .field-wrapper {
@@ -61,25 +79,24 @@ main .form .button {
 }
 
 main .form .highlight {
-  border-color: red;
+  border-color: #E34850;
+}
+
+main .form .form-submit-wrapper  {
+  width: 50%;
+  text-align: end;
 }
 
 main .form .form-submit-wrapper .button.primary {
   font-family: var(--body-font-family);
-  display: inline-block;
-  box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
-  font-style: normal;
+  border: 2px solid #C8C8C8;
+  padding: 6px 16px 9px;
+  font-size: 17px;
   font-weight: 600;
   cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: #C8C8C8;
+  background-color: #3E3E3E;
+  margin: 16px 0 47px;
   border-radius: 30px;
 }

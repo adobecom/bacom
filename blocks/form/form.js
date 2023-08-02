@@ -67,6 +67,8 @@ function createButton(field) {
         if (emailElement.closest('div').childNodes.length < 2) {
           const paragraph = document.createElement('p');
           const text = document.createTextNode(field.Error);
+          const label = document.querySelector('.form-label');
+          label.classList.add('alert');
           paragraph.appendChild(text);
           emailElement.classList.add('highlight');
           emailElement.closest('div').appendChild(paragraph);
@@ -82,6 +84,8 @@ function createButton(field) {
  * from the helix-default spreadsheet on sharepoint.
  */
 function createInput(field) {
+  const label = document.createElement('label');
+  label.classList.add('form-label');
   const input = document.createElement('input');
   input.type = field.Type;
   input.id = field.Field;
@@ -89,7 +93,8 @@ function createInput(field) {
   if (field.Mandatory === 'x') {
     input.setAttribute('required', 'required');
   }
-  return input;
+  label.appendChild(input);
+  return label;
 }
 
 /**
