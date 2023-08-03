@@ -7,6 +7,10 @@ indices:
       - '/resources/**'
       - '/why-adobe/**'
       - '/support/**'
+      - '/solutions/**'
+      - '/customers/**'
+      - '/products/**'
+      - '/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /query-index.xlsx
@@ -29,6 +33,10 @@ indices:
       - '/ae_ar/resources/**'
       - '/ae_ar/why-adobe/**'
       - '/ae_ar/support/**'
+      - '/ae_ar/solutions/**'
+      - '/ae_ar/customers/**'
+      - '/ae_ar/products/**'
+      - '/ae_ar/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ae_ar/query-index.xlsx
@@ -40,6 +48,10 @@ indices:
       - '/ae_en/resources/**'
       - '/ae_en/why-adobe/**'
       - '/ae_en/support/**'
+      - '/ae_en/solutions/**'
+      - '/ae_en/customers/**'
+      - '/ae_en/products/**'
+      - '/ae_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ae_en/query-index.xlsx
@@ -51,6 +63,10 @@ indices:
       - '/africa/resources/**'
       - '/africa/why-adobe/**'
       - '/africa/support/**'
+      - '/africa/solutions/**'
+      - '/africa/customers/**'
+      - '/africa/products/**'
+      - '/africa/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /africa/query-index.xlsx
@@ -62,6 +78,10 @@ indices:
       - '/ar/resources/**'
       - '/ar/why-adobe/**'
       - '/ar/support/**'
+      - '/ar/solutions/**'
+      - '/ar/customers/**'
+      - '/ar/products/**'
+      - '/ar/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ar/query-index.xlsx
@@ -73,6 +93,10 @@ indices:
       - '/at/resources/**'
       - '/at/why-adobe/**'
       - '/at/support/**'
+      - '/at/solutions/**'
+      - '/at/customers/**'
+      - '/at/products/**'
+      - '/at/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /at/query-index.xlsx
@@ -84,6 +108,10 @@ indices:
       - '/au/resources/**'
       - '/au/why-adobe/**'
       - '/au/support/**'
+      - '/au/solutions/**'
+      - '/au/customers/**'
+      - '/au/products/**'
+      - '/au/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /au/query-index.xlsx
@@ -95,6 +123,10 @@ indices:
       - '/be_en/resources/**'
       - '/be_en/why-adobe/**'
       - '/be_en/support/**'
+      - '/be_en/solutions/**'
+      - '/be_en/customers/**'
+      - '/be_en/products/**'
+      - '/be_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /be_en/query-index.xlsx
@@ -106,6 +138,10 @@ indices:
       - '/be_fr/resources/**'
       - '/be_fr/why-adobe/**'
       - '/be_fr/support/**'
+      - '/be_fr/solutions/**'
+      - '/be_fr/customers/**'
+      - '/be_fr/products/**'
+      - '/be_fr/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /be_fr/query-index.xlsx
@@ -117,6 +153,10 @@ indices:
       - '/be_nl/resources/**'
       - '/be_nl/why-adobe/**'
       - '/be_nl/support/**'
+      - '/be_nl/solutions/**'
+      - '/be_nl/customers/**'
+      - '/be_nl/products/**'
+      - '/be_nl/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /be_nl/query-index.xlsx
@@ -128,6 +168,10 @@ indices:
       - '/bg/resources/**'
       - '/bg/why-adobe/**'
       - '/bg/support/**'
+      - '/bg/solutions/**'
+      - '/bg/customers/**'
+      - '/bg/products/**'
+      - '/bg/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /bg/query-index.xlsx
@@ -139,6 +183,10 @@ indices:
       - '/br/resources/**'
       - '/br/why-adobe/**'
       - '/br/support/**'
+      - '/br/solutions/**'
+      - '/br/customers/**'
+      - '/br/products/**'
+      - '/br/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /br/query-index.xlsx
@@ -150,6 +198,10 @@ indices:
       - '/ca/resources/**'
       - '/ca/why-adobe/**'
       - '/ca/support/**'
+      - '/ca/solutions/**'
+      - '/ca/customers/**'
+      - '/ca/products/**'
+      - '/ca/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ca/query-index.xlsx
@@ -161,6 +213,10 @@ indices:
       - '/ca_fr/resources/**'
       - '/ca_fr/why-adobe/**'
       - '/ca_fr/support/**'
+      - '/ca_fr/solutions/**'
+      - '/ca_fr/customers/**'
+      - '/ca_fr/products/**'
+      - '/ca_fr/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ca_fr/query-index.xlsx
@@ -172,6 +228,10 @@ indices:
       - '/ch_de/resources/**'
       - '/ch_de/why-adobe/**'
       - '/ch_de/support/**'
+      - '/ch_de/solutions/**'
+      - '/ch_de/customers/**'
+      - '/ch_de/products/**'
+      - '/ch_de/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ch_de/query-index.xlsx
@@ -183,6 +243,10 @@ indices:
       - '/ch_fr/resources/**'
       - '/ch_fr/why-adobe/**'
       - '/ch_fr/support/**'
+      - '/ch_fr/solutions/**'
+      - '/ch_fr/customers/**'
+      - '/ch_fr/products/**'
+      - '/ch_fr/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ch_fr/query-index.xlsx
@@ -194,6 +258,10 @@ indices:
       - '/ch_it/resources/**'
       - '/ch_it/why-adobe/**'
       - '/ch_it/support/**'
+      - '/ch_it/solutions/**'
+      - '/ch_it/customers/**'
+      - '/ch_it/products/**'
+      - '/ch_it/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ch_it/query-index.xlsx
@@ -205,6 +273,10 @@ indices:
       - '/cl/resources/**'
       - '/cl/why-adobe/**'
       - '/cl/support/**'
+      - '/cl/solutions/**'
+      - '/cl/customers/**'
+      - '/cl/products/**'
+      - '/cl/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /cl/query-index.xlsx
@@ -216,6 +288,10 @@ indices:
       - '/cn/resources/**'
       - '/cn/why-adobe/**'
       - '/cn/support/**'
+      - '/cn/solutions/**'
+      - '/cn/customers/**'
+      - '/cn/products/**'
+      - '/cn/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /cn/query-index.xlsx
@@ -227,6 +303,10 @@ indices:
       - '/co/resources/**'
       - '/co/why-adobe/**'
       - '/co/support/**'
+      - '/co/solutions/**'
+      - '/co/customers/**'
+      - '/co/products/**'
+      - '/co/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /co/query-index.xlsx
@@ -238,6 +318,10 @@ indices:
       - '/cy_en/resources/**'
       - '/cy_en/why-adobe/**'
       - '/cy_en/support/**'
+      - '/cy_en/solutions/**'
+      - '/cy_en/customers/**'
+      - '/cy_en/products/**'
+      - '/cy_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /cy_en/query-index.xlsx
@@ -249,6 +333,10 @@ indices:
       - '/cz/resources/**'
       - '/cz/why-adobe/**'
       - '/cz/support/**'
+      - '/cz/solutions/**'
+      - '/cz/customers/**'
+      - '/cz/products/**'
+      - '/cz/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /cz/query-index.xlsx
@@ -260,6 +348,10 @@ indices:
       - '/de/resources/**'
       - '/de/why-adobe/**'
       - '/de/support/**'
+      - '/de/solutions/**'
+      - '/de/customers/**'
+      - '/de/products/**'
+      - '/de/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /de/query-index.xlsx
@@ -271,6 +363,10 @@ indices:
       - '/dk/resources/**'
       - '/dk/why-adobe/**'
       - '/dk/support/**'
+      - '/dk/solutions/**'
+      - '/dk/customers/**'
+      - '/dk/products/**'
+      - '/dk/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /dk/query-index.xlsx
@@ -282,6 +378,10 @@ indices:
       - '/ee/resources/**'
       - '/ee/why-adobe/**'
       - '/ee/support/**'
+      - '/ee/solutions/**'
+      - '/ee/customers/**'
+      - '/ee/products/**'
+      - '/ee/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ee/query-index.xlsx
@@ -293,6 +393,10 @@ indices:
       - '/es/resources/**'
       - '/es/why-adobe/**'
       - '/es/support/**'
+      - '/es/solutions/**'
+      - '/es/customers/**'
+      - '/es/products/**'
+      - '/es/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /es/query-index.xlsx
@@ -304,6 +408,10 @@ indices:
       - '/fi/resources/**'
       - '/fi/why-adobe/**'
       - '/fi/support/**'
+      - '/fi/solutions/**'
+      - '/fi/customers/**'
+      - '/fi/products/**'
+      - '/fi/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /fi/query-index.xlsx
@@ -315,6 +423,10 @@ indices:
       - '/fr/resources/**'
       - '/fr/why-adobe/**'
       - '/fr/support/**'
+      - '/fr/solutions/**'
+      - '/fr/customers/**'
+      - '/fr/products/**'
+      - '/fr/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /fr/query-index.xlsx
@@ -326,6 +438,10 @@ indices:
       - '/gr_en/resources/**'
       - '/gr_en/why-adobe/**'
       - '/gr_en/support/**'
+      - '/gr_en/solutions/**'
+      - '/gr_en/customers/**'
+      - '/gr_en/products/**'
+      - '/gr_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /gr_en/query-index.xlsx
@@ -337,6 +453,10 @@ indices:
       - '/hk_en/resources/**'
       - '/hk_en/why-adobe/**'
       - '/hk_en/support/**'
+      - '/hk_en/solutions/**'
+      - '/hk_en/customers/**'
+      - '/hk_en/products/**'
+      - '/hk_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /hk_en/query-index.xlsx
@@ -348,6 +468,10 @@ indices:
       - '/hk_zh/resources/**'
       - '/hk_zh/why-adobe/**'
       - '/hk_zh/support/**'
+      - '/hk_zh/solutions/**'
+      - '/hk_zh/customers/**'
+      - '/hk_zh/products/**'
+      - '/hk_zh/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /hk_zh/query-index.xlsx
@@ -359,6 +483,10 @@ indices:
       - '/hu/resources/**'
       - '/hu/why-adobe/**'
       - '/hu/support/**'
+      - '/hu/solutions/**'
+      - '/hu/customers/**'
+      - '/hu/products/**'
+      - '/hu/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /hu/query-index.xlsx
@@ -370,6 +498,10 @@ indices:
       - '/id_en/resources/**'
       - '/id_en/why-adobe/**'
       - '/id_en/support/**'
+      - '/id_en/solutions/**'
+      - '/id_en/customers/**'
+      - '/id_en/products/**'
+      - '/id_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /id_en/query-index.xlsx
@@ -381,6 +513,10 @@ indices:
       - '/id_id/resources/**'
       - '/id_id/why-adobe/**'
       - '/id_id/support/**'
+      - '/id_id/solutions/**'
+      - '/id_id/customers/**'
+      - '/id_id/products/**'
+      - '/id_id/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /id_id/query-index.xlsx
@@ -392,6 +528,10 @@ indices:
       - '/ie/resources/**'
       - '/ie/why-adobe/**'
       - '/ie/support/**'
+      - '/ie/solutions/**'
+      - '/ie/customers/**'
+      - '/ie/products/**'
+      - '/ie/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ie/query-index.xlsx
@@ -403,6 +543,10 @@ indices:
       - '/il_en/resources/**'
       - '/il_en/why-adobe/**'
       - '/il_en/support/**'
+      - '/il_en/solutions/**'
+      - '/il_en/customers/**'
+      - '/il_en/products/**'
+      - '/il_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /il_en/query-index.xlsx
@@ -414,6 +558,10 @@ indices:
       - '/il_he/resources/**'
       - '/il_he/why-adobe/**'
       - '/il_he/support/**'
+      - '/il_he/solutions/**'
+      - '/il_he/customers/**'
+      - '/il_he/products/**'
+      - '/il_he/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /il_he/query-index.xlsx
@@ -425,6 +573,10 @@ indices:
       - '/in/resources/**'
       - '/in/why-adobe/**'
       - '/in/support/**'
+      - '/in/solutions/**'
+      - '/in/customers/**'
+      - '/in/products/**'
+      - '/in/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /in/query-index.xlsx
@@ -436,6 +588,10 @@ indices:
       - '/in_hi/resources/**'
       - '/in_hi/why-adobe/**'
       - '/in_hi/support/**'
+      - '/in_hi/solutions/**'
+      - '/in_hi/customers/**'
+      - '/in_hi/products/**'
+      - '/in_hi/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /in_hi/query-index.xlsx
@@ -447,6 +603,10 @@ indices:
       - '/it/resources/**'
       - '/it/why-adobe/**'
       - '/it/support/**'
+      - '/it/solutions/**'
+      - '/it/customers/**'
+      - '/it/products/**'
+      - '/it/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /it/query-index.xlsx
@@ -458,6 +618,10 @@ indices:
       - '/jp/resources/**'
       - '/jp/why-adobe/**'
       - '/jp/support/**'
+      - '/jp/solutions/**'
+      - '/jp/customers/**'
+      - '/jp/products/**'
+      - '/jp/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /jp/query-index.xlsx
@@ -469,6 +633,10 @@ indices:
       - '/kr/resources/**'
       - '/kr/why-adobe/**'
       - '/kr/support/**'
+      - '/kr/solutions/**'
+      - '/kr/customers/**'
+      - '/kr/products/**'
+      - '/kr/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /kr/query-index.xlsx
@@ -480,6 +648,10 @@ indices:
       - '/la/resources/**'
       - '/la/why-adobe/**'
       - '/la/support/**'
+      - '/la/solutions/**'
+      - '/la/customers/**'
+      - '/la/products/**'
+      - '/la/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /la/query-index.xlsx
@@ -491,6 +663,10 @@ indices:
       - '/lt/resources/**'
       - '/lt/why-adobe/**'
       - '/lt/support/**'
+      - '/lt/solutions/**'
+      - '/lt/customers/**'
+      - '/lt/products/**'
+      - '/lt/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /lt/query-index.xlsx
@@ -502,6 +678,10 @@ indices:
       - '/lu_de/resources/**'
       - '/lu_de/why-adobe/**'
       - '/lu_de/support/**'
+      - '/lu_de/solutions/**'
+      - '/lu_de/customers/**'
+      - '/lu_de/products/**'
+      - '/lu_de/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /lu_de/query-index.xlsx
@@ -513,6 +693,10 @@ indices:
       - '/lu_en/resources/**'
       - '/lu_en/why-adobe/**'
       - '/lu_en/support/**'
+      - '/lu_en/solutions/**'
+      - '/lu_en/customers/**'
+      - '/lu_en/products/**'
+      - '/lu_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /lu_en/query-index.xlsx
@@ -524,6 +708,10 @@ indices:
       - '/lu_fr/resources/**'
       - '/lu_fr/why-adobe/**'
       - '/lu_fr/support/**'
+      - '/lu_fr/solutions/**'
+      - '/lu_fr/customers/**'
+      - '/lu_fr/products/**'
+      - '/lu_fr/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /lu_fr/query-index.xlsx
@@ -535,6 +723,10 @@ indices:
       - '/lv/resources/**'
       - '/lv/why-adobe/**'
       - '/lv/support/**'
+      - '/lv/solutions/**'
+      - '/lv/customers/**'
+      - '/lv/products/**'
+      - '/lv/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /lv/query-index.xlsx
@@ -546,6 +738,10 @@ indices:
       - '/mena_ar/resources/**'
       - '/mena_ar/why-adobe/**'
       - '/mena_ar/support/**'
+      - '/mena_ar/solutions/**'
+      - '/mena_ar/customers/**'
+      - '/mena_ar/products/**'
+      - '/mena_ar/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /mena_ar/query-index.xlsx
@@ -557,6 +753,10 @@ indices:
       - '/mena_en/resources/**'
       - '/mena_en/why-adobe/**'
       - '/mena_en/support/**'
+      - '/mena_en/solutions/**'
+      - '/mena_en/customers/**'
+      - '/mena_en/products/**'
+      - '/mena_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /mena_en/query-index.xlsx
@@ -568,6 +768,10 @@ indices:
       - '/mt/resources/**'
       - '/mt/why-adobe/**'
       - '/mt/support/**'
+      - '/mt/solutions/**'
+      - '/mt/customers/**'
+      - '/mt/products/**'
+      - '/mt/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /mt/query-index.xlsx
@@ -579,6 +783,10 @@ indices:
       - '/mx/resources/**'
       - '/mx/why-adobe/**'
       - '/mx/support/**'
+      - '/mx/solutions/**'
+      - '/mx/customers/**'
+      - '/mx/products/**'
+      - '/mx/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /mx/query-index.xlsx
@@ -590,6 +798,10 @@ indices:
       - '/my_en/resources/**'
       - '/my_en/why-adobe/**'
       - '/my_en/support/**'
+      - '/my_en/solutions/**'
+      - '/my_en/customers/**'
+      - '/my_en/products/**'
+      - '/my_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /my_en/query-index.xlsx
@@ -601,6 +813,10 @@ indices:
       - '/my_ms/resources/**'
       - '/my_ms/why-adobe/**'
       - '/my_ms/support/**'
+      - '/my_ms/solutions/**'
+      - '/my_ms/customers/**'
+      - '/my_ms/products/**'
+      - '/my_ms/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /my_ms/query-index.xlsx
@@ -612,6 +828,10 @@ indices:
       - '/nl/resources/**'
       - '/nl/why-adobe/**'
       - '/nl/support/**'
+      - '/nl/solutions/**'
+      - '/nl/customers/**'
+      - '/nl/products/**'
+      - '/nl/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /nl/query-index.xlsx
@@ -623,6 +843,10 @@ indices:
       - '/no/resources/**'
       - '/no/why-adobe/**'
       - '/no/support/**'
+      - '/no/solutions/**'
+      - '/no/customers/**'
+      - '/no/products/**'
+      - '/no/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /no/query-index.xlsx
@@ -634,6 +858,10 @@ indices:
       - '/nz/resources/**'
       - '/nz/why-adobe/**'
       - '/nz/support/**'
+      - '/nz/solutions/**'
+      - '/nz/customers/**'
+      - '/nz/products/**'
+      - '/nz/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /nz/query-index.xlsx
@@ -645,6 +873,10 @@ indices:
       - '/pe/resources/**'
       - '/pe/why-adobe/**'
       - '/pe/support/**'
+      - '/pe/solutions/**'
+      - '/pe/customers/**'
+      - '/pe/products/**'
+      - '/pe/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /pe/query-index.xlsx
@@ -656,6 +888,10 @@ indices:
       - '/ph_en/resources/**'
       - '/ph_en/why-adobe/**'
       - '/ph_en/support/**'
+      - '/ph_en/solutions/**'
+      - '/ph_en/customers/**'
+      - '/ph_en/products/**'
+      - '/ph_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ph_en/query-index.xlsx
@@ -667,6 +903,10 @@ indices:
       - '/ph_fil/resources/**'
       - '/ph_fil/why-adobe/**'
       - '/ph_fil/support/**'
+      - '/ph_fil/solutions/**'
+      - '/ph_fil/customers/**'
+      - '/ph_fil/products/**'
+      - '/ph_fil/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ph_fil/query-index.xlsx
@@ -678,6 +918,10 @@ indices:
       - '/pl/resources/**'
       - '/pl/why-adobe/**'
       - '/pl/support/**'
+      - '/pl/solutions/**'
+      - '/pl/customers/**'
+      - '/pl/products/**'
+      - '/pl/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /pl/query-index.xlsx
@@ -689,6 +933,10 @@ indices:
       - '/pt/resources/**'
       - '/pt/why-adobe/**'
       - '/pt/support/**'
+      - '/pt/solutions/**'
+      - '/pt/customers/**'
+      - '/pt/products/**'
+      - '/pt/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /pt/query-index.xlsx
@@ -700,6 +948,10 @@ indices:
       - '/ro/resources/**'
       - '/ro/why-adobe/**'
       - '/ro/support/**'
+      - '/ro/solutions/**'
+      - '/ro/customers/**'
+      - '/ro/products/**'
+      - '/ro/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ro/query-index.xlsx
@@ -711,6 +963,10 @@ indices:
       - '/ru/resources/**'
       - '/ru/why-adobe/**'
       - '/ru/support/**'
+      - '/ru/solutions/**'
+      - '/ru/customers/**'
+      - '/ru/products/**'
+      - '/ru/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ru/query-index.xlsx
@@ -722,6 +978,10 @@ indices:
       - '/sa_ar/resources/**'
       - '/sa_ar/why-adobe/**'
       - '/sa_ar/support/**'
+      - '/sa_ar/solutions/**'
+      - '/sa_ar/customers/**'
+      - '/sa_ar/products/**'
+      - '/sa_ar/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /sa_ar/query-index.xlsx
@@ -733,6 +993,10 @@ indices:
       - '/sa_en/resources/**'
       - '/sa_en/why-adobe/**'
       - '/sa_en/support/**'
+      - '/sa_en/solutions/**'
+      - '/sa_en/customers/**'
+      - '/sa_en/products/**'
+      - '/sa_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /sa_en/query-index.xlsx
@@ -744,6 +1008,10 @@ indices:
       - '/se/resources/**'
       - '/se/why-adobe/**'
       - '/se/support/**'
+      - '/se/solutions/**'
+      - '/se/customers/**'
+      - '/se/products/**'
+      - '/se/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /se/query-index.xlsx
@@ -755,6 +1023,10 @@ indices:
       - '/sg/resources/**'
       - '/sg/why-adobe/**'
       - '/sg/support/**'
+      - '/sg/solutions/**'
+      - '/sg/customers/**'
+      - '/sg/products/**'
+      - '/sg/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /sg/query-index.xlsx
@@ -766,6 +1038,10 @@ indices:
       - '/si/resources/**'
       - '/si/why-adobe/**'
       - '/si/support/**'
+      - '/si/solutions/**'
+      - '/si/customers/**'
+      - '/si/products/**'
+      - '/si/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /si/query-index.xlsx
@@ -777,6 +1053,10 @@ indices:
       - '/sk/resources/**'
       - '/sk/why-adobe/**'
       - '/sk/support/**'
+      - '/sk/solutions/**'
+      - '/sk/customers/**'
+      - '/sk/products/**'
+      - '/sk/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /sk/query-index.xlsx
@@ -788,6 +1068,10 @@ indices:
       - '/th_en/resources/**'
       - '/th_en/why-adobe/**'
       - '/th_en/support/**'
+      - '/th_en/solutions/**'
+      - '/th_en/customers/**'
+      - '/th_en/products/**'
+      - '/th_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /th_en/query-index.xlsx
@@ -799,6 +1083,10 @@ indices:
       - '/th_th/resources/**'
       - '/th_th/why-adobe/**'
       - '/th_th/support/**'
+      - '/th_th/solutions/**'
+      - '/th_th/customers/**'
+      - '/th_th/products/**'
+      - '/th_th/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /th_th/query-index.xlsx
@@ -810,6 +1098,10 @@ indices:
       - '/tr/resources/**'
       - '/tr/why-adobe/**'
       - '/tr/support/**'
+      - '/tr/solutions/**'
+      - '/tr/customers/**'
+      - '/tr/products/**'
+      - '/tr/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /tr/query-index.xlsx
@@ -821,6 +1113,10 @@ indices:
       - '/tw/resources/**'
       - '/tw/why-adobe/**'
       - '/tw/support/**'
+      - '/tw/solutions/**'
+      - '/tw/customers/**'
+      - '/tw/products/**'
+      - '/tw/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /tw/query-index.xlsx
@@ -832,6 +1128,10 @@ indices:
       - '/ua/resources/**'
       - '/ua/why-adobe/**'
       - '/ua/support/**'
+      - '/ua/solutions/**'
+      - '/ua/customers/**'
+      - '/ua/products/**'
+      - '/ua/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /ua/query-index.xlsx
@@ -843,6 +1143,10 @@ indices:
       - '/uk/resources/**'
       - '/uk/why-adobe/**'
       - '/uk/support/**'
+      - '/uk/solutions/**'
+      - '/uk/customers/**'
+      - '/uk/products/**'
+      - '/uk/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /uk/query-index.xlsx
@@ -854,6 +1158,10 @@ indices:
       - '/vn_en/resources/**'
       - '/vn_en/why-adobe/**'
       - '/vn_en/support/**'
+      - '/vn_en/solutions/**'
+      - '/vn_en/customers/**'
+      - '/vn_en/products/**'
+      - '/vn_en/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /vn_en/query-index.xlsx
@@ -865,6 +1173,10 @@ indices:
       - '/vn_vi/resources/**'
       - '/vn_vi/why-adobe/**'
       - '/vn_vi/support/**'
+      - '/vn_vi/solutions/**'
+      - '/vn_vi/customers/**'
+      - '/vn_vi/products/**'
+      - '/vn_vi/request-consultation/**'
     exclude:
       - '**/fragments/**'
     target: /vn_vi/query-index.xlsx
