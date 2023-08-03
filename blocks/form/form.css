@@ -5,7 +5,7 @@ main .form {
 }
 
 main .form > div {
-  margin-left: 40%;
+  margin-left: 35%;
 }
 
 main .form h2 {
@@ -33,6 +33,7 @@ main .form input {
 main .form p {
   font-size: var(--type-heading-l-size);
   line-height: var(--type-heading-l-lh);
+  margin-top: -10px;
 }
 
 main form .form-text-field-wrapper p {
@@ -48,7 +49,7 @@ main form.hide {
 
 main .form .trial-sign-up-message {
   color: white;
-  max-width: 40%;
+  max-width: 55%;
 }
 
 .form-container .default-content-wrapper p {
