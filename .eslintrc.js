@@ -47,7 +47,6 @@ module.exports = {
     },
   ],
   ignorePatterns: [
-    '/libs/deps/*',
     '/tools/loc/*',
   ],
   plugins: [

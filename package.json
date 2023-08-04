@@ -8,6 +8,7 @@
     "test:watch": "npm test -- --watch",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint .",
+    "lint:js:nibble": "eslint-nibble .",
     "lint:css": "stylelint 'blocks/**/*.css' 'styles/*.css'",
     "prepare": "husky install"
   },
@@ -31,8 +32,9 @@
     "chai": "4.3.6",
     "eslint": "8.11.0",
     "eslint-config-airbnb-base": "15.0.0",
+    "eslint-nibble": "^8.1.0",
     "eslint-plugin-chai-friendly": "^0.7.2",
-    "eslint-plugin-compat": "^4.1.4",
+    "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-ecmalist": "^1.0.8",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-react-hooks": "^4.6.0",
