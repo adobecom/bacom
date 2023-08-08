@@ -46,9 +46,11 @@ const MOCK_JSON = {
 const MOCK_POST_JSON = { email: 'test@adobe.com' };
 
 describe('Form Initialization', () => {
+  let sandbox;
   before(async () => {
     document.body.innerHTML = await readFile({ path: './mocks/body.html' });
-    const stub = sinon.stub(window, 'fetch');
+    sandbox = sinon.createSandbox();
+    const stub = sandbox.stub(window, 'fetch');
     stub.onCall(0).returns(jsonOk(MOCK_JSON));
     stub.onCall(1).returns(jsonOk(MOCK_POST_JSON));
     const form = document.querySelector('.form');
@@ -92,5 +94,9 @@ describe('Form Initialization', () => {
     const event = new window.Event('click');
     button.dispatchEvent(event);
     expect(button.getAttribute('disabled')).to.equal('');
+  });
+
+  afterEach(() => {
+    sandbox.restore();
   });
 });

@@ -1,18 +1,12 @@
 function constructPayload(form) {
-  const payload = {};
-  [...form.elements].forEach((fe) => {
-    if (fe.id) {
-      payload[fe.id] = fe.value;
+  return [...form.elements].reduce((payload, formElement) => {
+    if (formElement.id) {
+      payload[formElement.id] = formElement.value;
     }
-  });
-  return payload;
+    return payload;
+  }, {});
 }
 
-/**
- * Once the payload is constructed and the form entry is validated,
- * we submit the form. It creates an entry in the spreadsheet to store the form
- * data.
- */
 async function submitForm(form) {
   const payload = constructPayload(form);
   const resp = await fetch(form.dataset.action, {
@@ -25,10 +19,6 @@ async function submitForm(form) {
   return payload;
 }
 
-/**
- * We check the validity of the email entry. We only accept company email addresses
- * as of now.
- */
 function checkValidity(form) {
   const payload = constructPayload(form);
   const { email } = payload;
@@ -36,11 +26,6 @@ function checkValidity(form) {
   return String(email).match(regex);
 }
 
-/**
- * We create a submit button for the form.
- * Once we click on submit, if the email entry is valid, we disable
- * the submit button and redirect the user to the thank you page.
- */
 function createButton(field) {
   const button = document.createElement('button');
   button.textContent = field.Label;
@@ -79,10 +64,6 @@ function createButton(field) {
   return button;
 }
 
-/**
- * We create an input field and pick up the type, id, and placeholder text
- * from the helix-default spreadsheet on sharepoint.
- */
 function createInput(field) {
   const label = document.createElement('label');
   label.classList.add('form-label');
@@ -97,9 +78,6 @@ function createInput(field) {
   return label;
 }
 
-/**
- * We create the form and add the submit button and input text field to it.
- */
 async function createForm(formURL) {
   const { pathname } = new URL(formURL);
   const resp = await fetch(pathname);
