@@ -50,10 +50,30 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
   margin-bottom: var(--spacing-xxs);
 }
 
+ /* CaaS Height Styles  */
+ .caas-spacing-m {
+  min-height: 500px;
+}
+
+.milo-iframe.webinars-fix {
+  height: 4463px;
+  padding-bottom: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .milo-iframe.webinars-fix {
+    height: 3078px;
+  }
+}
+
 @media screen and (min-width: 900px) {
   .text-block.text-list {
     max-width: 400px;
     box-sizing: border-box;
+  }
+
+  .milo-iframe.webinars-fix {
+    height: 3284px;
   }
 }
 
@@ -61,9 +81,8 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
   .icon-headings .col img {
     top: 10px;
   }
-}
 
- /* CaaS Height Styles  */
-.caas-spacing-m {
-  min-height: 500px;
+  .milo-iframe.webinars-fix {
+    height: 2682px;
+  }
 }
