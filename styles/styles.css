@@ -56,13 +56,13 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
 }
 
 .milo-iframe.webinars-fix {
-  height: 4463px;
+  min-height: 4463px;
   padding-bottom: 0;
 }
 
 @media screen and (min-width: 600px) {
   .milo-iframe.webinars-fix {
-    height: 3078px;
+    min-height: 3078px;
   }
 }
 
@@ -73,7 +73,7 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
   }
 
   .milo-iframe.webinars-fix {
-    height: 3284px;
+    min-height: 3284px;
   }
 }
 
@@ -83,6 +83,6 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
   }
 
   .milo-iframe.webinars-fix {
-    height: 2682px;
+    min-height: 2682px;
   }
 }
