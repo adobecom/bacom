@@ -81,8 +81,4 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
   .icon-headings .col img {
     top: 10px;
   }
-
-  .milo-iframe.webinars-fix {
-    min-height: 2682px;
-  }
 }
