@@ -82,3 +82,9 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
     top: 10px;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .milo-iframe.webinars-fix {
+    min-height: 2703px;
+  }
+}
