@@ -101,3 +101,17 @@ main .form .form-submit-wrapper .button.primary {
   margin: 16px 0 47px;
   border-radius: 30px;
 }
+
+@media screen and (max-width: 768px) {
+  main .form > div {
+    margin-left: 15%;
+  }
+
+  main .form input {
+    width: 85%;
+  }
+
+  main .form .form-submit-wrapper  {
+    width: 85%;
+  }
+}
