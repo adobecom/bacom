@@ -1,0 +1,162 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.workfront-login {
+  --error: #c9252d;
+
+  width: 275px;
+  margin: auto;
+}
+
+.workfront-login .subdomain-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+[dir="rtl"] .workfront-login .subdomain-wrapper {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.workfront-login input {
+  background-color: #fff;
+  color: #4b4b4b;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  text-indent: 0;
+  padding-left: 8px;
+  width: 100%;
+  height: 32px;
+  margin: 0;
+  overflow: visible;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  transition: border-color .13s ease-in-out, box-shadow .13s ease-in-out;
+  outline: none;
+  appearance: none;
+}
+
+[dir="rtl"] .workfront-login input {
+  padding-right: 8px;
+}
+
+.workfront-login input:focus,
+.workfront-login input:hover,
+.workfront-login input:visited:hover {
+  border-color: var(--link-color-dark);
+  outline: none;
+}
+
+.workfront-login .subdomain-input {
+  width: 160px;
+}
+
+.workfront-login .subdomain-input.error {
+  border-color: var(--error);
+  padding-right: 35px;
+  background-repeat: no-repeat;
+  background-position: center right calc(35px / 4);
+  background-size: calc(35px / 2) calc(35px / 2);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23eb1000' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
+}
+
+[dir="rtl"] .workfront-login .subdomain-input.error {
+  background-position: center left calc(35px / 4);
+  padding-left: 35px;
+  padding-right: 8px;
+}
+
+.workfront-login .input-group-append {
+  color: #505050;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-left: 8px;
+  direction: ltr;
+}
+
+.workfront-login .error-wrapper {
+  display: none;
+  margin: 8px 0;
+  align-items: center;
+  color: var(--error);
+}
+
+.workfront-login .error-wrapper.show {
+  display: flex;
+}
+
+.workfront-login .error-wrapper svg {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+}
+
+[dir="rtl"] .workfront-login .error-wrapper svg {
+  margin-left: 8px;
+}
+
+.workfront-login .error-wrapper svg path {
+  fill: var(--error);
+}
+
+.workfront-login .error-text {
+  font-size: 14px;
+  margin: 0;
+}
+
+.workfront-login .submit-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.workfront-login .spinner {
+  border: 2px dotted var(--color-gray-100);
+  border-bottom: 2px dotted var(--color-gray-200);
+  border-left: 2px dotted var(--color-gray-400);
+  border-top: 2px dotted var(--color-gray-800);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  margin-left: 16px;
+  animation: spin 2s linear infinite;
+}
+
+[dir="rtl"] .workfront-login .spinner {
+  margin-right: 16px;
+}
+
+.workfront-login.proof form {
+  width: 157.5px;
+}
+
+.workfront-login.proof label {
+  display: block;
+  color: #747474;
+  box-sizing: border-box;
+  padding: 4px 0 5px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+.workfront-login.proof button[type='submit'] {
+  margin-top: 24px;
+}
+
+@media screen and (min-width: 1200px) {
+  .workfront-login {
+    width: 310px;
+  }
+}
