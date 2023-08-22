@@ -1,0 +1,114 @@
+main .form {
+  background-color: #3E3E3E;
+  padding-top: 34px;
+  min-height: 218px;
+}
+
+main .form > div {
+  margin-left: 35%;
+}
+
+main .form h2 {
+  color: white;
+  margin-bottom: 15px;
+  margin-top: unset;
+}
+
+main .form.hide h2 {
+  display: none;
+}
+
+main .section .content.hide {
+  display: none;
+}
+
+main .form input {
+  border: 1px solid rgb(193 193 195);
+  padding: 11px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 50rem;
+  box-sizing: border-box;
+}
+
+main .form p {
+  font-size: var(--type-heading-l-size);
+  line-height: var(--type-heading-l-lh);
+  margin-top: unset;
+}
+
+main form .form-text-field-wrapper p {
+  font-size: 18px;
+  color: white;
+  margin: 0;
+}
+
+.form-container .default-content-wrapper.hide,
+main form.hide {
+  display: none;
+}
+
+main .form .trial-sign-up-message {
+  color: white;
+  max-width: 55%;
+}
+
+.form-container .default-content-wrapper p {
+  font-size: 18px;
+}
+
+main .form label.form-label {
+  position: relative;
+}
+
+main .form label.form-label.alert::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  margin-top: 14px;
+  margin-bottom: 7px;
+  background: url("/img/ui/Alert.svg") no-repeat;
+}
+
+main .form .button {
+  font-size: 24px;
+}
+
+main .form .highlight {
+  border-color: #E34850;
+}
+
+main .form .form-submit-wrapper  {
+  width: 50%;
+  text-align: end;
+}
+
+main .form .form-submit-wrapper .button.primary {
+  font-family: var(--body-font-family);
+  text-decoration: none;
+  border: 2px solid #C8C8C8;
+  padding: 6px 16px 9px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #C8C8C8;
+  background-color: #3E3E3E;
+  margin-top: 30px;
+  border-radius: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  main .form > div {
+    margin-left: 15%;
+  }
+
+  main .form input {
+    width: 85%;
+  }
+
+  main .form .form-submit-wrapper  {
+    width: 85%;
+  }
+}
