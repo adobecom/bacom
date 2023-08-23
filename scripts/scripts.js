@@ -129,6 +129,7 @@ const CONFIG = {
   htmlExclude: [
     /business\.adobe\.com\/(\w\w(_\w\w)?\/)?blog(\/.*)?/,
   ],
+  useDotHtml: true,
 };
 
 const eagerLoad = (img) => {
