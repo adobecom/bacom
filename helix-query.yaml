@@ -3,6 +3,7 @@ version: 1
 indices:
   sitemap-us:
     include:
+      - '/'
       - '/customer-success-stories/**'
       - '/resources/**'
       - '/why-adobe/**'
@@ -29,6 +30,7 @@ indices:
           attribute(el, 'content')
   sitemap-ae_ar:
     include:
+      - '/ae_ar/'
       - '/ae_ar/customer-success-stories/**'
       - '/ae_ar/resources/**'
       - '/ae_ar/why-adobe/**'
@@ -44,6 +46,7 @@ indices:
       <<: *minProps
   sitemap-ae_en:
     include:
+      - '/ae_en/'
       - '/ae_en/customer-success-stories/**'
       - '/ae_en/resources/**'
       - '/ae_en/why-adobe/**'
@@ -59,6 +62,7 @@ indices:
       <<: *minProps
   sitemap-africa:
     include:
+      - '/africa/'
       - '/africa/customer-success-stories/**'
       - '/africa/resources/**'
       - '/africa/why-adobe/**'
@@ -74,6 +78,7 @@ indices:
       <<: *minProps
   sitemap-ar:
     include:
+      - '/ar/'
       - '/ar/customer-success-stories/**'
       - '/ar/resources/**'
       - '/ar/why-adobe/**'
@@ -89,6 +94,7 @@ indices:
       <<: *minProps
   sitemap-at:
     include:
+      - '/at/'
       - '/at/customer-success-stories/**'
       - '/at/resources/**'
       - '/at/why-adobe/**'
@@ -104,6 +110,7 @@ indices:
       <<: *minProps
   sitemap-au:
     include:
+      - '/au/'
       - '/au/customer-success-stories/**'
       - '/au/resources/**'
       - '/au/why-adobe/**'
@@ -119,6 +126,7 @@ indices:
       <<: *minProps
   sitemap-be_en:
     include:
+      - '/be_en/'
       - '/be_en/customer-success-stories/**'
       - '/be_en/resources/**'
       - '/be_en/why-adobe/**'
@@ -134,6 +142,7 @@ indices:
       <<: *minProps
   sitemap-be_fr:
     include:
+      - '/be_fr/'
       - '/be_fr/customer-success-stories/**'
       - '/be_fr/resources/**'
       - '/be_fr/why-adobe/**'
@@ -149,6 +158,7 @@ indices:
       <<: *minProps
   sitemap-be_nl:
     include:
+      - '/be_nl/'
       - '/be_nl/customer-success-stories/**'
       - '/be_nl/resources/**'
       - '/be_nl/why-adobe/**'
@@ -164,6 +174,7 @@ indices:
       <<: *minProps
   sitemap-bg:
     include:
+      - '/bg/'
       - '/bg/customer-success-stories/**'
       - '/bg/resources/**'
       - '/bg/why-adobe/**'
@@ -179,6 +190,7 @@ indices:
       <<: *minProps
   sitemap-br:
     include:
+      - '/br/'
       - '/br/customer-success-stories/**'
       - '/br/resources/**'
       - '/br/why-adobe/**'
@@ -194,6 +206,7 @@ indices:
       <<: *minProps
   sitemap-ca:
     include:
+      - '/ca/'
       - '/ca/customer-success-stories/**'
       - '/ca/resources/**'
       - '/ca/why-adobe/**'
@@ -209,6 +222,7 @@ indices:
       <<: *minProps
   sitemap-ca_fr:
     include:
+      - '/ca_fr/'
       - '/ca_fr/customer-success-stories/**'
       - '/ca_fr/resources/**'
       - '/ca_fr/why-adobe/**'
@@ -224,6 +238,7 @@ indices:
       <<: *minProps
   sitemap-ch_de:
     include:
+      - '/ch_de/'
       - '/ch_de/customer-success-stories/**'
       - '/ch_de/resources/**'
       - '/ch_de/why-adobe/**'
@@ -239,6 +254,7 @@ indices:
       <<: *minProps
   sitemap-ch_fr:
     include:
+      - '/ch_fr/'
       - '/ch_fr/customer-success-stories/**'
       - '/ch_fr/resources/**'
       - '/ch_fr/why-adobe/**'
@@ -254,6 +270,7 @@ indices:
       <<: *minProps
   sitemap-ch_it:
     include:
+      - '/ch_it/'
       - '/ch_it/customer-success-stories/**'
       - '/ch_it/resources/**'
       - '/ch_it/why-adobe/**'
@@ -269,6 +286,7 @@ indices:
       <<: *minProps
   sitemap-cl:
     include:
+      - '/cl/'
       - '/cl/customer-success-stories/**'
       - '/cl/resources/**'
       - '/cl/why-adobe/**'
@@ -284,6 +302,7 @@ indices:
       <<: *minProps
   sitemap-cn:
     include:
+      - '/cn/'
       - '/cn/customer-success-stories/**'
       - '/cn/resources/**'
       - '/cn/why-adobe/**'
@@ -299,6 +318,7 @@ indices:
       <<: *minProps
   sitemap-co:
     include:
+      - '/co/'
       - '/co/customer-success-stories/**'
       - '/co/resources/**'
       - '/co/why-adobe/**'
@@ -314,6 +334,7 @@ indices:
       <<: *minProps
   sitemap-cy_en:
     include:
+      - '/cy_en/'
       - '/cy_en/customer-success-stories/**'
       - '/cy_en/resources/**'
       - '/cy_en/why-adobe/**'
@@ -329,6 +350,7 @@ indices:
       <<: *minProps
   sitemap-cz:
     include:
+      - '/cz/'
       - '/cz/customer-success-stories/**'
       - '/cz/resources/**'
       - '/cz/why-adobe/**'
@@ -344,6 +366,7 @@ indices:
       <<: *minProps
   sitemap-de:
     include:
+      - '/de/'
       - '/de/customer-success-stories/**'
       - '/de/resources/**'
       - '/de/why-adobe/**'
@@ -359,6 +382,7 @@ indices:
       <<: *minProps
   sitemap-dk:
     include:
+      - '/dk/'
       - '/dk/customer-success-stories/**'
       - '/dk/resources/**'
       - '/dk/why-adobe/**'
@@ -374,6 +398,7 @@ indices:
       <<: *minProps
   sitemap-ee:
     include:
+      - '/ee/'
       - '/ee/customer-success-stories/**'
       - '/ee/resources/**'
       - '/ee/why-adobe/**'
@@ -389,6 +414,7 @@ indices:
       <<: *minProps
   sitemap-es:
     include:
+      - '/es/'
       - '/es/customer-success-stories/**'
       - '/es/resources/**'
       - '/es/why-adobe/**'
@@ -404,6 +430,7 @@ indices:
       <<: *minProps
   sitemap-fi:
     include:
+      - '/fi/'
       - '/fi/customer-success-stories/**'
       - '/fi/resources/**'
       - '/fi/why-adobe/**'
@@ -419,6 +446,7 @@ indices:
       <<: *minProps
   sitemap-fr:
     include:
+      - '/fr/'
       - '/fr/customer-success-stories/**'
       - '/fr/resources/**'
       - '/fr/why-adobe/**'
@@ -434,6 +462,7 @@ indices:
       <<: *minProps
   sitemap-gr_en:
     include:
+      - '/gr_en/'
       - '/gr_en/customer-success-stories/**'
       - '/gr_en/resources/**'
       - '/gr_en/why-adobe/**'
@@ -449,6 +478,7 @@ indices:
       <<: *minProps
   sitemap-hk_en:
     include:
+      - '/hk_en/'
       - '/hk_en/customer-success-stories/**'
       - '/hk_en/resources/**'
       - '/hk_en/why-adobe/**'
@@ -464,6 +494,7 @@ indices:
       <<: *minProps
   sitemap-hk_zh:
     include:
+      - '/hk_zh/'
       - '/hk_zh/customer-success-stories/**'
       - '/hk_zh/resources/**'
       - '/hk_zh/why-adobe/**'
@@ -479,6 +510,7 @@ indices:
       <<: *minProps
   sitemap-hu:
     include:
+      - '/hu/'
       - '/hu/customer-success-stories/**'
       - '/hu/resources/**'
       - '/hu/why-adobe/**'
@@ -494,6 +526,7 @@ indices:
       <<: *minProps
   sitemap-id_en:
     include:
+      - '/id_en/'
       - '/id_en/customer-success-stories/**'
       - '/id_en/resources/**'
       - '/id_en/why-adobe/**'
@@ -509,6 +542,7 @@ indices:
       <<: *minProps
   sitemap-id_id:
     include:
+      - '/id_id/'
       - '/id_id/customer-success-stories/**'
       - '/id_id/resources/**'
       - '/id_id/why-adobe/**'
@@ -524,6 +558,7 @@ indices:
       <<: *minProps
   sitemap-ie:
     include:
+      - '/ie/'
       - '/ie/customer-success-stories/**'
       - '/ie/resources/**'
       - '/ie/why-adobe/**'
@@ -539,6 +574,7 @@ indices:
       <<: *minProps
   sitemap-il_en:
     include:
+      - '/il_en/'
       - '/il_en/customer-success-stories/**'
       - '/il_en/resources/**'
       - '/il_en/why-adobe/**'
@@ -554,6 +590,7 @@ indices:
       <<: *minProps
   sitemap-il_he:
     include:
+      - '/il_he/'
       - '/il_he/customer-success-stories/**'
       - '/il_he/resources/**'
       - '/il_he/why-adobe/**'
@@ -569,6 +606,7 @@ indices:
       <<: *minProps
   sitemap-in:
     include:
+      - '/in/'
       - '/in/customer-success-stories/**'
       - '/in/resources/**'
       - '/in/why-adobe/**'
@@ -584,6 +622,7 @@ indices:
       <<: *minProps
   sitemap-in_hi:
     include:
+      - '/in_hi/'
       - '/in_hi/customer-success-stories/**'
       - '/in_hi/resources/**'
       - '/in_hi/why-adobe/**'
@@ -599,6 +638,7 @@ indices:
       <<: *minProps
   sitemap-it:
     include:
+      - '/it/'
       - '/it/customer-success-stories/**'
       - '/it/resources/**'
       - '/it/why-adobe/**'
@@ -614,6 +654,7 @@ indices:
       <<: *minProps
   sitemap-jp:
     include:
+      - '/jp/'
       - '/jp/customer-success-stories/**'
       - '/jp/resources/**'
       - '/jp/why-adobe/**'
@@ -629,6 +670,7 @@ indices:
       <<: *minProps
   sitemap-kr:
     include:
+      - '/kr/'
       - '/kr/customer-success-stories/**'
       - '/kr/resources/**'
       - '/kr/why-adobe/**'
@@ -644,6 +686,7 @@ indices:
       <<: *minProps
   sitemap-la:
     include:
+      - '/la/'
       - '/la/customer-success-stories/**'
       - '/la/resources/**'
       - '/la/why-adobe/**'
@@ -659,6 +702,7 @@ indices:
       <<: *minProps
   sitemap-lt:
     include:
+      - '/lt/'
       - '/lt/customer-success-stories/**'
       - '/lt/resources/**'
       - '/lt/why-adobe/**'
@@ -674,6 +718,7 @@ indices:
       <<: *minProps
   sitemap-lu_de:
     include:
+      - '/lu_de/'
       - '/lu_de/customer-success-stories/**'
       - '/lu_de/resources/**'
       - '/lu_de/why-adobe/**'
@@ -689,6 +734,7 @@ indices:
       <<: *minProps
   sitemap-lu_en:
     include:
+      - '/lu_en/'
       - '/lu_en/customer-success-stories/**'
       - '/lu_en/resources/**'
       - '/lu_en/why-adobe/**'
@@ -704,6 +750,7 @@ indices:
       <<: *minProps
   sitemap-lu_fr:
     include:
+      - '/lu_fr/'
       - '/lu_fr/customer-success-stories/**'
       - '/lu_fr/resources/**'
       - '/lu_fr/why-adobe/**'
@@ -719,6 +766,7 @@ indices:
       <<: *minProps
   sitemap-lv:
     include:
+      - '/lv/'
       - '/lv/customer-success-stories/**'
       - '/lv/resources/**'
       - '/lv/why-adobe/**'
@@ -734,6 +782,7 @@ indices:
       <<: *minProps
   sitemap-mena_ar:
     include:
+      - '/mena_ar/'
       - '/mena_ar/customer-success-stories/**'
       - '/mena_ar/resources/**'
       - '/mena_ar/why-adobe/**'
@@ -749,6 +798,7 @@ indices:
       <<: *minProps
   sitemap-mena_en:
     include:
+      - '/mena_en/'
       - '/mena_en/customer-success-stories/**'
       - '/mena_en/resources/**'
       - '/mena_en/why-adobe/**'
@@ -764,6 +814,7 @@ indices:
       <<: *minProps
   sitemap-mt:
     include:
+      - '/mt/'
       - '/mt/customer-success-stories/**'
       - '/mt/resources/**'
       - '/mt/why-adobe/**'
@@ -779,6 +830,7 @@ indices:
       <<: *minProps
   sitemap-mx:
     include:
+      - '/mx/'
       - '/mx/customer-success-stories/**'
       - '/mx/resources/**'
       - '/mx/why-adobe/**'
@@ -794,6 +846,7 @@ indices:
       <<: *minProps
   sitemap-my_en:
     include:
+      - '/my_en/'
       - '/my_en/customer-success-stories/**'
       - '/my_en/resources/**'
       - '/my_en/why-adobe/**'
@@ -809,6 +862,7 @@ indices:
       <<: *minProps
   sitemap-my_ms:
     include:
+      - '/my_ms/'
       - '/my_ms/customer-success-stories/**'
       - '/my_ms/resources/**'
       - '/my_ms/why-adobe/**'
@@ -824,6 +878,7 @@ indices:
       <<: *minProps
   sitemap-nl:
     include:
+      - '/nl/'
       - '/nl/customer-success-stories/**'
       - '/nl/resources/**'
       - '/nl/why-adobe/**'
@@ -839,6 +894,7 @@ indices:
       <<: *minProps
   sitemap-no:
     include:
+      - '/no/'
       - '/no/customer-success-stories/**'
       - '/no/resources/**'
       - '/no/why-adobe/**'
@@ -854,6 +910,7 @@ indices:
       <<: *minProps
   sitemap-nz:
     include:
+      - '/nz/'
       - '/nz/customer-success-stories/**'
       - '/nz/resources/**'
       - '/nz/why-adobe/**'
@@ -869,6 +926,7 @@ indices:
       <<: *minProps
   sitemap-pe:
     include:
+      - '/pe/'
       - '/pe/customer-success-stories/**'
       - '/pe/resources/**'
       - '/pe/why-adobe/**'
@@ -884,6 +942,7 @@ indices:
       <<: *minProps
   sitemap-ph_en:
     include:
+      - '/ph_en/'
       - '/ph_en/customer-success-stories/**'
       - '/ph_en/resources/**'
       - '/ph_en/why-adobe/**'
@@ -899,6 +958,7 @@ indices:
       <<: *minProps
   sitemap-ph_fil:
     include:
+      - '/ph_fil/'
       - '/ph_fil/customer-success-stories/**'
       - '/ph_fil/resources/**'
       - '/ph_fil/why-adobe/**'
@@ -914,6 +974,7 @@ indices:
       <<: *minProps
   sitemap-pl:
     include:
+      - '/pl/'
       - '/pl/customer-success-stories/**'
       - '/pl/resources/**'
       - '/pl/why-adobe/**'
@@ -929,6 +990,7 @@ indices:
       <<: *minProps
   sitemap-pt:
     include:
+      - '/pt/'
       - '/pt/customer-success-stories/**'
       - '/pt/resources/**'
       - '/pt/why-adobe/**'
@@ -944,6 +1006,7 @@ indices:
       <<: *minProps
   sitemap-ro:
     include:
+      - '/ro/'
       - '/ro/customer-success-stories/**'
       - '/ro/resources/**'
       - '/ro/why-adobe/**'
@@ -959,6 +1022,7 @@ indices:
       <<: *minProps
   sitemap-ru:
     include:
+      - '/ru/'
       - '/ru/customer-success-stories/**'
       - '/ru/resources/**'
       - '/ru/why-adobe/**'
@@ -974,6 +1038,7 @@ indices:
       <<: *minProps
   sitemap-sa_ar:
     include:
+      - '/sa_ar/'
       - '/sa_ar/customer-success-stories/**'
       - '/sa_ar/resources/**'
       - '/sa_ar/why-adobe/**'
@@ -989,6 +1054,7 @@ indices:
       <<: *minProps
   sitemap-sa_en:
     include:
+      - '/sa_en/'
       - '/sa_en/customer-success-stories/**'
       - '/sa_en/resources/**'
       - '/sa_en/why-adobe/**'
@@ -1004,6 +1070,7 @@ indices:
       <<: *minProps
   sitemap-se:
     include:
+      - '/se/'
       - '/se/customer-success-stories/**'
       - '/se/resources/**'
       - '/se/why-adobe/**'
@@ -1019,6 +1086,7 @@ indices:
       <<: *minProps
   sitemap-sg:
     include:
+      - '/sg/'
       - '/sg/customer-success-stories/**'
       - '/sg/resources/**'
       - '/sg/why-adobe/**'
@@ -1034,6 +1102,7 @@ indices:
       <<: *minProps
   sitemap-si:
     include:
+      - '/si/'
       - '/si/customer-success-stories/**'
       - '/si/resources/**'
       - '/si/why-adobe/**'
@@ -1049,6 +1118,7 @@ indices:
       <<: *minProps
   sitemap-sk:
     include:
+      - '/sk/'
       - '/sk/customer-success-stories/**'
       - '/sk/resources/**'
       - '/sk/why-adobe/**'
@@ -1064,6 +1134,7 @@ indices:
       <<: *minProps
   sitemap-th_en:
     include:
+      - '/th_en/'
       - '/th_en/customer-success-stories/**'
       - '/th_en/resources/**'
       - '/th_en/why-adobe/**'
@@ -1079,6 +1150,7 @@ indices:
       <<: *minProps
   sitemap-th_th:
     include:
+      - '/th_th/'
       - '/th_th/customer-success-stories/**'
       - '/th_th/resources/**'
       - '/th_th/why-adobe/**'
@@ -1094,6 +1166,7 @@ indices:
       <<: *minProps
   sitemap-tr:
     include:
+      - '/tr/'
       - '/tr/customer-success-stories/**'
       - '/tr/resources/**'
       - '/tr/why-adobe/**'
@@ -1109,6 +1182,7 @@ indices:
       <<: *minProps
   sitemap-tw:
     include:
+      - '/tw/'
       - '/tw/customer-success-stories/**'
       - '/tw/resources/**'
       - '/tw/why-adobe/**'
@@ -1124,6 +1198,7 @@ indices:
       <<: *minProps
   sitemap-ua:
     include:
+      - '/ua/'
       - '/ua/customer-success-stories/**'
       - '/ua/resources/**'
       - '/ua/why-adobe/**'
@@ -1139,6 +1214,7 @@ indices:
       <<: *minProps
   sitemap-uk:
     include:
+      - '/uk/'
       - '/uk/customer-success-stories/**'
       - '/uk/resources/**'
       - '/uk/why-adobe/**'
@@ -1154,6 +1230,7 @@ indices:
       <<: *minProps
   sitemap-vn_en:
     include:
+      - '/vn_en/'
       - '/vn_en/customer-success-stories/**'
       - '/vn_en/resources/**'
       - '/vn_en/why-adobe/**'
@@ -1169,6 +1246,7 @@ indices:
       <<: *minProps
   sitemap-vn_vi:
     include:
+      - '/vn_vi/'
       - '/vn_vi/customer-success-stories/**'
       - '/vn_vi/resources/**'
       - '/vn_vi/why-adobe/**'
