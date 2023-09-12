@@ -16,13 +16,13 @@ main .form > div {
   margin-left: 35%;
 }
 
-main .form h2 {
+main .form h3 {
   color: var(--color-white);
   margin-bottom: 15px;
   margin-top: unset;
 }
 
-main .form.hide h2 {
+main .form.hide h3 {
   display: none;
 }
 
