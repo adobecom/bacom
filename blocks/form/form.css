@@ -1,5 +1,13 @@
 main .form {
-  background-color: #3E3E3E;
+  /* Scope variables to form */
+  --form-background-color: #3E3E3E;
+  --form-input-border-color: #C1C1C3;
+  --form-input-border-highlight-color: #E34850;
+  --form-button-color: #C8C8C8;
+  --form-button-background-color: var(--form-background-color);
+  --form-button-font-size: 17px;
+
+  background-color: var(--form-background-color);
   padding-top: 34px;
   min-height: 218px;
 }
@@ -9,7 +17,7 @@ main .form > div {
 }
 
 main .form h2 {
-  color: white;
+  color: var(--color-white);
   margin-bottom: 15px;
   margin-top: unset;
 }
@@ -23,7 +31,7 @@ main .section .content.hide {
 }
 
 main .form input {
-  border: 1px solid rgb(193 193 195);
+  border: 1px solid var(--form-input-border-color);
   padding: 11px;
   border-radius: 10px;
   width: 50%;
@@ -38,8 +46,8 @@ main .form p {
 }
 
 main form .form-text-field-wrapper p {
-  font-size: 18px;
-  color: white;
+  font-size: var(--type-heading-s-size);
+  color: var(--color-white);
   margin: 0;
 }
 
@@ -54,7 +62,7 @@ main .form .trial-sign-up-message {
 }
 
 .form-container .default-content-wrapper p {
-  font-size: 18px;
+  font-size: var(--type-heading-s-size);
 }
 
 main .form label.form-label {
@@ -73,11 +81,11 @@ main .form label.form-label.alert::after {
 }
 
 main .form .button {
-  font-size: 24px;
+  font-size: var(--type-heading-l-size);
 }
 
 main .form .highlight {
-  border-color: #E34850;
+  border-color: var(--form-input-border-highlight-color);
 }
 
 main .form .form-submit-wrapper  {
@@ -88,13 +96,13 @@ main .form .form-submit-wrapper  {
 main .form .form-submit-wrapper .button.primary {
   font-family: var(--body-font-family);
   text-decoration: none;
-  border: 2px solid #C8C8C8;
+  border: 2px solid var(--form-button-color);
   padding: 6px 16px 9px;
-  font-size: 17px;
+  font-size: var(--form-button-font-size);
   font-weight: 600;
   cursor: pointer;
-  color: #C8C8C8;
-  background-color: #3E3E3E;
+  color: var(--form-button-color);
+  background-color: var(--form-background-color);
   margin-top: 30px;
   border-radius: 30px;
 }
