@@ -7,7 +7,7 @@ function constructPayload(form) {
   }, {});
 }
 
-async function submitForm(form) {
+async function handleSubmit(form) {
   const payload = constructPayload(form);
   const resp = await fetch(form.dataset.action, {
     method: 'POST',
@@ -34,16 +34,15 @@ function createButton(field) {
   if (field.Type === 'submit') {
     button.addEventListener('click', async (event) => {
       const form = button.closest('form');
+      const block = button.closest('.form');
       event.preventDefault();
       if (checkValidity(form) !== null) {
         button.setAttribute('disabled', '');
-        await submitForm(form);
-        form.classList.add('hide');
-        const section = form.closest('.section');
-        section.firstElementChild.classList.add('hide');
-        const formParent = form.closest('div');
+        await handleSubmit(form);
+        block.classList.add('submitted');
+        const formParent = form.parentElement;
         const paragraph = document.createElement('p');
-        paragraph.classList.add('trial-sign-up-message');
+        paragraph.classList.add('form-submit-message');
         const text = document.createTextNode(field.Extra);
         paragraph.appendChild(text);
         formParent.appendChild(paragraph);
@@ -87,8 +86,7 @@ async function createForm(formURL) {
   form.dataset.action = pathname.split('.json')[0];
   json.data.forEach((field) => {
     const fieldWrapper = document.createElement('div');
-    const fieldId = `form-${field.Type}-wrapper`;
-    fieldWrapper.className = fieldId;
+    fieldWrapper.className = `form-${field.Type}-wrapper`;
     fieldWrapper.classList.add('field-wrapper');
     switch (field.Type) {
       case 'submit':
@@ -104,9 +102,9 @@ async function createForm(formURL) {
 }
 
 const init = async (el) => {
-  const form = el.querySelector('a[href$=".json"]');
-  if (form) {
-    form.replaceWith(await createForm(form.href));
+  const anchor = el.querySelector('p > a[href$=".json"]');
+  if (anchor) {
+    anchor.parentElement.replaceWith(await createForm(anchor.href));
   }
 };
 

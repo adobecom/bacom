@@ -3,8 +3,8 @@ main .form {
   --form-background-color: #3E3E3E;
   --form-input-border-color: #C1C1C3;
   --form-input-border-highlight-color: #E34850;
-  --form-button-color: #C8C8C8;
-  --form-button-background-color: var(--form-background-color);
+  --form-button-color: var(--color-black);
+  --form-button-background-color: rgba(255, 255, 255, 0.9);
   --form-button-font-size: 17px;
 
   background-color: var(--form-background-color);
@@ -22,12 +22,11 @@ main .form h3 {
   margin-top: unset;
 }
 
-main .form.hide h3 {
-  display: none;
-}
-
-main .section .content.hide {
-  display: none;
+main .form p,
+main .form form {
+  font-size: var(--type-heading-l-size);
+  line-height: var(--type-heading-l-lh);
+  margin-top: unset;
 }
 
 main .form input {
@@ -39,30 +38,19 @@ main .form input {
   box-sizing: border-box;
 }
 
-main .form p {
-  font-size: var(--type-heading-l-size);
-  line-height: var(--type-heading-l-lh);
-  margin-top: unset;
-}
-
 main form .form-text-field-wrapper p {
-  font-size: var(--type-heading-s-size);
+  font-size: var(--type-body-xs-size);
   color: var(--color-white);
   margin: 0;
 }
 
-.form-container .default-content-wrapper.hide,
-main form.hide {
-  display: none;
-}
-
-main .form .trial-sign-up-message {
-  color: white;
+main .form .form-submit-message {
+  color: var(--color-white);
   max-width: 55%;
 }
 
 .form-container .default-content-wrapper p {
-  font-size: var(--type-heading-s-size);
+  font-size: var(--type-heading-l-size);
 }
 
 main .form label.form-label {
@@ -80,10 +68,6 @@ main .form label.form-label.alert::after {
   background: url("/img/ui/Alert.svg") no-repeat;
 }
 
-main .form .button {
-  font-size: var(--type-heading-l-size);
-}
-
 main .form .highlight {
   border-color: var(--form-input-border-highlight-color);
 }
@@ -96,15 +80,26 @@ main .form .form-submit-wrapper  {
 main .form .form-submit-wrapper .button.primary {
   font-family: var(--body-font-family);
   text-decoration: none;
-  border: 2px solid var(--form-button-color);
+  border: 2px solid var(--form-button-background-color);
   padding: 6px 16px 9px;
   font-size: var(--form-button-font-size);
   font-weight: 600;
   cursor: pointer;
   color: var(--form-button-color);
-  background-color: var(--form-background-color);
+  background-color: var(--form-button-background-color);
   margin-top: 30px;
   border-radius: 30px;
+}
+
+main .form .form-submit-wrapper .button.primary:active,
+main .form .form-submit-wrapper .button.primary:hover {
+  border-color: var(--color-white);
+  background-color: var(--color-white);
+}
+
+main .form.submitted h3,
+main .form.submitted form {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
