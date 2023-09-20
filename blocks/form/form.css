@@ -32,17 +32,19 @@ main .form input {
   box-sizing: border-box;
 }
 
-main form .form-text-field-wrapper p {
+main .form .field-wrapper p {
   font-size: var(--type-body-xs-size);
   margin: 0;
 }
 
-main .form .form-submit-message {
-  max-width: 55%;
+main .form .form-submit-wrapper  {
+  width: 50%;
+  text-align: end;
+  margin-top: var(--spacing-m);
 }
 
-.form-container .default-content-wrapper p {
-  font-size: var(--type-heading-l-size);
+main .form .form-submit-message {
+  max-width: 55%;
 }
 
 main .form label.form-label {
@@ -62,12 +64,6 @@ main .form label.form-label.alert::after {
 
 main .form .highlight {
   border-color: var(--form-input-border-highlight-color);
-}
-
-main .form .form-submit-wrapper  {
-  width: 50%;
-  text-align: end;
-  margin-top: var(--spacing-m);
 }
 
 main .dark .form h3,

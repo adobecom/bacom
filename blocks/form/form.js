@@ -9,6 +9,7 @@ function constructPayload(form) {
 
 async function handleSubmit(form) {
   const payload = constructPayload(form);
+  payload.timestamp = new Date().toJSON();
   const resp = await fetch(form.dataset.action, {
     method: 'POST',
     cache: 'no-cache',
@@ -63,17 +64,31 @@ function createButton(field) {
 }
 
 function createInput(field) {
-  const label = document.createElement('label');
-  label.classList.add('form-label');
   const input = document.createElement('input');
   input.type = field.Type;
   input.id = field.Field;
-  input.setAttribute('placeholder', field.Placeholder);
-  if (field.Mandatory === 'x') {
-    input.setAttribute('required', 'required');
+  input.name = field.Field;
+
+  const search = new URLSearchParams(window.location.search);
+  const searchValue = search.get(field.Field);
+  if (searchValue) {
+    input.value = searchValue;
+  } else if (field.Value) {
+    input.value = field.Value;
   }
-  label.appendChild(input);
-  return label;
+
+  if (field.Type !== 'hidden') {
+    input.setAttribute('placeholder', field.Placeholder);
+    if (field.Mandatory === 'x') {
+      input.setAttribute('required', 'required');
+    }
+    const label = document.createElement('label');
+    label.classList.add('form-label');
+    label.appendChild(input);
+    return label;
+  }
+
+  return input;
 }
 
 async function createForm(formURL) {
