@@ -29,8 +29,7 @@ function checkValidity(form) {
 function createButton(field) {
   const button = document.createElement('button');
   button.textContent = field.Label;
-  button.classList.add('button');
-  button.classList.add('primary');
+  button.classList.add('con-button', 'button-l', 'fill');
   if (field.Type === 'submit') {
     button.addEventListener('click', async (event) => {
       const form = button.closest('form');
@@ -47,15 +46,15 @@ function createButton(field) {
         paragraph.appendChild(text);
         formParent.appendChild(paragraph);
       } else {
-        const emailElement = document.getElementById('email');
-        if (emailElement.closest('div').childNodes.length < 2) {
+        const emailElement = form.querySelector('#email');
+        if (emailElement?.closest('.field-wrapper').childNodes.length < 2) {
           const paragraph = document.createElement('p');
           const text = document.createTextNode(field.Error);
-          const label = document.querySelector('.form-label');
+          const label = emailElement.closest('.form-label');
           label.classList.add('alert');
           paragraph.appendChild(text);
           emailElement.classList.add('highlight');
-          emailElement.closest('div').appendChild(paragraph);
+          emailElement.closest('.field-wrapper').appendChild(paragraph);
         }
       }
     });
