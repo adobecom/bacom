@@ -7,8 +7,9 @@ function constructPayload(form) {
   }, {});
 }
 
-async function submitForm(form) {
+async function handleSubmit(form) {
   const payload = constructPayload(form);
+  payload.timestamp = new Date().toJSON();
   const resp = await fetch(form.dataset.action, {
     method: 'POST',
     cache: 'no-cache',
@@ -29,34 +30,32 @@ function checkValidity(form) {
 function createButton(field) {
   const button = document.createElement('button');
   button.textContent = field.Label;
-  button.classList.add('button');
-  button.classList.add('primary');
+  button.classList.add('con-button', 'button-l', 'fill');
   if (field.Type === 'submit') {
     button.addEventListener('click', async (event) => {
       const form = button.closest('form');
+      const block = button.closest('.form');
       event.preventDefault();
       if (checkValidity(form) !== null) {
         button.setAttribute('disabled', '');
-        await submitForm(form);
-        form.classList.add('hide');
-        const section = form.closest('.section');
-        section.firstElementChild.classList.add('hide');
-        const formParent = form.closest('div');
+        await handleSubmit(form);
+        block.classList.add('submitted');
+        const formParent = form.parentElement;
         const paragraph = document.createElement('p');
-        paragraph.classList.add('trial-sign-up-message');
+        paragraph.classList.add('form-submit-message');
         const text = document.createTextNode(field.Extra);
         paragraph.appendChild(text);
         formParent.appendChild(paragraph);
       } else {
-        const emailElement = document.getElementById('email');
-        if (emailElement.closest('div').childNodes.length < 2) {
+        const emailElement = form.querySelector('#email');
+        if (emailElement?.closest('.field-wrapper').childNodes.length < 2) {
           const paragraph = document.createElement('p');
           const text = document.createTextNode(field.Error);
-          const label = document.querySelector('.form-label');
+          const label = emailElement.closest('.form-label');
           label.classList.add('alert');
           paragraph.appendChild(text);
           emailElement.classList.add('highlight');
-          emailElement.closest('div').appendChild(paragraph);
+          emailElement.closest('.field-wrapper').appendChild(paragraph);
         }
       }
     });
@@ -65,17 +64,31 @@ function createButton(field) {
 }
 
 function createInput(field) {
-  const label = document.createElement('label');
-  label.classList.add('form-label');
   const input = document.createElement('input');
   input.type = field.Type;
   input.id = field.Field;
-  input.setAttribute('placeholder', field.Placeholder);
-  if (field.Mandatory === 'x') {
-    input.setAttribute('required', 'required');
+  input.name = field.Field;
+
+  const search = new URLSearchParams(window.location.search);
+  const searchValue = search.get(field.Field);
+  if (searchValue) {
+    input.value = searchValue;
+  } else if (field.Value) {
+    input.value = field.Value;
   }
-  label.appendChild(input);
-  return label;
+
+  if (field.Type !== 'hidden') {
+    input.setAttribute('placeholder', field.Placeholder);
+    if (field.Mandatory === 'x') {
+      input.setAttribute('required', 'required');
+    }
+    const label = document.createElement('label');
+    label.classList.add('form-label');
+    label.appendChild(input);
+    return label;
+  }
+
+  return input;
 }
 
 async function createForm(formURL) {
@@ -87,8 +100,7 @@ async function createForm(formURL) {
   form.dataset.action = pathname.split('.json')[0];
   json.data.forEach((field) => {
     const fieldWrapper = document.createElement('div');
-    const fieldId = `form-${field.Type}-wrapper`;
-    fieldWrapper.className = fieldId;
+    fieldWrapper.className = `form-${field.Type}-wrapper`;
     fieldWrapper.classList.add('field-wrapper');
     switch (field.Type) {
       case 'submit':
@@ -104,9 +116,9 @@ async function createForm(formURL) {
 }
 
 const init = async (el) => {
-  const form = el.querySelector('a[href$=".json"]');
-  if (form) {
-    form.replaceWith(await createForm(form.href));
+  const anchor = el.querySelector('p > a[href$=".json"]');
+  if (anchor) {
+    anchor.parentElement.replaceWith(await createForm(anchor.href));
   }
 };
 

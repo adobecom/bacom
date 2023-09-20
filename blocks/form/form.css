@@ -1,5 +1,8 @@
 main .form {
-  background-color: #3E3E3E;
+  /* Scope variables to form */
+  --form-input-border-color: #C1C1C3;
+  --form-input-border-highlight-color: #E34850;
+
   padding-top: 34px;
   min-height: 218px;
 }
@@ -9,21 +12,19 @@ main .form > div {
 }
 
 main .form h3 {
-  color: white;
-  margin-bottom: 15px;
+  margin-bottom: var(--spacing-xs);
   margin-top: unset;
 }
 
-main .form.hide h3 {
-  display: none;
-}
-
-main .section .content.hide {
-  display: none;
+main .form p,
+main .form form {
+  font-size: var(--type-heading-l-size);
+  line-height: var(--type-heading-l-lh);
+  margin-top: unset;
 }
 
 main .form input {
-  border: 1px solid rgb(193 193 195);
+  border: 1px solid var(--form-input-border-color);
   padding: 11px;
   border-radius: 10px;
   width: 50%;
@@ -31,30 +32,19 @@ main .form input {
   box-sizing: border-box;
 }
 
-main .form p {
-  font-size: var(--type-heading-l-size);
-  line-height: var(--type-heading-l-lh);
-  margin-top: unset;
-}
-
-main form .form-text-field-wrapper p {
-  font-size: 18px;
-  color: white;
+main .form .field-wrapper p {
+  font-size: var(--type-body-xs-size);
   margin: 0;
 }
 
-.form-container .default-content-wrapper.hide,
-main form.hide {
-  display: none;
+main .form .form-submit-wrapper  {
+  width: 50%;
+  text-align: end;
+  margin-top: var(--spacing-m);
 }
 
-main .form .trial-sign-up-message {
-  color: white;
+main .form .form-submit-message {
   max-width: 55%;
-}
-
-.form-container .default-content-wrapper p {
-  font-size: 18px;
 }
 
 main .form label.form-label {
@@ -64,39 +54,27 @@ main .form label.form-label {
 main .form label.form-label.alert::after {
   content: "";
   position: absolute;
+  top: 50%;
   right: 12px;
   width: 20px;
   height: 20px;
-  margin-top: 14px;
-  margin-bottom: 7px;
+  transform: translateY(-25%);
   background: url("/img/ui/Alert.svg") no-repeat;
 }
 
-main .form .button {
-  font-size: 24px;
-}
-
 main .form .highlight {
-  border-color: #E34850;
+  border-color: var(--form-input-border-highlight-color);
 }
 
-main .form .form-submit-wrapper  {
-  width: 50%;
-  text-align: end;
+main .dark .form h3,
+main .dark .form-text-field-wrapper p,
+main .dark .form-submit-message {
+  color: var(--color-white);
 }
 
-main .form .form-submit-wrapper .button.primary {
-  font-family: var(--body-font-family);
-  text-decoration: none;
-  border: 2px solid #C8C8C8;
-  padding: 6px 16px 9px;
-  font-size: 17px;
-  font-weight: 600;
-  cursor: pointer;
-  color: #C8C8C8;
-  background-color: #3E3E3E;
-  margin-top: 30px;
-  border-radius: 30px;
+main .form.submitted h3,
+main .form.submitted form {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
