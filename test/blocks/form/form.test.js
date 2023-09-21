@@ -60,7 +60,7 @@ describe('Form Initialization', () => {
 
   it('Creates a submit button', () => {
     const button = document.querySelector('button');
-    expect(button.classList.contains('primary')).to.be.true;
+    expect(button.classList.contains('con-button')).to.be.true;
   });
 
   it('Creates an input text field', () => {
