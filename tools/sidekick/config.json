@@ -28,7 +28,7 @@
     },
     {
       "containerId": "tools",
-      "id": "localize",
+      "id": "localize-2",
       "title": "Localize (V2)",
       "environments": [ "edit" ],
       "url": "https://locui--bacom--adobecom.hlx.page/tools/loc?milolibs=locui",
