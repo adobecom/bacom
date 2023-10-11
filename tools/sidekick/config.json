@@ -22,7 +22,7 @@
       "id": "localize",
       "title": "Localize",
       "environments": [ "edit" ],
-      "url": "https://loc--bacom--adobecom.hlx.page/tools/loc/index.html?project=bacom--adobecom&&milolibs=loc",
+      "url": "https://locrev--bacom--adobecom.hlx.page/tools/loc/index.html?project=bacom--adobecom&&milolibs=locrev",
       "passReferrer": true,
       "includePaths": [ "**.xlsx**" ]
     },
