@@ -138,7 +138,7 @@ const eagerLoad = (img) => {
 };
 
 (async function loadLCPImage() {
-  const marquee = document.querySelector('.marquee');
+  const marquee = document.querySelector('.marquee.split');
   if (marquee) {
     marquee.querySelectorAll('img').forEach(eagerLoad);
   } else {
