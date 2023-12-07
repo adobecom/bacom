@@ -5,6 +5,7 @@ import { setLibs } from '../../../scripts/utils.js';
 
 const { default: init, isCurrentPage } = await import('../../../blocks/tree-view/tree-view.js');
 
+window.lana = { log: () => {} };
 setLibs('libs');
 
 describe('Tree View', () => {
@@ -38,10 +39,10 @@ describe('Tree View', () => {
   });
 
   it('isCurrentPage catches error', () => {
-    sinon.spy(console, 'log');
+    sinon.stub(window.lana, 'log');
     isCurrentPage('/relative-link');
-    expect(console.log.args[0][0]).to.equal('Tree View error:');
-    console.log.restore();
+    expect(window.lana.log.args[0][0]).to.contain('Tree View error:');
+    window.lana.log.restore();
   });
 
   describe('accordion', () => {
