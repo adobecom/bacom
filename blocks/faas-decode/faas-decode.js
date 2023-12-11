@@ -6,7 +6,7 @@ export default async function init(el) {
   const resp = await fetch(url);
 
   if (!resp?.ok) {
-    window.lana?.log(`Error fetching data from url: ${url}`, { tags: 'info, faas-decode' });
+    window.lana?.log(`Error fetching data from url: ${url}`, { tags: 'info,faas-decode' });
     return;
   }
 
