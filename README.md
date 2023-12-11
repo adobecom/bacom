@@ -58,3 +58,23 @@ If you need to lint just one file, you can run:
 ```sh
 npx eslint file1.js
 ```
+
+## Logging
+When logging do not use `console` but instead use `window.lana.log`, these logs will then be visible in Splunk. 
+Use tags to help filter logs. Tags should have the severity, see below, and the module/block name. 
+Tags should provide context, categorization, or help in filtering, etc.
+
+Severity:
+```
+info = network issues or extra details to identify important information.
+warn = authoring related mis-configurations or similar - this could lead to generating tickets.
+error = actual error ( ex. cannot read Y of undefined ) - this could lead to generating tickets / CSOs depending on context.
+```
+Work with OPS to generate automatic tickets / CSOs, for example if an error causes the page or block not to render.
+
+Example Logging:
+```js
+window.lana.log('message', 'info, block-name');
+```
+
+More info: https://wiki.corp.adobe.com/display/WCMSOps/Best+Practices

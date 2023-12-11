@@ -189,6 +189,6 @@ const miloLibs = setLibs(LIBS);
     }
   }
   setConfig({ ...CONFIG, miloLibs });
-  loadLana({ clientId: 'bacom' });
+  loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
 }());
