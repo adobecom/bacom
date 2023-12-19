@@ -119,6 +119,17 @@
       "url": "https://milo.adobe.com/tools/faas",
       "isPalette": false,
       "includePaths": [ "**.docx**"]
+    },
+    {
+      "containerId": "tools",
+      "id": "redirects-formatter",
+      "title": "Redirects Formatter",
+      "environments": [ "edit", "preview", "dev" ],
+      "url": "http://redir-tool-poc--bacom--adobecom.hlx.live/drafts/slavin/tools/redirect-formatter",
+      "isPalette": true,
+      "paletteRect": "top: 150px; left: 7%; height: 675px; width: 85vw;",
+      "includePaths": [ "**.docx**"]
     }
   ]
 }
+ç
