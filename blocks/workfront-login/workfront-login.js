@@ -105,8 +105,9 @@ export async function createSubdomainForm(createTag, replaceKey, config) {
 
 /* c8 ignore next 14 */
 export default async function init(el) {
-  const { createTag, getConfig } = await import(`${getLibs()}/utils/utils.js`);
+  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
   const { replaceKey } = await import(`${getLibs()}/features/placeholders.js`);
+  // eslint-disable-next-line no-undef
   const config = getConfig();
   const isProof = el.classList.contains('proof');
 
