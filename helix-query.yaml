@@ -31,7 +31,7 @@ indices:
       publishDate:
         select: head > meta[name="publishdate"]
         value: |
-          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
+          attribute(el, 'content')
   sitemap-ae_ar:
     include:
       - '/ae_ar/'
