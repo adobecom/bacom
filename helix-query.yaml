@@ -28,6 +28,10 @@ indices:
         select: head > meta[name="robots"]
         value: |
           attribute(el, 'content')
+      publishDate:
+        select: head > meta[name="publishdate"]
+        value: |
+          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
   sitemap-ae_ar:
     include:
       - '/ae_ar/'
