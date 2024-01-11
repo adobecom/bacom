@@ -1,5 +1,8 @@
 import { getLibs } from '../../scripts/utils.js';
 
+export const SELECT_ALL_REGIONS = 'Select All Regions';
+export const DESELECT_ALL_REGIONS = 'De-select All Regions';
+
 async function createLocaleCheckboxes(prefixGroup) {
   const { createTag } = await import(`${getLibs()}/utils/utils.js`);
 
@@ -34,12 +37,14 @@ export function generateRedirectList(urls, locales) {
       try {
         from = new URL(urlPair[0]);
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.warn(e);
         return;
       }
       try {
         to = new URL(urlPair[1]);
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.warn(e);
         return;
       }
@@ -59,28 +64,30 @@ export function stringifyListForExcel(urls) {
 }
 
 export default async function init(el) {
-  const { createTag, getConfig } = await import(`${getLibs()}/utils/utils.js`);
-  const config = getConfig();
-  console.log(config);
+  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
+
   const xlPath = './locale-config.json';
   const resp = await fetch(xlPath);
   if (!resp.ok) return;
   const { data } = await resp.json();
-  console.log(data);
 
   const checkBoxes = await createLocaleCheckboxes(data);
   const checkBoxesContainer = createTag('div', { class: 'checkbox-container' }, checkBoxes);
+  const selectAllCB = createTag('button', { class: 'select-all-cb' });
+  selectAllCB.innerText = SELECT_ALL_REGIONS;
+  checkBoxesContainer.append(selectAllCB);
 
   const redirectsContainer = createTag('section', { class: 'redirects-container' });
-  const textAreaInput = createTag('textarea', { class: 'redirects-input', id: 'redirects-input', name: 'redirects-input' });
+  const textAreaInput = createTag('textarea', { class: 'redirects-text-area', id: 'redirects-input', name: 'redirects-input' });
   const taiLabel = createTag('label', { class: 'io-label', for: 'redirects-input' });
   taiLabel.innerText = 'Place urls here';
-  const textAreaOutput = createTag('textarea', { class: 'redirects-input', id: 'redirects-output', name: 'redirects-output' });
+  const textAreaOutput = createTag('textarea', { class: 'redirects-text-area', id: 'redirects-output', name: 'redirects-output' });
   const taoLabel = createTag('label', { class: 'io-label', for: 'redirects-output' });
   taoLabel.innerText = 'Localized results appear here';
   const ioContainer = createTag('div', { class: 'io-container' });
   const submitButton = createTag('button', { class: 'process=redirects' });
   submitButton.innerText = 'Process Redirects';
+
   submitButton.addEventListener('click', () => {
     const locales = [...document.querySelectorAll("[type='checkbox']")].reduce((rdx, cb) => {
       if (cb.checked) {
@@ -94,6 +101,16 @@ export default async function init(el) {
     const outputString = stringifyListForExcel(redirList);
 
     textAreaOutput.value = outputString;
+  });
+
+  selectAllCB.addEventListener('click', () => {
+    const allNotSelected = selectAllCB.innerText === SELECT_ALL_REGIONS;
+
+    document.querySelectorAll('.locale-checkbox').forEach((cb) => {
+      cb.checked = allNotSelected;
+    });
+
+    selectAllCB.innerText = allNotSelected ? DESELECT_ALL_REGIONS : SELECT_ALL_REGIONS;
   });
 
   ioContainer.append(taiLabel, textAreaInput, taoLabel, textAreaOutput);

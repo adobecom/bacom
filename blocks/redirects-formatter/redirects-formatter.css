@@ -24,7 +24,15 @@
 
 .io-container {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(1fr, 4);
 }
+
+.io-label {
+  grid-row-start: 1;
+}
+
+
 
 textarea {
   min-height: 200px;
