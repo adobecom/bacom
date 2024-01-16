@@ -10,14 +10,30 @@ const {
   stringifyListForExcel,
   SELECT_ALL_REGIONS,
   DESELECT_ALL_REGIONS,
+  NO_LOCALE_ERROR,
 } = await import('../../../blocks/redirects-formatter/redirects-formatter.js');
 const { default: textAreaString } = await import('./mocks/textAreaValues.js');
 
 setLibs('libs');
 
 describe('Redirects Formatter', () => {
+  const ogFetch = window.fetch;
+
   beforeEach(async () => {
     document.body.innerHTML = await readFile({ path: './mocks/redirects-formatter.html' });
+
+    const block = document.querySelector('.redirects-formatter');
+
+    sinon.stub(window, 'fetch');
+    const fetchText = await readFile({ path: './mocks/locale-config.json' });
+    const res = new window.Response(fetchText, { status: 200 });
+    window.fetch.returns(Promise.resolve(res));
+
+    await init(block);
+  });
+
+  afterEach(async () => {
+    window.fetch = ogFetch;
   });
 
   it('correctly parses values from the input', () => {
@@ -51,19 +67,10 @@ describe('Redirects Formatter', () => {
   });
 
   it('selects/deselects all the checkboxes on click', async () => {
-    const block = document.querySelector('.redirects-formatter');
-
-    sinon.stub(window, 'fetch');
-    const fetchText = await readFile({ path: './mocks/locale-config.json' });
-    const res = new window.Response(fetchText, { status: 200 });
-    window.fetch.returns(Promise.resolve(res));
-
-    await init(block);
-
     const checkBoxes = document.querySelectorAll('.locale-checkbox');
     expect([...checkBoxes].every((cb) => !cb.checked)).to.be.true;
 
-    const selectAllButton = block.querySelector('button');
+    const selectAllButton = document.querySelector('button');
     selectAllButton.click();
 
     expect([...checkBoxes].every((cb) => cb.checked)).to.be.true;
@@ -72,5 +79,35 @@ describe('Redirects Formatter', () => {
     selectAllButton.click();
     expect([...checkBoxes].every((cb) => !cb.checked)).to.be.true;
     expect(selectAllButton.innerText).to.equal(SELECT_ALL_REGIONS);
+  });
+
+  it('informs the user of an error if no locales are selected', async () => {
+    const checkBoxes = document.querySelectorAll('.locale-checkbox');
+    expect([...checkBoxes].every((cb) => !cb.checked)).to.be.true;
+
+    const processButton = document.querySelector('.process-redirects');
+    const errorMessage = document.querySelector('.error');
+    const checkBoxContainer = document.querySelector('.checkbox-container');
+    processButton.click();
+    expect(errorMessage.innerHTML).to.equal(NO_LOCALE_ERROR);
+    expect(checkBoxContainer.classList.contains('error-border')).to.be.true;
+  });
+
+  it('informs the user of an error if an incorrect url is passed in to the input', async () => {
+    const input = document.querySelector('.redirects-text-area');
+    const processButton = document.querySelector('.process-redirects');
+    const errorMessage = document.querySelector('.error');
+    const selectAllCB = document.querySelector('.select-all-cb');
+    const correct = 'https://www.adobe.com/resource\thttps://www.adobe.com';
+    const incorrect = '/resource\thttps://www.adobe.com';
+
+    selectAllCB.click();
+    input.value = correct;
+    processButton.click();
+    expect(input.classList.contains('error-border')).to.be.false;
+    input.value = incorrect;
+    processButton.click();
+    expect(errorMessage.innerHTML.length > 0).to.be.true;
+    expect(input.classList.contains('error-border')).to.be.true;
   });
 });

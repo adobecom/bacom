@@ -2,6 +2,7 @@ import { getLibs } from '../../scripts/utils.js';
 
 export const SELECT_ALL_REGIONS = 'Select All Regions';
 export const DESELECT_ALL_REGIONS = 'De-select All Regions';
+export const NO_LOCALE_ERROR = 'No locales selected from list';
 
 async function createLocaleCheckboxes(prefixGroup) {
   const { createTag } = await import(`${getLibs()}/utils/utils.js`);
@@ -29,8 +30,23 @@ export function parseUrlString(input) {
   }, []);
 }
 
-export function generateRedirectList(urls, locales) {
+function handleError(e, eSection) {
+  const errorElem = document.querySelector('.error');
+  setTimeout(() => {
+    errorElem.innerText = '';
+    eSection.classList.remove('error-border');
+  }, 2000);
+  errorElem.innerText = e;
+  eSection.classList.add('error-border');
+}
+
+export function generateRedirectList(urls, locales, handler) {
+  const inputSection = document.querySelector('.redirects-text-area');
+  const checkboxSection = document.querySelector('.checkbox-container');
+
   return urls.reduce((rdx, urlPair) => {
+    if (!locales.length) handler(NO_LOCALE_ERROR, checkboxSection);
+
     locales.forEach((locale) => {
       let from;
       let to;
@@ -38,14 +54,14 @@ export function generateRedirectList(urls, locales) {
         from = new URL(urlPair[0]);
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.warn(e);
+        handler(e.message, inputSection);
         return;
       }
       try {
         to = new URL(urlPair[1]);
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.warn(e);
+        handler(e.message, inputSection);
         return;
       }
       const fromPath = from.pathname.split('.html')[0];
@@ -76,6 +92,9 @@ export default async function init(el) {
   // Header
   const header = createTag('h1');
   header.innerText = 'Redirect Formatting Tool';
+
+  // Error section
+  const errorSection = createTag('p', { class: 'error' });
 
   // Checkboxes
   const checkBoxesHeader = createTag('p', { class: 'cb-label' });
@@ -125,7 +144,7 @@ export default async function init(el) {
     }, []);
 
     const parsedInput = parseUrlString(textAreaInput.value);
-    const redirList = generateRedirectList(parsedInput, locales);
+    const redirList = generateRedirectList(parsedInput, locales, handleError);
     const outputString = stringifyListForExcel(redirList);
 
     textAreaOutput.value = outputString;
@@ -151,5 +170,5 @@ export default async function init(el) {
   });
 
   redirectsContainer.append(checkBoxesArea, inputAreaContainer, outputAreaContainer);
-  el.append(header, redirectsContainer);
+  el.append(header, errorSection, redirectsContainer);
 }
