@@ -3,6 +3,7 @@ import { getLibs } from '../../scripts/utils.js';
 export const SELECT_ALL_REGIONS = 'Select All Regions';
 export const DESELECT_ALL_REGIONS = 'De-select All Regions';
 export const NO_LOCALE_ERROR = 'No locales selected from list';
+const COPY_TO_CLIPBOARD = 'Copy to clipboard';
 
 async function createLocaleCheckboxes(prefixGroup) {
   const { createTag } = await import(`${getLibs()}/utils/utils.js`);
@@ -81,12 +82,12 @@ export function stringifyListForExcel(urls) {
 
 export default async function init(el) {
   const { createTag } = await import(`${getLibs()}/utils/utils.js`);
-
   const xlPath = './locale-config.json';
   const resp = await fetch(xlPath);
   if (!resp.ok) return;
   const { data } = await resp.json();
 
+  // Main container
   const redirectsContainer = createTag('section', { class: 'redirects-container' });
 
   // Header
@@ -109,7 +110,7 @@ export default async function init(el) {
   const inputAreaContainer = createTag('section', { class: 'input-container' });
   const textAreaInput = createTag('textarea', { class: 'redirects-text-area', id: 'redirects-input', name: 'redirects-input' });
   const taiLabel = createTag('label', { class: 'io-label', for: 'redirects-input' });
-  taiLabel.innerText = 'Place urls here';
+  taiLabel.innerText = 'Paste URLs here:';
   const submitButton = createTag('button', { class: 'process-redirects' });
   submitButton.innerText = 'Process Redirects';
   inputAreaContainer.append(taiLabel, submitButton, textAreaInput);
@@ -119,9 +120,9 @@ export default async function init(el) {
   const textAreaOutput = createTag('textarea', { class: 'redirects-text-area', id: 'redirects-output', name: 'redirects-output' });
   textAreaOutput.setAttribute('readonly', 'true');
   const taoLabel = createTag('label', { class: 'io-label', for: 'redirects-output' });
-  taoLabel.innerText = 'Localized results appear here';
+  taoLabel.innerText = 'Localized results appear here:';
   const copyButton = createTag('button', { class: 'copy' });
-  copyButton.innerText = 'Copy to clipboard';
+  copyButton.innerText = COPY_TO_CLIPBOARD;
   outputAreaContainer.append(taoLabel, copyButton, textAreaOutput);
 
   // Event listeners
@@ -157,13 +158,13 @@ export default async function init(el) {
       () => {
         copyButton.innerText = 'Copied';
         setTimeout(() => {
-          copyButton.innerText = 'Copy to clipbaord';
+          copyButton.innerText = COPY_TO_CLIPBOARD;
         }, 1500);
       },
       () => {
         copyButton.innerText = 'Error!';
         setTimeout(() => {
-          copyButton.innerText = 'Copy to clipbaord';
+          copyButton.innerText = COPY_TO_CLIPBOARD;
         }, 1500);
       },
     );

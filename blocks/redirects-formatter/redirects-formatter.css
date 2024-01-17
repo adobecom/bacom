@@ -5,6 +5,9 @@
 
 h1 {
   margin: 20px;
+  width: fit-content;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
 }
 
 textarea {
@@ -24,10 +27,6 @@ button {
   font-family: adobe-clean, sans-serif;
   color: #FFF;
   background: #FF1593;
-  background-image: "url(../../../img/ui/icon-copy.svg)";
-  background-repeat: no-repeat;
-  background-size: 18px;
-  background-position: 12px center;
   font-size: 16px;
   font-weight: 700;
   padding: 0 18px;
@@ -43,12 +42,7 @@ label {
   align-self: center;
 }
 
-.redirects-formatter {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-}
-
+.redirects-formatter,
 .redirects-container {
   display: flex;
   flex-direction: column;
