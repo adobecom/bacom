@@ -192,26 +192,8 @@ const miloLibs = setLibs(LIBS);
   loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
 
-  if (document.querySelector('meta[name="aa-sandbox"]')) {
-    window.addEventListener('mktoSubmit', () => {
-      const firstName = document.querySelector('input[name="FirstName"]');
-      const lastName = document.querySelector('input[name="LastName"]');
-      const email = document.querySelector('input[name="Email"]');
-      const country = document.querySelector('input[name="Country"]');
-
-      fetch('https://us-central1-adobe---aa-university.cloudfunctions.net/register', {
-        method: 'POST',
-        body: JSON.stringify({
-          first_name: firstName.value,
-          last_name: lastName.value,
-          email: email.value,
-          university: 'none',
-          country: country.value,
-        }),
-      })
-        .catch((error) => {
-          window.lana.log('Marketo AA Sandbox Error:', error);
-        });
-    });
+  if (document.querySelector('meta[name="aa-university"]')) {
+    const { default: submitAAUniversity } = await import('./aa-university.js');
+    window.addEventListener('mktoSubmit', submitAAUniversity);
   }
 }());
