@@ -191,4 +191,9 @@ const miloLibs = setLibs(LIBS);
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
+
+  if (document.querySelector('meta[name="aa-university"]')) {
+    const { default: registerAAUniversity } = await import('./aa-university.js');
+    window.addEventListener('mktoSubmit', registerAAUniversity);
+  }
 }());
