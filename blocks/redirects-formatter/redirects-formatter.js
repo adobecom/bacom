@@ -91,8 +91,7 @@ export default async function init(el) {
   const redirectsContainer = createTag('section', { class: 'redirects-container' });
 
   // Header
-  const header = createTag('h1');
-  header.innerText = 'Redirect Formatting Tool';
+  const header = createTag('h1', null, 'Redirect Formatting Tool');
 
   // Error section
   const errorSection = createTag('p', { class: 'error' });
@@ -117,8 +116,7 @@ export default async function init(el) {
 
   // Text output Area
   const outputAreaContainer = createTag('section', { class: 'output-container' });
-  const textAreaOutput = createTag('textarea', { class: 'redirects-text-area', id: 'redirects-output', name: 'redirects-output' });
-  textAreaOutput.setAttribute('readonly', 'true');
+  const textAreaOutput = createTag('textarea', { class: 'redirects-text-area', id: 'redirects-output', name: 'redirects-output', readonly: true });
   const taoLabel = createTag('label', { class: 'io-label', for: 'redirects-output' });
   taoLabel.innerText = 'Localized results appear here:';
   const copyButton = createTag('button', { class: 'copy' });

@@ -7,7 +7,7 @@ h1 {
   margin: 20px;
   width: fit-content;
   padding-bottom: 10px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--text-color);
 }
 
 textarea {
@@ -25,7 +25,7 @@ button {
   border: none;
   height: 36px;
   font-family: adobe-clean, sans-serif;
-  color: #FFF;
+  color: var(--color-white);
   background: #FF1593;
   font-size: 16px;
   font-weight: 700;
