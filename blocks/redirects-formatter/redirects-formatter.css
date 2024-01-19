@@ -46,7 +46,11 @@ label {
 .redirects-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 0 20px 20px;
+}
+
+.instructions {
+  margin: 0 20px;
 }
 
 .checkbox-container {
@@ -54,6 +58,7 @@ label {
   flex-wrap: wrap;
   background: #efefef;
   grid-column: 1/3;
+  border: 1px solid black;
 }
 
 .checkbox-wrapper {
@@ -65,7 +70,7 @@ label {
 .redirects-container section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .redirects-container section textarea {
@@ -78,11 +83,11 @@ label {
 }
 
 .error {
-  margin: 0 20px;
+  margin: 10px 20px;
   min-height: 30px;
   color: red;
 }
 
 .error-border {
-  border: 2px solid red;
+  border: 1px solid red;
 }
