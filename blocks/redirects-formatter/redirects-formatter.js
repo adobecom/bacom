@@ -73,11 +73,7 @@ export function generateRedirectList(urls, locales, handler) {
 }
 
 export function stringifyListForExcel(urls) {
-  return urls.reduce((rdx, url) => {
-    // eslint-disable-next-line no-param-reassign
-    rdx += `${url[0]}\t${url[1]}\n`;
-    return rdx;
-  }, '');
+  return urls.reduce((rdx, url) => `${rdx}${url[0]}\t${url[1]}\n`, '');
 }
 
 export default async function init(el) {
@@ -101,8 +97,7 @@ export default async function init(el) {
   checkBoxesHeader.innerText = 'Select Locales';
   const checkBoxes = await createLocaleCheckboxes(data);
   const checkBoxesContainer = createTag('div', { class: 'checkbox-container' }, checkBoxes);
-  const selectAllCB = createTag('button', { class: 'select-all-cb' });
-  selectAllCB.innerText = SELECT_ALL_REGIONS;
+  const selectAllCB = createTag('button', { class: 'select-all-cb' }, SELECT_ALL_REGIONS);
   const checkBoxesArea = createTag('section', { class: 'cb-area' }, [checkBoxesHeader, selectAllCB, checkBoxesContainer]);
 
   // Text input area
