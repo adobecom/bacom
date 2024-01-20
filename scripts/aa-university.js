@@ -1,5 +1,4 @@
 export default function submitAAUniversity() {
-  console.log('submitAAUniversity');
   const firstName = document.querySelector('input[name="FirstName"]');
   const lastName = document.querySelector('input[name="LastName"]');
   const email = document.querySelector('input[name="Email"]');
