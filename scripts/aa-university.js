@@ -1,4 +1,4 @@
-export default function submitAAUniversity() {
+export default function registerAAUniversity() {
   const firstName = document.querySelector('input[name="FirstName"]');
   const lastName = document.querySelector('input[name="LastName"]');
   const email = document.querySelector('input[name="Email"]');
@@ -13,8 +13,8 @@ export default function submitAAUniversity() {
       university: 'none',
       country: country?.value,
     }),
-  })
-    .catch((error) => {
-      window.lana.log('Marketo AA University Error:', error);
-    });
+  });
+    // .catch((error) => {
+    //   window.lana.log('Marketo AA University Error:', error);
+    // });
 }
