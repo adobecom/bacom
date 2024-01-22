@@ -13,8 +13,8 @@ export default function registerAAUniversity() {
       university: 'none',
       country: country?.value,
     }),
-  });
-    // .catch((error) => {
-    //   window.lana.log('Marketo AA University Error:', error);
-    // });
+  })
+    .catch((error) => {
+      window.lana.log('Marketo AA University Error:', error);
+    });
 }

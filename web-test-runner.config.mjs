@@ -7,7 +7,6 @@ export default {
       '**/node_modules/**',
       '**/test/**',
       '**/deps/**',
-      '**/scripts/**',
     ],
   },
   plugins: [importMapsPlugin({})],
