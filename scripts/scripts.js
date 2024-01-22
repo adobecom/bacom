@@ -148,9 +148,13 @@ const eagerLoad = (img) => {
 };
 
 (async function loadLCPImage() {
-  const marquee = document.querySelector('.marquee.split');
+  const marquee = document.querySelector('.marquee');
   if (marquee) {
-    marquee.querySelectorAll('img').forEach(eagerLoad);
+    if (marquee.classList.contains('split')) {
+      marquee.querySelectorAll('img').forEach(eagerLoad);
+    } else {
+      eagerLoad(marquee.querySelector('img'));
+    }
   } else {
     eagerLoad(document.querySelector('img'));
   }
