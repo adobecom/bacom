@@ -193,8 +193,7 @@ const miloLibs = setLibs(LIBS);
   await loadArea();
 
   if (document.querySelector('meta[name="aa-university"]')) {
-    console.log('boop');
     const { default: registerAAUniversity } = await import('./aa-university.js');
-    window.addEventListener('mktoSubmit', () => console.log('mktoSubmit'));
+    window.addEventListener('mktoSubmit', registerAAUniversity);
   }
 }());
