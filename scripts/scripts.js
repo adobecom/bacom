@@ -156,9 +156,9 @@ const eagerLoad = (img) => {
 
   if (marquee.classList.contains('split')) {
     marquee.querySelectorAll('img').forEach(eagerLoad);
-  } else {
-    eagerLoad(marquee.querySelector('img'));
+    return;
   }
+  eagerLoad(marquee.querySelector('img'));
 }());
 
 /*
