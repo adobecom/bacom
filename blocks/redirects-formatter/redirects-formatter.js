@@ -50,7 +50,7 @@ function handleError(e, eSection) {
 export function generateRedirectList(urls, locales, handler) {
   const inputSection = document.querySelector('.redirects-text-area');
   const checkboxSection = document.querySelector('.checkbox-container');
-  const errorMessage = 'Invalid URL. URLs must start with "https://" e.g: "https://business.adobe.com';
+  const errorMessage = 'Invalid URL. URLs must start with "https://" e.g: "https://business.adobe.com"';
 
   return urls.reduce((rdx, urlPair) => {
     if (!locales.length) handler(NO_LOCALE_ERROR, checkboxSection);
