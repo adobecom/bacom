@@ -19,8 +19,7 @@ async function createLocaleCheckboxes(prefixGroup) {
     const currLocale = prefix === '' ? 'en' : prefix;
     if (currLocale === 'langstore') return undefined;
     const checkbox = createTag('input', { class: 'locale-checkbox', type: 'checkbox', id: `${currLocale}`, name: `${currLocale}` });
-    const label = createTag('label', { class: 'locale-label', for: `${currLocale}` });
-    label.innerText = `${currLocale}`;
+    const label = createTag('label', { class: 'locale-label', for: `${currLocale}` }, currLocale);
 
     return createTag('div', { class: 'checkbox-wrapper' }, [checkbox, label]);
   });
