@@ -17,12 +17,11 @@ async function createLocaleCheckboxes(prefixGroup) {
   return Object.keys(prefixGroup).map((key) => {
     const { prefix } = prefixGroup[key];
     const currLocale = prefix === '' ? 'en' : prefix;
-    if (currLocale === 'langstore') return;
+    if (currLocale === 'langstore') return undefined;
     const checkbox = createTag('input', { class: 'locale-checkbox', type: 'checkbox', id: `${currLocale}`, name: `${currLocale}` });
     const label = createTag('label', { class: 'locale-label', for: `${currLocale}` });
     label.innerText = `${currLocale}`;
 
-    // eslint-disable-next-line consistent-return
     return createTag('div', { class: 'checkbox-wrapper' }, [checkbox, label]);
   });
 }
@@ -61,14 +60,12 @@ export function generateRedirectList(urls, locales, handler) {
       try {
         from = new URL(urlPair[0]);
       } catch (e) {
-        // eslint-disable-next-line no-console
         handler(errorMessage, inputSection);
         return;
       }
       try {
         to = new URL(urlPair[1]);
       } catch (e) {
-        // eslint-disable-next-line no-console
         handler(errorMessage, inputSection);
         return;
       }
@@ -90,16 +87,9 @@ export default async function init(el) {
   if (!resp.ok) return;
   const { data } = await resp.json();
 
-  // Main container
   const redirectsContainer = createTag('section', { class: 'redirects-container' });
-
-  // Header
   const header = createTag('h1', null, 'Redirect Formatting Tool');
-
-  // Instructions
   const instructions = createTag('p', { class: 'instructions' }, INSTRUCTIONS_TEXT);
-
-  // Error section
   const errorSection = createTag('p', { class: 'error' });
 
   // Checkboxes
