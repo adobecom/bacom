@@ -69,7 +69,8 @@ export function generateRedirectList(urls, locales, handler) {
         return;
       }
       const fromPath = from.pathname.split('.html')[0];
-      rdx.push([`/${locale}${fromPath}`, `${to.origin}/${locale}${to.pathname}`]);
+      const toPath = to.pathname.includes('.html') ? to.pathname : `${to.pathname}.html`;
+      rdx.push([`/${locale}${fromPath}`, `${to.origin}/${locale}${toPath}`]);
     });
     return rdx;
   }, []);
