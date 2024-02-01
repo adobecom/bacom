@@ -164,19 +164,6 @@ const eagerLoad = (img) => {
 
 const miloLibs = setLibs(LIBS);
 
-(function loadStyles() {
-  const paths = [`${miloLibs}/styles/styles.css`];
-  if (STYLES) {
-    paths.push(...(Array.isArray(STYLES) ? STYLES : [STYLES]));
-  }
-  paths.forEach((path) => {
-    const link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', path);
-    document.head.appendChild(link);
-  });
-}());
-
 (async function loadPage() {
   const { loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
   const metaCta = document.querySelector('meta[name="chat-cta"]');
