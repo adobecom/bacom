@@ -27,7 +27,7 @@ jobs:
 
       - name: Overwrite floodgate repo files with latest from source repo
         run: |
-          rsync -av --exclude='fstab.yaml' --exclude='.github' --exclude='.git' --exclude='.idea' ./ ../bacom-pink/
+          rsync -av --exclude='fstab.yaml' --exclude='.github' --exclude='.git' --exclude='.idea' --exclude='tools/sidekick/config.json' ./ ../bacom-pink/
 
       - name: Commit and Push Changes to Floodgate Repository
         run: |
