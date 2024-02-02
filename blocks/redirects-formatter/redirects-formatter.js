@@ -70,7 +70,8 @@ export function generateRedirectList(urls, locales) {
       }
       const fromPath = from.pathname.split('.html')[0];
       const toPath = () => {
-        if (!to.origin.endsWith('.adobe.com') || to.pathname.includes('/blog') || to.pathname === '/') {
+        const excludeHTMLPaths = ['/blog', '.html'];
+        if (!to.origin.endsWith('.adobe.com') || excludeHTMLPaths.some((p) => to.pathname.includes(p)) || to.pathname === '/') {
           return to.pathname;
         }
         return `${to.pathname}.html`;
