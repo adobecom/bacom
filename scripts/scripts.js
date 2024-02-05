@@ -13,7 +13,7 @@
 import { setLibs } from './utils.js';
 
 const LIBS = '/libs';
-const STYLES = ['/styles/styles.css', '/styles/faas.css'];
+const STYLES = ['/styles/styles.css'];
 const CONFIG = {
   imsClientId: 'bacom',
   local: {
@@ -183,7 +183,7 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadStyle, loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
     const isMetaCtaDisabled = metaCta?.content === 'off';
@@ -196,6 +196,7 @@ const miloLibs = setLibs(LIBS);
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
+  loadStyle('/styles/faas.css');
 
   if (document.querySelector('meta[name="aa-university"]')) {
     const { default: registerAAUniversity } = await import('./aa-university.js');
