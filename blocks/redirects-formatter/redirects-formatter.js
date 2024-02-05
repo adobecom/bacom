@@ -45,13 +45,13 @@ function handleError(e, eSection) {
   eSection.classList.add('error-border');
 }
 
-export function generateRedirectList(urls, locales, handler) {
+export function generateRedirectList(urls, locales) {
   const inputSection = document.querySelector('.redirects-text-area');
   const checkboxSection = document.querySelector('.checkbox-container');
   const errorMessage = 'Invalid URL. URLs must start with "https://" e.g: "https://business.adobe.com"';
 
   return urls.reduce((rdx, urlPair) => {
-    if (!locales.length) handler(NO_LOCALE_ERROR, checkboxSection);
+    if (!locales.length) handleError(NO_LOCALE_ERROR, checkboxSection);
 
     locales.forEach((locale) => {
       let from;
@@ -59,17 +59,24 @@ export function generateRedirectList(urls, locales, handler) {
       try {
         from = new URL(urlPair[0]);
       } catch (e) {
-        handler(errorMessage, inputSection);
+        handleError(errorMessage, inputSection);
         return;
       }
       try {
         to = new URL(urlPair[1]);
       } catch (e) {
-        handler(errorMessage, inputSection);
+        handleError(errorMessage, inputSection);
         return;
       }
       const fromPath = from.pathname.split('.html')[0];
-      rdx.push([`/${locale}${fromPath}`, `${to.origin}/${locale}${to.pathname}`]);
+      const toPath = () => {
+        const excludeHTMLPaths = ['/blog', '.html'];
+        if (!to.origin.endsWith('.adobe.com') || excludeHTMLPaths.some((p) => to.pathname.includes(p)) || to.pathname === '/') {
+          return to.pathname;
+        }
+        return `${to.pathname}.html`;
+      };
+      rdx.push([`/${locale}${fromPath}`, `${to.origin}/${locale}${toPath()}`]);
     });
     return rdx;
   }, []);
@@ -133,7 +140,7 @@ export default async function init(el) {
     }, []);
 
     const parsedInput = parseUrlString(textAreaInput.value);
-    const redirList = generateRedirectList(parsedInput, locales, handleError);
+    const redirList = generateRedirectList(parsedInput, locales);
     const outputString = stringifyListForExcel(redirList);
 
     textAreaOutput.value = outputString;

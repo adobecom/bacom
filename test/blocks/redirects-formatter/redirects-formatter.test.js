@@ -12,7 +12,7 @@ const {
   DESELECT_ALL_REGIONS,
   NO_LOCALE_ERROR,
 } = await import('../../../blocks/redirects-formatter/redirects-formatter.js');
-const { default: textAreaString } = await import('./mocks/textAreaValues.js');
+const { htmlIncluded, htmlExcluded, externalUrls } = await import('./mocks/textAreaValues.js');
 
 setLibs('libs');
 
@@ -37,7 +37,7 @@ describe('Redirects Formatter', () => {
   });
 
   it('correctly parses values from the input', () => {
-    const parsedInput = parseUrlString(textAreaString);
+    const parsedInput = parseUrlString(htmlIncluded);
     const firstPair = parsedInput[0];
     const lastPair = parsedInput[2];
     expect(firstPair[0]).to.equal('https://business.adobe.com/products/experience-manager/sites/experience-fragments.html');
@@ -47,7 +47,7 @@ describe('Redirects Formatter', () => {
   });
 
   it('outputs localized urls', () => {
-    const parsedInput = parseUrlString(textAreaString);
+    const parsedInput = parseUrlString(htmlIncluded);
     const locales = ['ar', 'au', 'uk'];
 
     const redir = generateRedirectList(parsedInput, locales);
@@ -56,7 +56,7 @@ describe('Redirects Formatter', () => {
   });
 
   it('provides a string formatted for pasting into excel', () => {
-    const parsedInput = parseUrlString(textAreaString);
+    const parsedInput = parseUrlString(htmlIncluded);
     const locales = ['ar', 'au', 'uk'];
     const redir = generateRedirectList(parsedInput, locales);
     const stringList = stringifyListForExcel(redir);
@@ -64,6 +64,30 @@ describe('Redirects Formatter', () => {
     expect(typeof stringList).to.equal('string');
     expect(stringList.substring(0, 4)).to.equal('/ar/');
     expect(stringList.substring((stringList.length - 6), stringList.length)).to.equal('.html\n');
+  });
+
+  it('adds .html to the end of the string in output', () => {
+    expect(htmlExcluded.substring((htmlExcluded.length - 5), htmlExcluded.length)).to.equal('tools');
+    const parsedInput = parseUrlString(htmlExcluded);
+    const locales = ['ar', 'au', 'uk'];
+    const redir = generateRedirectList(parsedInput, locales);
+    const stringList = stringifyListForExcel(redir);
+
+    expect(typeof stringList).to.equal('string');
+    expect(stringList.substring(0, 4)).to.equal('/ar/');
+    expect(stringList.substring((stringList.length - 6), stringList.length)).to.equal('.html\n');
+  });
+
+  it('does not add .html to the end of the string in output for external or blog urls', () => {
+    expect(externalUrls.substring((externalUrls.length - 5), externalUrls.length)).to.equal('blog\n');
+    const parsedInput = parseUrlString(externalUrls);
+    const locales = ['ar', 'au', 'uk'];
+    const redir = generateRedirectList(parsedInput, locales);
+    const stringList = stringifyListForExcel(redir);
+
+    expect(typeof stringList).to.equal('string');
+    expect(stringList.substring(0, 4)).to.equal('/ar/');
+    expect(stringList.substring((stringList.length - 6), stringList.length)).to.not.equal('.html\n');
   });
 
   it('selects/deselects all the checkboxes on click', async () => {
