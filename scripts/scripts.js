@@ -13,7 +13,7 @@
 import { setLibs } from './utils.js';
 
 const LIBS = '/libs';
-const STYLES = ['/styles/styles.css', '/styles/faas.css'];
+const STYLES = ['/styles/styles.css'];
 const CONFIG = {
   imsClientId: 'bacom',
   local: {
@@ -200,5 +200,11 @@ const miloLibs = setLibs(LIBS);
   if (document.querySelector('meta[name="aa-university"]')) {
     const { default: registerAAUniversity } = await import('./aa-university.js');
     window.addEventListener('mktoSubmit', registerAAUniversity);
+  }
+  if (document.querySelector('.faas')) {
+    const link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', '/styles/faas.css');
+    document.head.appendChild(link);
   }
 }());
