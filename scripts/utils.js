@@ -19,29 +19,6 @@
 /**
  * The decision engine for where to get Milo's libs from.
  */
-// export const [setLibs, getLibs] = (() => {
-//   let libs;
-//   return [
-//     (prodLibs) => {
-//       const { hostname } = window.location;
-//       const stageEnvs = ['localhost', 'hlx.page', 'hlx.live', 'business.stage.adobe.com'];
-//       if (!stageEnvs.some((env) => hostname.includes(env))) {
-//         libs = prodLibs;
-//       } else {
-//         const branch = new URLSearchParams(window.location.search).get('milolibs') || 'main';
-//         if (branch === 'local') {
-//           libs = 'http://localhost:6456/libs';
-//         } else if (branch.indexOf('--') > -1) {
-//           libs = `https://${branch}.hlx.live/libs`;
-//         } else {
-//           libs = `https://${branch}--milo--adobecom.hlx.live/libs`;
-//         }
-//       }
-//       return libs;
-//     }, () => libs,
-//   ];
-// })();
-
 export const [setLibs, getLibs] = (() => {
   let libs;
   return [
