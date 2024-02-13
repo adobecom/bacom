@@ -28,10 +28,19 @@ describe('Libs', () => {
   it('Supports milo stage libs with stage as host', () => {
     const location = {
       hostname: 'business.stage.adobe.com',
-      search: '?milolibs=foo',
+      search: '',
     };
     const libs = setLibs('/libs', location);
     expect(libs).to.equal('https://www.stage.adobe.com/libs');
+  });
+
+  it('Does not support milo stage libs on non prod stage hosts', () => {
+    const location = {
+      hostname: 'stage--bacom--adobecom.hlx.live',
+      search: '',
+    };
+    const libs = setLibs('/libs', location);
+    expect(libs).to.equal('https://main--milo--adobecom.hlx.live/libs');
   });
 
   it('Supports local milolibs query param', () => {
