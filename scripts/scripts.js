@@ -35,7 +35,7 @@ const CONFIG = {
     pdfViewerReportSuite: 'adbadobenonacdcprod,adbadobedxprod,adbadobeprototype',
   },
   locales: {
-    '': { ietf: 'en-US', tk: 'hah7vzn.css' },
+    '': { ietf: 'en-US', tk: 'hah7vzn.css', akamaiCodes: ['US', 'GU', 'VI', 'TT', 'UM'] },
     ae_ar: { ietf: 'ar', tk: 'qxw8hzm.css', dir: 'rtl' },
     ae_en: { ietf: 'en', tk: 'hah7vzn.css' },
     africa: { ietf: 'en', tk: 'hah7vzn.css' },
@@ -67,7 +67,7 @@ const CONFIG = {
     el: { ietf: 'el', tk: 'qxw8hzm.css' },
     es: { ietf: 'es-ES', tk: 'hah7vzn.css' },
     fi: { ietf: 'fi-FI', tk: 'qxw8hzm.css' },
-    fr: { ietf: 'fr-FR', tk: 'hah7vzn.css' },
+    fr: { ietf: 'fr-FR', tk: 'hah7vzn.css', akamaiCodes: ['FR', 'MC'] },
     gr_el: { ietf: 'el', tk: 'qxw8hzm.css' },
     gr_en: { ietf: 'en-GR', tk: 'hah7vzn.css' },
     gt: { ietf: 'es-419', tk: 'hah7vzn.css' },
