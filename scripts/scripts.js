@@ -147,6 +147,13 @@ const eagerLoad = (img) => {
   img?.setAttribute('fetchpriority', 'high');
 };
 
+const loadStyle = (path) => {
+  const link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', path);
+  document.head.appendChild(link);
+};
+
 (async function loadLCPImage() {
   const marquee = document.querySelector('.marquee');
   if (!marquee) {
@@ -174,12 +181,7 @@ const miloLibs = setLibs(LIBS);
   if (STYLES) {
     paths.push(...(Array.isArray(STYLES) ? STYLES : [STYLES]));
   }
-  paths.forEach((path) => {
-    const link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', path);
-    document.head.appendChild(link);
-  });
+  paths.forEach(loadStyle);
 }());
 
 (async function loadPage() {
@@ -202,9 +204,6 @@ const miloLibs = setLibs(LIBS);
     window.addEventListener('mktoSubmit', registerAAUniversity);
   }
   if (document.querySelector('.faas')) {
-    const link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', '/styles/faas.css');
-    document.head.appendChild(link);
+    loadStyle('/styles/faas.css');
   }
 }());
