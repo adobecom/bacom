@@ -147,7 +147,32 @@ const eagerLoad = (img) => {
   img?.setAttribute('fetchpriority', 'high');
 };
 
+const miloLibs = setLibs(LIBS);
+
 (async function loadLCPImage() {
+  const georouting = document.querySelector('meta[name="georouting"]') || CONFIG.geoRouting;
+  if (georouting === 'on' && window.innerWidth < 480) {
+    const urlLocale = window.location.pathname.split('/')[1];
+    const storedInter = document.cookie.split('; ').find((row) => row.startsWith('international='))?.split('=')[1];
+    let preloadGeoImg = false;
+    if (storedInter) {
+      const storedLocale = storedInter === 'us' ? '' : storedInter;
+      if (urlLocale.split('_')[0] !== storedLocale.split('_')[0]) preloadGeoImg = true;
+    } else {
+      const akamaiLocale = sessionStorage.getItem('akamai')?.toLowerCase();
+      if (akamaiLocale && !CONFIG.locales[urlLocale]?.akamaiCodes?.includes(akamaiLocale)) {
+        preloadGeoImg = true;
+      }
+    }
+    if (preloadGeoImg) {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'preload');
+      link.setAttribute('as', 'image');
+      link.setAttribute('href', `${miloLibs}/features/georoutingv2/img/GeoModal_BG_Map_Mobile.png`);
+      document.head.appendChild(link);
+      return;
+    }
+  }
   const marquee = document.querySelector('.marquee');
   if (!marquee) {
     eagerLoad(document.querySelector('img'));
@@ -166,8 +191,6 @@ const eagerLoad = (img) => {
  * Edit below at your own risk
  * ------------------------------------------------------------
  */
-
-const miloLibs = setLibs(LIBS);
 
 (function loadStyles() {
   const paths = [`${miloLibs}/styles/styles.css`];
