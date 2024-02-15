@@ -4,11 +4,9 @@ import init from '../../../blocks/faas-decode/faas-decode.js';
 import { setLibs } from '../../../scripts/utils.js';
 import waitForElement from '../../helpers/waitForElement.js';
 
-window.lana = { log: () => {} };
-
 describe('FaaS Decode', () => {
   before(() => {
-    sinon.stub(window.lana, 'log');
+    sinon.spy(console, 'log');
     setLibs('/libs');
   });
 
@@ -20,7 +18,7 @@ describe('FaaS Decode', () => {
     document.body.innerHTML = '<div class="faas-decode"><div><div><a href="/404"></a></div></div></div>';
     const el = document.querySelector('.faas-decode');
     await init(el);
-    expect(window.lana.log.args[0][0]).to.include('Error fetching data from url:');
+    expect(console.log.args[0][0]).to.include('Error fetching data from url:');
   });
 
   it('creates a table', async () => {

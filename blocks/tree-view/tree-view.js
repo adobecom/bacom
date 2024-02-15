@@ -11,7 +11,8 @@ export const isCurrentPage = (link) => {
 
     if (isBacomHost && url.pathname.replace('.html', '') === currentPath) return true;
   } catch (e) {
-    window.lana?.log(`Tree View error:${e.message}`, { tags: 'info,tree-view' });
+    // eslint-disable-next-line no-console
+    console.log('Tree View error:', e);
   }
 
   return false;
