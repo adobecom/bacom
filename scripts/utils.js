@@ -22,21 +22,15 @@
 export const [setLibs, getLibs] = (() => {
   let libs;
   return [
-    (prodLibs) => {
-      const { hostname } = window.location;
-      const stageEnvs = ['localhost', 'hlx.page', 'hlx.live', 'business.stage.adobe.com'];
-      if (!stageEnvs.some((env) => hostname.includes(env))) {
-        libs = prodLibs;
-      } else {
-        const branch = new URLSearchParams(window.location.search).get('milolibs') || 'main';
-        if (branch === 'local') {
-          libs = 'http://localhost:6456/libs';
-        } else if (branch.indexOf('--') > -1) {
-          libs = `https://${branch}.hlx.live/libs`;
-        } else {
-          libs = `https://${branch}--milo--adobecom.hlx.live/libs`;
-        }
-      }
+    (prodLibs, location) => {
+      libs = (() => {
+        const { hostname, search } = location || window.location;
+        const branch = new URLSearchParams(search).get('milolibs') || 'main';
+        if (branch === 'main' && hostname === 'business.stage.adobe.com') return 'https://www.stage.adobe.com/libs';
+        if (!(hostname.includes('.hlx.') || hostname.includes('local'))) return prodLibs;
+        if (branch === 'local') return 'http://localhost:6456/libs';
+        return branch.includes('--') ? `https://${branch}.hlx.live/libs` : `https://${branch}--milo--adobecom.hlx.live/libs`;
+      })();
       return libs;
     }, () => libs,
   ];
