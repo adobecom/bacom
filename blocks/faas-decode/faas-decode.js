@@ -6,8 +6,7 @@ export default async function init(el) {
   const resp = await fetch(url);
 
   if (!resp?.ok) {
-    // eslint-disable-next-line no-console
-    console.log(`Error fetching data from url: ${url}`);
+    window.lana?.log(`Error fetching data from url: ${url}`, { tags: 'info,faas-decode' });
     return;
   }
 
