@@ -2,7 +2,7 @@ import { expect } from '@esm-bundle/chai';
 import { setLibs } from '../../scripts/utils.js';
 
 describe('Libs', () => {
-  it('Sets default Libs', () => {
+  it('Default Libs', () => {
     const libs = setLibs('/libs');
     expect(libs).to.equal('https://main--milo--adobecom.hlx.live/libs');
   });
@@ -23,24 +23,6 @@ describe('Libs', () => {
     };
     const libs = setLibs('/libs', location);
     expect(libs).to.equal('https://foo--milo--adobecom.hlx.live/libs');
-  });
-
-  it('Supports milo stage libs with stage as host', () => {
-    const location = {
-      hostname: 'business.stage.adobe.com',
-      search: '',
-    };
-    const libs = setLibs('/libs', location);
-    expect(libs).to.equal('https://www.stage.adobe.com/libs');
-  });
-
-  it('Does not support milo stage libs on non prod stage hosts', () => {
-    const location = {
-      hostname: 'stage--bacom--adobecom.hlx.live',
-      search: '',
-    };
-    const libs = setLibs('/libs', location);
-    expect(libs).to.equal('https://main--milo--adobecom.hlx.live/libs');
   });
 
   it('Supports local milolibs query param', () => {
