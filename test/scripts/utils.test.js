@@ -2,7 +2,7 @@ import { expect } from '@esm-bundle/chai';
 import { setLibs } from '../../scripts/utils.js';
 
 describe('Libs', () => {
-  it('Default Libs', () => {
+  it('Sets default Libs', () => {
     const libs = setLibs('/libs');
     expect(libs).to.equal('https://main--milo--adobecom.hlx.live/libs');
   });
