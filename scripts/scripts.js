@@ -182,6 +182,18 @@ const miloLibs = setLibs(LIBS);
   });
 }());
 
+const preLoad = () => {
+  const lcpImg = document.querySelector('img');
+  const url = new URL(lcpImg.src);
+  const link = document.createElement('link');
+  link.setAttribute('rel', 'preload');
+  link.setAttribute('fetchpriority', 'high');
+  link.setAttribute('as', 'image');
+  link.setAttribute('href', `${url.pathname}${url.search}`);
+  link.setAttribute('type', 'image/webp');
+  document.head.appendChild(link);
+};
+
 (async function loadPage() {
   const { loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
   const metaCta = document.querySelector('meta[name="chat-cta"]');
@@ -195,6 +207,7 @@ const miloLibs = setLibs(LIBS);
   }
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom', tags: 'info' });
+  preLoad();
   await loadArea();
 
   if (document.querySelector('meta[name="aa-university"]')) {
