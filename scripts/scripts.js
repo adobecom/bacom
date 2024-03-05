@@ -207,8 +207,8 @@ const preLoad = () => {
   }
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom', tags: 'info' });
-  preLoad();
   await loadArea();
+  preLoad();
 
   if (document.querySelector('meta[name="aa-university"]')) {
     const { default: registerAAUniversity } = await import('./aa-university.js');
