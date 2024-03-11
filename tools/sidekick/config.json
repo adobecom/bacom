@@ -119,6 +119,13 @@
       "url": "https://milo.adobe.com/tools/faas",
       "isPalette": false,
       "includePaths": [ "**.docx**"]
+    },
+    {
+      "containerId": "tools",
+      "id": "bulk",
+      "title": "Bulk operations",
+      "environments": [ "edit", "dev", "preview", "live" ],
+      "url": "https://main--bacom--adobecom.hlx.page/tools/bulk"
     }
   ]
 }
