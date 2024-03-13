@@ -80,6 +80,12 @@ main .section[class*='grid-width-'] {
   display: block;
 }
 
+main .center.section[class*='grid-width-'] {
+  padding-left: unset;
+  padding-right: unset;
+  display: block;
+}
+
 main .section.two-up,
 main .section.three-up,
 main .section.four-up,
