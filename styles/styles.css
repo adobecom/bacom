@@ -77,7 +77,8 @@ main > .section[class*='-up'] > .content {
 main .center.section[class*='grid-width-'] {
   padding-left: unset;
   padding-right: unset;
-  display: block;
+  
+  /* display: block; */
 }
 
 main .section.two-up,
