@@ -29,7 +29,7 @@ export function parseUrlString(input) {
   const pairs = input.split('\n');
 
   return pairs.reduce((rdx, pairString) => {
-    const pair = pairString.split('\t');
+    const pair = pairString.split(/\t| /);
     rdx.push(pair);
     return rdx;
   }, []);
