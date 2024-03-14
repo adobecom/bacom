@@ -75,11 +75,13 @@ main > .section[class*='-up'] > .content {
   margin: 0;
 }
 
+main .center.section[class*='grid-width-'] {
+  padding-left: unset;
+  padding-right: unset;
+}
+
 @media screen and (min-width: 600px) {
   main .center.section[class*='grid-width-'] .columns.contained {
-    padding-left: unset;
-    padding-right: unset;
-
     /* display: block; */
     margin: 0;
   }
