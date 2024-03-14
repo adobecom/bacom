@@ -85,7 +85,7 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
   }
 }
 
-main .section.two-up,
+/* main .section.two-up,
 main .section.three-up,
 main .section.four-up,
 main .section.five-up {
@@ -109,4 +109,4 @@ main .section.five-up {
     padding-left: var(--grid-margins-width-6);
     padding-right: var(--grid-margins-width-6);
   }
-}
+} */
