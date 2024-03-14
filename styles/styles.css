@@ -75,7 +75,7 @@ main > .section[class*='-up'] > .content {
   margin: 0;
 }
 
-main .center.section[class*='grid-width-'] {
+main .section[class*='grid-width-'] {
   padding-left: unset;
   padding-right: unset;
 }
