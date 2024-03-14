@@ -70,10 +70,10 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
 
 /* Section metadata fix */
 
-/* main > .section[class*='-up'] > .content {
+main > .section[class*='-up'] > .content {
   max-width: initial;
   margin: 0;
-} */
+}
 
 @media screen and (min-width: 600px) {
   main .center.section[class*='grid-width-'] .columns.contained {
