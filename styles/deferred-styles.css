@@ -1,0 +1,52 @@
+.white-columns .columns > .row {
+  padding: 80px 0;
+}
+
+.white-columns .col {
+  background: white;
+  margin: 0;
+  padding: 32px;
+}
+
+.icon-headings .col img, 
+.icon-headings .col svg {
+  display: block;
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin-right: 20px;
+  position: relative;
+  top: 4px;
+}
+
+.caas-data-hidden ul {
+  display: none;
+}
+
+div[class*='-up'] .con-block.has-bg.text-block.text-list,
+.text-block.text-list {
+  padding: var(--spacing-s) var(--spacing-xs);
+}
+
+.text-block.text-list h2 {
+  font-size: var(--type-heading-s-size);
+  margin-bottom: var(--spacing-s);
+}
+
+.text-block.text-list p {
+  margin-top: var(--spacing-xxs);
+  margin-bottom: var(--spacing-xxs);
+}
+
+@media screen and (min-width: 900px) {
+  .text-block.text-list {
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .icon-headings .col img {
+    top: 10px;
+  }
+}
