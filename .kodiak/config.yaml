@@ -19,6 +19,7 @@ notifications:
           - jmichnow
           - mauchley
           - bmarshal
+          - methomas
         labels:
           - "OriginatingProcess=Kodiak"
           - "security"
