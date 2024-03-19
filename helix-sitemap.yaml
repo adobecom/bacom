@@ -111,11 +111,6 @@ sitemaps:
         alternate: /co/{path}.html
         destination: /co/sitemap.xml
         hreflang: es-CO
-      cy_en:
-        source: /cy_en/query-index.json
-        alternate: /cy_en/{path}.html
-        destination: /cy_en/sitemap.xml
-        hreflang: en-CY
       cz:
         source: /cz/query-index.json
         alternate: /cz/{path}.html
@@ -271,11 +266,6 @@ sitemaps:
         destination: /mena_en/sitemap.xml
         hreflang:
           - en-DZ
-      mt:
-        source: /mt/query-index.json
-        alternate: /mt/{path}.html
-        destination: /mt/sitemap.xml
-        hreflang: en-MT
       mx:
         source: /mx/query-index.json
         alternate: /mx/{path}.html
