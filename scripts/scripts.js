@@ -156,12 +156,6 @@ const loadStyle = (path) => {
   eagerLoad(marquee.querySelector('img'));
 }());
 
-/*
- * ------------------------------------------------------------
- * Edit below at your own risk
- * ------------------------------------------------------------
- */
-
 const miloLibs = setLibs(LIBS);
 
 (function loadStyles() {
