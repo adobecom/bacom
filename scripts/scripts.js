@@ -173,7 +173,6 @@ loadStyle(`${miloLibs}/styles/styles.css`);
   setConfig({ ...CONFIG, miloLibs });
   loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
-  loadStyle('/styles/deferred-styles.css');
 
   if (document.querySelector('meta[name="aa-university"]')) {
     const { default: registerAAUniversity } = await import('./aa-university.js');
