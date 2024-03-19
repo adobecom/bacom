@@ -1,6 +1,7 @@
 import { setLibs } from './utils.js';
 
 const LIBS = '/libs';
+const STYLES = ['/styles/styles.css'];
 const CONFIG = {
   imsClientId: 'bacom',
   local: {
@@ -155,9 +156,21 @@ const loadStyle = (path) => {
   eagerLoad(marquee.querySelector('img'));
 }());
 
+/*
+ * ------------------------------------------------------------
+ * Edit below at your own risk
+ * ------------------------------------------------------------
+ */
+
 const miloLibs = setLibs(LIBS);
 
-loadStyle(`${miloLibs}/styles/styles.css`);
+(function loadStyles() {
+  const paths = [`${miloLibs}/styles/styles.css`];
+  if (STYLES) {
+    paths.push(...(Array.isArray(STYLES) ? STYLES : [STYLES]));
+  }
+  paths.forEach(loadStyle);
+}());
 
 (async function loadPage() {
   const { loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
