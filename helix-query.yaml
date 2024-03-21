@@ -336,22 +336,6 @@ indices:
     target: /co/query-index.xlsx
     properties:
       <<: *minProps
-  sitemap-cy_en:
-    include:
-      - '/cy_en/'
-      - '/cy_en/customer-success-stories/**'
-      - '/cy_en/resources/**'
-      - '/cy_en/why-adobe/**'
-      - '/cy_en/support/**'
-      - '/cy_en/solutions/**'
-      - '/cy_en/customers/**'
-      - '/cy_en/products/**'
-      - '/cy_en/request-consultation/**'
-    exclude:
-      - '**/fragments/**'
-    target: /cy_en/query-index.xlsx
-    properties:
-      <<: *minProps
   sitemap-cz:
     include:
       - '/cz/'
@@ -814,22 +798,6 @@ indices:
     exclude:
       - '**/fragments/**'
     target: /mena_en/query-index.xlsx
-    properties:
-      <<: *minProps
-  sitemap-mt:
-    include:
-      - '/mt/'
-      - '/mt/customer-success-stories/**'
-      - '/mt/resources/**'
-      - '/mt/why-adobe/**'
-      - '/mt/support/**'
-      - '/mt/solutions/**'
-      - '/mt/customers/**'
-      - '/mt/products/**'
-      - '/mt/request-consultation/**'
-    exclude:
-      - '**/fragments/**'
-    target: /mt/query-index.xlsx
     properties:
       <<: *minProps
   sitemap-mx:
@@ -1398,11 +1366,6 @@ indices:
     include:
       - '/co/customer-success-stories/**'
     target: /co/customer-success-stories/query-index.xlsx
-  customer-success-stories-cy_en:
-    <<: *default
-    include:
-      - '/cy_en/customer-success-stories/**'
-    target: /cy_en/customer-success-stories/query-index.xlsx
   customer-success-stories-cz:
     <<: *default
     include:
@@ -1548,11 +1511,6 @@ indices:
     include:
       - '/mena_en/customer-success-stories/**'
     target: /mena_en/customer-success-stories/query-index.xlsx
-  customer-success-stories-mt:
-    <<: *default
-    include:
-      - '/mt/customer-success-stories/**'
-    target: /mt/customer-success-stories/query-index.xlsx
   customer-success-stories-mx:
     <<: *default
     include:
