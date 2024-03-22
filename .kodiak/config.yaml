@@ -15,7 +15,7 @@ notifications:
           name: slavin
         customfield_11800: MWPW-140779 #epic link
         customfield_12900:  
-          value: 127741 # Magma team
+          value: Magma
         watchers:
           - casalino
           - jmichnow
