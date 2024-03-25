@@ -1,19 +1,7 @@
-/*
- * Copyright 2022 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
 import { setLibs } from './utils.js';
 
 const LIBS = '/libs';
-const STYLES = ['/styles/styles.css', '/styles/faas.css'];
+const STYLES = ['/styles/styles.css'];
 const CONFIG = {
   imsClientId: 'bacom',
   local: {
@@ -147,6 +135,13 @@ const eagerLoad = (img) => {
   img?.setAttribute('fetchpriority', 'high');
 };
 
+const loadStyle = (path) => {
+  const link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', path);
+  document.head.appendChild(link);
+};
+
 (async function loadLCPImage() {
   const marquee = document.querySelector('.marquee');
   if (!marquee) {
@@ -161,12 +156,6 @@ const eagerLoad = (img) => {
   eagerLoad(marquee.querySelector('img'));
 }());
 
-/*
- * ------------------------------------------------------------
- * Edit below at your own risk
- * ------------------------------------------------------------
- */
-
 const miloLibs = setLibs(LIBS);
 
 (function loadStyles() {
@@ -174,12 +163,7 @@ const miloLibs = setLibs(LIBS);
   if (STYLES) {
     paths.push(...(Array.isArray(STYLES) ? STYLES : [STYLES]));
   }
-  paths.forEach((path) => {
-    const link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute('href', path);
-    document.head.appendChild(link);
-  });
+  paths.forEach(loadStyle);
 }());
 
 (async function loadPage() {
@@ -200,5 +184,8 @@ const miloLibs = setLibs(LIBS);
   if (document.querySelector('meta[name="aa-university"]')) {
     const { default: registerAAUniversity } = await import('./aa-university.js');
     window.addEventListener('mktoSubmit', registerAAUniversity);
+  }
+  if (document.querySelector('.faas')) {
+    loadStyle('/styles/faas.css');
   }
 }());

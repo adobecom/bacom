@@ -12,7 +12,7 @@ const {
   DESELECT_ALL_REGIONS,
   NO_LOCALE_ERROR,
 } = await import('../../../blocks/redirects-formatter/redirects-formatter.js');
-const { htmlIncluded, htmlExcluded, externalUrls } = await import('./mocks/textAreaValues.js');
+const { htmlIncluded, htmlExcluded, externalUrls, mixedSpaceTabUrls } = await import('./mocks/textAreaValues.js');
 
 setLibs('libs');
 
@@ -38,6 +38,16 @@ describe('Redirects Formatter', () => {
 
   it('correctly parses values from the input', () => {
     const parsedInput = parseUrlString(htmlIncluded);
+    const firstPair = parsedInput[0];
+    const lastPair = parsedInput[2];
+    expect(firstPair[0]).to.equal('https://business.adobe.com/products/experience-manager/sites/experience-fragments.html');
+    expect(firstPair[1]).to.equal('https://business.adobe.com/products/experience-manager/sites/omnichannel-experiences.html');
+    expect(lastPair[0]).to.equal('https://business.adobe.com/products/experience-manager/sites/out-of-the-box-components.html');
+    expect(lastPair[1]).to.equal('https://business.adobe.com/products/experience-manager/sites/developer-tools.html');
+  });
+
+  it('correctly parses values from the input with a mix of tabs and spaces', () => {
+    const parsedInput = parseUrlString(mixedSpaceTabUrls);
     const firstPair = parsedInput[0];
     const lastPair = parsedInput[2];
     expect(firstPair[0]).to.equal('https://business.adobe.com/products/experience-manager/sites/experience-fragments.html');
