@@ -65,11 +65,7 @@ main > .section[class*='-up'] > .content {
 main .section[class*='grid-width-'] {
   padding-left: unset;
   padding-right: unset;
-  gap: 0;
-}
-
-main .section[class*='grid-width-'] .columns.contained {
-  margin: 0;
+  display: block;
 }
 
 main .section.two-up,
