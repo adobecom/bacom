@@ -128,6 +128,7 @@ const CONFIG = {
     /business\.adobe\.com\/(\w\w(_\w\w)?\/)?blog(\/.*)?/,
   ],
   useDotHtml: true,
+  dynamicNavKey: 'bacom',
 };
 
 const eagerLoad = (img) => {
