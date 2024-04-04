@@ -45,7 +45,7 @@ jobs:
 
       - name: Overwrite graybox repo files with latest from source repo
         run: |
-          rsync -av --exclude='fstab.yaml' --exclude='.github' --exclude='.git' --exclude='.idea' --exclude='.husky' --exclude='.vscode' --exclude='tools/sidekick/config.json' ./ ../bacom-graybox/
+          rsync -av --exclude='fstab.yaml' --exclude='.github' --exclude='.kodiak' --exclude='.git' --exclude='.idea' --exclude='.husky' --exclude='.vscode' --exclude='tools/sidekick/config.json' ./ ../bacom-graybox/
 
       - name: Commit and Push Changes to Graybox Repository
         run: |
