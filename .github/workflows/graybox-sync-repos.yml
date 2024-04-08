@@ -2,6 +2,14 @@ name: Graybox Repo Sync
 
 on:
   workflow_dispatch:
+    inputs:
+      syncBranch:
+        description: 'Branch to sync'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - 'stage'
 
 jobs:
   build:
@@ -20,10 +28,20 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+          ref: ${{ inputs.syncBranch }}
 
-      - name: Clone Graybox Repository
+      - name: Clone Graybox Repository and Checkout Stage Branch
         run: |
           git clone https://github.com/adobecom/bacom-graybox.git ../bacom-graybox
+          cd ../bacom-graybox
+          git checkout $GB_SYNC_BRANCH
+          echo "bacom-graybox branch"
+          git branch
+          cd ../bacom
+          echo "bacom branch"
+          git branch
+        env:
+          GB_SYNC_BRANCH: ${{ inputs.syncBranch }}
 
       - name: Overwrite graybox repo files with latest from source repo
         run: |
@@ -32,14 +50,17 @@ jobs:
       - name: Commit and Push Changes to Graybox Repository
         run: |
           cd ../bacom-graybox
+          echo "bacom-graybox branch"
+          git branch
           git config user.email "$FG_SYNC_BOT_EMAIL"
-          git config user.name "graybox-repo-sync[bot]"
+          git config user.name "milo-repo-sync[bot]"
           git status          
           git remote set-url origin https://oauth2:$GITHUB_TOKEN@github.com/adobecom/bacom-graybox.git
           git remote -v
           git add .
           git commit -m "Syncing bacom to bacom-graybox"
-          git push origin main --force
+          git push origin $GB_SYNC_BRANCH --force
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
           FG_SYNC_BOT_EMAIL: ${{ secrets.FG_SYNC_BOT_EMAIL }}
+          GB_SYNC_BRANCH: ${{ inputs.syncBranch }}
