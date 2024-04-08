@@ -1,4 +1,7 @@
+*.json
+!*/**/*.json
 .*
 *.md
 LICENSE
 test/*
+web-test-runner.config.mjs
