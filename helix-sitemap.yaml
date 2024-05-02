@@ -20,7 +20,6 @@ sitemaps:
         source: /ae_en/query-index.json
         alternate: /ae_en/{path}.html
         destination: /ae_en/sitemap.xml
-        hreflang: en-AE
       africa:
         source: /africa/query-index.json
         alternate: /africa/{path}.html
