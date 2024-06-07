@@ -120,6 +120,15 @@ const CONFIG = {
   geoRouting: 'on',
   productionDomain: 'business.adobe.com',
   prodDomains: ['business.adobe.com', 'www.adobe.com'],
+  stageDomainsMap: {
+    "business.adobe.com": "business.stage.adobe.com",
+    "www.adobe.com": "www.stage.adobe.com",
+    "learning.adobe.com": "learning.stage.adobe.com",
+    "solutionpartners.adobe.com": "solutionpartners.stage.adobe.com",
+    "news.adobe.com": "news.stage.adobe.com",
+    "adobe.io": "stage.adobe.io",
+    "developer.adobe.com": "developer-stage.adobe.com"
+  },
   autoBlocks: [
     { iframe: 'https://adobe-ideacloud.forgedx.com' },
     { iframe: 'https://adobe.ideacloud.com' },
