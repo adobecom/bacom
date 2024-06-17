@@ -1,5 +1,5 @@
 const LIBS = '/libs';
-const STYLES = [];
+const STYLES = ['/styles/styles.css'];
 const CONFIG = {
   imsClientId: 'bacom',
   local: {
