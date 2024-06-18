@@ -12,7 +12,7 @@ export default async function init() {
 
       .tablist-features-section .tabs.center div[role="tablist"] .tab-list-container {
         width: 100%;
-        margin: 30px;
+        margin: 0 30px 30px;
       }
 
       .tablist-features-section .tabs div[role="tablist"] button {
