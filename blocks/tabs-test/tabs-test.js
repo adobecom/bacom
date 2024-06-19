@@ -20,6 +20,8 @@ export default async function init() {
         font-size: 24px;
         white-space: unset;
         word-wrap: break-word;
+        line-height: 30px;
+        padding: 8px 16px;
       }
 
       .tablist-features-section .tabs div[role="tablist"] {
