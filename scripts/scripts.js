@@ -168,7 +168,8 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${miloLibs}/utils/utils.js`);
+  if (getMetadata('template') === '404') window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
     const isMetaCtaDisabled = metaCta?.content === 'off';
