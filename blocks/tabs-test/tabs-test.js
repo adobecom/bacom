@@ -18,6 +18,8 @@ export default async function init() {
       .tablist-features-section .tabs div[role="tablist"] button {
         border-radius: 0;
         font-size: 24px;
+        white-space: unset;
+        word-wrap: break-word;
       }
 
       .tablist-features-section .tabs div[role="tablist"] {
@@ -30,17 +32,23 @@ export default async function init() {
   tabsOverideStylesheet.textContent = tabOverrideStyles;
   document.head.append(tabsOverideStylesheet);
 
-  const tabs = document.querySelectorAll('.tabList button');
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const correspondingTabContent = tab.getAttribute('aria-controls');
-      const content = document.querySelector(`#${correspondingTabContent}`);
-      const rects = content.getBoundingClientRect();
-      const topOffset = rects.top + window.scrollY;
-      window.scrollTo({
-        top: topOffset,
-        behavior: 'smooth',
+  const isMobileDevice = () => /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  (() => {
+    if (window.innerWidth > 600 || !isMobileDevice()) return;
+
+    const tabs = document.querySelectorAll('.tabList button');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const correspondingTabContent = tab.getAttribute('aria-controls');
+        const content = document.querySelector(`#${correspondingTabContent}`);
+        const rects = content.getBoundingClientRect();
+        const topOffset = rects.top + window.scrollY;
+        window.scrollTo({
+          top: topOffset,
+          behavior: 'smooth',
+        });
       });
     });
-  });
+  })();
 }
