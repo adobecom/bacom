@@ -12,6 +12,7 @@ indices:
       - '/customers/**'
       - '/products/**'
       - '/request-consultation/**'
+      - '/industries/**'
     exclude:
       - '**/fragments/**'
     target: /query-index.xlsx
@@ -43,6 +44,7 @@ indices:
       - '/ae_ar/customers/**'
       - '/ae_ar/products/**'
       - '/ae_ar/request-consultation/**'
+      - '/ae_ar/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ae_ar/query-index.xlsx
@@ -59,6 +61,7 @@ indices:
       - '/ae_en/customers/**'
       - '/ae_en/products/**'
       - '/ae_en/request-consultation/**'
+      - '/ae_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ae_en/query-index.xlsx
@@ -75,6 +78,7 @@ indices:
       - '/africa/customers/**'
       - '/africa/products/**'
       - '/africa/request-consultation/**'
+      - '/africa/industries/**'
     exclude:
       - '**/fragments/**'
     target: /africa/query-index.xlsx
@@ -91,6 +95,7 @@ indices:
       - '/ar/customers/**'
       - '/ar/products/**'
       - '/ar/request-consultation/**'
+      - '/ar/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ar/query-index.xlsx
@@ -107,6 +112,7 @@ indices:
       - '/at/customers/**'
       - '/at/products/**'
       - '/at/request-consultation/**'
+      - '/at/industries/**'
     exclude:
       - '**/fragments/**'
     target: /at/query-index.xlsx
@@ -123,6 +129,7 @@ indices:
       - '/au/customers/**'
       - '/au/products/**'
       - '/au/request-consultation/**'
+      - '/au/industries/**'
     exclude:
       - '**/fragments/**'
     target: /au/query-index.xlsx
@@ -139,6 +146,7 @@ indices:
       - '/be_en/customers/**'
       - '/be_en/products/**'
       - '/be_en/request-consultation/**'
+      - '/be_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /be_en/query-index.xlsx
@@ -155,6 +163,7 @@ indices:
       - '/be_fr/customers/**'
       - '/be_fr/products/**'
       - '/be_fr/request-consultation/**'
+      - '/be_fr/industries/**'
     exclude:
       - '**/fragments/**'
     target: /be_fr/query-index.xlsx
@@ -171,6 +180,7 @@ indices:
       - '/be_nl/customers/**'
       - '/be_nl/products/**'
       - '/be_nl/request-consultation/**'
+      - '/be_nl/industries/**'
     exclude:
       - '**/fragments/**'
     target: /be_nl/query-index.xlsx
@@ -187,6 +197,7 @@ indices:
       - '/bg/customers/**'
       - '/bg/products/**'
       - '/bg/request-consultation/**'
+      - '/bg/industries/**'
     exclude:
       - '**/fragments/**'
     target: /bg/query-index.xlsx
@@ -203,6 +214,7 @@ indices:
       - '/br/customers/**'
       - '/br/products/**'
       - '/br/request-consultation/**'
+      - '/br/industries/**'
     exclude:
       - '**/fragments/**'
     target: /br/query-index.xlsx
@@ -219,6 +231,7 @@ indices:
       - '/ca/customers/**'
       - '/ca/products/**'
       - '/ca/request-consultation/**'
+      - '/ca/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ca/query-index.xlsx
@@ -235,6 +248,7 @@ indices:
       - '/ca_fr/customers/**'
       - '/ca_fr/products/**'
       - '/ca_fr/request-consultation/**'
+      - '/ca_fr/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ca_fr/query-index.xlsx
@@ -251,6 +265,7 @@ indices:
       - '/ch_de/customers/**'
       - '/ch_de/products/**'
       - '/ch_de/request-consultation/**'
+      - '/ch_de/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ch_de/query-index.xlsx
@@ -267,6 +282,7 @@ indices:
       - '/ch_fr/customers/**'
       - '/ch_fr/products/**'
       - '/ch_fr/request-consultation/**'
+      - '/ch_fr/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ch_fr/query-index.xlsx
@@ -283,6 +299,7 @@ indices:
       - '/ch_it/customers/**'
       - '/ch_it/products/**'
       - '/ch_it/request-consultation/**'
+      - '/ch_it/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ch_it/query-index.xlsx
@@ -299,6 +316,7 @@ indices:
       - '/cl/customers/**'
       - '/cl/products/**'
       - '/cl/request-consultation/**'
+      - '/cl/industries/**'
     exclude:
       - '**/fragments/**'
     target: /cl/query-index.xlsx
@@ -315,6 +333,7 @@ indices:
       - '/cn/customers/**'
       - '/cn/products/**'
       - '/cn/request-consultation/**'
+      - '/cn/industries/**'
     exclude:
       - '**/fragments/**'
     target: /cn/query-index.xlsx
@@ -331,6 +350,7 @@ indices:
       - '/co/customers/**'
       - '/co/products/**'
       - '/co/request-consultation/**'
+      - '/co/industries/**'
     exclude:
       - '**/fragments/**'
     target: /co/query-index.xlsx
@@ -347,6 +367,7 @@ indices:
       - '/cz/customers/**'
       - '/cz/products/**'
       - '/cz/request-consultation/**'
+      - '/cz/industries/**'
     exclude:
       - '**/fragments/**'
     target: /cz/query-index.xlsx
@@ -363,6 +384,7 @@ indices:
       - '/de/customers/**'
       - '/de/products/**'
       - '/de/request-consultation/**'
+      - '/de/industries/**'
     exclude:
       - '**/fragments/**'
     target: /de/query-index.xlsx
@@ -379,6 +401,7 @@ indices:
       - '/dk/customers/**'
       - '/dk/products/**'
       - '/dk/request-consultation/**'
+      - '/dk/industries/**'
     exclude:
       - '**/fragments/**'
     target: /dk/query-index.xlsx
@@ -395,6 +418,7 @@ indices:
       - '/ee/customers/**'
       - '/ee/products/**'
       - '/ee/request-consultation/**'
+      - '/ee/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ee/query-index.xlsx
@@ -411,6 +435,7 @@ indices:
       - '/es/customers/**'
       - '/es/products/**'
       - '/es/request-consultation/**'
+      - '/es/industries/**'
     exclude:
       - '**/fragments/**'
     target: /es/query-index.xlsx
@@ -427,6 +452,7 @@ indices:
       - '/fi/customers/**'
       - '/fi/products/**'
       - '/fi/request-consultation/**'
+      - '/fi/industries/**'
     exclude:
       - '**/fragments/**'
     target: /fi/query-index.xlsx
@@ -443,6 +469,7 @@ indices:
       - '/fr/customers/**'
       - '/fr/products/**'
       - '/fr/request-consultation/**'
+      - '/fr/industries/**'
     exclude:
       - '**/fragments/**'
     target: /fr/query-index.xlsx
@@ -459,6 +486,7 @@ indices:
       - '/gr_en/customers/**'
       - '/gr_en/products/**'
       - '/gr_en/request-consultation/**'
+      - '/gr_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /gr_en/query-index.xlsx
@@ -475,6 +503,7 @@ indices:
       - '/hk_en/customers/**'
       - '/hk_en/products/**'
       - '/hk_en/request-consultation/**'
+      - '/hk_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /hk_en/query-index.xlsx
@@ -491,6 +520,7 @@ indices:
       - '/hk_zh/customers/**'
       - '/hk_zh/products/**'
       - '/hk_zh/request-consultation/**'
+      - '/hk_zh/industries/**'
     exclude:
       - '**/fragments/**'
     target: /hk_zh/query-index.xlsx
@@ -507,6 +537,7 @@ indices:
       - '/hu/customers/**'
       - '/hu/products/**'
       - '/hu/request-consultation/**'
+      - '/hu/industries/**'
     exclude:
       - '**/fragments/**'
     target: /hu/query-index.xlsx
@@ -523,6 +554,7 @@ indices:
       - '/id_en/customers/**'
       - '/id_en/products/**'
       - '/id_en/request-consultation/**'
+      - '/id_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /id_en/query-index.xlsx
@@ -539,6 +571,7 @@ indices:
       - '/id_id/customers/**'
       - '/id_id/products/**'
       - '/id_id/request-consultation/**'
+      - '/id_id/industries/**'
     exclude:
       - '**/fragments/**'
     target: /id_id/query-index.xlsx
@@ -555,6 +588,7 @@ indices:
       - '/ie/customers/**'
       - '/ie/products/**'
       - '/ie/request-consultation/**'
+      - '/ie/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ie/query-index.xlsx
@@ -571,6 +605,7 @@ indices:
       - '/il_en/customers/**'
       - '/il_en/products/**'
       - '/il_en/request-consultation/**'
+      - '/il_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /il_en/query-index.xlsx
@@ -587,6 +622,7 @@ indices:
       - '/il_he/customers/**'
       - '/il_he/products/**'
       - '/il_he/request-consultation/**'
+      - '/il_he/industries/**'
     exclude:
       - '**/fragments/**'
     target: /il_he/query-index.xlsx
@@ -603,6 +639,7 @@ indices:
       - '/in/customers/**'
       - '/in/products/**'
       - '/in/request-consultation/**'
+      - '/in/industries/**'
     exclude:
       - '**/fragments/**'
     target: /in/query-index.xlsx
@@ -619,6 +656,7 @@ indices:
       - '/in_hi/customers/**'
       - '/in_hi/products/**'
       - '/in_hi/request-consultation/**'
+      - '/in_hi/industries/**'
     exclude:
       - '**/fragments/**'
     target: /in_hi/query-index.xlsx
@@ -635,6 +673,7 @@ indices:
       - '/it/customers/**'
       - '/it/products/**'
       - '/it/request-consultation/**'
+      - '/it/industries/**'
     exclude:
       - '**/fragments/**'
     target: /it/query-index.xlsx
@@ -651,6 +690,7 @@ indices:
       - '/jp/customers/**'
       - '/jp/products/**'
       - '/jp/request-consultation/**'
+      - '/jp/industries/**'
     exclude:
       - '**/fragments/**'
     target: /jp/query-index.xlsx
@@ -667,6 +707,7 @@ indices:
       - '/kr/customers/**'
       - '/kr/products/**'
       - '/kr/request-consultation/**'
+      - '/kr/industries/**'
     exclude:
       - '**/fragments/**'
     target: /kr/query-index.xlsx
@@ -683,6 +724,7 @@ indices:
       - '/la/customers/**'
       - '/la/products/**'
       - '/la/request-consultation/**'
+      - '/la/industries/**'
     exclude:
       - '**/fragments/**'
     target: /la/query-index.xlsx
@@ -699,6 +741,7 @@ indices:
       - '/lt/customers/**'
       - '/lt/products/**'
       - '/lt/request-consultation/**'
+      - '/lt/industries/**'
     exclude:
       - '**/fragments/**'
     target: /lt/query-index.xlsx
@@ -715,6 +758,7 @@ indices:
       - '/lu_de/customers/**'
       - '/lu_de/products/**'
       - '/lu_de/request-consultation/**'
+      - '/lu_de/industries/**'
     exclude:
       - '**/fragments/**'
     target: /lu_de/query-index.xlsx
@@ -731,6 +775,7 @@ indices:
       - '/lu_en/customers/**'
       - '/lu_en/products/**'
       - '/lu_en/request-consultation/**'
+      - '/lu_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /lu_en/query-index.xlsx
@@ -747,6 +792,7 @@ indices:
       - '/lu_fr/customers/**'
       - '/lu_fr/products/**'
       - '/lu_fr/request-consultation/**'
+      - '/lu_fr/industries/**'
     exclude:
       - '**/fragments/**'
     target: /lu_fr/query-index.xlsx
@@ -763,6 +809,7 @@ indices:
       - '/lv/customers/**'
       - '/lv/products/**'
       - '/lv/request-consultation/**'
+      - '/lv/industries/**'
     exclude:
       - '**/fragments/**'
     target: /lv/query-index.xlsx
@@ -779,6 +826,7 @@ indices:
       - '/mena_ar/customers/**'
       - '/mena_ar/products/**'
       - '/mena_ar/request-consultation/**'
+      - '/mena_ar/industries/**'
     exclude:
       - '**/fragments/**'
     target: /mena_ar/query-index.xlsx
@@ -795,6 +843,7 @@ indices:
       - '/mena_en/customers/**'
       - '/mena_en/products/**'
       - '/mena_en/request-consultation/**'
+      - '/mena_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /mena_en/query-index.xlsx
@@ -811,6 +860,7 @@ indices:
       - '/mx/customers/**'
       - '/mx/products/**'
       - '/mx/request-consultation/**'
+      - '/mx/industries/**'
     exclude:
       - '**/fragments/**'
     target: /mx/query-index.xlsx
@@ -827,6 +877,7 @@ indices:
       - '/my_en/customers/**'
       - '/my_en/products/**'
       - '/my_en/request-consultation/**'
+      - '/my_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /my_en/query-index.xlsx
@@ -843,6 +894,7 @@ indices:
       - '/my_ms/customers/**'
       - '/my_ms/products/**'
       - '/my_ms/request-consultation/**'
+      - '/my_ms/industries/**'
     exclude:
       - '**/fragments/**'
     target: /my_ms/query-index.xlsx
@@ -859,6 +911,7 @@ indices:
       - '/nl/customers/**'
       - '/nl/products/**'
       - '/nl/request-consultation/**'
+      - '/nl/industries/**'
     exclude:
       - '**/fragments/**'
     target: /nl/query-index.xlsx
@@ -875,6 +928,7 @@ indices:
       - '/no/customers/**'
       - '/no/products/**'
       - '/no/request-consultation/**'
+      - '/no/industries/**'
     exclude:
       - '**/fragments/**'
     target: /no/query-index.xlsx
@@ -891,6 +945,7 @@ indices:
       - '/nz/customers/**'
       - '/nz/products/**'
       - '/nz/request-consultation/**'
+      - '/nz/industries/**'
     exclude:
       - '**/fragments/**'
     target: /nz/query-index.xlsx
@@ -907,6 +962,7 @@ indices:
       - '/pe/customers/**'
       - '/pe/products/**'
       - '/pe/request-consultation/**'
+      - '/pe/industries/**'
     exclude:
       - '**/fragments/**'
     target: /pe/query-index.xlsx
@@ -923,6 +979,7 @@ indices:
       - '/ph_en/customers/**'
       - '/ph_en/products/**'
       - '/ph_en/request-consultation/**'
+      - '/ph_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ph_en/query-index.xlsx
@@ -939,6 +996,7 @@ indices:
       - '/ph_fil/customers/**'
       - '/ph_fil/products/**'
       - '/ph_fil/request-consultation/**'
+      - '/ph_fil/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ph_fil/query-index.xlsx
@@ -955,6 +1013,7 @@ indices:
       - '/pl/customers/**'
       - '/pl/products/**'
       - '/pl/request-consultation/**'
+      - '/pl/industries/**'
     exclude:
       - '**/fragments/**'
     target: /pl/query-index.xlsx
@@ -971,6 +1030,7 @@ indices:
       - '/pt/customers/**'
       - '/pt/products/**'
       - '/pt/request-consultation/**'
+      - '/pt/industries/**'
     exclude:
       - '**/fragments/**'
     target: /pt/query-index.xlsx
@@ -987,6 +1047,7 @@ indices:
       - '/ro/customers/**'
       - '/ro/products/**'
       - '/ro/request-consultation/**'
+      - '/ro/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ro/query-index.xlsx
@@ -1003,6 +1064,7 @@ indices:
       - '/ru/customers/**'
       - '/ru/products/**'
       - '/ru/request-consultation/**'
+      - '/ru/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ru/query-index.xlsx
@@ -1019,6 +1081,7 @@ indices:
       - '/sa_ar/customers/**'
       - '/sa_ar/products/**'
       - '/sa_ar/request-consultation/**'
+      - '/sa_ar/industries/**'
     exclude:
       - '**/fragments/**'
     target: /sa_ar/query-index.xlsx
@@ -1035,6 +1098,7 @@ indices:
       - '/sa_en/customers/**'
       - '/sa_en/products/**'
       - '/sa_en/request-consultation/**'
+      - '/sa_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /sa_en/query-index.xlsx
@@ -1051,6 +1115,7 @@ indices:
       - '/se/customers/**'
       - '/se/products/**'
       - '/se/request-consultation/**'
+      - '/se/industries/**'
     exclude:
       - '**/fragments/**'
     target: /se/query-index.xlsx
@@ -1067,6 +1132,7 @@ indices:
       - '/sg/customers/**'
       - '/sg/products/**'
       - '/sg/request-consultation/**'
+      - '/sg/industries/**'
     exclude:
       - '**/fragments/**'
     target: /sg/query-index.xlsx
@@ -1083,6 +1149,7 @@ indices:
       - '/si/customers/**'
       - '/si/products/**'
       - '/si/request-consultation/**'
+      - '/si/industries/**'
     exclude:
       - '**/fragments/**'
     target: /si/query-index.xlsx
@@ -1099,6 +1166,7 @@ indices:
       - '/sk/customers/**'
       - '/sk/products/**'
       - '/sk/request-consultation/**'
+      - '/sk/industries/**'
     exclude:
       - '**/fragments/**'
     target: /sk/query-index.xlsx
@@ -1115,6 +1183,7 @@ indices:
       - '/th_en/customers/**'
       - '/th_en/products/**'
       - '/th_en/request-consultation/**'
+      - '/th_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /th_en/query-index.xlsx
@@ -1131,6 +1200,7 @@ indices:
       - '/th_th/customers/**'
       - '/th_th/products/**'
       - '/th_th/request-consultation/**'
+      - '/th_th/industries/**'
     exclude:
       - '**/fragments/**'
     target: /th_th/query-index.xlsx
@@ -1147,6 +1217,7 @@ indices:
       - '/tr/customers/**'
       - '/tr/products/**'
       - '/tr/request-consultation/**'
+      - '/tr/industries/**'
     exclude:
       - '**/fragments/**'
     target: /tr/query-index.xlsx
@@ -1163,6 +1234,7 @@ indices:
       - '/tw/customers/**'
       - '/tw/products/**'
       - '/tw/request-consultation/**'
+      - '/tw/industries/**'
     exclude:
       - '**/fragments/**'
     target: /tw/query-index.xlsx
@@ -1179,6 +1251,7 @@ indices:
       - '/ua/customers/**'
       - '/ua/products/**'
       - '/ua/request-consultation/**'
+      - '/ua/industries/**'
     exclude:
       - '**/fragments/**'
     target: /ua/query-index.xlsx
@@ -1195,6 +1268,7 @@ indices:
       - '/uk/customers/**'
       - '/uk/products/**'
       - '/uk/request-consultation/**'
+      - '/uk/industries/**'
     exclude:
       - '**/fragments/**'
     target: /uk/query-index.xlsx
@@ -1211,6 +1285,7 @@ indices:
       - '/vn_en/customers/**'
       - '/vn_en/products/**'
       - '/vn_en/request-consultation/**'
+      - '/vn_en/industries/**'
     exclude:
       - '**/fragments/**'
     target: /vn_en/query-index.xlsx
@@ -1227,6 +1302,7 @@ indices:
       - '/vn_vi/customers/**'
       - '/vn_vi/products/**'
       - '/vn_vi/request-consultation/**'
+      - '/vn_vi/industries/**'
     exclude:
       - '**/fragments/**'
     target: /vn_vi/query-index.xlsx
