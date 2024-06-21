@@ -1,21 +1,21 @@
 export default async function init() {
   const tabOverrideStyles = `
     @media screen and (max-width: 600px) {
-      .tablist-features-section .tabs div[role="tablist"] .tab-list-container {
+      .section .tabs div[role="tablist"] .tab-list-container {
         flex-direction: column;
       }
 
-      .tablist-features-section .tabs div[role="tablist"] button[aria-selected="true"] {
+      .section .tabs div[role="tablist"] button[aria-selected="true"] {
         background: none;
         background-color: #d5d5d5;
       }
 
-      .tablist-features-section .tabs.center div[role="tablist"] .tab-list-container {
+      .section .tabs.center div[role="tablist"] .tab-list-container {
         width: 100%;
         margin: 0 30px 30px;
       }
 
-      .tablist-features-section .tabs div[role="tablist"] button {
+      .section .tabs div[role="tablist"] button {
         border-radius: 0;
         font-size: 24px;
         white-space: unset;
@@ -24,7 +24,7 @@ export default async function init() {
         padding: 8px 16px;
       }
 
-      .tablist-features-section .tabs div[role="tablist"] {
+      .section .tabs div[role="tablist"] {
         margin: 0;
         box-shadow: 0 -1px 0 inset var(--tabs-border-color);
       }
