@@ -121,7 +121,7 @@ const CONFIG = {
   productionDomain: 'business.adobe.com',
   prodDomains: ['business.adobe.com', 'www.adobe.com'],
   stageDomainsMap: {
-    'business.adobe.com': 'business.stage.adobe.com',
+    'business.adobe.com': 'graybox-demo.business-graybox.adobe.com',
     'www.adobe.com': 'www.stage.adobe.com',
     'learning.adobe.com': 'learning.stage.adobe.com',
     'solutionpartners.adobe.com': 'solutionpartners.stage.adobe.com',
