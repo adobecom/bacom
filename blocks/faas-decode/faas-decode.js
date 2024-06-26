@@ -1,7 +1,7 @@
-import { getLibs } from '../../scripts/utils.js';
+import { LIBS } from '../../scripts/scripts.js';
 
 export default async function init(el) {
-  const { createTag, parseEncodedConfig } = await import(`${getLibs()}/utils/utils.js`);
+  const { createTag, parseEncodedConfig } = await import(`${LIBS}/utils/utils.js`);
   const url = el.querySelector('a')?.href;
   const resp = await fetch(url);
 

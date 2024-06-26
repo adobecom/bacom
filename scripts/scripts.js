@@ -1,4 +1,3 @@
-const LIBS = '/libs';
 const STYLES = ['/styles/styles.css'];
 const CONFIG = {
   imsClientId: 'bacom',
@@ -155,18 +154,17 @@ const loadStyle = (path) => {
   eagerLoad(marquee.querySelector('img'));
 }());
 
-const setLibs = () => {
+// eslint-disable-next-line import/prefer-default-export
+export const LIBS = (() => {
   const { hostname, search } = window.location;
   if (!(hostname.includes('.hlx.') || hostname.includes('local'))) return LIBS;
   const branch = new URLSearchParams(search).get('milolibs') || 'main';
   if (branch === 'local') return 'http://localhost:6456/libs';
   return branch.includes('--') ? `https://${branch}.hlx.live/libs` : `https://${branch}--milo--adobecom.hlx.live/libs`;
-};
-
-const miloLibs = setLibs();
+})();
 
 (function loadStyles() {
-  const paths = [`${miloLibs}/styles/styles.css`];
+  const paths = [`${LIBS}/styles/styles.css`];
   if (STYLES) {
     paths.push(...(Array.isArray(STYLES) ? STYLES : [STYLES]));
   }
@@ -174,7 +172,7 @@ const miloLibs = setLibs();
 }());
 
 (async function loadPage() {
-  const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${LIBS}/utils/utils.js`);
   if (getMetadata('template') === '404') window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
@@ -185,7 +183,7 @@ const miloLibs = setLibs();
       if (lastSection) lastSection.insertAdjacentElement('beforeend', chatDiv);
     }
   }
-  setConfig({ ...CONFIG, miloLibs });
+  setConfig({ ...CONFIG, miloLibs: LIBS });
   loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
 
