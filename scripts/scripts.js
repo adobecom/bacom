@@ -157,7 +157,7 @@ const loadStyle = (path) => {
 // eslint-disable-next-line import/prefer-default-export
 export const LIBS = (() => {
   const { hostname, search } = window.location;
-  if (!(hostname.includes('.hlx.') || hostname.includes('local'))) return LIBS;
+  if (!['.hlx.', '.stage.', 'local'].some((i) => hostname.includes(i))) return '/libs';
   const branch = new URLSearchParams(search).get('milolibs') || 'main';
   if (branch === 'local') return 'http://localhost:6456/libs';
   return branch.includes('--') ? `https://${branch}.hlx.live/libs` : `https://${branch}--milo--adobecom.hlx.live/libs`;
