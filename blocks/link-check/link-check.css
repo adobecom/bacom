@@ -20,13 +20,22 @@
 
 .link-check .comparisons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
+  column-gap: 1%;
+}
+
+.link-check .comparisons > * {
+  flex: 1;
 }
 
 .link-check .comparisons .comparison {
-  width: 48%;
+  max-height: 95vh;
+  overflow: auto;
+}
+
+.link-check .comparisons .comparison ul {
+  max-height: 85vh;
   overflow: auto;
 }
 
@@ -34,5 +43,6 @@
   overflow-x:auto;
   font-size: 12px;
   background: #ccc;
-  height: 80vh;
+  max-height: 85vh;
+  padding: 10px;
 }

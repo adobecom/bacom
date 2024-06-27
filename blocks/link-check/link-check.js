@@ -11,21 +11,33 @@ const mdLinkRegex = /\[(.*?)\]\(.*?\)/g;
 
 const getLinks = (content) => content.match(mdLinkRegex);
 
-const LinkCheck = ({ title, queryEntry }) => {
+const syncScroll = (event) => {
+  const { target } = event;
+  const { scrollTop } = target;
+  const parentEl = target.closest('.comparison');
+  const nextEl = parentEl.nextElementSibling || parentEl.previousElementSibling;
+  const scrollEl = nextEl?.querySelector('pre') || nextEl?.querySelector('ul');
+  if (scrollEl) scrollEl.scrollTop = scrollTop;
+};
+
+const LinkCheck = ({ el, title, queryEntry }) => {
   const [entry, setEntry] = useState(queryEntry);
 
   useEffect(() => {
     window.history.pushState({}, '', `?entry=${entry}`);
-
     const { hostname } = window.location;
     const pageHost = hostname.includes('local') ? 'http://localhost:3000' : `https://${hostname}`;
-    const pageUrl = `${pageHost}${entry}.md`;
-    const liveUrl = `https://main--bacom--adobecom.hlx.live${entry}.md`;
-    const compareLinks = document.querySelector('.compare-links');
-    const compareMarkdown = document.querySelector('.compare-markdown');
+    const mdEntry = entry.endsWith('.md') ? entry : `${entry.trim()}.md`;
+    const pageUrl = `${pageHost}${mdEntry}`;
+    const liveUrl = `https://main--bacom--adobecom.hlx.live${mdEntry}`;
+    const compareUrl = el.querySelector('.compare-url');
+    const compareLinks = el.querySelector('.compare-links');
+    const compareMarkdown = el.querySelector('.compare-markdown');
 
-    compareMarkdown.innerHTML = '';
-    compareLinks.innerHTML = '';
+    const pageLink = createTag('a', { href: pageUrl, target: '_blank' }, pageUrl);
+    const liveLink = createTag('a', { href: liveUrl, target: '_blank' }, liveUrl);
+
+    compareUrl.replaceChildren(pageLink, liveLink);
 
     Promise.all([fetch(pageUrl), fetch(liveUrl)])
       .then((responses) => Promise.all(responses.map((response) => response.text())))
@@ -33,23 +45,35 @@ const LinkCheck = ({ title, queryEntry }) => {
         const pageLinks = getLinks(texts[0]);
         const liveLinks = getLinks(texts[1]);
 
-        const pageTitle = createTag('h3', {}, `Links: ${pageLinks.length}`);
-        const liveTitle = createTag('h3', {}, `Links: ${liveLinks.length}`);
+        const pageLinkTitle = createTag('h3', {}, `Links: ${pageLinks.length}`);
+        const liveLinkTitle = createTag('h3', {}, `Links: ${liveLinks.length}`);
 
         const pageLinkList = createTag('ul', {}, pageLinks.map((link) => createTag('li', {}, link)));
         const liveLinkList = createTag('ul', {}, liveLinks.map((link) => createTag('li', {}, link)));
 
-        const pageCompare = createTag('div', { class: 'comparison' }, [pageTitle, pageLinkList]);
-        const liveCompare = createTag('div', { class: 'comparison' }, [liveTitle, liveLinkList]);
+        const pageCompare = createTag('div', { class: 'comparison' }, [pageLinkTitle, pageLinkList]);
+        const liveCompare = createTag('div', { class: 'comparison' }, [liveLinkTitle, liveLinkList]);
 
-        compareLinks.appendChild(pageCompare);
-        compareLinks.appendChild(liveCompare);
+        pageLinkList.addEventListener('scroll', syncScroll);
+        liveLinkList.addEventListener('scroll', syncScroll);
 
-        const pageMarkdown = createTag('div', { class: 'comparison' }, createTag('pre', {}, texts[0]));
-        const liveMarkdown = createTag('div', { class: 'comparison' }, createTag('pre', {}, texts[1]));
+        compareLinks.replaceChildren(pageCompare, liveCompare);
+        el.appendChild(compareLinks);
 
-        compareMarkdown.appendChild(pageMarkdown);
-        compareMarkdown.appendChild(liveMarkdown);
+        const pageContentTitle = createTag('h3', {}, `Markdown: ${texts[0].length}`);
+        const liveContentTitle = createTag('h3', {}, `Markdown: ${texts[1].length}`);
+
+        const pageContent = createTag('pre', {}, texts[0]);
+        const liveContent = createTag('pre', {}, texts[1]);
+
+        pageContent.addEventListener('scroll', syncScroll);
+        liveContent.addEventListener('scroll', syncScroll);
+
+        const pageMarkdown = createTag('div', { class: 'comparison' }, [pageContentTitle, pageContent]);
+        const liveMarkdown = createTag('div', { class: 'comparison' }, [liveContentTitle, liveContent]);
+
+        compareMarkdown.replaceChildren(pageMarkdown, liveMarkdown);
+        el.appendChild(compareMarkdown);
       })
       .catch((error) => console.error('Error:', error, pageUrl, liveUrl));
   }, [entry]);
@@ -57,10 +81,11 @@ const LinkCheck = ({ title, queryEntry }) => {
   return html`
     <h1>${title}</h1>
     <${Input} label="Entry" name="id" type="text" value=${entry} onChange=${(newValue) => setEntry(newValue)} isRequired="true" />
-    <div class="comparisons compare-titles">
+    <div class="comparisons">
       <div class="comparison"><h2>Page</h2></div>
       <div class="comparison"><h2>Live</h2></div>
     </div>
+    <div class="comparisons compare-url"></div>
     <div class="comparisons compare-links"></div>
     <div class="comparisons compare-markdown"></div>
   `;
@@ -75,7 +100,7 @@ export default async function init(el) {
   const entry = urlParams.get('entry') || DEFAULT_ENTRY;
 
   const app = html`
-    <${LinkCheck} title=${title} queryEntry=${entry} />
+    <${LinkCheck} el=${el} title=${title} queryEntry=${entry} />
   `;
 
   render(app, el);
