@@ -1,10 +1,38 @@
+
+.link-check {
+  margin: 0 1em;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.link-check .field {
+  margin: 1em 0;
+}
+
+.link-check .field label {
+  margin: 0 0.5em;
+}
+
+.link-check .field input {
+  width: 80%;
+}
+
 .link-check .comparisons {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
 }
 
 .link-check .comparisons .comparison {
   width: 48%;
-  margin-bottom: 1em;
+  overflow: auto;
+}
+
+.link-check .comparisons .comparison pre {
+  overflow-x:auto;
+  font-size: 12px;
+  background: #ccc;
+  height: 80vh;
 }

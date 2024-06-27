@@ -7,6 +7,9 @@ const { html, render, useState, useEffect } = await import(`${miloLibs}/deps/htm
 const { Input } = await import(`${miloLibs}/ui/controls/formControls.js`);
 
 const DEFAULT_ENTRY = '/be_en/resources/webinars/experience-makers-live';
+const mdLinkRegex = /\[(.*?)\]\(.*?\)/g;
+
+const getLinks = (content) => content.match(mdLinkRegex);
 
 const LinkCheck = ({ title, queryEntry }) => {
   const [entry, setEntry] = useState(queryEntry);
@@ -14,28 +17,52 @@ const LinkCheck = ({ title, queryEntry }) => {
   useEffect(() => {
     window.history.pushState({}, '', `?entry=${entry}`);
 
-    const pageUrl = `https://main--bacom--adobecom.hlx.page${entry}.md`;
+    const { hostname } = window.location;
+    const pageHost = hostname.includes('local') ? 'http://localhost:3000' : `https://${hostname}`;
+    const pageUrl = `${pageHost}${entry}.md`;
     const liveUrl = `https://main--bacom--adobecom.hlx.live${entry}.md`;
+    const compareLinks = document.querySelector('.compare-links');
+    const compareMarkdown = document.querySelector('.compare-markdown');
 
-    const pageIframe = createTag('iframe', { src: pageUrl, style: 'width: 100%; height: 100vh;' });
-    const liveIframe = createTag('iframe', { src: liveUrl, style: 'width: 100%; height: 100vh;' });
+    compareMarkdown.innerHTML = '';
+    compareLinks.innerHTML = '';
 
-    const pageTitle = createTag('h2', {}, 'Page');
-    const liveTitle = createTag('h2', {}, 'Live');
+    Promise.all([fetch(pageUrl), fetch(liveUrl)])
+      .then((responses) => Promise.all(responses.map((response) => response.text())))
+      .then((texts) => {
+        const pageLinks = getLinks(texts[0]);
+        const liveLinks = getLinks(texts[1]);
 
-    const pageCompare = createTag('div', { class: 'comparison' }, [pageTitle, pageIframe]);
-    const liveCompare = createTag('div', { class: 'comparison' }, [liveTitle, liveIframe]);
+        const pageTitle = createTag('h3', {}, `Links: ${pageLinks.length}`);
+        const liveTitle = createTag('h3', {}, `Links: ${liveLinks.length}`);
 
-    const comparisons = document.querySelector('.comparisons');
-    comparisons.innerHTML = '';
-    comparisons.appendChild(pageCompare);
-    comparisons.appendChild(liveCompare);
+        const pageLinkList = createTag('ul', {}, pageLinks.map((link) => createTag('li', {}, link)));
+        const liveLinkList = createTag('ul', {}, liveLinks.map((link) => createTag('li', {}, link)));
+
+        const pageCompare = createTag('div', { class: 'comparison' }, [pageTitle, pageLinkList]);
+        const liveCompare = createTag('div', { class: 'comparison' }, [liveTitle, liveLinkList]);
+
+        compareLinks.appendChild(pageCompare);
+        compareLinks.appendChild(liveCompare);
+
+        const pageMarkdown = createTag('div', { class: 'comparison' }, createTag('pre', {}, texts[0]));
+        const liveMarkdown = createTag('div', { class: 'comparison' }, createTag('pre', {}, texts[1]));
+
+        compareMarkdown.appendChild(pageMarkdown);
+        compareMarkdown.appendChild(liveMarkdown);
+      })
+      .catch((error) => console.error('Error:', error, pageUrl, liveUrl));
   }, [entry]);
 
   return html`
     <h1>${title}</h1>
     <${Input} label="Entry" name="id" type="text" value=${entry} onChange=${(newValue) => setEntry(newValue)} isRequired="true" />
-    <div class="comparisons" style="display: flex;"></div>
+    <div class="comparisons compare-titles">
+      <div class="comparison"><h2>Page</h2></div>
+      <div class="comparison"><h2>Live</h2></div>
+    </div>
+    <div class="comparisons compare-links"></div>
+    <div class="comparisons compare-markdown"></div>
   `;
 };
 
