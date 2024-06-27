@@ -1,0 +1,10 @@
+.link-check .comparisons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.link-check .comparisons .comparison {
+  width: 48%;
+  margin-bottom: 1em;
+}
