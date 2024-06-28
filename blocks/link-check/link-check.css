@@ -30,13 +30,22 @@
 }
 
 .link-check .comparisons .comparison {
-  max-height: 95vh;
+  max-height: 100vh;
   overflow: auto;
 }
 
 .link-check .comparisons .comparison ul {
   max-height: 85vh;
   overflow: auto;
+}
+
+.link-check .comparisons .comparison ul .match {
+  background: #cfca;
+}
+
+
+.link-check .comparisons .comparison ul .mismatch {
+  background: #ffca;
 }
 
 .link-check .comparisons .comparison pre {

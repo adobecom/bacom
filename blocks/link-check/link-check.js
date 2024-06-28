@@ -27,9 +27,10 @@ const LinkCheck = ({ el, title, queryEntry }) => {
     window.history.pushState({}, '', `?entry=${entry}`);
     const { hostname } = window.location;
     const pageHost = hostname.includes('local') ? 'http://localhost:3000' : `https://${hostname}`;
-    const mdEntry = entry.endsWith('.md') ? entry : `${entry.trim()}.md`;
-    const pageUrl = `${pageHost}${mdEntry}`;
-    const liveUrl = `https://main--bacom--adobecom.hlx.live${mdEntry}`;
+    const pageUrl = `${pageHost}${entry.trim()}`;
+    const liveUrl = `https://main--bacom--adobecom.hlx.live${entry.trim()}`;
+    const pageMdUrl = pageUrl.endsWith('.md') ? pageUrl : `${pageUrl}.md`;
+    const liveMdUrl = liveUrl.endsWith('.md') ? liveUrl : `${liveUrl}.md`;
     const compareUrl = el.querySelector('.compare-url');
     const compareLinks = el.querySelector('.compare-links');
     const compareMarkdown = el.querySelector('.compare-markdown');
@@ -38,8 +39,10 @@ const LinkCheck = ({ el, title, queryEntry }) => {
     const liveLink = createTag('a', { href: liveUrl, target: '_blank' }, liveUrl);
 
     compareUrl.replaceChildren(pageLink, liveLink);
+    compareLinks.replaceChildren();
+    compareMarkdown.replaceChildren();
 
-    Promise.all([fetch(pageUrl), fetch(liveUrl)])
+    Promise.all([fetch(pageMdUrl), fetch(liveMdUrl)])
       .then((responses) => Promise.all(responses.map((response) => response.text())))
       .then((texts) => {
         const pageLinks = getLinks(texts[0]);
@@ -48,8 +51,8 @@ const LinkCheck = ({ el, title, queryEntry }) => {
         const pageLinkTitle = createTag('h3', {}, `Links: ${pageLinks.length}`);
         const liveLinkTitle = createTag('h3', {}, `Links: ${liveLinks.length}`);
 
-        const pageLinkList = createTag('ul', {}, pageLinks.map((link) => createTag('li', {}, link)));
-        const liveLinkList = createTag('ul', {}, liveLinks.map((link) => createTag('li', {}, link)));
+        const pageLinkList = createTag('ul', {}, pageLinks.map((link) => createTag('li', { class: liveLinks.includes(link) ? 'match' : 'mismatch' }, link)));
+        const liveLinkList = createTag('ul', {}, liveLinks.map((link) => createTag('li', { class: pageLinks.includes(link) ? 'match' : 'mismatch' }, link)));
 
         const pageCompare = createTag('div', { class: 'comparison' }, [pageLinkTitle, pageLinkList]);
         const liveCompare = createTag('div', { class: 'comparison' }, [liveLinkTitle, liveLinkList]);
@@ -63,19 +66,22 @@ const LinkCheck = ({ el, title, queryEntry }) => {
         const pageContentTitle = createTag('h3', {}, `Markdown: ${texts[0].length}`);
         const liveContentTitle = createTag('h3', {}, `Markdown: ${texts[1].length}`);
 
+        const pageMdLink = createTag('a', { href: pageMdUrl, target: '_blank' }, pageMdUrl);
+        const liveMdLink = createTag('a', { href: liveMdUrl, target: '_blank' }, liveMdUrl);
+
         const pageContent = createTag('pre', {}, texts[0]);
         const liveContent = createTag('pre', {}, texts[1]);
 
         pageContent.addEventListener('scroll', syncScroll);
         liveContent.addEventListener('scroll', syncScroll);
 
-        const pageMarkdown = createTag('div', { class: 'comparison' }, [pageContentTitle, pageContent]);
-        const liveMarkdown = createTag('div', { class: 'comparison' }, [liveContentTitle, liveContent]);
+        const pageMarkdown = createTag('div', { class: 'comparison' }, [pageContentTitle, pageMdLink, pageContent]);
+        const liveMarkdown = createTag('div', { class: 'comparison' }, [liveContentTitle, liveMdLink, liveContent]);
 
         compareMarkdown.replaceChildren(pageMarkdown, liveMarkdown);
         el.appendChild(compareMarkdown);
       })
-      .catch((error) => console.error('Error:', error, pageUrl, liveUrl));
+      .catch((error) => console.error('Error:', error, pageMdUrl, liveMdUrl));
   }, [entry]);
 
   return html`
