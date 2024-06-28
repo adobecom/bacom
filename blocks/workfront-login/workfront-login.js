@@ -1,4 +1,4 @@
-import { getLibs } from '../../scripts/utils.js';
+import { LIBS } from '../../scripts/scripts.js';
 
 export async function createProofForm(createTag, replaceKey, config) {
   const form = createTag('form', { action: 'https://app.proofhq.com/login', method: 'post' });
@@ -105,8 +105,8 @@ export async function createSubdomainForm(createTag, replaceKey, config) {
 
 /* c8 ignore next 14 */
 export default async function init(el) {
-  const { createTag, getConfig } = await import(`${getLibs()}/utils/utils.js`);
-  const { replaceKey } = await import(`${getLibs()}/features/placeholders.js`);
+  const { createTag, getConfig } = await import(`${LIBS}/utils/utils.js`);
+  const { replaceKey } = await import(`${LIBS}/features/placeholders.js`);
   const config = getConfig();
   const isProof = el.classList.contains('proof');
 

@@ -1,4 +1,4 @@
-import { getLibs } from '../../scripts/utils.js';
+import { LIBS } from '../../scripts/scripts.js';
 
 export const SELECT_ALL_REGIONS = 'Select All Regions';
 export const DESELECT_ALL_REGIONS = 'De-select All Regions';
@@ -12,7 +12,7 @@ const INSTRUCTIONS_TEXT = 'Select the locales you require by checking the checkb
   + ' press "Copy to clipboard" or select them with the cursor manually.';
 
 async function createLocaleCheckboxes(prefixGroup) {
-  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
+  const { createTag } = await import(`${LIBS}/utils/utils.js`);
 
   return Object.keys(prefixGroup).map((key) => {
     const { prefix } = prefixGroup[key];
@@ -87,7 +87,7 @@ export function stringifyListForExcel(urls) {
 }
 
 export default async function init(el) {
-  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
+  const { createTag } = await import(`${LIBS}/utils/utils.js`);
   const xlPath = './locale-config.json';
   const resp = await fetch(xlPath);
   if (!resp.ok) return;

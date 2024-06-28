@@ -1,7 +1,6 @@
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
 import init from '../../../blocks/faas-decode/faas-decode.js';
-import { setLibs } from '../../../scripts/utils.js';
 import waitForElement from '../../helpers/waitForElement.js';
 
 window.lana = { log: () => {} };
@@ -9,7 +8,6 @@ window.lana = { log: () => {} };
 describe('FaaS Decode', () => {
   before(() => {
     sinon.stub(window.lana, 'log');
-    setLibs('/libs');
   });
 
   after(() => {

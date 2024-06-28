@@ -1,4 +1,4 @@
-import { getLibs } from '../../scripts/utils.js';
+import { LIBS } from '../../scripts/scripts.js';
 
 async function decorateRow(row, module) {
   const { decorateLinkAnalytics } = module;
@@ -14,8 +14,8 @@ async function decorateRow(row, module) {
 }
 
 export default async function init(el) {
-  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
-  const module = await import(`${getLibs()}/martech/attributes.js`);
+  const { createTag } = await import(`${LIBS}/utils/utils.js`);
+  const module = await import(`${LIBS}/martech/attributes.js`);
 
   module.decorateBlockAnalytics(el);
   const firstRow = el.querySelector(':scope > div');
