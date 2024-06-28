@@ -1,11 +1,8 @@
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
 import waitForElement from '../../helpers/waitForElement.js';
-import { setLibs } from '../../../scripts/utils.js';
 import { createTag, replaceKey, getConfig } from './mocks/workfront-utils.js';
 import { createSubdomainForm, createProofForm, location } from '../../../blocks/workfront-login/workfront-login.js';
-
-setLibs('libs');
 
 const config = getConfig();
 

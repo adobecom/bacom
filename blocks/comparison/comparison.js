@@ -1,10 +1,10 @@
-import { getLibs } from '../../scripts/utils.js';
+import { LIBS } from '../../scripts/scripts.js';
 
 /**
  * @param {Element} el
  */
 const init = async (el) => {
-  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
+  const { createTag } = await import(`${LIBS}/utils/utils.js`);
   const rows = Array.from(el.querySelectorAll(':scope > div'));
   const headers = Array.from(rows.shift().children);
   const headersRow = createTag('tr');
