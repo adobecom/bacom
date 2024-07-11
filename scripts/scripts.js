@@ -1,6 +1,3 @@
-import { setLibs } from './utils.js';
-
-const LIBS = '/libs';
 const STYLES = ['/styles/styles.css'];
 const CONFIG = {
   imsClientId: 'bacom',
@@ -128,6 +125,7 @@ const CONFIG = {
     /business\.adobe\.com\/(\w\w(_\w\w)?\/)?blog(\/.*)?/,
   ],
   useDotHtml: true,
+  dynamicNavKey: 'bacom',
 };
 
 const eagerLoad = (img) => {
@@ -156,10 +154,18 @@ const loadStyle = (path) => {
   eagerLoad(marquee.querySelector('img'));
 }());
 
-const miloLibs = setLibs(LIBS);
+export function setLibs(location) {
+  const { hostname, search } = location;
+  if (!['.hlx.', '.stage.', 'local'].some((i) => hostname.includes(i))) return '/libs';
+  const branch = new URLSearchParams(search).get('milolibs') || 'main';
+  if (branch === 'local') return 'http://localhost:6456/libs';
+  return branch.includes('--') ? `https://${branch}.hlx.live/libs` : `https://${branch}--milo--adobecom.hlx.live/libs`;
+}
+
+export const LIBS = setLibs(window.location);
 
 (function loadStyles() {
-  const paths = [`${miloLibs}/styles/styles.css`];
+  const paths = [`${LIBS}/styles/styles.css`];
   if (STYLES) {
     paths.push(...(Array.isArray(STYLES) ? STYLES : [STYLES]));
   }
@@ -167,7 +173,8 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${LIBS}/utils/utils.js`);
+  if (getMetadata('template') === '404') window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
     const isMetaCtaDisabled = metaCta?.content === 'off';
@@ -177,7 +184,7 @@ const miloLibs = setLibs(LIBS);
       if (lastSection) lastSection.insertAdjacentElement('beforeend', chatDiv);
     }
   }
-  setConfig({ ...CONFIG, miloLibs });
+  setConfig({ ...CONFIG, miloLibs: LIBS });
   loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
 
