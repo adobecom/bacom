@@ -1,9 +1,6 @@
 import { expect } from '@esm-bundle/chai';
-import { setLibs } from '../../../scripts/utils.js';
 
 const { default: init } = await import('../../../blocks/stats/stats.js');
-
-setLibs('libs');
 
 describe('Stats', () => {
   it('Allows intro', async () => {
