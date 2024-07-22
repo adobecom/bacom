@@ -65,7 +65,7 @@ const CONFIG = {
     il_en: { ietf: 'en-IL', tk: 'hah7vzn.css' },
     il_he: { ietf: 'he', tk: 'qxw8hzm.css', dir: 'rtl' },
     in_hi: { ietf: 'hi', tk: 'qxw8hzm.css' },
-    in: { ietf: 'en-GB', tk: 'hah7vzn.css' },
+    in: { ietf: 'en-IN', tk: 'hah7vzn.css' },
     it: { ietf: 'it-IT', tk: 'hah7vzn.css' },
     jp: { ietf: 'ja-JP', tk: 'dvg6awq' },
     kr: { ietf: 'ko-KR', tk: 'qjs5sfm' },
