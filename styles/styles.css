@@ -77,11 +77,6 @@ main .section.five-up {
   padding-right: var(--grid-margins-width);
 }
 
-main .resource-form.section.two-up .marketo {
-  margin-left: calc(var(--grid-margins-width) * -1);
-  margin-right: calc(var(--grid-margins-width) * -1);
-}
-
 @media screen and (min-width: 1200px) {
   main .section.grid-width-10 {
     padding-left: var(--grid-margins-width-10);
@@ -96,12 +91,5 @@ main .resource-form.section.two-up .marketo {
   main .section.grid-width-6 {
     padding-left: var(--grid-margins-width-6);
     padding-right: var(--grid-margins-width-6);
-  }
-}
-
-@media screen and (min-width: 600px) {
-  main .resource-form.section.two-up .marketo {
-    margin-left: 0;
-    margin-right: 0;
   }
 }
