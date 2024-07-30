@@ -65,9 +65,9 @@ jobs:
             git add .
             git commit -m "Syncing bacom to bacom-pink"
             git push origin $FG_SYNC_BRANCH --force
-            echo ":heavy_check_mark: Syncing branch $GB_SYNC_BRANCH on bacom to bacom-pink completed successfully." >> $GITHUB_STEP_SUMMARY
+            echo ":heavy_check_mark: Syncing branch $FG_SYNC_BRANCH on bacom to bacom-pink completed successfully." >> $GITHUB_STEP_SUMMARY
           else
-            echo ":heavy_minus_sign: No changes detected on branch $GB_SYNC_BRANCH, nothing to sync." >> $GITHUB_STEP_SUMMARY
+            echo ":heavy_minus_sign: No changes detected on branch $FG_SYNC_BRANCH, nothing to sync." >> $GITHUB_STEP_SUMMARY
           fi
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
