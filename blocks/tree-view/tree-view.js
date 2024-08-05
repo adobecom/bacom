@@ -1,4 +1,4 @@
-import { getLibs } from '../../scripts/utils.js';
+import { LIBS } from '../../scripts/scripts.js';
 
 const BACOM_HOSTS = ['localhost', '--bacom--adobecom.hlx.page', '--bacom--adobecom.hlx.live', 'business.adobe.com'];
 
@@ -110,7 +110,7 @@ const init = async (el) => {
 
   if (!topList) return;
 
-  const { createTag } = await import(`${getLibs()}/utils/utils.js`);
+  const { createTag } = await import(`${LIBS}/utils/utils.js`);
   const subLists = topList.querySelectorAll('ul');
   const isAccordion = subLists.length > 0;
   const links = el.querySelectorAll('a');

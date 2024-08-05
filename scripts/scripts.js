@@ -1,6 +1,3 @@
-import { setLibs } from './utils.js';
-
-const LIBS = '/libs';
 const STYLES = ['/styles/styles.css'];
 const CONFIG = {
   imsClientId: 'bacom',
@@ -68,7 +65,7 @@ const CONFIG = {
     il_en: { ietf: 'en-IL', tk: 'hah7vzn.css' },
     il_he: { ietf: 'he', tk: 'qxw8hzm.css', dir: 'rtl' },
     in_hi: { ietf: 'hi', tk: 'qxw8hzm.css' },
-    in: { ietf: 'en-GB', tk: 'hah7vzn.css' },
+    in: { ietf: 'en-IN', tk: 'hah7vzn.css' },
     it: { ietf: 'it-IT', tk: 'hah7vzn.css' },
     jp: { ietf: 'ja-JP', tk: 'dvg6awq' },
     kr: { ietf: 'ko-KR', tk: 'qjs5sfm' },
@@ -120,15 +117,6 @@ const CONFIG = {
   geoRouting: 'on',
   productionDomain: 'business.adobe.com',
   prodDomains: ['business.adobe.com', 'www.adobe.com'],
-  stageDomainsMap: {
-    'business.adobe.com': 'business.stage.adobe.com',
-    'www.adobe.com': 'www.stage.adobe.com',
-    'learning.adobe.com': 'learning.stage.adobe.com',
-    'solutionpartners.adobe.com': 'solutionpartners.stage.adobe.com',
-    'news.adobe.com': 'news.stage.adobe.com',
-    'adobe.io': 'stage.adobe.io',
-    'developer.adobe.com': 'developer-stage.adobe.com',
-  },
   autoBlocks: [
     { iframe: 'https://adobe-ideacloud.forgedx.com' },
     { iframe: 'https://adobe.ideacloud.com' },
@@ -166,10 +154,18 @@ const loadStyle = (path) => {
   eagerLoad(marquee.querySelector('img'));
 }());
 
-const miloLibs = setLibs(LIBS);
+export function setLibs(location) {
+  const { hostname, search } = location;
+  if (!['.hlx.', '.stage.', 'local'].some((i) => hostname.includes(i))) return '/libs';
+  const branch = new URLSearchParams(search).get('milolibs') || 'main';
+  if (branch === 'local') return 'http://localhost:6456/libs';
+  return branch.includes('--') ? `https://${branch}.hlx.live/libs` : `https://${branch}--milo--adobecom.hlx.live/libs`;
+}
+
+export const LIBS = setLibs(window.location);
 
 (function loadStyles() {
-  const paths = [`${miloLibs}/styles/styles.css`];
+  const paths = [`${LIBS}/styles/styles.css`];
   if (STYLES) {
     paths.push(...(Array.isArray(STYLES) ? STYLES : [STYLES]));
   }
@@ -177,7 +173,7 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${LIBS}/utils/utils.js`);
   if (getMetadata('template') === '404') window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
@@ -188,7 +184,7 @@ const miloLibs = setLibs(LIBS);
       if (lastSection) lastSection.insertAdjacentElement('beforeend', chatDiv);
     }
   }
-  setConfig({ ...CONFIG, miloLibs });
+  setConfig({ ...CONFIG, miloLibs: LIBS });
   loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
 
@@ -199,4 +195,10 @@ const miloLibs = setLibs(LIBS);
   if (document.querySelector('.faas')) {
     loadStyle('/styles/faas.css');
   }
+  const observer = new PerformanceObserver((list) => {
+    list.getEntries().forEach((entry) => {
+      if (entry.responseStatus === 404) window.lana?.log(`The resource ${entry.name} returned a 404 status.`, { tags: 'errorType=error,module=resource-404' });
+    });
+  });
+  observer.observe({ type: 'resource', buffered: true });
 }());
