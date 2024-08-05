@@ -1,0 +1,33 @@
+name: Bacom E2E Daily Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 16 * * *'
+
+jobs:
+  platform_matrix:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
+    name: Running tests on Browserstack
+    runs-on: ${{ matrix.os }}
+    env:
+      WORKFLOW_NAME: 'Bacom E2E Nala Daily Run'
+      DAILY_RUN: 'true'
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+
+      - name: Run Nala ${{ matrix.os }}
+        run: bash runOnBrowserstack.sh bacom @e2e
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
