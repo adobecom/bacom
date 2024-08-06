@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+        with:
+          repository: adobecom/nala@main
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
