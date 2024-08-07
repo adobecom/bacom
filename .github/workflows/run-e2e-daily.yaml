@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest]
+        os: [ubuntu-latest]
     name: Running tests on Browserstack
     runs-on: ${{ matrix.os }}
     env:
