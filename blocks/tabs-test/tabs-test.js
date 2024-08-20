@@ -36,7 +36,7 @@ export default async function init() {
 
   const isMobileDevice = () => /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  (() => {
+  const clickToScroll = () => {
     if (window.innerWidth > 600 || !isMobileDevice()) return;
 
     const tabs = document.querySelectorAll('.tabList button');
@@ -52,5 +52,8 @@ export default async function init() {
         });
       });
     });
-  })();
+  };
+
+  // to remove during milo impl, race condition with tab loading
+  setTimeout(clickToScroll, 500);
 }
