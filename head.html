@@ -1,5 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="showup" content="does this show up?"/>
+<link rel="preload" href="" as="style" id="milo-stylesheet" />
+<link rel="preload" href="/styles/styles.css" as="style" />
+<link rel="preload" href="" as="script" id="milo-utils" />
+<link rel="preload" href="" as="script" id="milo-decorate" />
 <script>
   const libs = (() => {
     const { hostname, search } = window.location;
@@ -10,7 +13,13 @@
   })();
 
   console.log('libs', libs);
+  const miloStyles = document.querySelector('#milo-stylesheet');
+  miloStyles.setAttribute('href', `${libs}/styles/styles.css`);
+  const miloUtils = document.querySelector('#milo-utils');
+  miloUtils.setAttribute('href', `${libs}/utils/utils.js`);
+  const miloDecorate = document.querySelector('#milo-decorate');
+  miloDecorate.setAttribute('href', `${libs}/utils/decorate.js`)''
 </script>
-<!-- <script src="/scripts/scripts.js" type="module"></script> -->
+<script src="/scripts/scripts.js" type="module"></script>
 <style>body { display: none; }</style>
 <link rel="icon" href="data:,">
