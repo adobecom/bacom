@@ -192,6 +192,10 @@ export const LIBS = setLibs(window.location);
     const { default: registerAAUniversity } = await import('./aa-university.js');
     window.addEventListener('mktoSubmit', registerAAUniversity);
   }
+  if (document.querySelector('.sticky-bottom')) {
+    const { default: observeChatbot } = await import('./dynamic-chat.js');
+    observeChatbot();
+  }
   if (document.querySelector('.faas')) {
     loadStyle('/styles/faas.css');
   }
