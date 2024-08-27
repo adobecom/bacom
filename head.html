@@ -1,8 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="stylesheet" href="" id="milo-stylesheet" />
-<link rel="stylesheet" href="/styles/styles.css" />
-<script src="" as="script" type="module" id="milo-utils"></script>
-<script  src="" as="script" type="module" id="milo-decorate"></script>
+<link rel="stylesheet" href="/styles/styles.css" id="base-style-sheet"/>
+<script src="" type="module" id="milo-utils"></script>
+<script  src="" type="module" id="milo-decorate"></script>
 <script>
   const libs = (() => {
     const { hostname, search } = window.location;
@@ -12,9 +12,21 @@
     return branch.includes('--') ? `https://${branch}.hlx.live/libs` : `https://${branch}--milo--adobecom.hlx.live/libs`;
   })();
 
-  document.querySelector('#milo-stylesheet').setAttribute('href', `${libs}/styles/styles.css`);
-  document.querySelector('#milo-utils').setAttribute('src', `${libs}/utils/utils.js`);
-  document.querySelector('#milo-decorate').setAttribute('src', `${libs}/utils/decorate.js`);
+  const baseStyleSheet = document.querySelector('#base-style-sheet');
+  const miloStyles = document.createElement('link');
+  const miloUtils = document.createElement('script');
+  const miloDecorate = document.createElement('script');
+
+  miloStyles.setAttribute('rel', 'stylesheet');
+  miloStyles.setAttribute('href', `${libs}/styles/stykes.css`);
+
+  miloUtils.setAttribute('type', 'module')
+  miloUtils.setAttribute('src', `${libs}/utils/utils.js`)
+
+  miloDecorate.setAttribute('type', 'module')
+  miloDecorate.setAttribute('src', `${libs}/utils/decorate.js`)
+
+  baseStyleSheet.after(miloStyles, miloUtils, miloDecorate);
 </script>
 <script src="/scripts/scripts.js" type="module"></script>
 <style>body { display: none; }</style>
