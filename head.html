@@ -2,7 +2,7 @@
 <link rel="preload" href="" as="style" id="milo-stylesheet" />
 <link rel="preload" href="/styles/styles.css" as="style" />
 <link rel="preload" href="" as="script" crossorigin id="milo-utils" />
-<link rel="preload" href="" as="script" crossorigin id="milo-decorate" />
+<!-- <link rel="preload" href="" as="script" crossorigin id="milo-decorate" /> -->
 <link rel="preload" href="" as="script" crossorigin id="milo-martech" />
 <script>
   const libs = (() => {
@@ -15,7 +15,7 @@
 
   document.querySelector('#milo-stylesheet').setAttribute('href', `${libs}/styles/styles.css`);
   document.querySelector('#milo-utils').setAttribute('href', `${libs}/utils/utils.js`);
-  document.querySelector('#milo-decorate').setAttribute('href', `${libs}/utils/decorate.js`);
+  // document.querySelector('#milo-decorate').setAttribute('href', `${libs}/utils/decorate.js`);
   document.querySelector('#milo-martech').setAttribute('href', `${libs}/utils/martech.js`);
 </script>
 <script src="/scripts/scripts.js" type="module"></script>
