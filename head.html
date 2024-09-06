@@ -21,7 +21,7 @@
   miloStyles.setAttribute('href', `${libs}/styles/styles.css`);
 
   [miloUtils, miloDecorate].forEach((tag) => {
-    tag.setAttribute('crossorigin');
+    tag.setAttribute('crossorigin', 'true');
     tag.setAttribute('as', 'script');
   })
 
