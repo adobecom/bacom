@@ -1,8 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="preload" href="" as="style" id="milo-stylesheet" />
-<link rel="preload" href="/styles/styles.css" as="style" />
-<link rel="preload" href="" as="script" crossorigin id="milo-utils" />
-<link rel="preload" href="" as="script" crossorigin id="milo-decorate" />
+<!-- <link rel="preload" href="" as="style" id="milo-stylesheet" /> -->
+<link rel="preload" href="/styles/styles.css" as="style"/>
+<!-- <link rel="preload" href="" as="script" crossorigin id="milo-utils" />
+<link rel="preload" href="" as="script" crossorigin id="milo-decorate" /> -->
 <script>
   const libs = (() => {
     const { hostname, search } = window.location;
@@ -12,9 +12,26 @@
     return branch.includes('--') ? `https://${branch}.hlx.live/libs` : `https://${branch}--milo--adobecom.hlx.live/libs`;
   })();
 
-  document.querySelector('#milo-stylesheet').setAttribute('href', `${libs}/styles/styles.css`);
-  document.querySelector('#milo-utils').setAttribute('href', `${libs}/utils/utils.js`);
-  document.querySelector('#milo-decorate').setAttribute('href', `${libs}/utils/decorate.js`);
+  const miloStyles = document.createElement('link');
+  const miloUtils = document.createElement('link');
+  const miloDecorate = document.createElement('link');
+
+  [miloStyles, miloUtils, miloDecorate].forEach((tag) => tag.setAttribute('rel', 'preload'));
+  miloStyles.setAttribute('as', 'style');
+  miloStyles.setAttribute('href', `${libs}/styles/styles.css`);
+
+  [miloUtils, miloDecorate].forEach((tag) => {
+    tag.setAttribute('crossorigin');
+    tag.setAttribute('as', 'script');
+  })
+
+  miloUtils.setAttribute('href', `${libs}/utils/utils.js`);
+  miloDecorate.setAttribute('href', `${libs}/utils/decorate.js`);
+  
+  document.querySelector('[href="/styles/styles.css"]').after(miloStyles, miloUtils, miloDecorate);
+  // document.querySelector('#milo-stylesheet').setAttribute('href', `${libs}/styles/styles.css`);
+  // document.querySelector('#milo-utils').setAttribute('href', `${libs}/utils/utils.js`);
+  // document.querySelector('#milo-decorate').setAttribute('href', `${libs}/utils/decorate.js`);
 </script>
 <script src="/scripts/scripts.js" type="module"></script>
 <style>body { display: none; }</style>
