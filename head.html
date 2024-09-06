@@ -28,7 +28,7 @@
   miloUtils.setAttribute('href', `${libs}/utils/utils.js`);
   miloDecorate.setAttribute('href', `${libs}/utils/decorate.js`);
   
-  document.querySelector('[href="/styles/styles.css"]').after(miloStyles, miloUtils, miloDecorate);
+  document.head.append(miloStyles, miloUtils, miloDecorate);
   // document.querySelector('#milo-stylesheet').setAttribute('href', `${libs}/styles/styles.css`);
   // document.querySelector('#milo-utils').setAttribute('href', `${libs}/utils/utils.js`);
   // document.querySelector('#milo-decorate').setAttribute('href', `${libs}/utils/decorate.js`);
