@@ -33,6 +33,14 @@ indices:
         select: head > meta[name="publishdate"]
         value: |
           attribute(el, 'content')
+      caas-url:
+        select: .columns div div a[href*="/tools/caas"], .text div div a[href*="/tools/caas"]
+        value: |
+          attribute(el, 'href')
+      marketo-url:
+        select: .marketo div div a[href*="/tools/marketo"]
+        value: |
+          attribute(el, 'href')
   sitemap-ae_ar:
     include:
       - '/ae_ar/'
@@ -1742,6 +1750,6 @@ indices:
     properties:
       <<: *defaultProps
       faas-url:
-        select: .columns div div a, .text div div a
+        select: .columns div div a[href*="/tools/faas"], .text div div a[href*="/tools/faas"]
         value: |
           attribute(el, 'href')
