@@ -34,8 +34,8 @@ indices:
         value: |
           attribute(el, 'content')
       caas-url:
-        select: .columns div div a[href*="/tools/caas"], .text div div a[href*="/tools/caas"]
-        value: |
+        select: a[href*="/tools/caas"]
+        values: |
           attribute(el, 'href')
       marketo-url:
         select: .marketo div div a[href*="/tools/marketo"]
