@@ -1,7 +1,6 @@
 import { readFile } from '@web/test-runner-commands';
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
-import { setLibs } from '../../../scripts/utils.js';
 
 const {
   default: init,
@@ -13,8 +12,6 @@ const {
   NO_LOCALE_ERROR,
 } = await import('../../../blocks/redirects-formatter/redirects-formatter.js');
 const { htmlIncluded, htmlExcluded, externalUrls, mixedSpaceTabUrls } = await import('./mocks/textAreaValues.js');
-
-setLibs('libs');
 
 describe('Redirects Formatter', () => {
   const ogFetch = window.fetch;

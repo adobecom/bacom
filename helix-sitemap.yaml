@@ -105,7 +105,7 @@ sitemaps:
         source: /in/query-index.json
         alternate: /in/{path}.html
         destination: /in/sitemap.xml
-        hreflang: en-GB
+        hreflang: en-IN
       in_hi:
         source: /in_hi/query-index.json
         alternate: /in_hi/{path}.html

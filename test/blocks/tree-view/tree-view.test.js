@@ -1,12 +1,10 @@
 import { readFile } from '@web/test-runner-commands';
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
-import { setLibs } from '../../../scripts/utils.js';
 
 const { default: init, isCurrentPage } = await import('../../../blocks/tree-view/tree-view.js');
 
 window.lana = { log: () => {} };
-setLibs('libs');
 
 describe('Tree View', () => {
   describe('simple', () => {

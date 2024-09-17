@@ -29,4 +29,20 @@ describe('AA University', async () => {
     window.fetch = ogFetch;
     window.lana = ogLana;
   });
+
+  it('Sends the group parameter with POST if found', () => {
+    const meta = document.createElement('meta');
+    meta.setAttribute('name', 'sandboxgroup');
+    meta.setAttribute('content', 'group');
+    document.body.prepend(meta);
+    const body = registerAAUniversity();
+    expect(body.group).to.equal('group');
+
+    document.querySelector('meta').remove();
+  });
+
+  it('Does not send the group parameter with POST if not found', () => {
+    const body = registerAAUniversity();
+    expect(body.group).to.be.undefined;
+  });
 });
