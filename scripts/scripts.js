@@ -133,7 +133,7 @@ const CONFIG = {
     },
     '--bacom--adobecom.hlx.page': {'business.adobe.com': 'origin',
     }
-  }
+  },
 };
 
 const eagerLoad = (img) => {
