@@ -127,12 +127,9 @@ const CONFIG = {
   useDotHtml: true,
   dynamicNavKey: 'bacom',
   stageDomainsMap: {
-    'business.stage.adobe.com': { 'business.adobe.com': 'origin',
-    },
-    '--bacom--adobecom.hlx.live': {'business.adobe.com': 'origin',
-    },
-    '--bacom--adobecom.hlx.page': {'business.adobe.com': 'origin',
-    },
+    'business.stage.adobe.com': { 'business.adobe.com': 'origin' },
+    '--bacom--adobecom.hlx.live': {'business.adobe.com': 'origin' },
+    '--bacom--adobecom.hlx.page': {'business.adobe.com': 'origin' },
   },
 };
 
