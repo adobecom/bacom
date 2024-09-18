@@ -1,7 +1,7 @@
 {
-  "total":4,
+  "total":6,
   "offset":0,
-  "limit":4,
+  "limit":6,
   "data":[{
     "path": "/resources/2021-state-work",
     "title": "The 2021 State of Work: How COVID-19 Changed Digital Work",
@@ -25,6 +25,17 @@
     "title": "Learning Manager: Personalized, data-driven learning tech.",
     "date": "45470",
     "caas-url": "0"
+  },
+  {
+    "path": "/au/customer-success-stories/charles-schwab-case-study.html",
+    "lastModified": "1726608639",
+    "robots": "noodp",
+    "caas-url": "[]"
+  },
+  {
+    "path": "/customer-success-stories",
+    "title": "Customer Success Stories",
+    "lastModified": "1726608639"
   }],
   ":type":"sheet"
 }

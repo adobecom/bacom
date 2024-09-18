@@ -47,7 +47,11 @@ export const createTable = (data) => {
   data.forEach((row) => {
     const bodyRow = createTag('tr');
     headers.forEach((header) => {
-      bodyRow.append(createTag('td', null, row[header]));
+      if (row[header] instanceof HTMLElement) {
+        bodyRow.append(createTag('td', null, row[header]));
+      } else {
+        bodyRow.append(createTag('td', null, String(row[header])));
+      }
     });
     tbody.append(bodyRow);
   });
@@ -61,7 +65,6 @@ export const createTable = (data) => {
 };
 
 export async function decodeUrl(url) {
-  if (!url) return null;
   const encodedConfig = url.split('#')[1];
   if (!encodedConfig) return null;
 
@@ -78,38 +81,47 @@ async function decodeUrls(data) {
   let encodedLinks = [];
 
   try {
-    encodedLinks = JSON.parse(data);
-
-    if (!Array.isArray(encodedLinks)) {
-      encodedLinks = [encodedLinks];
+    const parsed = JSON.parse(data);
+    if (parsed) {
+      encodedLinks = Array.isArray(parsed) ? parsed : [encodedLinks];
     }
   } catch (e) {
-    encodedLinks = [data];
+    if (data) encodedLinks = [data];
   }
 
-  const decodedLinks = await Promise.all(encodedLinks.map(decodeUrl));
+  const decodedLinks = [];
+  for (const link of encodedLinks) {
+    try {
+      const decodedLink = await decodeUrl(link);
+      decodedLinks.push(decodedLink);
+    } catch (e) {
+      decodedLinks.push(null);
+    }
+  }
 
   return decodedLinks;
 }
 
 async function validateDecodedUrls(data, configColumn) {
   return Promise.all(data.map(async (page) => {
-    const path = createTag('a', { href: page.path }, page.path);
-    try {
-      const configs = await decodeUrls(page[configColumn]);
-
-      for (const config of configs) {
-        if (!config) return { path, validLink: 'No Config Found' };
-
-        const validLink = Object.keys(config).length > 0;
-
-        if (!validLink) return { path, validLink: 'Empty Config' };
-      }
-
-      return { path, validLink: 'Yes' };
-    } catch (e) {
-      return { path, validLink: 'Could not decode link' };
+    const pageUrl = new URL(page.path, window.location.origin);
+    if (!window.location.pathname.includes('.html')) {
+      pageUrl.pathname = pageUrl.pathname.replace('.html', '');
     }
+
+    const path = createTag('a', { href: pageUrl.href, target: '_blank' }, pageUrl.pathname);
+    const configs = await decodeUrls(page[configColumn]);
+    const count = configs.length;
+
+    if (configs.length === 0) return { path, validation: 'No Config Found', count };
+
+    for (const [i, config] of configs.entries()) {
+      if (!config) return { path, validation: `Could not decode link ${i + 1}`, count };
+
+      if (Object.keys(config).length === 0) return { path, validation: 'Empty Config', count };
+    }
+
+    return { path, validation: 'Valid', count };
   }));
 }
 
@@ -120,7 +132,7 @@ async function generateReport(el, configColumn) {
 
   const indexLink = createTag('p', null, [
     'Fetching data from ',
-    createTag('a', { href: queryIndex.href }, queryIndex.href),
+    createTag('a', { href: queryIndex.href, target: '_blank' }, queryIndex.href),
   ]);
   report.replaceChildren(indexLink);
 

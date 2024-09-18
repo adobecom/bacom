@@ -7,9 +7,11 @@ import waitForElement from '../../helpers/waitForElement.js';
 import { LIBS } from '../../../scripts/scripts.js';
 
 const { utf8ToB64 } = await import(`${LIBS}/utils/utils.js`);
+const queryIndex = await readFile({ path: './mocks/query-index.json' });
 
 window.lana = { log: () => { } };
-const queryIndex = await readFile({ path: './mocks/query-index.json' });
+
+const QUERY_INEDX_LENGTH = 6;
 
 describe('URL Decode', () => {
   before(() => {
@@ -52,7 +54,7 @@ describe('URL Decode', () => {
   it('fetches query index', async () => {
     const data = await loadQueryIndex('https://business.adobe.com/query-index.json');
 
-    expect(data.length).to.equal(4);
+    expect(data.length).to.equal(QUERY_INEDX_LENGTH);
   });
 
   it('creates a table', async () => {
@@ -81,6 +83,8 @@ describe('URL Decode', () => {
   });
 
   it('shows report data', async () => {
+    const getCell = (row, index) => row.querySelector(`td:nth-child(${index})`).textContent;
+
     const el = document.querySelector('.url-decode');
     const submit = el.querySelectorAll('button[type="submit"]');
 
@@ -92,13 +96,22 @@ describe('URL Decode', () => {
 
     const rows = table.querySelectorAll('tr');
 
-    expect(rows).to.have.length(5);
+    expect(rows).to.have.length(QUERY_INEDX_LENGTH + 1);
     expect(rows[0].querySelector('th').textContent).to.equal('path');
-    expect(rows[0].querySelector('th:nth-child(2)').textContent).to.equal('validLink');
+    expect(rows[0].querySelector('th:nth-child(2)').textContent).to.equal('validation');
+    expect(rows[0].querySelector('th:nth-child(3)').textContent).to.equal('count');
 
-    expect(rows[1].querySelector('td:nth-child(2)').textContent).to.equal('Yes');
-    expect(rows[2].querySelector('td:nth-child(2)').textContent).to.equal('Could not decode link');
-    expect(rows[3].querySelector('td:nth-child(2)').textContent).to.equal('Yes');
-    expect(rows[4].querySelector('td:nth-child(2)').textContent).to.equal('No Config Found');
+    expect(getCell(rows[1], 2)).to.equal('Valid');
+    expect(getCell(rows[1], 3)).to.equal('1');
+    expect(getCell(rows[2], 2)).to.equal('Could not decode link 1');
+    expect(getCell(rows[2], 3)).to.equal('1');
+    expect(getCell(rows[3], 2)).to.equal('Valid');
+    expect(getCell(rows[3], 3)).to.equal('1');
+    expect(getCell(rows[4], 2)).to.equal('No Config Found');
+    expect(getCell(rows[4], 3)).to.equal('0');
+    expect(getCell(rows[5], 2)).to.equal('No Config Found');
+    expect(getCell(rows[5], 3)).to.equal('0');
+    expect(getCell(rows[6], 2)).to.equal('No Config Found');
+    expect(getCell(rows[6], 3)).to.equal('0');
   });
 });
