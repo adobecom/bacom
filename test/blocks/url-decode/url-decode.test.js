@@ -1,8 +1,12 @@
 import { expect } from '@esm-bundle/chai';
 import { readFile } from '@web/test-runner-commands';
 import sinon from 'sinon';
-import init, { loadQueryIndex, createTable } from '../../../blocks/url-decode/url-decode.js';
+import init, { loadQueryIndex, createTable, decodeUrl } from '../../../blocks/url-decode/url-decode.js';
 import waitForElement from '../../helpers/waitForElement.js';
+
+import { LIBS } from '../../../scripts/scripts.js';
+
+const { utf8ToB64 } = await import(`${LIBS}/utils/utils.js`);
 
 window.lana = { log: () => { } };
 const queryIndex = await readFile({ path: './mocks/query-index.json' });
@@ -61,10 +65,27 @@ describe('URL Decode', () => {
     expect(table.querySelectorAll('tr')).to.have.length(3);
   });
 
+  it('decodes base64 url', async () => {
+    const url = `/tools/test#${utf8ToB64(JSON.stringify({ test: 'test' }))}`;
+    const data = await decodeUrl(url);
+
+    expect(data).to.deep.equal({ test: 'test' });
+  });
+
+  it('decodes compressed URL', async () => {
+    const url = 'https://main--milo--adobecom.hlx.page/tools/caas#~~H4sIAAAAAAAAE3VVTY/bNhD9Lzw7Wafb9qCb7V0jBrxZN/aihyIoxuRIIkxxVHJor1L0vxek9ek4N+kNOR9v3gz/FaCUZk0WzFf8J6DnHTiovMj++jYTqrFQabk6LNbktvqMz2e07EWWg/E4E2DBNKylX5ExKKOfL1ChyIQYGQ8O5GlT1Q6912RHt9WWCi0PULTxIDCtKFh2zRZs0Z88Ep0qcKeNJLvHGOkaYoy/WT+ySHBqz42JuZRg8g8l6qLk1nLQbHAhZUzoqI3mZotnNCL7fSZkX8qSbeeidroC14ixeah0wJLjW3Cvv/eYZdAWncjEp1/m8xd4/1MrLlsTWj40NQ58yCsXIhMSwGft70Pw8ULwTNUKnGp9MyxSOJGJvz2aXMyEoi/EW/jebAlUz6bSHo4Gl2AtuqGZykHOT8f+H62qSdtI6OVy+QiKjvhRUvUgS12hgw9Q64ehShFvnLUjW6Ftu4Dv0gSFKmbZltRCQ405GHMEeXoewomZyBE4uMnNXBtGlxTYnknAMmijdmBj+5KAKmAte/OWJLSsGMx5hBdaikyQ66FJHL9K/E6gfUmX56rmpueoCMypm7++i5koEVTvptQKVwwbNf0fCo/AEzBuLKM7g+mdantDkQFbBCiw00H3/4CRdQMNhSScmEeoI0SgXsjhXQVb4puxI2uaWNuyHaee9jYhcjcXaii0TbQurK7SRx8HClRifOTZRrUN8hssfwSwrDnFtnfsbU0tkDo1GN88Hkqs8HG4aEBiSUahe3PmqhGHPhj2O3S7ROBvM+ERnCzXGk3XGo+SrALXDBX20J6Ck9iBHIlZklPjwfElXRIOqsApvCZidE/6rFWUycjSce3XSVv3ba922ojkstPqCNvcnNmnEifQgTiu+MTGYCDHUYILL3/AnvAO+EJK53rUzGTAHIKJQ6m6e1fDtfM7qkM9uXDFv4JVVO2hqo0e7fp0IA75nhxP0HW7EyZgl9FtCR3+QxnXsFMIPbozabcjMiL7NJ/PbwwpSxTZ4xW/vh83jhN4E67VjijhcvLi20wwFP4qzp/v1HhGxKOuQI47/azjyhE9djtRHOcgLrj4xKGPS04hgzb+gO/8Wrf7T7V9mgmOqX5GUNoW7csnysdoiCpJmjtQnMpIxkwEj9voOnrrgwaPr2d0BpqttqdBU6P3MzDTnQUUPLqNzSkO1X//AxGj3OyCCAAA';
+    const data = await decodeUrl(url);
+
+    expect(data).to.not.be.empty;
+    expect(data).to.have.property('tagsUrl', 'www.adobe.com/chimera-api/tags');
+  });
+
   it('shows report data', async () => {
     const el = document.querySelector('.url-decode');
-    const submit = el.querySelector('button[type="submit"]');
-    submit.click();
+    const submit = el.querySelectorAll('button[type="submit"]');
+
+    expect(submit).to.have.length(1);
+    submit[0].click();
 
     const table = await waitForElement('table');
     expect(table).to.exist;
@@ -76,8 +97,8 @@ describe('URL Decode', () => {
     expect(rows[0].querySelector('th:nth-child(2)').textContent).to.equal('validLink');
 
     expect(rows[1].querySelector('td:nth-child(2)').textContent).to.equal('Yes');
-    expect(rows[2].querySelector('td:nth-child(2)').textContent).to.equal('Yes');
-    expect(rows[3].querySelector('td:nth-child(2)').textContent).to.equal('Could not decode link');
+    expect(rows[2].querySelector('td:nth-child(2)').textContent).to.equal('Could not decode link');
+    expect(rows[3].querySelector('td:nth-child(2)').textContent).to.equal('Yes');
     expect(rows[4].querySelector('td:nth-child(2)').textContent).to.equal('No Config Found');
   });
 });

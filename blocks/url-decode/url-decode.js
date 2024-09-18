@@ -60,16 +60,60 @@ export const createTable = (data) => {
   return createTag('div', null, [download, table]);
 };
 
-const sortValidLinks = (a, b) => {
-  if (a.validLink === b.validLink) {
-    return 0;
-  } if (a.validLink === 'Yes') {
-    return -1;
-  }
-  return 1;
-};
+export async function decodeUrl(url) {
+  if (!url) return null;
+  const encodedConfig = url.split('#')[1];
+  if (!encodedConfig) return null;
 
-async function fetchConfig(el, configColumn) {
+  if (encodedConfig.startsWith('~~')) {
+    const config = await decodeCompressedString(encodedConfig.substring(2));
+    return config;
+  }
+
+  const config = parseEncodedConfig(encodedConfig);
+  return config;
+}
+
+async function decodeUrls(data) {
+  let encodedLinks = [];
+
+  try {
+    encodedLinks = JSON.parse(data);
+
+    if (!Array.isArray(encodedLinks)) {
+      encodedLinks = [encodedLinks];
+    }
+  } catch (e) {
+    encodedLinks = [data];
+  }
+
+  const decodedLinks = await Promise.all(encodedLinks.map(decodeUrl));
+
+  return decodedLinks;
+}
+
+async function validateDecodedUrls(data, configColumn) {
+  return Promise.all(data.map(async (page) => {
+    const path = createTag('a', { href: page.path }, page.path);
+    try {
+      const configs = await decodeUrls(page[configColumn]);
+
+      for (const config of configs) {
+        if (!config) return { path, validLink: 'No Config Found' };
+
+        const validLink = Object.keys(config).length > 0;
+
+        if (!validLink) return { path, validLink: 'Empty Config' };
+      }
+
+      return { path, validLink: 'Yes' };
+    } catch (e) {
+      return { path, validLink: 'Could not decode link' };
+    }
+  }));
+}
+
+async function generateReport(el, configColumn) {
   const report = el.querySelector('.report');
   const locale = el.querySelector('select#locale').value;
   const queryIndex = new URL(`${locale}/query-index.json`, window.location.origin);
@@ -91,34 +135,9 @@ async function fetchConfig(el, configColumn) {
     return;
   }
 
-  const decodedReports = data.map(async (page) => {
-    const path = createTag('a', { href: page.path }, page.path);
-    const encodedConfig = page[configColumn]?.split('#')[1] ?? '';
+  const decodedReports = await validateDecodedUrls(data, configColumn);
 
-    if (!encodedConfig) return { path, validLink: 'No Config Found' };
-
-    try {
-      if (encodedConfig.startsWith('~~')) {
-        const state = await decodeCompressedString(encodedConfig.substring(2));
-        const validLink = Object.keys(state).length > 0;
-
-        return { path, validLink: validLink ? 'Yes' : 'Empty Compressed Config' };
-      }
-
-      const state = parseEncodedConfig(encodedConfig);
-      const validLink = Object.keys(state).length > 0;
-
-      return { path, validLink: validLink ? 'Yes' : 'Empty Config' };
-    } catch (e) {
-      return { path, validLink: 'Could not decode link' };
-    }
-  });
-
-  // const sortedData = reportData.sort(sortValidLinks);
-  const reportData = await Promise.all(decodedReports);
-  const sortedData = reportData.sort(sortValidLinks);
-
-  const table = createTable(sortedData);
+  const table = createTable(decodedReports);
   report.append(table);
 }
 
@@ -141,5 +160,5 @@ export default async function init(el) {
 
   el.replaceChildren(options, report);
 
-  submit.addEventListener('click', async () => fetchConfig(el, URL_COLUMN));
+  submit.addEventListener('click', async () => generateReport(el, URL_COLUMN));
 }
