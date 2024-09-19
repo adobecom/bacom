@@ -4,12 +4,13 @@
   padding: 20px;
 }
 
-.url-decode > div {
+.url-decode .table {
   max-height: 80vh;
   overflow: auto;
 }
 
-.url-decode .options {
+.url-decode .options,
+.url-decode .ribbon {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -18,7 +19,6 @@
 .url-decode .options label {
   margin: 0 5px;
 }
-
 
 .url-decode table {
   width: 100%;

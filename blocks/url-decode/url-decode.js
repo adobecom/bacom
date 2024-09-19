@@ -4,6 +4,7 @@ const { createTag, getConfig, parseEncodedConfig } = await import(`${LIBS}/utils
 const { decodeCompressedString } = await import(`${LIBS}/blocks/caas/utils.js`);
 
 const URL_COLUMN = 'caas-url';
+const DEFAULT_LOCALE = 'us';
 
 /* c8 ignore next */
 const delay = (milliseconds) => new Promise((resolve) => { setTimeout(resolve, milliseconds); });
@@ -56,12 +57,9 @@ export const createTable = (data) => {
     tbody.append(bodyRow);
   });
 
-  const downloadData = encodeURIComponent(data.map((row) => Object.values(row).join(',')).join('\n'));
-  const download = createTag('a', { href: `data:text/csv;charset=utf-8,${downloadData}`, download: 'data.csv' }, 'Download CSV');
-
   const table = createTag('table', null, [thead, tbody]);
 
-  return createTag('div', null, [download, table]);
+  return createTag('div', { class: 'table' }, table);
 };
 
 export async function decodeUrl(url) {
@@ -150,7 +148,40 @@ async function generateReport(el, configColumn) {
   const decodedReports = await validateDecodedUrls(data, configColumn);
 
   const table = createTable(decodedReports);
-  report.append(table);
+
+  const summary = createTag('p', null, `Total: ${data.length}`);
+  const downloadData = encodeURIComponent(data.map((row) => Object.values(row).join(',')).join('\n'));
+  const download = createTag('a', { href: `data:text/csv;charset=utf-8,${downloadData}`, download: 'data.csv' }, 'Download CSV');
+  const ribbon = createTag('div', { class: 'ribbon' }, [summary, download]);
+
+  report.append(ribbon, table);
+}
+
+function onSubmit(el) {
+  return () => {
+    const url = new URL(window.location.href);
+    const title = document.title.split(' - ')[0];
+
+    const selectedLocale = el.querySelector('select#locale').value;
+
+    url.searchParams.set('locale', selectedLocale || DEFAULT_LOCALE);
+    document.title = `${title} - ${selectedLocale || DEFAULT_LOCALE}`;
+    window.history.pushState({}, '', url);
+
+    generateReport(el, URL_COLUMN);
+  };
+}
+
+function updateResults(el) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryLocale = urlParams.get('locale');
+  const selectLocale = el.querySelector('select#locale');
+
+  /* c8 ignore next 4 */
+  if (queryLocale) {
+    selectLocale.value = queryLocale === DEFAULT_LOCALE ? '' : queryLocale;
+    generateReport(el, URL_COLUMN);
+  }
 }
 
 export default async function init(el) {
@@ -160,7 +191,7 @@ export default async function init(el) {
   const selectLocale = createTag('select', { name: 'locale', id: 'locale' });
 
   for (const locale of Object.keys(config.locales)) {
-    const option = createTag('option', { value: locale }, locale || 'us');
+    const option = createTag('option', { value: locale }, locale || DEFAULT_LOCALE);
     selectLocale.append(option);
   }
 
@@ -172,5 +203,8 @@ export default async function init(el) {
 
   el.replaceChildren(options, report);
 
-  submit.addEventListener('click', async () => generateReport(el, URL_COLUMN));
+  submit.addEventListener('click', onSubmit(el));
+  window.addEventListener('popstate', () => { updateResults(el); });
+
+  updateResults(el);
 }
