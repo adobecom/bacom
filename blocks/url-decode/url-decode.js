@@ -9,7 +9,7 @@ const DEFAULT_LOCALE = 'us';
 /* c8 ignore next */
 const delay = (milliseconds) => new Promise((resolve) => { setTimeout(resolve, milliseconds); });
 
-export const loadQueryIndex = async (url) => {
+export const loadQueryIndex = async (url, callback = null) => {
   const queryData = [];
   const response = await fetch(url);
 
@@ -22,6 +22,7 @@ export const loadQueryIndex = async (url) => {
 
   queryData.push(...data);
   const remaining = total - offset - limit;
+  callback?.(total - remaining, total);
 
   /* c8 ignore next 7 */
   if (remaining > 0) {
@@ -29,7 +30,7 @@ export const loadQueryIndex = async (url) => {
     nextUrl.searchParams.set('limit', limit);
     nextUrl.searchParams.set('offset', offset + limit);
     await delay(500);
-    queryData.push(...await loadQueryIndex(nextUrl.toString()));
+    queryData.push(...await loadQueryIndex(nextUrl.toString(), callback));
   }
 
   return queryData;
@@ -100,7 +101,7 @@ async function decodeUrls(data) {
   return decodedLinks;
 }
 
-async function validateDecodedUrls(data, configColumn) {
+async function validateUrls(data, configColumn) {
   return Promise.all(data.map(async (page) => {
     const pageUrl = new URL(page.path, window.location.origin);
     if (!window.location.pathname.includes('.html')) {
@@ -111,15 +112,15 @@ async function validateDecodedUrls(data, configColumn) {
     const configs = await decodeUrls(page[configColumn]);
     const count = configs.length;
 
-    if (configs.length === 0) return { path, validation: 'No Config Found', count };
+    if (configs.length === 0) return { path, valid: true, message: 'No links Found', count };
 
     for (const [i, config] of configs.entries()) {
-      if (!config) return { path, validation: `Could not decode link ${i + 1}`, count };
+      if (!config) return { path, valid: false, message: `Could not decode link ${i + 1}`, count };
 
-      if (Object.keys(config).length === 0) return { path, validation: 'Empty Config', count };
+      if (Object.keys(config).length === 0) return { path, valid: false, message: 'Empty link', count };
     }
 
-    return { path, validation: 'Valid', count };
+    return { path, valid: true, message: 'Valid link(s) found', count };
   }));
 }
 
@@ -128,16 +129,15 @@ async function generateReport(el, configColumn) {
   const locale = el.querySelector('select#locale').value;
   const queryIndex = new URL(`${locale}/query-index.json`, window.location.origin);
 
-  const indexLink = createTag('p', null, [
-    'Fetching data from ',
-    createTag('a', { href: queryIndex.href, target: '_blank' }, queryIndex.href),
-  ]);
-  report.replaceChildren(indexLink);
+  const queryLink = createTag('a', { href: queryIndex.href, target: '_blank' }, queryIndex.href);
+  report.replaceChildren(createTag('p', null, ['Fetching data from ', queryLink]));
 
   let data = [];
 
   try {
-    data = await loadQueryIndex(queryIndex.href);
+    data = await loadQueryIndex(queryIndex.href, (offset, total) => {
+      report.replaceChildren(createTag('p', null, ['Fetching data from ', queryLink, ` (${offset} of ${total})`]));
+    });
   } catch (e) {
     /* c8 ignore next 4 */
     window.lana?.log(`Error fetching data from url: ${queryIndex.href}`, { tags: 'info,url-decode' });
@@ -145,14 +145,25 @@ async function generateReport(el, configColumn) {
     return;
   }
 
-  const decodedReports = await validateDecodedUrls(data, configColumn);
+  const isColumnMissing = !Object.keys(data[0]).includes(configColumn);
+  const decodedReports = await validateUrls(data, configColumn);
+  const results = decodedReports.reduce((acc, { valid, count }) => {
+    acc.count += count;
+    if (valid) {
+      acc.valid += 1;
+    } else {
+      acc.invalid += 1;
+    }
+    return acc;
+  }, { valid: 0, invalid: 0, count: 0 });
 
   const table = createTable(decodedReports);
 
-  const summary = createTag('p', null, `Total: ${data.length}`);
+  const summary = createTag('p', null, `Valid Pages: ${results.valid}, Invalid Pages: ${results.invalid}, Total Link Count: ${results.count}`);
+  const error = createTag('p', { class: 'error' }, isColumnMissing ? 'Error: Update query index to include the "caas-url" column.' : '');
   const downloadData = encodeURIComponent(data.map((row) => Object.values(row).join(',')).join('\n'));
   const download = createTag('a', { href: `data:text/csv;charset=utf-8,${downloadData}`, download: 'data.csv' }, 'Download CSV');
-  const ribbon = createTag('div', { class: 'ribbon' }, [summary, download]);
+  const ribbon = createTag('div', { class: 'ribbon' }, [summary, error, download]);
 
   report.append(ribbon, table);
 }
@@ -161,13 +172,11 @@ function onSubmit(el) {
   return () => {
     const url = new URL(window.location.href);
     const title = document.title.split(' - ')[0];
+    const locale = el.querySelector('select#locale').value;
 
-    const selectedLocale = el.querySelector('select#locale').value;
-
-    url.searchParams.set('locale', selectedLocale || DEFAULT_LOCALE);
-    document.title = `${title} - ${selectedLocale || DEFAULT_LOCALE}`;
+    url.searchParams.set('locale', locale || DEFAULT_LOCALE);
+    document.title = `${title} - ${locale || DEFAULT_LOCALE}`;
     window.history.pushState({}, '', url);
-
     generateReport(el, URL_COLUMN);
   };
 }

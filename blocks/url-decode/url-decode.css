@@ -1,4 +1,6 @@
 .url-decode {
+  --error: #c9252d;
+
   font-size: 14px;
   margin: 0 auto 40px;
   padding: 20px;
@@ -14,6 +16,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+.url-decode .ribbon .error {
+  color: var(--error);
+  font-weight: bold;
 }
 
 .url-decode .options label {

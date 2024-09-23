@@ -98,20 +98,21 @@ describe('URL Decode', () => {
 
     expect(rows).to.have.length(QUERY_INEDX_LENGTH + 1);
     expect(rows[0].querySelector('th').textContent).to.equal('path');
-    expect(rows[0].querySelector('th:nth-child(2)').textContent).to.equal('validation');
-    expect(rows[0].querySelector('th:nth-child(3)').textContent).to.equal('count');
+    expect(rows[0].querySelector('th:nth-child(2)').textContent).to.equal('valid');
+    expect(rows[0].querySelector('th:nth-child(3)').textContent).to.equal('message');
+    expect(rows[0].querySelector('th:nth-child(4)').textContent).to.equal('count');
 
-    expect(getCell(rows[1], 2)).to.equal('Valid');
-    expect(getCell(rows[1], 3)).to.equal('1');
-    expect(getCell(rows[2], 2)).to.equal('Could not decode link 1');
-    expect(getCell(rows[2], 3)).to.equal('1');
-    expect(getCell(rows[3], 2)).to.equal('Valid');
-    expect(getCell(rows[3], 3)).to.equal('1');
-    expect(getCell(rows[4], 2)).to.equal('No Config Found');
-    expect(getCell(rows[4], 3)).to.equal('0');
-    expect(getCell(rows[5], 2)).to.equal('No Config Found');
-    expect(getCell(rows[5], 3)).to.equal('0');
-    expect(getCell(rows[6], 2)).to.equal('No Config Found');
-    expect(getCell(rows[6], 3)).to.equal('0');
+    expect(getCell(rows[1], 3)).to.equal('Valid link(s) found');
+    expect(getCell(rows[1], 4)).to.equal('1');
+    expect(getCell(rows[2], 3)).to.equal('Could not decode link 1');
+    expect(getCell(rows[2], 4)).to.equal('1');
+    expect(getCell(rows[3], 3)).to.equal('Valid link(s) found');
+    expect(getCell(rows[3], 4)).to.equal('1');
+    expect(getCell(rows[4], 3)).to.equal('No links Found');
+    expect(getCell(rows[4], 4)).to.equal('0');
+    expect(getCell(rows[5], 3)).to.equal('No links Found');
+    expect(getCell(rows[5], 4)).to.equal('0');
+    expect(getCell(rows[6], 3)).to.equal('No links Found');
+    expect(getCell(rows[6], 4)).to.equal('0');
   });
 });
