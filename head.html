@@ -26,7 +26,7 @@
   miloUtils.setAttribute('href', `${libs}/utils/utils.js`);
   miloDecorate.setAttribute('href', `${libs}/utils/decorate.js`);
   miloMartech.setAttribute('href', `${libs}/martech/martech.js`);
-  miloPersonalization.setAttribute('href', `${libs}/personalization/personalization.js`);
+  miloPersonalization.setAttribute('href', `${libs}/features/personalization/personalization.js`);
 
   [miloStyles, miloUtils, miloDecorate, miloMartech, miloPersonalization].forEach((tag) => tag.setAttribute('rel', 'preload'));
   document.head.append(miloStyles, miloUtils, miloDecorate, miloMartech, miloPersonalization);
