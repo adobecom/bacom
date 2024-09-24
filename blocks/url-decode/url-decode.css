@@ -1,14 +1,11 @@
 .url-decode {
-  --error: #c9252d;
+  --color-error: #c9252d;
+  --color-border: #d5d5d5;
+  --color-hover: #F0F0F0;
+  --color-active: #E5E5E5;
 
   font-size: 14px;
-  margin: 0 auto 40px;
   padding: 20px;
-}
-
-.url-decode .table {
-  max-height: 80vh;
-  overflow: auto;
 }
 
 .url-decode .options,
@@ -18,13 +15,29 @@
   margin-bottom: 20px;
 }
 
+.url-decode .ribbon {
+  border-bottom: solid 1px var(--color-border);
+}
+
+.url-decode .options p,
+.url-decode .ribbon p {
+  margin: 0;
+}
+
 .url-decode .ribbon .error {
-  color: var(--error);
+  color: var(--color-error);
   font-weight: bold;
 }
 
 .url-decode .options label {
   margin: 0 5px;
+}
+
+.url-decode .table {
+  border: solid 1px var(--color-border);
+  padding: 0 10px;
+  max-height: 80vh;
+  overflow: auto;
 }
 
 .url-decode table {
@@ -43,6 +56,7 @@
   max-width: 25vw;
   background: var(--color-white);
   color: var(--color-black);
+  cursor: pointer;
 }
 
 .url-decode tbody tr td {
@@ -51,8 +65,8 @@
 
 .url-decode thead {
   position: sticky;
-  top: 0;
-  background: #fff;
+  top: -3px;
+  background: var(--color-white);
 }
 
 .url-decode tbody th {
@@ -73,10 +87,33 @@
   font-size: 14px;
   text-align: left;
   vertical-align: top;
-  border: 1px solid #d5d5d5;
+  border: 1px solid var(--color-border);
   background: var(--color-white);
   color: #222;
   padding: 14px 16px;
+}
+
+.url-decode tr th:hover {
+  background: var(--color-hover);
+}
+
+.url-decode tr th:active,
+.url-decode tr th.sorted {
+  background: var(--color-active);
+}
+
+.url-decode tr th.sorted::after {
+  position: relative;
+  color: #888;
+  margin-left: 5px;
+}
+
+.url-decode tr th.sorted-desc::after {
+  content: "▼";
+}
+
+.url-decode tr th.sorted-asc::after {
+  content: "▲";
 }
 
 .url-decode.centered tbody tr td {
@@ -95,12 +132,12 @@
 
 .url-decode tbody tr:not(.cta-row):hover th,
 .url-decode tbody tr:not(.cta-row):hover td {
-  background-color: #F0F0F0;
+  background-color: var(--color-hover);
 }
 
 .url-decode tbody tr:not(.cta-row):active th,
 .url-decode tbody tr:not(.cta-row):active td {
-  background-color: #E5E5E5;
+  background-color: var(--color-active);
 }
 
 .url-decode table thead tr:first-child th:first-child {

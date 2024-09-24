@@ -36,11 +36,30 @@ export const loadQueryIndex = async (url, callback = null) => {
   return queryData;
 };
 
-export const createTable = (data) => {
+const sortByHeader = (data, header, invert) => {
+  data.sort((a, b) => a[header].toString().localeCompare(b[header].toString()) * (invert ? -1 : 1));
+};
+
+export const createTable = (data, sortColumn = '', invert = false) => {
   const headersRow = createTag('tr');
   const headers = Object.keys(data[0]);
+
+  if (sortColumn && headers.includes(sortColumn)) {
+    sortByHeader(data, sortColumn, invert);
+  }
+
   headers.forEach((header) => {
-    headersRow.append(createTag('th', { scope: 'col' }, header));
+    const th = createTag('th', { scope: 'col' }, header);
+    const sorted = header === sortColumn;
+    if (sorted) {
+      th.classList.add('sorted');
+      th.classList.add(invert ? 'sorted-desc' : 'sorted-asc');
+    }
+    th.addEventListener('click', () => {
+      const table = createTable(data, header, sorted && !invert);
+      document.querySelector('.table').replaceWith(table);
+    });
+    headersRow.append(th);
   });
 
   const thead = createTag('thead', null, headersRow);
@@ -156,13 +175,14 @@ async function generateReport(el, configColumn) {
     }
     return acc;
   }, { valid: 0, invalid: 0, count: 0 });
-
   const table = createTable(decodedReports);
-
   const summary = createTag('p', null, `Valid Pages: ${results.valid}, Invalid Pages: ${results.invalid}, Total Link Count: ${results.count}`);
   const error = createTag('p', { class: 'error' }, isColumnMissing ? 'Error: Update query index to include the "caas-url" column.' : '');
   const downloadData = encodeURIComponent(data.map((row) => Object.values(row).join(',')).join('\n'));
-  const download = createTag('a', { href: `data:text/csv;charset=utf-8,${downloadData}`, download: 'data.csv' }, 'Download CSV');
+  const download = createTag('a', {
+    href: `data:text/csv;charset=utf-8,${downloadData}`,
+    download: `data-${locale || DEFAULT_LOCALE}.csv`,
+  }, 'Download CSV');
   const ribbon = createTag('div', { class: 'ribbon' }, [summary, error, download]);
 
   report.append(ribbon, table);
@@ -172,10 +192,10 @@ function onSubmit(el) {
   return () => {
     const url = new URL(window.location.href);
     const title = document.title.split(' - ')[0];
-    const locale = el.querySelector('select#locale').value;
+    const locale = el.querySelector('select#locale').value || DEFAULT_LOCALE;
 
-    url.searchParams.set('locale', locale || DEFAULT_LOCALE);
-    document.title = `${title} - ${locale || DEFAULT_LOCALE}`;
+    url.searchParams.set('locale', locale);
+    document.title = `${title} - ${locale}`;
     window.history.pushState({}, '', url);
     generateReport(el, URL_COLUMN);
   };
@@ -205,7 +225,7 @@ export default async function init(el) {
   }
 
   const locale = createTag('div', { class: 'locale' }, [selectLabel, selectLocale]);
-  const submit = createTag('button', { type: 'submit' }, 'Fetch Index');
+  const submit = createTag('button', { type: 'submit' }, 'Create Report');
   const options = createTag('div', { class: 'options' }, [locale, submit]);
 
   const report = createTag('div', { class: 'report' });
