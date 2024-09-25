@@ -8,6 +8,7 @@ import { LIBS } from '../../../scripts/scripts.js';
 
 const { utf8ToB64 } = await import(`${LIBS}/utils/utils.js`);
 const queryIndex = await readFile({ path: './mocks/query-index.json' });
+const getCell = (row, index) => row.querySelector(`td:nth-child(${index})`).textContent;
 
 window.lana = { log: () => { } };
 
@@ -24,6 +25,9 @@ describe('URL Decode', () => {
   });
 
   beforeEach(async () => {
+    const url = new URL(window.location);
+    url.searchParams.delete('locale');
+    window.history.replaceState({}, '', url);
     document.body.innerHTML = '<div class="url-decode"></div>';
 
     const el = document.querySelector('.url-decode');
@@ -83,8 +87,6 @@ describe('URL Decode', () => {
   });
 
   it('shows report data', async () => {
-    const getCell = (row, index) => row.querySelector(`td:nth-child(${index})`).textContent;
-
     const el = document.querySelector('.url-decode');
     const submit = el.querySelectorAll('button[type="submit"]');
 
@@ -94,6 +96,7 @@ describe('URL Decode', () => {
     const table = await waitForElement('table');
     expect(table).to.exist;
 
+    expect(window.location.search).to.include('locale=us');
     const rows = table.querySelectorAll('tr');
 
     expect(rows).to.have.length(QUERY_INEDX_LENGTH + 1);
@@ -114,5 +117,32 @@ describe('URL Decode', () => {
     expect(getCell(rows[5], 4)).to.equal('0');
     expect(getCell(rows[6], 3)).to.equal('No links Found');
     expect(getCell(rows[6], 4)).to.equal('0');
+  });
+
+  it('sorts report data', async () => {
+    const el = document.querySelector('.url-decode');
+    const submit = el.querySelectorAll('button[type="submit"]');
+
+    expect(submit).to.have.length(1);
+    submit[0].click();
+
+    const table = await waitForElement('table');
+    expect(table).to.exist;
+
+    const header = el.querySelector('th:nth-child(3)');
+    header.click();
+
+    const sortedRows = el.querySelectorAll('table tr');
+
+    expect(getCell(sortedRows[1], 3)).to.equal('Could not decode link 1');
+    expect(getCell(sortedRows[2], 3)).to.equal('No links Found');
+
+    const sortHeader = el.querySelector('th:nth-child(3)');
+    sortHeader.click();
+
+    const reversedRows = el.querySelectorAll('table tr');
+
+    expect(getCell(reversedRows[1], 3)).to.equal('Valid link(s) found');
+    expect(getCell(reversedRows[2], 3)).to.equal('Valid link(s) found');
   });
 });
