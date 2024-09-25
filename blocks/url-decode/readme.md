@@ -19,7 +19,8 @@ The block will then attempt to decode the URL and return the result in a table.
 The URL Decode block will create a table with the following columns:
 
 - `path`: The page where the CaaS links are indexed from.
-- `validation`: Status of the URL decode.
+- `valid`: Status of the URL decode (true if all links are valid, false otherwise).
+- `message`: Detailed message about the validation status.
 - `count`: Number of URLs decoded.
 
 ## Validation Process
@@ -28,16 +29,16 @@ Each entry in the query index processed by parsing the caas-url column and loopi
 
 ## Decode URLs output
 
-The output of the URL decoding process will be an array containing the decoded configurations or `null` if the URL was not able to be decoded.
+The `decodeUrls` function is designed to decode an array of URLs or a single URL from a JSON string. It attempts to decode each URL using the `decodeUrl` function and returns an array of decoded configurations. If a URL cannot be decoded, null is returned for that URL.
 
 Example output:
 
 ```json
 [
   {
-    "path": "/resources/2021-state-work",
-    "validation": "Valid",
-    "count": 1
-  }
+    "decodedKey1": "decodedValue1",
+    "decodedKey2": "decodedValue2"
+  },
+  null
 ]
 ```
