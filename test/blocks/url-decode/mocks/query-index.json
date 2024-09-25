@@ -1,0 +1,41 @@
+{
+  "total":6,
+  "offset":0,
+  "limit":6,
+  "data":[{
+    "path": "/resources/2021-state-work",
+    "title": "The 2021 State of Work: How COVID-19 Changed Digital Work",
+    "date": "44715.6956838079",
+    "caas-url": "[\"https://milo.adobe.com/tools/caas#eyJsIjoiZW5fdXMiLCJkIjoiL3Jlc291cmNlc3VuZGVmaW5lZCIsImFyIjp0cnVlLCJ0ZXN0IjpmYWxzZSwicSI6e30sInBjIjp7IjEiOiJqcyIsIjIiOiJmYWFzX3N1Ym1pc3Npb24iLCIzIjoic2ZkYyIsIjQiOiJkZW1hbmRiYXNlIiwiNSI6IiJ9LCJwIjp7ImpzIjp7IjMyIjoidW5rbm93biIsIjM2IjoiNzAxNVkwMDAwMDF6UWthUUFFIiwiMzkiOiIiLCI3NyI6MSwiNzgiOjEsIjc5IjoxLCI5MCI6IkZBQVMiLCI5MiI6Mjg0NiwiOTMiOiIyODQ3IiwiOTQiOjMyNzMsIjE3MiI6IlN0YXRlIG9mIFdvcmsgMjAyMSAoVVMpIiwiMTczIjoiaHR0cDovL2xvY2FsaG9zdDozMDAxL3Jlc291cmNlcy8yMDIxLXN0YXRlLXdvcmsuaHRtbD9ob3N0PWh0dHBzJTNhJTJmJTJmYnVzaW5lc3MuYWRvYmUuY29tIiwiMTc2IjoiaHR0cDovL2xvY2FsaG9zdDozMDAxL3Jlc291cmNlcy8yMDIxLXN0YXRlLXdvcmsvdGhhbmsteW91Lmh0bWwiLCIxNzgiOiJodHRwOi8vbG9jYWxob3N0OjMwMDEvdG9vbHMvaW1wb3J0ZXIvaGVsaXgtaW1wb3J0ZXItdWkvaW1wb3J0LWJ1bGsuaHRtbCJ9LCJmYWFzX3N1Ym1pc3Npb24iOnt9LCJzZmRjIjp7ImNvbnRhY3RJZCI6bnVsbH0sImRlbWFuZGJhc2UiOnt9fSwiYXMiOiJ0cnVlIiwibyI6e30sImUiOnt9LCJjb29raWUiOnsicCI6eyJqcyI6e319fSwidXJsIjp7InAiOnsianMiOnsiMzYiOiI3MDEzMDAwMDAwMGtZZTBBQUUifX19LCJqcyI6eyJpZCI6IjYzIiwibCI6ImVuX3VzIiwiZCI6Ii9yZXNvdXJjZXMvMjAyMS1zdGF0ZS13b3JrL3RoYW5rLXlvdS5odG1sIiwiYXMiOiJ0cnVlIiwiYXIiOnRydWUsInBjIjp7IjEiOiJqcyIsIjIiOiJmYWFzX3N1Ym1pc3Npb24iLCIzIjoic2ZkYyIsIjQiOiJkZW1hbmRiYXNlIiwiNSI6IiJ9LCJxIjp7fSwicCI6eyJqcyI6eyIzNiI6IjcwMTVZMDAwMDAxelFrYVFBRSIsIjM5IjoiIiwiNzciOjEsIjc4IjoxLCI3OSI6MSwiOTAiOiJGQUFTIiwiOTIiOjI4NDYsIjkzIjoiMjg0NyIsIjk0IjozMjczLCIxNzIiOiJTdGF0ZSBvZiBXb3JrIDIwMjEgKFVTKSJ9fSwiZSI6e319LCJvbmV0cnVzdF9hZHZlcnRpc2luZ19hY2NlcHRhbmNlIjoibm8iLCJvbmV0cnVzdF9wZXJmb3JtYW5jZV9hY2NlcHRhbmNlIjoibm8iLCJvbmV0cnVzdF9mdW5jdGlvbmFsaXR5X2FjY2VwdGFuY2UiOiJubyIsImNsZWFyYml0U3RlcCI6MSwiZm9ybVRhZyI6ImZhYXMtUkZJIiwiaWQiOiI2MyIsIl9mYyI6MSwiY29tcGxldGUiOnRydWUsInN0eWxlX2xheW91dCI6ImNvbHVtbjIiLCJjbGVhYml0U3R5bGUiOiIifQ==\"]"
+  },
+  {
+    "path": "/resources/event-sessions/turn-newbies-into-superfans-building-an-epic-learning-academy",
+    "title": "Build an Epic Learning Academy",
+    "date": "45470",
+    "caas-url":  "[\"/tools/caas#~~H4sIAAAAAAAACq1WTY8bNwz9Lzp74s1u24Nv+4kacLLb2DkVxoKW6BliNeKU4tjrBPnvhebDYztToEB7MaxHSqTIx6f5biCAPyjZeM/eo1Xi8BlKNDNjJoNxJWDf5mUlGCNxMLMt+IjJwS04J7uCPJrZn98NBRVYQd6gZmaevzTHuM7BWIA4sxwUg2Z6qHAKomQ9msmIzdZRuUTJorIcRl0cljxqwA3z26glr8mNx6Ow5VygKsiO2gUrFh017cjheCJ73FAAGbcVpJhVUOG4vRJ2tdVMuR532HjOzfrH5F9WvjsvTj2CBAp5VkKAHMWsf6wnJpWsBHmbWw5LTHRoeXCKfw3xxGJB3FIPPhHm4+w6IUce3WnoTZVQCW0HL2mmtYQs4H5DGDMKylmsK5QthJhtavIuZQkhw4psdkwbLDgszw9c0rcmjaurBg4KFFDMzNxcfwLJKXQwBl0dKuwKs05gHVQOZtYXuFlO62gmxvFn1gV8OywY3JH3jiJsPN5BCChxgAW2+rA5rjG4iimkWu33+w/geIMfLJdTW1CJAhlUNB0uYNKOHQmHEkNXYHy3vnbo7kFcl24HDflvwfsN2LfHIZyZmC2C1jLs/N5ffu7MzBSqVZxNp5s6UsAYT5ITjFyLxTjFXSJabIc+ThuX7JI6maModaW0wwyCy9BjDomfaIsPhZbeJHr+19hWELTpfOb5AD47asMWwgYiZnvSIlMBSsn9f4HxvfIsJ9emkGmBGb5XKIRBCXwGOWZb4TKrIMZUCOWMyhIlLbpcUqPIK8rj7tjdFliwhab/M+Nxqyd4O8osR6jveLtYFrx/LCs9HBmX16oN5395NxND4YIpHkJeQ4491fv1FBP5PBy4bmYjDU1dJYjBfWLB0Vnm4A8phbtOHo5c65JhOX0c1hNTQU6hueptoLL5czwVcnTm1OUxpBEbZm6w/FFDUNImdhixdzcIHPDsxK8RVwWWeDPs8WCxYO9QvopveyIYa6/xBeWlrdSNmZiIILZ4IvT9FEbUdNs7Fte0RaXGiYkn5YhPTZeOwc5sz+G8Vsn41Lf4BFs2gc+gFSv4L22Wg4FFH0DxNtqfsAe8BHELtU8cFAiOS9PCbcVfuKqrM/cW/9K4LqGsPIX83CExepmexlP0qROgM7A95RzCiLJjkhdmb2Yfr66uLgxNUDSzmxZfkfqfLtqAFzdNA53evg1YLs16YhTy2Db6n/U4+ZjkKjnqrVXaURow495fjyLxen11ffO6I9y3P4pRj3suiauJc2m2KS96x9TChgArTixOz9av6dmqIy6S2wrfh2LWEZ93KB4OCwpv8RSXedhyS0hwjhLLEzf+qjHqCwiU/RMH4tqyWZuUbUOe9LDAHXoz+21iWjVNGXXvusKt7TTpNaLfmoFOn9jRlk4vmA7+HSE91d2Rprg5/xaoVXlEQqBWvm/f2wUkVrVjNGxskm5zSvH72Jfd7/EzArQqeZc+Il4gNGmleEl47KCo983V2zIV5PBeYd4PeYHgjqLbGQc5c6hAPqZePVddsVw3WhMTWC/kL6Ll4EAOI9CyJ+u6HfL5iTakwKnw86AoO/BnatCIELgcL7SEWVEeKH2X9hL0429edz6j7wsAAA==/resources/main\"]"
+  },
+  {
+    "path": "/resources/event-sessions/explore-learning-in-the-experiential-age-from-passive-to-immersive",
+    "title": "Learning in the Experiential Age: From Passive to Immersive",
+    "date": "45470",
+    "caas-url": "https://main--milo--adobecom.hlx.page/tools/caas#~~H4sIAAAAAAAAE3VVTY/bNhD9Lzw7Wafb9qCb7V0jBrxZN/aihyIoxuRIIkxxVHJor1L0vxek9ek4N+kNOR9v3gz/FaCUZk0WzFf8J6DnHTiovMj++jYTqrFQabk6LNbktvqMz2e07EWWg/E4E2DBNKylX5ExKKOfL1ChyIQYGQ8O5GlT1Q6912RHt9WWCi0PULTxIDCtKFh2zRZs0Z88Ep0qcKeNJLvHGOkaYoy/WT+ySHBqz42JuZRg8g8l6qLk1nLQbHAhZUzoqI3mZotnNCL7fSZkX8qSbeeidroC14ixeah0wJLjW3Cvv/eYZdAWncjEp1/m8xd4/1MrLlsTWj40NQ58yCsXIhMSwGft70Pw8ULwTNUKnGp9MyxSOJGJvz2aXMyEoi/EW/jebAlUz6bSHo4Gl2AtuqGZykHOT8f+H62qSdtI6OVy+QiKjvhRUvUgS12hgw9Q64ehShFvnLUjW6Ftu4Dv0gSFKmbZltRCQ405GHMEeXoewomZyBE4uMnNXBtGlxTYnknAMmijdmBj+5KAKmAte/OWJLSsGMx5hBdaikyQ66FJHL9K/E6gfUmX56rmpueoCMypm7++i5koEVTvptQKVwwbNf0fCo/AEzBuLKM7g+mdantDkQFbBCiw00H3/4CRdQMNhSScmEeoI0SgXsjhXQVb4puxI2uaWNuyHaee9jYhcjcXaii0TbQurK7SRx8HClRifOTZRrUN8hssfwSwrDnFtnfsbU0tkDo1GN88Hkqs8HG4aEBiSUahe3PmqhGHPhj2O3S7ROBvM+ERnCzXGk3XGo+SrALXDBX20J6Ck9iBHIlZklPjwfElXRIOqsApvCZidE/6rFWUycjSce3XSVv3ba922ojkstPqCNvcnNmnEifQgTiu+MTGYCDHUYILL3/AnvAO+EJK53rUzGTAHIKJQ6m6e1fDtfM7qkM9uXDFv4JVVO2hqo0e7fp0IA75nhxP0HW7EyZgl9FtCR3+QxnXsFMIPbozabcjMiL7NJ/PbwwpSxTZ4xW/vh83jhN4E67VjijhcvLi20wwFP4qzp/v1HhGxKOuQI47/azjyhE9djtRHOcgLrj4xKGPS04hgzb+gO/8Wrf7T7V9mgmOqX5GUNoW7csnysdoiCpJmjtQnMpIxkwEj9voOnrrgwaPr2d0BpqttqdBU6P3MzDTnQUUPLqNzSkO1X//AxGj3OyCCAAA"
+  },
+  {
+    "path": "/resources/event-sessions/adobe-learning-manager-disruptive-and-elegant-tech",
+    "title": "Learning Manager: Personalized, data-driven learning tech.",
+    "date": "45470",
+    "caas-url": "0"
+  },
+  {
+    "path": "/au/customer-success-stories/charles-schwab-case-study.html",
+    "lastModified": "1726608639",
+    "robots": "noodp",
+    "caas-url": "[]"
+  },
+  {
+    "path": "/customer-success-stories",
+    "title": "Customer Success Stories",
+    "lastModified": "1726608639"
+  }],
+  ":type":"sheet"
+}
