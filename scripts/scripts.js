@@ -196,6 +196,9 @@ export const LIBS = setLibs(window.location);
   if (document.querySelector('.faas')) {
     loadStyle('/styles/faas.css');
   }
+  if (getMetadata('marketo-poi')) {
+    sessionStorage.setItem('marketo_poi', getMetadata('marketo-poi'));
+  }
   const observer = new PerformanceObserver((list) => {
     list.getEntries().forEach((entry) => {
       if (entry.responseStatus === 404) window.lana?.log(`The resource ${entry.name} returned a 404 status.`, { tags: 'errorType=error,module=resource-404' });
