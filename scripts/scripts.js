@@ -114,6 +114,11 @@ const CONFIG = {
     vn_vi: { ietf: 'vi', tk: 'qxw8hzm.css' },
     za: { ietf: 'en-GB', tk: 'hah7vzn.css' },
   },
+  marketo: {
+    formId: '2277',
+    munckin: '360-KCI-804',
+    host: 'engage.adobe.com',
+  },
   geoRouting: 'on',
   productionDomain: 'business.adobe.com',
   prodDomains: ['business.adobe.com', 'www.adobe.com'],
