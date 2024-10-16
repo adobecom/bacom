@@ -4,6 +4,10 @@
     <title>404</title>
     <meta name="template" content="404"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="module">
+      import { applyRedirects } from '/scripts/redirects.js';
+      await applyRedirects();
+    </script>
     <script src="/scripts/scripts.js" type="module"></script>
     <link rel="icon" href="data:,">
     </head>
