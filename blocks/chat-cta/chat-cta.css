@@ -33,10 +33,6 @@
   width: 100%;
 }
 
-.chat-cta .fragment .section .icon-block .foreground {
-  text-align: left;
-}
-
 .chat-cta .fragment .section .icon-block:first-of-type {
   border-bottom: 1px solid rgb(112 112 112);
 }
@@ -74,7 +70,10 @@
   font-size: var(--type-body-xs-size);
   line-height: var(--type-heading-xxs-lh);
   margin-bottom: var(--spacing-xs);
-  margin-left: 0;
+}
+
+.dialog-modal.chat-cta .icon-block:not(.small.full-width) .foreground .text-content .action-area {
+  display: block;
 }
 
 .cta-hidden {
