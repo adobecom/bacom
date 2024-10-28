@@ -72,6 +72,10 @@
   margin-bottom: var(--spacing-xs);
 }
 
+.dialog-modal.chat-cta .icon-block:not(.small.full-width) .foreground .text-content .action-area {
+  display: block;
+}
+
 .cta-hidden {
   display: none;
 }
@@ -124,6 +128,10 @@
     width: 100%;
   }
 
+  .chat-cta .icon-block .cta-container {
+    margin-top: var(--spacing-xxs);
+  }
+
   .dialog-modal.chat-cta {
     position: fixed;
     right: 0;
@@ -157,12 +165,12 @@
   .dialog-modal.chat-cta .section .foreground .text-content p:not(.action-area) {
     font-size: var(--type-body-xxs-size);
     line-height: var(--type-body-xxs-lh);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-xxs);
   }
 
   .dialog-modal.chat-cta .section .text-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
     text-align: left;
