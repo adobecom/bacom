@@ -173,7 +173,7 @@ export const LIBS = setLibs(window.location);
   paths.forEach(loadStyle);
 }());
 
-(async function loadPage() {
+async function loadPage() {
   const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${LIBS}/utils/utils.js`);
   if (getMetadata('template') === '404') window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
   const metaCta = document.querySelector('meta[name="chat-cta"]');
@@ -202,4 +202,12 @@ export const LIBS = setLibs(window.location);
     });
   });
   observer.observe({ type: 'resource', buffered: true });
+}
+
+loadPage();
+
+// DA Live Preview
+(async function loadDa() {
+  if (!new URL(window.location.href).searchParams.get('dapreview')) return;
+  import('https://da.live/scripts/dapreview.js').then(({ default: daPreview }) => daPreview(loadPage));
 }());
