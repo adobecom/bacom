@@ -30,7 +30,7 @@ export function activateRedirects(data) {
       return acc;
     }, {}));
 }
-export async function fetchRedirects(path = '/smart-redirects.json') {
+export async function fetchRedirects(path = '/smart-redirects.json?limit=100000') {
   try {
     const response = await fetch(path);
     const redirects = await response.json();
