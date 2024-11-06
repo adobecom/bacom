@@ -73,7 +73,7 @@ export async function isValidRedirect(url) {
 
 export async function applyRedirects(
   redirects = fetchRedirects(),
-  path = window.location.pathname,
+  path = window.location.pathname.replace('.html', ''),
 ) {
   const redirect = await getRedirect(redirects, path, new URL(window.location.href));
   if (redirect && await isValidRedirect(redirect)) {
