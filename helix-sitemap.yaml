@@ -15,7 +15,7 @@ sitemaps:
         source: https://main--bacom-blog--adobecom.hlx.live/blog/sitemap.xml
         alternate: /{path}
         destination: /sitemap.xml
-        hreflang: en-US
+        hreflang: en
       ar:
         source: /ar/query-index.json
         alternate: /ar/{path}.html
@@ -32,10 +32,10 @@ sitemaps:
         destination: /au/sitemap.xml
         hreflang: en-AU
       au-blog:
-        source: https://main--bacom-blog--adobecom.hlx.live/blog/sitemap-de.xml
+        source: https://main--bacom-blog--adobecom.hlx.live/blog/sitemap-au.xml
         alternate: /au/{path}
         destination: /au/sitemap.xml
-        hreflang: en-AU
+        hreflang: en
       be_fr:
         source: /be_fr/query-index.json
         alternate: /be_fr/{path}.html
@@ -90,7 +90,7 @@ sitemaps:
         source: https://main--bacom-blog--adobecom.hlx.live/blog/sitemap-de.xml
         alternate: /de/{path}
         destination: /de/sitemap.xml
-        hreflang: de-DE
+        hreflang: de
       es:
         source: /es/query-index.json
         alternate: /es/{path}.html
@@ -105,7 +105,7 @@ sitemaps:
         source: https://main--bacom-blog--adobecom.hlx.live/blog/sitemap-fr.xml
         alternate: /fr/{path}
         destination: /fr/sitemap.xml
-        hreflang: fr-FR
+        hreflang: fr
       hk_zh:
         source: /hk_zh/query-index.json
         alternate: /hk_zh/{path}.html
@@ -145,17 +145,17 @@ sitemaps:
         source: https://main--bacom-blog--adobecom.hlx.live/blog/sitemap-jp.xml
         alternate: /jp/{path}
         destination: /jp/sitemap.xml
-        hreflang: ja-JP
+        hreflang: ja
       kr:
         source: /kr/query-index.json
         alternate: /kr/{path}.html
         destination: /kr/sitemap.xml
         hreflang: ko-KR
       kr-blog:
-        source: https://main--bacom-blog--adobecom.hlx.live/kr/blog/sitemap.xml
+        source: https://main--bacom-blog--adobecom.hlx.live/blog/sitemap-kr.xml
         alternate: /kr/{path}
         destination: /kr/sitemap.xml
-        hreflang: ko-KR
+        hreflang: ko
       lu_de:
         source: /lu_de/query-index.json
         alternate: /lu_de/{path}.html
@@ -220,4 +220,4 @@ sitemaps:
         source: https://main--bacom-blog--adobecom.hlx.live/blog/sitemap-uk.xml
         alternate: /uk/{path}
         destination: /uk/sitemap.xml
-        hreflang: en-GB
+        hreflang: en
