@@ -137,6 +137,15 @@
       "title": "Bulk operations",
       "environments": [ "edit", "dev", "preview", "live" ],
       "url": "https://main--bacom--adobecom.hlx.page/tools/bulk"
+    },
+    {
+      "id": "rollout",
+      "title": "Rollout",
+      "environments": ["da-edit"],
+      "daLibrary": true,
+      "experience": "dialog",
+      "icon": "https://main--da-bacom--adobecom.hlx.live/media/media_1ee523ad3c3258c4853bc40002e3b4ab4b5231108.png",
+      "path": "/tools/rollout.html"
     }
   ]
 }
