@@ -18,6 +18,7 @@ export default function registerAAUniversity() {
   fetch('https://14257-bacomaaep-stage.adobeio-static.net/api/v1/web/bacom-umep/register', {
     method: 'POST',
     body: JSON.stringify(postBody),
+    headers: { 'Content-Type': 'application/json' },
   })
     .catch((error) => window.lana.log(`Marketo AA University Error: ${error}`));
 
