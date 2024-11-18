@@ -5,7 +5,7 @@ describe('Libs', () => {
   const tests = [
     ['https://business.adobe.com', '/libs'],
     ['https://business.adobe.com?milolibs=foo', '/libs'],
-    ['https://business.stage.adobe.com', 'https://hlx5-upgrade--milo--adobecom.aem.live/libs'],
+    ['https://business.stage.adobe.com', 'https://main--milo--adobecom.aem.live/libs'],
     ['https://business.stage.adobe.com?milolibs=foo', 'https://foo--milo--adobecom.aem.live/libs'],
     ['https://business.stage.adobe.com?milolibs=awesome--milo--forkedowner', 'https://awesome--milo--forkedowner.aem.live/libs'],
     ['https://main--da-bacom--adobecom.aem.page/', 'https://main--milo--adobecom.aem.live/libs'],
@@ -31,6 +31,6 @@ describe('Libs', () => {
   });
 
   it('Sets LIBS', () => {
-    expect(LIBS).to.equal('https://hlx5-upgrade--milo--adobecom.aem.live/libs');
+    expect(LIBS).to.equal('https://main--milo--adobecom.aem.live/libs');
   });
 });
