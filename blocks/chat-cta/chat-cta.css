@@ -79,7 +79,7 @@
   display: block;
 }
 
-.cta-hidden {
+.cta-chat-sticky.cta-hidden {
   display: none;
 }
 
@@ -96,7 +96,7 @@
     width: fit-content;
     height: 56px;
     right: 10px;
-    bottom: 100px;
+    bottom: 56px;
     background-color: var(--color-white);
     border-radius: 6px;
     border: 1px solid #909090;
