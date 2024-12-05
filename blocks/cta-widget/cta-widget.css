@@ -1,0 +1,62 @@
+.cta-widget {
+  position: fixed;
+  width: fit-content;
+  height: 56px;
+  right: 10px;
+  bottom: 10px;
+  background-color: var(--color-white);
+  border-radius: 6px;
+  border: 1px solid #909090;
+  box-shadow: 2px 4px 6px 0 #0003;
+  z-index: 4;
+}
+
+.cta-widget div { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0 24px;
+}
+
+.cta-widget .icon-chat span {
+  margin: 0 13px;
+}
+
+.cta-widget .icon-chat svg {
+  width: 26px;
+  height: auto;
+}
+
+.cta-widget-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  top: auto;
+  left: auto;
+  box-shadow: 2px 4px 6px 0 #0003;
+  border-radius: 6px;
+  border: 1px solid #909090;
+  z-index: 4;
+  background-color: var(--background-color);
+}
+
+.cta-widget-body.hidden {
+  display: none;
+}
+
+.widget-close {
+  width: 25px;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+}
+
+
