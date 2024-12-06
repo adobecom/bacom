@@ -31,32 +31,115 @@
 
 .cta-widget-body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin: auto auto 0;
   position: fixed;
-  right: 10px;
+  top: 0;
+  right: 0;
   bottom: 10px;
-  top: auto;
-  left: auto;
+  left: 0;
   box-shadow: 2px 4px 6px 0 #0003;
   border-radius: 6px;
   border: 1px solid #909090;
   z-index: 4;
   background-color: var(--background-color);
+  width: 340px;
+  height: 484px;
 }
 
 .cta-widget-body.hidden {
   display: none;
 }
 
-.widget-close {
-  width: 25px;
-  height: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0;
+.cta-widget-body div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.cta-widget-body div:first-of-type {
+  margin: 40px 0 0;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgb(112 112 112);
+}
 
+.cta-widget-body div:last-of-type {
+  margin: 32px 0 40px;
+}
+
+.cta-widget-body div img {
+  max-width: 32px;
+}
+
+.cta-widget-body div h2 {
+  font-size: var(--type-body-m-size);
+  margin: 0;
+  line-height: 22.5px;
+}
+
+.cta-widget-body div p {
+  font-size: var(--type-body-xxs-size);
+  line-height: var(--type-body-xxs-lh);
+  margin-bottom: var(--spacing-xxs);
+}
+
+.cta-widget-body div p:first-of-type {
+  margin: 0 0 16px;
+}
+
+.cta-widget-body div p:nth-child(3) {
+  margin: 5px 0 24px;
+}
+
+.cta-widget-body div p:last-of-type {
+  margin: 0;
+}
+
+.widget-close {
+  width: 18px;
+  height: auto;
+  position: absolute;
+  top: 16.5px;
+  right: 14px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+@media screen and (min-width: 900px) {
+  .cta-widget-body {
+    flex-direction: row;
+    max-width: 482px;
+    width: unset;
+    height: unset;
+    top: auto;
+    right: 10px;
+    bottom: 10px;
+    left: auto;
+    margin: 0;
+  }
+
+  .cta-widget-body div {
+    max-width: 241px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .cta-widget-body div p {
+    max-width: 177px;
+  }
+
+ .cta-widget-body div:first-of-type {
+    margin: 32px 0 32px 32px;
+    padding-right: 32px;
+    padding-bottom: 0;
+    border-right: 1px solid rgb(112 112 112);
+    border-bottom: none;
+ }
+
+ .cta-widget-body div:last-of-type{
+  margin: 32px;
+}
+}

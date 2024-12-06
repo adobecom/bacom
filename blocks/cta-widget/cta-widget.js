@@ -16,6 +16,8 @@ export default async function init(el) {
     'aria-label': 'Close',
   }, CLOSE_ICON);
 
+  ctaSections.forEach((section) => section.querySelector('a')?.classList.add('con-button', 'outline'));
+
   ctaSection.classList.add('hidden');
   ctaSection.prepend(close);
 
