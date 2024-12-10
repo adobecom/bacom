@@ -9,6 +9,8 @@
   border: 1px solid #909090;
   box-shadow: 2px 4px 6px 0 #0003;
   z-index: 4;
+  padding: 0;
+  font-family: var(--body-font-family);
 }
 
 .cta-widget div { 
@@ -20,8 +22,9 @@
   padding: 0 24px;
 }
 
-.cta-widget .icon-chat span {
-  margin: 0 13px;
+.cta-widget span.icon-chat {
+  margin-inline-end: 13px;
+  width: auto;
 }
 
 .cta-widget .icon-chat svg {
