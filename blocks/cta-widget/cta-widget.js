@@ -15,21 +15,26 @@ export default async function init(el) {
     class: 'widget-close',
     'aria-label': 'Close',
   }, CLOSE_ICON);
+  const curtain = createTag('div', { class: 'cta-curtain' });
 
   ctaSections.forEach((section) => section.querySelector('a')?.classList.add('con-button', 'outline'));
 
   ctaSection.classList.add('hidden');
   ctaSection.prepend(close);
+  curtain.classList.add('hidden');
 
   widgetSection.addEventListener('click', () => {
     ctaSection.classList.remove('hidden');
+    curtain.classList.remove('hidden');
+    widgetSection.classList.add('hidden');
   });
 
   close.addEventListener('click', () => {
+    widgetSection.classList.remove('hidden');
     ctaSection.classList.add('hidden');
+    curtain.classList.add('hidden');
   });
 
-  el.after(ctaSection);
-  el.after(widgetSection);
+  el.after(ctaSection, widgetSection, curtain);
   el.remove();
 }
