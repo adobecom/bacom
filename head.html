@@ -1,6 +1,7 @@
+<meta http-equiv="Content-Security-Policy" content="script-src 'nonce-r4Nd0mmm' 'strict-dynamic'; base-uri 'self'; object-src 'none';">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="preload" href="/styles/styles.css" as="style"/>
-<script>
+<script nonce="r4Nd0mmm">
   const libs = (() => {
     const { hostname, search } = window.location;
     if (!['.hlx.', '.stage.', 'local'].some((i) => hostname.includes(i))) return '/libs';
@@ -27,6 +28,6 @@
   [miloStyles, miloUtils, miloDecorate].forEach((tag) => tag.setAttribute('rel', 'preload'));
   document.head.append(miloStyles, miloUtils, miloDecorate);
 </script>
-<script src="/scripts/scripts.js" type="module"></script>
+<script nonce="r4Nd0mmm" src="/scripts/scripts.js" type="module"></script>
 <style>body { display: none; }</style>
 <link rel="icon" href="data:,">
