@@ -52,7 +52,7 @@
   max-height: calc(100vh - 20px);
   padding: 40px 33px;
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .cta-widget-body.hidden,
