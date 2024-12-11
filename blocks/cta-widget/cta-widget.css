@@ -48,8 +48,10 @@
   z-index: 12;
   background-color: var(--background-color);
   width: 340px;
+  max-height: calc(100vh - 20px);
   padding: 40px 33px;
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 .cta-widget-body.hidden,
@@ -126,7 +128,8 @@
   z-index: 11;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 900px),
+       screen and (max-height: 499px) {
   .cta-widget-body {
     flex-direction: row;
     max-width: 482px;
@@ -167,7 +170,9 @@
     margin: 0;
     padding-left: 32px;
   }
+}
 
+@media screen and (min-width: 900px) {
   .cta-curtain {
     display: none;
   }
