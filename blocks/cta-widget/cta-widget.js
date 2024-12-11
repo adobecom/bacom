@@ -7,7 +7,7 @@ const CLOSE_ICON = `<svg id="close" viewBox="0 0 18 18">
 export default async function init(el) {
   const { createTag } = await import(`${LIBS}/utils/utils.js`);
 
-  const [widgetDiv, cta1Div, cta2Div] = el.querySelectorAll('&>div');
+  const [widgetDiv, cta1Div, cta2Div] = el.querySelectorAll(':scope > div');
   const widgetSection = createTag('button', { class: 'cta-widget', tabindex: '0' }, widgetDiv.querySelector('div'));
   const ctaSections = [cta1Div.querySelector('div'), cta2Div.querySelector('div')];
   const ctaSection = createTag('section', { class: 'cta-widget-body', tabindex: '0' }, ctaSections);
