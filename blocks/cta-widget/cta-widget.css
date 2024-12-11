@@ -11,6 +11,7 @@
   z-index: 4;
   padding: 0;
   font-family: var(--body-font-family);
+  color: var(--text-color);
 }
 
 .cta-widget div { 
@@ -116,6 +117,7 @@
   padding: 0;
   background-color: transparent;
   border: none;
+  color: var(--text-color);
 }
 
 .cta-curtain {
