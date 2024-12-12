@@ -126,7 +126,10 @@ const CONFIG = {
   ],
   useDotHtml: true,
   dynamicNavKey: 'bacom',
-  stageDomainsMap: { 'business.stage.adobe.com': { 'business.adobe.com': 'origin' } },
+  stageDomainsMap: {
+    'business.stage.adobe.com': { 'business.adobe.com': 'origin' },
+    '.business-graybox.adobe.com': { 'business.adobe.com': 'origin' },
+  },
 };
 
 const eagerLoad = (img) => {
