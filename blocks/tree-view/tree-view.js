@@ -109,6 +109,16 @@ const init = async (el) => {
   const topList = el.querySelector('ul');
 
   if (!topList) return;
+  // TODO: Remove after fix from Helix5
+  const listItems = topList.querySelectorAll('li');
+  [...listItems].forEach((liEl) => {
+    const paragraph = liEl.querySelector('p');
+    if (paragraph) {
+      // Moving the content of the <p> into the <li> directly
+      liEl.innerHTML = paragraph.innerHTML + liEl.innerHTML.replace(paragraph.outerHTML, '');
+    }
+  });
+  // END TODO: Remove after fix from Helix5
 
   const { createTag } = await import(`${LIBS}/utils/utils.js`);
   const subLists = topList.querySelectorAll('ul');
