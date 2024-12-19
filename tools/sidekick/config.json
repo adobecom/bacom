@@ -1,0 +1,50 @@
+{
+  "project": "Adobe for Business",
+  "host": "business.adobe.com",
+  "editUrlLabel": "Document Authoring",
+  "editUrlPattern": "https://da.live/edit#/{{org}}/{{site}}{{pathname}}",
+  "plugins": [
+    {
+      "id": "tools",
+      "title": "Tools",
+      "isContainer": true
+    },
+    {
+      "containerId": "tools",
+      "title": "Check Schema",
+      "id": "checkschema",
+      "environments": ["prod"],
+      "event": "check-schema",
+      "excludePaths": ["/tools**", "*.json"]
+    },
+    {
+      "containerId": "tools",
+      "title": "Preflight",
+      "id": "preflight",
+      "environments": ["dev", "preview", "live"],
+      "event": "preflight"
+    },
+    {
+      "id": "rollout",
+      "title": "Rollout",
+      "environments": ["edit"],
+      "daLibrary": true,
+      "experience": "dialog",
+      "includePaths": ["DA"],
+      "icon": "https://da.live/nx/public/plugins/rollout/media_195da69764de2782d555abed3042d8434a040e31c.png",
+      "url": "https://da.live/nx/public/plugins/rollout.html"
+    }
+  ],
+    "apps": [
+      {
+        "title": "CaaS Configurator",
+        "description": "Content as a Service.",
+        "url": "https://milo.adobe.com/tools/caas"
+      },
+      {
+        "title": "FaaS Configurator",
+        "description": "Deprecated.",
+        "url": "https://milo.adobe.com/tools/faas"
+      }
+    ]
+}
