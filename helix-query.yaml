@@ -1,0 +1,1755 @@
+version: 1
+
+indices:
+  sitemap-us:
+    include:
+      - '/'
+      - '/customer-success-stories/**'
+      - '/resources/**'
+      - '/why-adobe/**'
+      - '/support/**'
+      - '/solutions/**'
+      - '/customers/**'
+      - '/products/**'
+      - '/request-consultation/**'
+      - '/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /query-index.json
+    properties: &minProps
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      lastModified:
+        select: none
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+      robots:
+        select: head > meta[name="robots"]
+        value: |
+          attribute(el, 'content')
+      publishDate:
+        select: head > meta[name="publishdate"]
+        value: |
+          attribute(el, 'content')
+      caas-url:
+        select: a[href*="/tools/caas"]
+        values: |
+          attribute(el, 'href')
+      marketo-url:
+        select: .marketo div div a[href*="/tools/marketo"]
+        value: |
+          attribute(el, 'href')
+  sitemap-ae_ar:
+    include:
+      - '/ae_ar/'
+      - '/ae_ar/customer-success-stories/**'
+      - '/ae_ar/resources/**'
+      - '/ae_ar/why-adobe/**'
+      - '/ae_ar/support/**'
+      - '/ae_ar/solutions/**'
+      - '/ae_ar/customers/**'
+      - '/ae_ar/products/**'
+      - '/ae_ar/request-consultation/**'
+      - '/ae_ar/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ae_ar/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ae_en:
+    include:
+      - '/ae_en/'
+      - '/ae_en/customer-success-stories/**'
+      - '/ae_en/resources/**'
+      - '/ae_en/why-adobe/**'
+      - '/ae_en/support/**'
+      - '/ae_en/solutions/**'
+      - '/ae_en/customers/**'
+      - '/ae_en/products/**'
+      - '/ae_en/request-consultation/**'
+      - '/ae_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ae_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-africa:
+    include:
+      - '/africa/'
+      - '/africa/customer-success-stories/**'
+      - '/africa/resources/**'
+      - '/africa/why-adobe/**'
+      - '/africa/support/**'
+      - '/africa/solutions/**'
+      - '/africa/customers/**'
+      - '/africa/products/**'
+      - '/africa/request-consultation/**'
+      - '/africa/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /africa/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ar:
+    include:
+      - '/ar/'
+      - '/ar/customer-success-stories/**'
+      - '/ar/resources/**'
+      - '/ar/why-adobe/**'
+      - '/ar/support/**'
+      - '/ar/solutions/**'
+      - '/ar/customers/**'
+      - '/ar/products/**'
+      - '/ar/request-consultation/**'
+      - '/ar/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ar/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-at:
+    include:
+      - '/at/'
+      - '/at/customer-success-stories/**'
+      - '/at/resources/**'
+      - '/at/why-adobe/**'
+      - '/at/support/**'
+      - '/at/solutions/**'
+      - '/at/customers/**'
+      - '/at/products/**'
+      - '/at/request-consultation/**'
+      - '/at/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /at/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-au:
+    include:
+      - '/au/'
+      - '/au/customer-success-stories/**'
+      - '/au/resources/**'
+      - '/au/why-adobe/**'
+      - '/au/support/**'
+      - '/au/solutions/**'
+      - '/au/customers/**'
+      - '/au/products/**'
+      - '/au/request-consultation/**'
+      - '/au/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /au/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-be_en:
+    include:
+      - '/be_en/'
+      - '/be_en/customer-success-stories/**'
+      - '/be_en/resources/**'
+      - '/be_en/why-adobe/**'
+      - '/be_en/support/**'
+      - '/be_en/solutions/**'
+      - '/be_en/customers/**'
+      - '/be_en/products/**'
+      - '/be_en/request-consultation/**'
+      - '/be_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /be_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-be_fr:
+    include:
+      - '/be_fr/'
+      - '/be_fr/customer-success-stories/**'
+      - '/be_fr/resources/**'
+      - '/be_fr/why-adobe/**'
+      - '/be_fr/support/**'
+      - '/be_fr/solutions/**'
+      - '/be_fr/customers/**'
+      - '/be_fr/products/**'
+      - '/be_fr/request-consultation/**'
+      - '/be_fr/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /be_fr/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-be_nl:
+    include:
+      - '/be_nl/'
+      - '/be_nl/customer-success-stories/**'
+      - '/be_nl/resources/**'
+      - '/be_nl/why-adobe/**'
+      - '/be_nl/support/**'
+      - '/be_nl/solutions/**'
+      - '/be_nl/customers/**'
+      - '/be_nl/products/**'
+      - '/be_nl/request-consultation/**'
+      - '/be_nl/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /be_nl/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-bg:
+    include:
+      - '/bg/'
+      - '/bg/customer-success-stories/**'
+      - '/bg/resources/**'
+      - '/bg/why-adobe/**'
+      - '/bg/support/**'
+      - '/bg/solutions/**'
+      - '/bg/customers/**'
+      - '/bg/products/**'
+      - '/bg/request-consultation/**'
+      - '/bg/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /bg/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-br:
+    include:
+      - '/br/'
+      - '/br/customer-success-stories/**'
+      - '/br/resources/**'
+      - '/br/why-adobe/**'
+      - '/br/support/**'
+      - '/br/solutions/**'
+      - '/br/customers/**'
+      - '/br/products/**'
+      - '/br/request-consultation/**'
+      - '/br/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /br/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ca:
+    include:
+      - '/ca/'
+      - '/ca/customer-success-stories/**'
+      - '/ca/resources/**'
+      - '/ca/why-adobe/**'
+      - '/ca/support/**'
+      - '/ca/solutions/**'
+      - '/ca/customers/**'
+      - '/ca/products/**'
+      - '/ca/request-consultation/**'
+      - '/ca/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ca/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ca_fr:
+    include:
+      - '/ca_fr/'
+      - '/ca_fr/customer-success-stories/**'
+      - '/ca_fr/resources/**'
+      - '/ca_fr/why-adobe/**'
+      - '/ca_fr/support/**'
+      - '/ca_fr/solutions/**'
+      - '/ca_fr/customers/**'
+      - '/ca_fr/products/**'
+      - '/ca_fr/request-consultation/**'
+      - '/ca_fr/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ca_fr/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ch_de:
+    include:
+      - '/ch_de/'
+      - '/ch_de/customer-success-stories/**'
+      - '/ch_de/resources/**'
+      - '/ch_de/why-adobe/**'
+      - '/ch_de/support/**'
+      - '/ch_de/solutions/**'
+      - '/ch_de/customers/**'
+      - '/ch_de/products/**'
+      - '/ch_de/request-consultation/**'
+      - '/ch_de/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ch_de/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ch_fr:
+    include:
+      - '/ch_fr/'
+      - '/ch_fr/customer-success-stories/**'
+      - '/ch_fr/resources/**'
+      - '/ch_fr/why-adobe/**'
+      - '/ch_fr/support/**'
+      - '/ch_fr/solutions/**'
+      - '/ch_fr/customers/**'
+      - '/ch_fr/products/**'
+      - '/ch_fr/request-consultation/**'
+      - '/ch_fr/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ch_fr/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ch_it:
+    include:
+      - '/ch_it/'
+      - '/ch_it/customer-success-stories/**'
+      - '/ch_it/resources/**'
+      - '/ch_it/why-adobe/**'
+      - '/ch_it/support/**'
+      - '/ch_it/solutions/**'
+      - '/ch_it/customers/**'
+      - '/ch_it/products/**'
+      - '/ch_it/request-consultation/**'
+      - '/ch_it/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ch_it/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-cl:
+    include:
+      - '/cl/'
+      - '/cl/customer-success-stories/**'
+      - '/cl/resources/**'
+      - '/cl/why-adobe/**'
+      - '/cl/support/**'
+      - '/cl/solutions/**'
+      - '/cl/customers/**'
+      - '/cl/products/**'
+      - '/cl/request-consultation/**'
+      - '/cl/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cl/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-cn:
+    include:
+      - '/cn/'
+      - '/cn/customer-success-stories/**'
+      - '/cn/resources/**'
+      - '/cn/why-adobe/**'
+      - '/cn/support/**'
+      - '/cn/solutions/**'
+      - '/cn/customers/**'
+      - '/cn/products/**'
+      - '/cn/request-consultation/**'
+      - '/cn/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cn/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-co:
+    include:
+      - '/co/'
+      - '/co/customer-success-stories/**'
+      - '/co/resources/**'
+      - '/co/why-adobe/**'
+      - '/co/support/**'
+      - '/co/solutions/**'
+      - '/co/customers/**'
+      - '/co/products/**'
+      - '/co/request-consultation/**'
+      - '/co/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /co/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-cz:
+    include:
+      - '/cz/'
+      - '/cz/customer-success-stories/**'
+      - '/cz/resources/**'
+      - '/cz/why-adobe/**'
+      - '/cz/support/**'
+      - '/cz/solutions/**'
+      - '/cz/customers/**'
+      - '/cz/products/**'
+      - '/cz/request-consultation/**'
+      - '/cz/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /cz/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-de:
+    include:
+      - '/de/'
+      - '/de/customer-success-stories/**'
+      - '/de/resources/**'
+      - '/de/why-adobe/**'
+      - '/de/support/**'
+      - '/de/solutions/**'
+      - '/de/customers/**'
+      - '/de/products/**'
+      - '/de/request-consultation/**'
+      - '/de/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /de/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-dk:
+    include:
+      - '/dk/'
+      - '/dk/customer-success-stories/**'
+      - '/dk/resources/**'
+      - '/dk/why-adobe/**'
+      - '/dk/support/**'
+      - '/dk/solutions/**'
+      - '/dk/customers/**'
+      - '/dk/products/**'
+      - '/dk/request-consultation/**'
+      - '/dk/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /dk/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ee:
+    include:
+      - '/ee/'
+      - '/ee/customer-success-stories/**'
+      - '/ee/resources/**'
+      - '/ee/why-adobe/**'
+      - '/ee/support/**'
+      - '/ee/solutions/**'
+      - '/ee/customers/**'
+      - '/ee/products/**'
+      - '/ee/request-consultation/**'
+      - '/ee/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ee/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-es:
+    include:
+      - '/es/'
+      - '/es/customer-success-stories/**'
+      - '/es/resources/**'
+      - '/es/why-adobe/**'
+      - '/es/support/**'
+      - '/es/solutions/**'
+      - '/es/customers/**'
+      - '/es/products/**'
+      - '/es/request-consultation/**'
+      - '/es/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /es/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-fi:
+    include:
+      - '/fi/'
+      - '/fi/customer-success-stories/**'
+      - '/fi/resources/**'
+      - '/fi/why-adobe/**'
+      - '/fi/support/**'
+      - '/fi/solutions/**'
+      - '/fi/customers/**'
+      - '/fi/products/**'
+      - '/fi/request-consultation/**'
+      - '/fi/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /fi/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-fr:
+    include:
+      - '/fr/'
+      - '/fr/customer-success-stories/**'
+      - '/fr/resources/**'
+      - '/fr/why-adobe/**'
+      - '/fr/support/**'
+      - '/fr/solutions/**'
+      - '/fr/customers/**'
+      - '/fr/products/**'
+      - '/fr/request-consultation/**'
+      - '/fr/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /fr/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-gr_en:
+    include:
+      - '/gr_en/'
+      - '/gr_en/customer-success-stories/**'
+      - '/gr_en/resources/**'
+      - '/gr_en/why-adobe/**'
+      - '/gr_en/support/**'
+      - '/gr_en/solutions/**'
+      - '/gr_en/customers/**'
+      - '/gr_en/products/**'
+      - '/gr_en/request-consultation/**'
+      - '/gr_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /gr_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-hk_en:
+    include:
+      - '/hk_en/'
+      - '/hk_en/customer-success-stories/**'
+      - '/hk_en/resources/**'
+      - '/hk_en/why-adobe/**'
+      - '/hk_en/support/**'
+      - '/hk_en/solutions/**'
+      - '/hk_en/customers/**'
+      - '/hk_en/products/**'
+      - '/hk_en/request-consultation/**'
+      - '/hk_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /hk_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-hk_zh:
+    include:
+      - '/hk_zh/'
+      - '/hk_zh/customer-success-stories/**'
+      - '/hk_zh/resources/**'
+      - '/hk_zh/why-adobe/**'
+      - '/hk_zh/support/**'
+      - '/hk_zh/solutions/**'
+      - '/hk_zh/customers/**'
+      - '/hk_zh/products/**'
+      - '/hk_zh/request-consultation/**'
+      - '/hk_zh/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /hk_zh/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-hu:
+    include:
+      - '/hu/'
+      - '/hu/customer-success-stories/**'
+      - '/hu/resources/**'
+      - '/hu/why-adobe/**'
+      - '/hu/support/**'
+      - '/hu/solutions/**'
+      - '/hu/customers/**'
+      - '/hu/products/**'
+      - '/hu/request-consultation/**'
+      - '/hu/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /hu/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-id_en:
+    include:
+      - '/id_en/'
+      - '/id_en/customer-success-stories/**'
+      - '/id_en/resources/**'
+      - '/id_en/why-adobe/**'
+      - '/id_en/support/**'
+      - '/id_en/solutions/**'
+      - '/id_en/customers/**'
+      - '/id_en/products/**'
+      - '/id_en/request-consultation/**'
+      - '/id_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /id_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-id_id:
+    include:
+      - '/id_id/'
+      - '/id_id/customer-success-stories/**'
+      - '/id_id/resources/**'
+      - '/id_id/why-adobe/**'
+      - '/id_id/support/**'
+      - '/id_id/solutions/**'
+      - '/id_id/customers/**'
+      - '/id_id/products/**'
+      - '/id_id/request-consultation/**'
+      - '/id_id/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /id_id/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ie:
+    include:
+      - '/ie/'
+      - '/ie/customer-success-stories/**'
+      - '/ie/resources/**'
+      - '/ie/why-adobe/**'
+      - '/ie/support/**'
+      - '/ie/solutions/**'
+      - '/ie/customers/**'
+      - '/ie/products/**'
+      - '/ie/request-consultation/**'
+      - '/ie/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ie/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-il_en:
+    include:
+      - '/il_en/'
+      - '/il_en/customer-success-stories/**'
+      - '/il_en/resources/**'
+      - '/il_en/why-adobe/**'
+      - '/il_en/support/**'
+      - '/il_en/solutions/**'
+      - '/il_en/customers/**'
+      - '/il_en/products/**'
+      - '/il_en/request-consultation/**'
+      - '/il_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /il_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-il_he:
+    include:
+      - '/il_he/'
+      - '/il_he/customer-success-stories/**'
+      - '/il_he/resources/**'
+      - '/il_he/why-adobe/**'
+      - '/il_he/support/**'
+      - '/il_he/solutions/**'
+      - '/il_he/customers/**'
+      - '/il_he/products/**'
+      - '/il_he/request-consultation/**'
+      - '/il_he/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /il_he/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-in:
+    include:
+      - '/in/'
+      - '/in/customer-success-stories/**'
+      - '/in/resources/**'
+      - '/in/why-adobe/**'
+      - '/in/support/**'
+      - '/in/solutions/**'
+      - '/in/customers/**'
+      - '/in/products/**'
+      - '/in/request-consultation/**'
+      - '/in/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /in/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-in_hi:
+    include:
+      - '/in_hi/'
+      - '/in_hi/customer-success-stories/**'
+      - '/in_hi/resources/**'
+      - '/in_hi/why-adobe/**'
+      - '/in_hi/support/**'
+      - '/in_hi/solutions/**'
+      - '/in_hi/customers/**'
+      - '/in_hi/products/**'
+      - '/in_hi/request-consultation/**'
+      - '/in_hi/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /in_hi/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-it:
+    include:
+      - '/it/'
+      - '/it/customer-success-stories/**'
+      - '/it/resources/**'
+      - '/it/why-adobe/**'
+      - '/it/support/**'
+      - '/it/solutions/**'
+      - '/it/customers/**'
+      - '/it/products/**'
+      - '/it/request-consultation/**'
+      - '/it/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /it/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-jp:
+    include:
+      - '/jp/'
+      - '/jp/customer-success-stories/**'
+      - '/jp/resources/**'
+      - '/jp/why-adobe/**'
+      - '/jp/support/**'
+      - '/jp/solutions/**'
+      - '/jp/customers/**'
+      - '/jp/products/**'
+      - '/jp/request-consultation/**'
+      - '/jp/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /jp/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-kr:
+    include:
+      - '/kr/'
+      - '/kr/customer-success-stories/**'
+      - '/kr/resources/**'
+      - '/kr/why-adobe/**'
+      - '/kr/support/**'
+      - '/kr/solutions/**'
+      - '/kr/customers/**'
+      - '/kr/products/**'
+      - '/kr/request-consultation/**'
+      - '/kr/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /kr/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-la:
+    include:
+      - '/la/'
+      - '/la/customer-success-stories/**'
+      - '/la/resources/**'
+      - '/la/why-adobe/**'
+      - '/la/support/**'
+      - '/la/solutions/**'
+      - '/la/customers/**'
+      - '/la/products/**'
+      - '/la/request-consultation/**'
+      - '/la/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /la/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-lt:
+    include:
+      - '/lt/'
+      - '/lt/customer-success-stories/**'
+      - '/lt/resources/**'
+      - '/lt/why-adobe/**'
+      - '/lt/support/**'
+      - '/lt/solutions/**'
+      - '/lt/customers/**'
+      - '/lt/products/**'
+      - '/lt/request-consultation/**'
+      - '/lt/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lt/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-lu_de:
+    include:
+      - '/lu_de/'
+      - '/lu_de/customer-success-stories/**'
+      - '/lu_de/resources/**'
+      - '/lu_de/why-adobe/**'
+      - '/lu_de/support/**'
+      - '/lu_de/solutions/**'
+      - '/lu_de/customers/**'
+      - '/lu_de/products/**'
+      - '/lu_de/request-consultation/**'
+      - '/lu_de/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lu_de/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-lu_en:
+    include:
+      - '/lu_en/'
+      - '/lu_en/customer-success-stories/**'
+      - '/lu_en/resources/**'
+      - '/lu_en/why-adobe/**'
+      - '/lu_en/support/**'
+      - '/lu_en/solutions/**'
+      - '/lu_en/customers/**'
+      - '/lu_en/products/**'
+      - '/lu_en/request-consultation/**'
+      - '/lu_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lu_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-lu_fr:
+    include:
+      - '/lu_fr/'
+      - '/lu_fr/customer-success-stories/**'
+      - '/lu_fr/resources/**'
+      - '/lu_fr/why-adobe/**'
+      - '/lu_fr/support/**'
+      - '/lu_fr/solutions/**'
+      - '/lu_fr/customers/**'
+      - '/lu_fr/products/**'
+      - '/lu_fr/request-consultation/**'
+      - '/lu_fr/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lu_fr/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-lv:
+    include:
+      - '/lv/'
+      - '/lv/customer-success-stories/**'
+      - '/lv/resources/**'
+      - '/lv/why-adobe/**'
+      - '/lv/support/**'
+      - '/lv/solutions/**'
+      - '/lv/customers/**'
+      - '/lv/products/**'
+      - '/lv/request-consultation/**'
+      - '/lv/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /lv/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-mena_ar:
+    include:
+      - '/mena_ar/'
+      - '/mena_ar/customer-success-stories/**'
+      - '/mena_ar/resources/**'
+      - '/mena_ar/why-adobe/**'
+      - '/mena_ar/support/**'
+      - '/mena_ar/solutions/**'
+      - '/mena_ar/customers/**'
+      - '/mena_ar/products/**'
+      - '/mena_ar/request-consultation/**'
+      - '/mena_ar/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /mena_ar/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-mena_en:
+    include:
+      - '/mena_en/'
+      - '/mena_en/customer-success-stories/**'
+      - '/mena_en/resources/**'
+      - '/mena_en/why-adobe/**'
+      - '/mena_en/support/**'
+      - '/mena_en/solutions/**'
+      - '/mena_en/customers/**'
+      - '/mena_en/products/**'
+      - '/mena_en/request-consultation/**'
+      - '/mena_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /mena_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-mx:
+    include:
+      - '/mx/'
+      - '/mx/customer-success-stories/**'
+      - '/mx/resources/**'
+      - '/mx/why-adobe/**'
+      - '/mx/support/**'
+      - '/mx/solutions/**'
+      - '/mx/customers/**'
+      - '/mx/products/**'
+      - '/mx/request-consultation/**'
+      - '/mx/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /mx/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-my_en:
+    include:
+      - '/my_en/'
+      - '/my_en/customer-success-stories/**'
+      - '/my_en/resources/**'
+      - '/my_en/why-adobe/**'
+      - '/my_en/support/**'
+      - '/my_en/solutions/**'
+      - '/my_en/customers/**'
+      - '/my_en/products/**'
+      - '/my_en/request-consultation/**'
+      - '/my_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /my_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-my_ms:
+    include:
+      - '/my_ms/'
+      - '/my_ms/customer-success-stories/**'
+      - '/my_ms/resources/**'
+      - '/my_ms/why-adobe/**'
+      - '/my_ms/support/**'
+      - '/my_ms/solutions/**'
+      - '/my_ms/customers/**'
+      - '/my_ms/products/**'
+      - '/my_ms/request-consultation/**'
+      - '/my_ms/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /my_ms/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-nl:
+    include:
+      - '/nl/'
+      - '/nl/customer-success-stories/**'
+      - '/nl/resources/**'
+      - '/nl/why-adobe/**'
+      - '/nl/support/**'
+      - '/nl/solutions/**'
+      - '/nl/customers/**'
+      - '/nl/products/**'
+      - '/nl/request-consultation/**'
+      - '/nl/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /nl/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-no:
+    include:
+      - '/no/'
+      - '/no/customer-success-stories/**'
+      - '/no/resources/**'
+      - '/no/why-adobe/**'
+      - '/no/support/**'
+      - '/no/solutions/**'
+      - '/no/customers/**'
+      - '/no/products/**'
+      - '/no/request-consultation/**'
+      - '/no/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /no/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-nz:
+    include:
+      - '/nz/'
+      - '/nz/customer-success-stories/**'
+      - '/nz/resources/**'
+      - '/nz/why-adobe/**'
+      - '/nz/support/**'
+      - '/nz/solutions/**'
+      - '/nz/customers/**'
+      - '/nz/products/**'
+      - '/nz/request-consultation/**'
+      - '/nz/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /nz/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-pe:
+    include:
+      - '/pe/'
+      - '/pe/customer-success-stories/**'
+      - '/pe/resources/**'
+      - '/pe/why-adobe/**'
+      - '/pe/support/**'
+      - '/pe/solutions/**'
+      - '/pe/customers/**'
+      - '/pe/products/**'
+      - '/pe/request-consultation/**'
+      - '/pe/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /pe/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ph_en:
+    include:
+      - '/ph_en/'
+      - '/ph_en/customer-success-stories/**'
+      - '/ph_en/resources/**'
+      - '/ph_en/why-adobe/**'
+      - '/ph_en/support/**'
+      - '/ph_en/solutions/**'
+      - '/ph_en/customers/**'
+      - '/ph_en/products/**'
+      - '/ph_en/request-consultation/**'
+      - '/ph_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ph_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ph_fil:
+    include:
+      - '/ph_fil/'
+      - '/ph_fil/customer-success-stories/**'
+      - '/ph_fil/resources/**'
+      - '/ph_fil/why-adobe/**'
+      - '/ph_fil/support/**'
+      - '/ph_fil/solutions/**'
+      - '/ph_fil/customers/**'
+      - '/ph_fil/products/**'
+      - '/ph_fil/request-consultation/**'
+      - '/ph_fil/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ph_fil/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-pl:
+    include:
+      - '/pl/'
+      - '/pl/customer-success-stories/**'
+      - '/pl/resources/**'
+      - '/pl/why-adobe/**'
+      - '/pl/support/**'
+      - '/pl/solutions/**'
+      - '/pl/customers/**'
+      - '/pl/products/**'
+      - '/pl/request-consultation/**'
+      - '/pl/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /pl/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-pt:
+    include:
+      - '/pt/'
+      - '/pt/customer-success-stories/**'
+      - '/pt/resources/**'
+      - '/pt/why-adobe/**'
+      - '/pt/support/**'
+      - '/pt/solutions/**'
+      - '/pt/customers/**'
+      - '/pt/products/**'
+      - '/pt/request-consultation/**'
+      - '/pt/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /pt/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ro:
+    include:
+      - '/ro/'
+      - '/ro/customer-success-stories/**'
+      - '/ro/resources/**'
+      - '/ro/why-adobe/**'
+      - '/ro/support/**'
+      - '/ro/solutions/**'
+      - '/ro/customers/**'
+      - '/ro/products/**'
+      - '/ro/request-consultation/**'
+      - '/ro/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ro/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ru:
+    include:
+      - '/ru/'
+      - '/ru/customer-success-stories/**'
+      - '/ru/resources/**'
+      - '/ru/why-adobe/**'
+      - '/ru/support/**'
+      - '/ru/solutions/**'
+      - '/ru/customers/**'
+      - '/ru/products/**'
+      - '/ru/request-consultation/**'
+      - '/ru/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ru/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-sa_ar:
+    include:
+      - '/sa_ar/'
+      - '/sa_ar/customer-success-stories/**'
+      - '/sa_ar/resources/**'
+      - '/sa_ar/why-adobe/**'
+      - '/sa_ar/support/**'
+      - '/sa_ar/solutions/**'
+      - '/sa_ar/customers/**'
+      - '/sa_ar/products/**'
+      - '/sa_ar/request-consultation/**'
+      - '/sa_ar/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /sa_ar/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-sa_en:
+    include:
+      - '/sa_en/'
+      - '/sa_en/customer-success-stories/**'
+      - '/sa_en/resources/**'
+      - '/sa_en/why-adobe/**'
+      - '/sa_en/support/**'
+      - '/sa_en/solutions/**'
+      - '/sa_en/customers/**'
+      - '/sa_en/products/**'
+      - '/sa_en/request-consultation/**'
+      - '/sa_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /sa_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-se:
+    include:
+      - '/se/'
+      - '/se/customer-success-stories/**'
+      - '/se/resources/**'
+      - '/se/why-adobe/**'
+      - '/se/support/**'
+      - '/se/solutions/**'
+      - '/se/customers/**'
+      - '/se/products/**'
+      - '/se/request-consultation/**'
+      - '/se/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /se/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-sg:
+    include:
+      - '/sg/'
+      - '/sg/customer-success-stories/**'
+      - '/sg/resources/**'
+      - '/sg/why-adobe/**'
+      - '/sg/support/**'
+      - '/sg/solutions/**'
+      - '/sg/customers/**'
+      - '/sg/products/**'
+      - '/sg/request-consultation/**'
+      - '/sg/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /sg/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-si:
+    include:
+      - '/si/'
+      - '/si/customer-success-stories/**'
+      - '/si/resources/**'
+      - '/si/why-adobe/**'
+      - '/si/support/**'
+      - '/si/solutions/**'
+      - '/si/customers/**'
+      - '/si/products/**'
+      - '/si/request-consultation/**'
+      - '/si/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /si/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-sk:
+    include:
+      - '/sk/'
+      - '/sk/customer-success-stories/**'
+      - '/sk/resources/**'
+      - '/sk/why-adobe/**'
+      - '/sk/support/**'
+      - '/sk/solutions/**'
+      - '/sk/customers/**'
+      - '/sk/products/**'
+      - '/sk/request-consultation/**'
+      - '/sk/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /sk/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-th_en:
+    include:
+      - '/th_en/'
+      - '/th_en/customer-success-stories/**'
+      - '/th_en/resources/**'
+      - '/th_en/why-adobe/**'
+      - '/th_en/support/**'
+      - '/th_en/solutions/**'
+      - '/th_en/customers/**'
+      - '/th_en/products/**'
+      - '/th_en/request-consultation/**'
+      - '/th_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /th_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-th_th:
+    include:
+      - '/th_th/'
+      - '/th_th/customer-success-stories/**'
+      - '/th_th/resources/**'
+      - '/th_th/why-adobe/**'
+      - '/th_th/support/**'
+      - '/th_th/solutions/**'
+      - '/th_th/customers/**'
+      - '/th_th/products/**'
+      - '/th_th/request-consultation/**'
+      - '/th_th/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /th_th/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-tr:
+    include:
+      - '/tr/'
+      - '/tr/customer-success-stories/**'
+      - '/tr/resources/**'
+      - '/tr/why-adobe/**'
+      - '/tr/support/**'
+      - '/tr/solutions/**'
+      - '/tr/customers/**'
+      - '/tr/products/**'
+      - '/tr/request-consultation/**'
+      - '/tr/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /tr/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-tw:
+    include:
+      - '/tw/'
+      - '/tw/customer-success-stories/**'
+      - '/tw/resources/**'
+      - '/tw/why-adobe/**'
+      - '/tw/support/**'
+      - '/tw/solutions/**'
+      - '/tw/customers/**'
+      - '/tw/products/**'
+      - '/tw/request-consultation/**'
+      - '/tw/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /tw/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-ua:
+    include:
+      - '/ua/'
+      - '/ua/customer-success-stories/**'
+      - '/ua/resources/**'
+      - '/ua/why-adobe/**'
+      - '/ua/support/**'
+      - '/ua/solutions/**'
+      - '/ua/customers/**'
+      - '/ua/products/**'
+      - '/ua/request-consultation/**'
+      - '/ua/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /ua/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-uk:
+    include:
+      - '/uk/'
+      - '/uk/customer-success-stories/**'
+      - '/uk/resources/**'
+      - '/uk/why-adobe/**'
+      - '/uk/support/**'
+      - '/uk/solutions/**'
+      - '/uk/customers/**'
+      - '/uk/products/**'
+      - '/uk/request-consultation/**'
+      - '/uk/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /uk/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-vn_en:
+    include:
+      - '/vn_en/'
+      - '/vn_en/customer-success-stories/**'
+      - '/vn_en/resources/**'
+      - '/vn_en/why-adobe/**'
+      - '/vn_en/support/**'
+      - '/vn_en/solutions/**'
+      - '/vn_en/customers/**'
+      - '/vn_en/products/**'
+      - '/vn_en/request-consultation/**'
+      - '/vn_en/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /vn_en/query-index.json
+    properties:
+      <<: *minProps
+  sitemap-vn_vi:
+    include:
+      - '/vn_vi/'
+      - '/vn_vi/customer-success-stories/**'
+      - '/vn_vi/resources/**'
+      - '/vn_vi/why-adobe/**'
+      - '/vn_vi/support/**'
+      - '/vn_vi/solutions/**'
+      - '/vn_vi/customers/**'
+      - '/vn_vi/products/**'
+      - '/vn_vi/request-consultation/**'
+      - '/vn_vi/industries/**'
+    exclude:
+      - '**/fragments/**'
+    target: /vn_vi/query-index.json
+    properties:
+      <<: *minProps
+  customer-success-stories-us: &default
+    include:
+      - '/customer-success-stories/**'
+    exclude:
+      - '**/fragments/**'
+    target: /customer-success-stories/query-index.json
+    properties: &defaultProps
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      date:
+        select: head > meta[name="publishdate"]
+        value: |
+          dateValue(attribute(el, 'content'), 'MM-DD-YYYY')
+      image:
+        select: head > meta[property="og:image"]
+        value: |
+          match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
+      description:
+        select: head > meta[name="description"]
+        value: |
+          attribute(el, 'content')
+      topics:
+        select: head > meta[name="keywords"]
+        value: |
+          attribute(el, 'content')
+      caas-tags:
+        select: main > div > div.card-metadata > div
+        value: |
+          match(el, '[Tt]ags\n(.*)')
+      lastModified:
+        select: none
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY hh:mm:ss GMT')
+      breadcrumbsHome:
+        select: .breadcrumbs ul li:first-child a
+        value: |
+          attribute(el, 'href')
+  customer-success-stories-ae_ar:
+    <<: *default
+    include:
+      - '/ae_ar/customer-success-stories/**'
+    target: /ae_ar/customer-success-stories/query-index.json
+  customer-success-stories-ae_en:
+    <<: *default
+    include:
+      - '/ae_en/customer-success-stories/**'
+    target: /ae_en/customer-success-stories/query-index.json
+  customer-success-stories-africa:
+    <<: *default
+    include:
+      - '/africa/customer-success-stories/**'
+    target: /africa/customer-success-stories/query-index.json
+  customer-success-stories-ar:
+    <<: *default
+    include:
+      - '/ar/customer-success-stories/**'
+    target: /ar/customer-success-stories/query-index.json
+  customer-success-stories-at:
+    <<: *default
+    include:
+      - '/at/customer-success-stories/**'
+    target: /at/customer-success-stories/query-index.json
+  customer-success-stories-au:
+    <<: *default
+    include:
+      - '/au/customer-success-stories/**'
+    target: /au/customer-success-stories/query-index.json
+  customer-success-stories-be_en:
+    <<: *default
+    include:
+      - '/be_en/customer-success-stories/**'
+    target: /be_en/customer-success-stories/query-index.json
+  customer-success-stories-be_fr:
+    <<: *default
+    include:
+      - '/be_fr/customer-success-stories/**'
+    target: /be_fr/customer-success-stories/query-index.json
+  customer-success-stories-be_nl:
+    <<: *default
+    include:
+      - '/be_nl/customer-success-stories/**'
+    target: /be_nl/customer-success-stories/query-index.json
+  customer-success-stories-bg:
+    <<: *default
+    include:
+      - '/bg/customer-success-stories/**'
+    target: /bg/customer-success-stories/query-index.json
+  customer-success-stories-br:
+    <<: *default
+    include:
+      - '/br/customer-success-stories/**'
+    target: /br/customer-success-stories/query-index.json
+  customer-success-stories-ca_fr:
+    <<: *default
+    include:
+      - '/ca_fr/customer-success-stories/**'
+    target: /ca_fr/customer-success-stories/query-index.json
+  customer-success-stories-ca:
+    <<: *default
+    include:
+      - '/ca/customer-success-stories/**'
+    target: /ca/customer-success-stories/query-index.json
+  customer-success-stories-ch_de:
+    <<: *default
+    include:
+      - '/ch_de/customer-success-stories/**'
+    target: /ch_de/customer-success-stories/query-index.json
+  customer-success-stories-ch_fr:
+    <<: *default
+    include:
+      - '/ch_fr/customer-success-stories/**'
+    target: /ch_fr/customer-success-stories/query-index.json
+  customer-success-stories-ch_it:
+    <<: *default
+    include:
+      - '/ch_it/customer-success-stories/**'
+    target: /ch_it/customer-success-stories/query-index.json
+  customer-success-stories-cl:
+    <<: *default
+    include:
+      - '/cl/customer-success-stories/**'
+    target: /cl/customer-success-stories/query-index.json
+  customer-success-stories-cn:
+    <<: *default
+    include:
+      - '/cn/customer-success-stories/**'
+    target: /cn/customer-success-stories/query-index.json
+  customer-success-stories-co:
+    <<: *default
+    include:
+      - '/co/customer-success-stories/**'
+    target: /co/customer-success-stories/query-index.json
+  customer-success-stories-cz:
+    <<: *default
+    include:
+      - '/cz/customer-success-stories/**'
+    target: /cz/customer-success-stories/query-index.json
+  customer-success-stories-de:
+    <<: *default
+    include:
+      - '/de/customer-success-stories/**'
+    target: /de/customer-success-stories/query-index.json
+  customer-success-stories-dk:
+    <<: *default
+    include:
+      - '/dk/customer-success-stories/**'
+    target: /dk/customer-success-stories/query-index.json
+  customer-success-stories-ee:
+    <<: *default
+    include:
+      - '/ee/customer-success-stories/**'
+    target: /ee/customer-success-stories/query-index.json
+  customer-success-stories-es:
+    <<: *default
+    include:
+      - '/es/customer-success-stories/**'
+    target: /es/customer-success-stories/query-index.json
+  customer-success-stories-fi:
+    <<: *default
+    include:
+      - '/fi/customer-success-stories/**'
+    target: /fi/customer-success-stories/query-index.json
+  customer-success-stories-fr:
+    <<: *default
+    include:
+      - '/fr/customer-success-stories/**'
+    target: /fr/customer-success-stories/query-index.json
+  customer-success-stories-gr_en:
+    <<: *default
+    include:
+      - '/gr_en/customer-success-stories/**'
+    target: /gr_en/customer-success-stories/query-index.json
+  customer-success-stories-hk_en:
+    <<: *default
+    include:
+      - '/hk_en/customer-success-stories/**'
+    target: /hk_en/customer-success-stories/query-index.json
+  customer-success-stories-hk_zh:
+    <<: *default
+    include:
+      - '/hk_zh/customer-success-stories/**'
+    target: /hk_zh/customer-success-stories/query-index.json
+  customer-success-stories-hu:
+    <<: *default
+    include:
+      - '/hu/customer-success-stories/**'
+    target: /hu/customer-success-stories/query-index.json
+  customer-success-stories-id_en:
+    <<: *default
+    include:
+      - '/id_en/customer-success-stories/**'
+    target: /id_en/customer-success-stories/query-index.json
+  customer-success-stories-id_id:
+    <<: *default
+    include:
+      - '/id_id/customer-success-stories/**'
+    target: /id_id/customer-success-stories/query-index.json
+  customer-success-stories-ie:
+    <<: *default
+    include:
+      - '/ie/customer-success-stories/**'
+    target: /ie/customer-success-stories/query-index.json
+  customer-success-stories-il_en:
+    <<: *default
+    include:
+      - '/il_en/customer-success-stories/**'
+    target: /il_en/customer-success-stories/query-index.json
+  customer-success-stories-il_he:
+    <<: *default
+    include:
+      - '/il_he/customer-success-stories/**'
+    target: /il_he/customer-success-stories/query-index.json
+  customer-success-stories-in_hi:
+    <<: *default
+    include:
+      - '/in_hi/customer-success-stories/**'
+    target: /in_hi/customer-success-stories/query-index.json
+  customer-success-stories-in:
+    <<: *default
+    include:
+      - '/in/customer-success-stories/**'
+    target: /in/customer-success-stories/query-index.json
+  customer-success-stories-it:
+    <<: *default
+    include:
+      - '/it/customer-success-stories/**'
+    target: /it/customer-success-stories/query-index.json
+  customer-success-stories-jp:
+    <<: *default
+    include:
+      - '/jp/customer-success-stories/**'
+    target: /jp/customer-success-stories/query-index.json
+  customer-success-stories-kr:
+    <<: *default
+    include:
+      - '/kr/customer-success-stories/**'
+    target: /kr/customer-success-stories/query-index.json
+  customer-success-stories-la:
+    <<: *default
+    include:
+      - '/la/customer-success-stories/**'
+    target: /la/customer-success-stories/query-index.json
+  customer-success-stories-lt:
+    <<: *default
+    include:
+      - '/lt/customer-success-stories/**'
+    target: /lt/customer-success-stories/query-index.json
+  customer-success-stories-lu_de:
+    <<: *default
+    include:
+      - '/lu_de/customer-success-stories/**'
+    target: /lu_de/customer-success-stories/query-index.json
+  customer-success-stories-lu_en:
+    <<: *default
+    include:
+      - '/lu_en/customer-success-stories/**'
+    target: /lu_en/customer-success-stories/query-index.json
+  customer-success-stories-lu_fr:
+    <<: *default
+    include:
+      - '/lu_fr/customer-success-stories/**'
+    target: /lu_fr/customer-success-stories/query-index.json
+  customer-success-stories-lv:
+    <<: *default
+    include:
+      - '/lv/customer-success-stories/**'
+    target: /lv/customer-success-stories/query-index.json
+  customer-success-stories-mena_ar:
+    <<: *default
+    include:
+      - '/mena_ar/customer-success-stories/**'
+    target: /mena_ar/customer-success-stories/query-index.json
+  customer-success-stories-mena_en:
+    <<: *default
+    include:
+      - '/mena_en/customer-success-stories/**'
+    target: /mena_en/customer-success-stories/query-index.json
+  customer-success-stories-mx:
+    <<: *default
+    include:
+      - '/mx/customer-success-stories/**'
+    target: /mx/customer-success-stories/query-index.json
+  customer-success-stories-my_en:
+    <<: *default
+    include:
+      - '/my_en/customer-success-stories/**'
+    target: /my_en/customer-success-stories/query-index.json
+  customer-success-stories-my_ms:
+    <<: *default
+    include:
+      - '/my_ms/customer-success-stories/**'
+    target: /my_ms/customer-success-stories/query-index.json
+  customer-success-stories-nl:
+    <<: *default
+    include:
+      - '/nl/customer-success-stories/**'
+    target: /nl/customer-success-stories/query-index.json
+  customer-success-stories-no:
+    <<: *default
+    include:
+      - '/no/customer-success-stories/**'
+    target: /no/customer-success-stories/query-index.json
+  customer-success-stories-nz:
+    <<: *default
+    include:
+      - '/nz/customer-success-stories/**'
+    target: /nz/customer-success-stories/query-index.json
+  customer-success-stories-pe:
+    <<: *default
+    include:
+      - '/pe/customer-success-stories/**'
+    target: /pe/customer-success-stories/query-index.json
+  customer-success-stories-ph_en:
+    <<: *default
+    include:
+      - '/ph_en/customer-success-stories/**'
+    target: /ph_en/customer-success-stories/query-index.json
+  customer-success-stories-ph_fil:
+    <<: *default
+    include:
+      - '/ph_fil/customer-success-stories/**'
+    target: /ph_fil/customer-success-stories/query-index.json
+  customer-success-stories-pl:
+    <<: *default
+    include:
+      - '/pl/customer-success-stories/**'
+    target: /pl/customer-success-stories/query-index.json
+  customer-success-stories-pt:
+    <<: *default
+    include:
+      - '/pt/customer-success-stories/**'
+    target: /pt/customer-success-stories/query-index.json
+  customer-success-stories-ro:
+    <<: *default
+    include:
+      - '/ro/customer-success-stories/**'
+    target: /ro/customer-success-stories/query-index.json
+  customer-success-stories-ru:
+    <<: *default
+    include:
+      - '/ru/customer-success-stories/**'
+    target: /ru/customer-success-stories/query-index.json
+  customer-success-stories-sa_ar:
+    <<: *default
+    include:
+      - '/sa_ar/customer-success-stories/**'
+    target: /sa_ar/customer-success-stories/query-index.json
+  customer-success-stories-sa_en:
+    <<: *default
+    include:
+      - '/sa_en/customer-success-stories/**'
+    target: /sa_en/customer-success-stories/query-index.json
+  customer-success-stories-se:
+    <<: *default
+    include:
+      - '/se/customer-success-stories/**'
+    target: /se/customer-success-stories/query-index.json
+  customer-success-stories-sea:
+    <<: *default
+    include:
+      - '/sea/customer-success-stories/**'
+    target: /sea/customer-success-stories/query-index.json
+  customer-success-stories-sg:
+    <<: *default
+    include:
+      - '/sg/customer-success-stories/**'
+    target: /sg/customer-success-stories/query-index.json
+  customer-success-stories-si:
+    <<: *default
+    include:
+      - '/si/customer-success-stories/**'
+    target: /si/customer-success-stories/query-index.json
+  customer-success-stories-sk:
+    <<: *default
+    include:
+      - '/sk/customer-success-stories/**'
+    target: /sk/customer-success-stories/query-index.json
+  customer-success-stories-th_en:
+    <<: *default
+    include:
+      - '/th_en/customer-success-stories/**'
+    target: /th_en/customer-success-stories/query-index.json
+  customer-success-stories-th_th:
+    <<: *default
+    include:
+      - '/th_th/customer-success-stories/**'
+    target: /th_th/customer-success-stories/query-index.json
+  customer-success-stories-tr:
+    <<: *default
+    include:
+      - '/tr/customer-success-stories/**'
+    target: /tr/customer-success-stories/query-index.json
+  customer-success-stories-tw:
+    <<: *default
+    include:
+      - '/tw/customer-success-stories/**'
+    target: /tw/customer-success-stories/query-index.json
+  customer-success-stories-ua:
+    <<: *default
+    include:
+      - '/ua/customer-success-stories/**'
+    target: /ua/customer-success-stories/query-index.json
+  customer-success-stories-uk:
+    <<: *default
+    include:
+      - '/uk/customer-success-stories/**'
+    target: /uk/customer-success-stories/query-index.json
+  customer-success-stories-vn_en:
+    <<: *default
+    include:
+      - '/vn_en/customer-success-stories/**'
+    target: /vn_en/customer-success-stories/query-index.json
+  customer-success-stories-vn_vi:
+    <<: *default
+    include:
+      - '/vn_vi/customer-success-stories/**'
+    target: /vn_vi/customer-success-stories/query-index.json
+  customer-success-stories-videos:
+    include:
+      - '**/fragments/customer-success-stories/featured-videos/**'
+    target: /fragments/customer-success-stories/featured-videos/query-index.json
+    properties:
+      <<: *defaultProps
+  resources-us:
+    include:
+      - '/resources/**'
+    exclude:
+      - '**/fragments/**'
+    target: /resources/query-index.json
+    properties:
+      <<: *defaultProps
+      faas-url:
+        select: .columns div div a[href*="/tools/faas"], .text div div a[href*="/tools/faas"]
+        value: |
+          attribute(el, 'href')
