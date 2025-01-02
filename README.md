@@ -1,4 +1,4 @@
-# Bacom
+# Adobe for Business
 The Franklin based project for business.adobe.com. Based off of milo-college.
 
 ## Contributing

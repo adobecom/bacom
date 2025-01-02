@@ -1,6 +1,6 @@
 import { LIBS } from '../../scripts/scripts.js';
 
-const BACOM_HOSTS = ['localhost', '--bacom--adobecom.hlx.page', '--bacom--adobecom.hlx.live', 'business.adobe.com'];
+const BACOM_HOSTS = ['localhost', '--da-bacom--adobecom.aem.page', '--da-bacom--adobecom.aem.live', 'business.adobe.com'];
 
 export const isCurrentPage = (link) => {
   const currentPath = window.location.pathname.replace('.html', '');
