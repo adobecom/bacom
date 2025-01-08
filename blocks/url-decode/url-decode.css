@@ -156,6 +156,11 @@
   border-bottom-right-radius: 5px;
 }
 
+.url-decode .report:not(.debug) thead tr th#links,
+.url-decode .report:not(.debug) tbody tr td[headers="links"] {
+  display: none;
+}
+
 .url-decode svg.icon-milo {
   position: initial;
 }

@@ -5,6 +5,7 @@ const { decodeCompressedString } = await import(`${LIBS}/blocks/caas/utils.js`);
 
 const URL_COLUMN = 'caas-url';
 const DEFAULT_LOCALE = 'us';
+const BACOM_URL = 'https://main--bacom--adobecom.hlx.live';
 
 /* c8 ignore next */
 const delay = (milliseconds) => new Promise((resolve) => { setTimeout(resolve, milliseconds); });
@@ -29,7 +30,7 @@ export const loadQueryIndex = async (url, callback = null) => {
     const nextUrl = new URL(url);
     nextUrl.searchParams.set('limit', limit);
     nextUrl.searchParams.set('offset', offset + limit);
-    await delay(500);
+    await delay(200);
     queryData.push(...await loadQueryIndex(nextUrl.toString(), callback));
   }
 
@@ -49,7 +50,7 @@ export const createTable = (data, sortColumn = '', invert = false) => {
   }
 
   headers.forEach((header) => {
-    const th = createTag('th', { scope: 'col' }, header);
+    const th = createTag('th', { scope: 'col', id: header }, header);
     const sorted = header === sortColumn;
     if (sorted) {
       th.classList.add('sorted');
@@ -69,9 +70,9 @@ export const createTable = (data, sortColumn = '', invert = false) => {
     const bodyRow = createTag('tr');
     headers.forEach((header) => {
       if (row[header] instanceof HTMLElement) {
-        bodyRow.append(createTag('td', null, row[header]));
+        bodyRow.append(createTag('td', { headers: header }, row[header]));
       } else {
-        bodyRow.append(createTag('td', null, String(row[header])));
+        bodyRow.append(createTag('td', { headers: header }, String(row[header])));
       }
     });
     tbody.append(bodyRow);
@@ -122,7 +123,7 @@ async function decodeUrls(data) {
 
 async function validateUrls(data, configColumn) {
   return Promise.all(data.map(async (page) => {
-    const pageUrl = new URL(page.path, window.location.origin);
+    const pageUrl = new URL(page.path, BACOM_URL);
     if (!window.location.pathname.includes('.html')) {
       pageUrl.pathname = pageUrl.pathname.replace('.html', '');
     }
@@ -131,22 +132,26 @@ async function validateUrls(data, configColumn) {
     const configs = await decodeUrls(page[configColumn]);
     const count = configs.length;
 
-    if (configs.length === 0) return { path, valid: true, message: 'No links Found', count };
+    if (configs.length === 0) return { path, valid: true, message: 'No links Found', count, links: page[configColumn] };
 
     for (const [i, config] of configs.entries()) {
-      if (!config) return { path, valid: false, message: `Could not decode link ${i + 1}`, count };
+      if (!config) return { path, valid: false, message: `Could not decode link ${i + 1}`, count, links: page[configColumn] };
 
-      if (Object.keys(config).length === 0) return { path, valid: false, message: 'Empty link', count };
+      if (Object.keys(config).length === 0) return { path, valid: false, message: 'Empty link', count, links: page[configColumn] };
     }
 
-    return { path, valid: true, message: 'Valid link(s) found', count };
+    return { path, valid: true, message: 'Valid link(s) found', count, links: page[configColumn] };
   }));
 }
 
 async function generateReport(el, configColumn) {
   const report = el.querySelector('.report');
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('debug')) {
+    report.classList.add('debug');
+  }
   const locale = el.querySelector('select#locale').value;
-  const queryIndex = new URL(`${locale}/query-index.json`, window.location.origin);
+  const queryIndex = new URL(`${locale}/query-index.json`, BACOM_URL);
 
   const queryLink = createTag('a', { href: queryIndex.href, target: '_blank' }, queryIndex.href);
   report.replaceChildren(createTag('p', null, ['Fetching data from ', queryLink]));
@@ -178,9 +183,10 @@ async function generateReport(el, configColumn) {
   const table = createTable(decodedReports);
   const summary = createTag('p', null, `Valid Pages: ${results.valid}, Invalid Pages: ${results.invalid}, Total Link Count: ${results.count}`);
   const error = createTag('p', { class: 'error' }, isColumnMissing ? 'Error: Update query index to include the "caas-url" column.' : '');
-  const downloadData = encodeURIComponent(data.map((row) => Object.values(row).join(',')).join('\n'));
+  const headers = Object.keys(decodedReports[0]).join(',');
+  const downloadData = encodeURIComponent(decodedReports.map((row) => `${row.path.pathname},${row.valid},${row.message},${row.count},${row.links}`).join('\n'));
   const download = createTag('a', {
-    href: `data:text/csv;charset=utf-8,${downloadData}`,
+    href: `data:text/csv;charset=utf-8,${headers}\n${downloadData}`,
     download: `data-${locale || DEFAULT_LOCALE}.csv`,
   }, 'Download CSV');
   const ribbon = createTag('div', { class: 'ribbon' }, [summary, error, download]);
