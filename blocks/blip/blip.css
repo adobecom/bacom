@@ -1,0 +1,68 @@
+.blip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #efefef;
+  padding: 40px;
+}
+
+.blip-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blip-input {
+  display: flex;
+  padding: 5px 20px;
+  background: #FFF;
+  min-width: 500px;
+  min-height: 36px;
+  border: 2px solid #d1d1d1;
+}
+
+.blip-submit {
+  margin: 2px;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 2px;
+  border: none;
+  padding: 10px;
+  position: relative;
+  left: -72px;
+}
+
+.blip-summary {
+  margin: 20px 0;
+  width: 66%;
+  min-height: 300px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #efefef;
+  box-shadow: #e3e3e3 10px 10px 20px 10px;
+}
+@keyframes pulse {
+  0% {
+    background-color: white;
+  }
+
+  50% {
+    background-color: red;
+  }
+
+  100% {
+    background-color: white;
+  }
+}
+
+.blip-summary.loading {
+  color: red;
+  animation: 2s linear 1s infinite pulse;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: bold;
+}
