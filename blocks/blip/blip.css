@@ -7,6 +7,10 @@
   padding: 40px;
 }
 
+.blip .hidden {
+  display: none;
+}
+
 .blip-input-container {
   display: flex;
   justify-content: space-between;
@@ -59,10 +63,27 @@
 
 .blip-summary.loading {
   color: red;
-  animation: 2s linear 1s infinite pulse;
+  animation: 1500ms linear 1s infinite pulse;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 48px;
   font-weight: bold;
+}
+
+.blip-sources {
+  display: flex; 
+  justify-content: space-around;
+  width: 66%;
+}
+
+.blip-card {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px;
+  max-width: 300px;
+}
+
+.blip-card img {
+  width: 100%;
 }
