@@ -9,7 +9,6 @@ function hasSchema(host) {
 // This file contains the project-specific configuration for the sidekick.
 (() => {
   window.hlx.initSidekick({
-    hlx3: true,
     libraries: [
       {
         text: 'Blocks',

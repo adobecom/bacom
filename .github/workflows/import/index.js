@@ -7,7 +7,7 @@ const EXTS = ['json', 'svg', 'png', 'jpg', 'jpeg', 'gif', 'mp4', 'pdf'];
 
 const toOrg = 'adobecom';
 const toRepo = 'da-bacom';
-const importFrom = "https://main--bacom--adobecom.hlx.live"
+const importFrom = "https://main--bacom--adobecom.aem.live"
 
 export function calculateTime(startTime) {
   const totalTime = Date.now() - startTime;
