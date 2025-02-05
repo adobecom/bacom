@@ -41,6 +41,11 @@ const stubSummarySources = [
     summary: 'Lorem ipsum dolert alum signes mesun tabila',
     link: 'https://business.adobe.com/customer-success-stories/ey-case-study.html',
   },
+  {
+    title: 'Lorem 2',
+    summary: 'Lorem ipsum dolert alum signes mesun tabila',
+    link: 'https://business.adobe.com/products/workfront.html',
+  },
 ];
 
 const requestFromLLM = async (userInput) => {
@@ -99,15 +104,15 @@ export default async function init(el) {
   el.append(summaryContainer, summarySourcesContainer);
 
   button.addEventListener('click', async () => {
-    console.log('click');
-    el.querySelectorAll('.hidden').forEach((item) => item.classList.remove('hidden'));
-
+    el.querySelector('.blip-summary').classList.remove('hidden');
     const userInput = input.value;
     summaryContainer.classList.add('loading');
-    summaryContainer.innerText = 'Loading';
+    summaryContainer.innerText = 'Loading...';
     const response = await requestFromLLM(userInput);
     summaryContainer.classList.remove('loading');
-    console.log(response);
-    summaryContainer.innerText = response;
+    summaryContainer.innerText = '';
+    const responseP = createTag('p', {}, response);
+    summaryContainer.append(responseP);
+    el.querySelector('.blip-sources').classList.remove('hidden');
   });
 }
