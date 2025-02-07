@@ -48,7 +48,7 @@ const slackNotification = (text) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ text }),
-  }).then(res => console.log('Slack notification sent:', res.ok));
+  })
 };
 
 async function importUrl(url) {
@@ -85,7 +85,6 @@ async function importUrl(url) {
 
   try {
     const resp = await fetch(`${url.origin}${srcPath}`);
-
     console.log("fetched resource from AEM at:", `${url.origin}${srcPath}`)
     if (resp.redirected && !(srcPath.endsWith('.mp4') || srcPath.endsWith('.png') || srcPath.endsWith('.jpg'))) {
       url.status = 'redir';
