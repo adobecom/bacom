@@ -41,9 +41,8 @@ async function previewOrPublish({path, action}) {
   console.log(`Posted to ${action} successfully ${action}/${toOrg}/${toRepo}/main/${path}`);
 }
 
-const slackNotification = (text, webhook) => {
-  console.log({text, webhook: process.env.ROLLING_IMPORT_SLACK});
-  return fetch(webhook || process.env.ROLLING_IMPORT_SLACK, {
+const slackNotification = (text) => {
+  return fetch(process.env.ROLLING_IMPORT_SLACK, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
