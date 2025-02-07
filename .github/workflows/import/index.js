@@ -41,6 +41,17 @@ async function previewOrPublish({path, action}) {
   console.log(`Posted to ${action} successfully ${action}/${toOrg}/${toRepo}/main/${path}`);
 }
 
+const slackNotification = (text, webhook) => {
+  console.log({text, webhook: process.env.ROLLING_IMPORT_SLACK});
+  return fetch(webhook || process.env.ROLLING_IMPORT_SLACK, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ text }),
+  }).then(res => console.log('Slack notification sent:', res.ok));
+};
+
 async function importUrl(url) {
   console.log("Started path: ", process.env.AEM_PATH);
   const [fromRepo, fromOrg] = url.hostname.split('.')[0].split('--').slice(1).slice(-2);
@@ -97,8 +108,10 @@ async function importUrl(url) {
     await previewOrPublish({path: pathname, action: 'live'});
     console.log(`Resource: https://main--${toRepo}--${toOrg}.aem.live${url.pathname}`);
   } catch (e) {
+    await slackNotification(`Resource: https://main--${toRepo}--${toOrg}.aem.live${url.pathname} failed to publish. Error: ${e.message}`);
     console.log("Failed to import resource to DA " + toOrg + "/" + toRepo + " | destination: " + url.pathname, + " | error: " + e.message);
     if (!url.status) url.status = 'error';
+    throw e;
   }
 }
 
