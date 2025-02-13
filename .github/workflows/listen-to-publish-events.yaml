@@ -12,6 +12,7 @@ env:
   CODE: ${{ secrets.CODE }}
   GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
   IMS_URL: ${{ secrets.IMS_URL }}
+  ROLLING_IMPORT_SLACK: ${{ secrets.ROLLING_IMPORT_SLACK }}
       
 permissions:
   contents: read
