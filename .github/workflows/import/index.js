@@ -7,7 +7,7 @@ const EXTS = ['json', 'svg', 'png', 'jpg', 'jpeg', 'gif', 'mp4', 'pdf'];
 
 const toOrg = 'adobecom';
 const toRepo = 'da-bacom';
-const importFrom = "https://main--bacom--adobecom.hlx.live"
+const importFrom = "https://main--bacom--adobecom.aem.live"
 
 export function calculateTime(startTime) {
   const totalTime = Date.now() - startTime;
@@ -40,6 +40,16 @@ async function previewOrPublish({path, action}) {
   if (!resp.ok) throw new Error(`Failed to post to preview: ${resp.statusText}`)
   console.log(`Posted to ${action} successfully ${action}/${toOrg}/${toRepo}/main/${path}`);
 }
+
+const slackNotification = (text) => {
+  return fetch(process.env.ROLLING_IMPORT_SLACK, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ text }),
+  })
+};
 
 async function importUrl(url) {
   console.log("Started path: ", process.env.AEM_PATH);
@@ -75,7 +85,6 @@ async function importUrl(url) {
 
   try {
     const resp = await fetch(`${url.origin}${srcPath}`);
-
     console.log("fetched resource from AEM at:", `${url.origin}${srcPath}`)
     if (resp.redirected && !(srcPath.endsWith('.mp4') || srcPath.endsWith('.png') || srcPath.endsWith('.jpg'))) {
       url.status = 'redir';
@@ -97,8 +106,10 @@ async function importUrl(url) {
     await previewOrPublish({path: pathname, action: 'live'});
     console.log(`Resource: https://main--${toRepo}--${toOrg}.aem.live${url.pathname}`);
   } catch (e) {
+    await slackNotification(`Resource: https://main--${toRepo}--${toOrg}.aem.live${url.pathname} failed to publish. Error: ${e.message}`);
     console.log("Failed to import resource to DA " + toOrg + "/" + toRepo + " | destination: " + url.pathname, + " | error: " + e.message);
     if (!url.status) url.status = 'error';
+    throw e;
   }
 }
 
