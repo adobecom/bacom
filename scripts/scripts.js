@@ -5,31 +5,19 @@ const CONFIG = {
     pdfViewerClientId: '3b685312b5784de6943647df19f1f492',
     pdfViewerReportSuite: 'adbadobedxqa',
   },
-  page: {
-    pdfViewerClientId: 'c30e0765380b47219774251d8eb80005',
+  stage: {
+    edgeConfigId: '7d1ba912-10b6-4384-a8ff-4bfb1178e869',
+    pdfViewerClientId: '3b685312b5784de6943647df19f1f492',
     pdfViewerReportSuite: 'adbadobedxqa',
   },
   live: {
-    pdfViewerClientId: '5e5a5032800f4918844f13b344f58db6',
-    pdfViewerReportSuite: 'adbadobedxqa',
-  },
-  stage: {
-    edgeConfigId: '7d1ba912-10b6-4384-a8ff-4bfb1178e869',
-    pdfViewerClientId: '1573324fdb644866b51580fbaa5b6465',
+    pdfViewerClientId: '23bd4fff42fc4b4da38b3d89492a0abc',
     pdfViewerReportSuite: 'adbadobedxqa',
   },
   prod: {
     edgeConfigId: '65acfd54-d9fe-405c-ba04-8342d6782ab0',
     pdfViewerClientId: '4520c0edfbf147158758d71d18765fec',
     pdfViewerReportSuite: 'adbadobenonacdcprod,adbadobedxprod,adbadobeprototype',
-  },
-  hlxPage: {
-    pdfViewerClientId: '3b685312b5784de6943647df19f1f492',
-    pdfViewerReportSuite: 'adbadobedxqa',
-  },
-  hlxLive: {
-    pdfViewerClientId: '23bd4fff42fc4b4da38b3d89492a0abc',
-    pdfViewerReportSuite: 'adbadobedxqa',
   },
   locales: {
     '': { ietf: 'en-US', tk: 'hah7vzn.css' },
