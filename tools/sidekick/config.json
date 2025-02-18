@@ -1,8 +1,6 @@
 {
   "project": "BACOM",
   "host": "business.adobe.com",
-  "previewHost": "main--bacom--adobecom.aem.page",
-  "liveHost": "main--bacom--adobecom.aem.live",
   "plugins": [
     {
       "id": "path",
@@ -54,7 +52,7 @@
       "id": "floodgate",
       "title": "Floodgate",
       "environments": [ "edit" ],
-      "url": "https://main--bacom--adobecom.aem.page/tools/floodgate?milolibs=floodgateui",
+      "url": "https://main--bacom--adobecom.hlx.page/tools/floodgate?milolibs=floodgateui",
       "passReferrer": true,
       "passConfig": true,
       "includePaths": [ "**/:x**" ]
@@ -99,7 +97,7 @@
       "title": "Tag Selector",
       "id": "tag-selector",
       "environments": ["edit"],
-      "url": "https://main--bacom--adobecom.aem.live/tools/tag-selector",
+      "url": "https://main--bacom--adobecom.hlx.live/tools/tag-selector",
       "isPalette": true,
       "paletteRect": "top: 150px; left: 7%; height: 675px; width: 85vw;"
     },
@@ -138,7 +136,7 @@
       "id": "bulk",
       "title": "Bulk operations",
       "environments": [ "edit", "dev", "preview", "live" ],
-      "url": "https://main--bacom--adobecom.aem.page/tools/bulk"
+      "url": "https://main--bacom--adobecom.hlx.page/tools/bulk"
     },
     {
       "containerId": "tools",
