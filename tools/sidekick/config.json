@@ -1,6 +1,8 @@
 {
   "project": "BACOM",
   "host": "business.adobe.com",
+  "previewHost": "main--bacom--adobecom.hlx.page",
+  "liveHost": "main--bacom--adobecom.hlx.live",
   "plugins": [
     {
       "id": "path",
