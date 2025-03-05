@@ -143,7 +143,7 @@ const CONFIG = {
     '.business-graybox.adobe.com': { 'business.adobe.com': 'origin' },
   },
   jarvis: {
-    id: 'BACOMChat1–Worldwide',
+    id: 'BACOMChat1-Worldwide',
     version: '1.0',
     onDemand: false,
   },
