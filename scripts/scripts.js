@@ -142,6 +142,11 @@ const CONFIG = {
     'business.stage.adobe.com': { 'business.adobe.com': 'origin' },
     '.business-graybox.adobe.com': { 'business.adobe.com': 'origin' },
   },
+  jarvis: {
+    id: 'BACOMChat1-Worldwide',
+    version: '1.0',
+    onDemand: false,
+  },
 };
 
 const eagerLoad = (img) => {
