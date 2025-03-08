@@ -39,10 +39,9 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
 }
 
 .global-navigation .feds-profile > .feds-signIn {
-  --feds-signIn-borderColor: #dadada;
   padding: 5px 16px 6px;
   line-height: 16.8px;
-  border: 2px solid var(--feds-signIn-borderColor);
+  border: 2px solid #dadada;
   border-radius: 16px;
   margin-right: 8px;
   font-weight: 700;
@@ -50,11 +49,9 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
 }
 
 .global-navigation .feds-profile > .feds-signIn:hover {
-  --feds-signIn-bgColor-hover: #e9e9e9;
-  --feds-signIn-borderColor-hover: #c6c6c6;
   color: var(--text-color);
-  background: var(--feds-signIn-bgColor-hover);
-  border-color: var(--feds-signIn-borderColor-hover);
+  background: #e9e9e9;
+  border-color: #c6c6c6;
 }
 
 @media screen and (min-width: 900px) {
