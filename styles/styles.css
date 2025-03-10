@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 .white-columns .columns > .row {
   padding: 80px 0;
 }
@@ -65,6 +66,7 @@ div[class*='-up'] .con-block.has-bg.text-block.text-list,
   .icon-headings .col img {
     top: 10px;
   }
+
   .global-navigation .feds-profile > .feds-signIn {
     margin-right: 0;
   }
