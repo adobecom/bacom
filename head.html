@@ -26,6 +26,15 @@
 
   [miloStyles, miloUtils, miloDecorate].forEach((tag) => tag.setAttribute('rel', 'preload'));
   document.head.append(miloStyles, miloUtils, miloDecorate);
+
+  const hrefLangMeta = document.querySelector('meta[name="hreflang"]');
+  if (hrefLangMeta) {
+    const hrefLangLink = document.createElement('link');
+    hrefLangLink.setAttribute('rel', 'alternate');
+    hrefLangLink.setAttribute('hreflang', hrefLangMeta.content);
+    hrefLangLink.setAttribute('href', window.location.href);
+    document.head.append(hrefLangLink);
+  }
 </script>
 <script src="/scripts/scripts.js" type="module"></script>
 <style>body { display: none; }</style>
