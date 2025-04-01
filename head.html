@@ -26,6 +26,28 @@
 
   [miloStyles, miloUtils, miloDecorate].forEach((tag) => tag.setAttribute('rel', 'preload'));
   document.head.append(miloStyles, miloUtils, miloDecorate);
+
+  // example string: ae_ar: ae; ae_en: en; be_en: en-BE
+  function parseHrefLangString(str) {
+    if (!str) return [];
+    return str.split(';').map(langPair => {
+      const [locale, lang] = langPair.split(':');
+      return { locale: locale.trim(), lang: lang.trim() };
+    });
+  }
+
+  const hrefLangMeta = document.querySelector('meta[name="hreflang"]');
+  if (hrefLangMeta) {
+    const hrefLangValues = parseHrefLangString(hrefLangMeta.content);
+    const { origin, pathname } = window.location;
+    hrefLangValues.forEach(({ locale, lang }) => {
+      const hrefLangLink = document.createElement('link');
+      hrefLangLink.setAttribute('rel', 'alternate');
+      hrefLangLink.setAttribute('hreflang', lang);
+      hrefLangLink.setAttribute('href', `${origin}/${locale}${pathname}`);
+      document.head.append(hrefLangLink);
+    });
+  }
 </script>
 <script src="/scripts/scripts.js" type="module"></script>
 <style>body { display: none; }</style>
