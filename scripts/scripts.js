@@ -207,6 +207,8 @@ export const LIBS = setLibs(window.location);
       if (lastSection) lastSection.insertAdjacentElement('beforeend', chatDiv);
     }
   }
+
+  // Enables the chatWidget to be added to a page as a fragment
   const chatWidgetFrag = document.querySelector('meta[name="chat-widget"');
   if (chatWidgetFrag) {
     const a = createTag('a', { href: chatWidgetFrag.content }, chatWidgetFrag.content);

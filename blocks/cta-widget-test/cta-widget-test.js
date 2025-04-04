@@ -41,19 +41,32 @@ export default async function init(el) {
   const widgetParent = ctaSection.parentElement;
 
   widgetParent?.classList.add('hide-until-ready');
-  window.addEventListener('adobedx.conversations.ready', () => {
+  window.addEventListener('adobedx.conversations.ready', async () => {
+    // The below await is to solve a timing issue witht he dialogue and the above event firing
+    await new Promise((resolve) => { setTimeout(resolve, 2500); });
     widgetParent?.classList.remove('hide-until-ready');
 
     const chatNowButton = document.querySelectorAll('.cta-widget-body .con-button')[0];
 
     chatNowButton.addEventListener('click', (e) => {
       e.preventDefault();
-      const mktoChatBot = document.querySelector('#hb_chatbot-root');
+      const mktoChatbotRoot = document.querySelector('#hb_chatbot-root');
+      const mktoChatbotShadowRoot = mktoChatbotRoot.shadowRoot;
+      const mktoChatbotButton = mktoChatbotShadowRoot.querySelector('.hb_button');
 
       widgetParent?.classList.add('hidden');
-      mktoChatBot.style.display = 'flex';
-      widgetParent?.classList.add('something-special');
-      mktoChatBot?.shadowRoot.querySelector('.hb_button').click();
+      mktoChatbotRoot.style.display = 'flex';
+      mktoChatbotButton?.click();
+
+      const resetButton = () => {
+        const bigChatBox = mktoChatbotShadowRoot.querySelector('.hb_chat');
+        if (bigChatBox.classList.contains('hb_shown')) {
+          mktoChatbotRoot.style.display = 'none';
+          widgetParent.classList.remove('hidden');
+        }
+      };
+
+      mktoChatbotButton.addEventListener('click', resetButton);
     });
   });
 }

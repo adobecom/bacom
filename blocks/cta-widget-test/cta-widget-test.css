@@ -179,3 +179,17 @@
     display: none;
   }
 }
+
+
+/* stylelint-disable-next-line selector-id-pattern */
+#hb_chatbot-root {
+  display: none;
+}
+
+.section.hide-until-ready {
+  display: none;
+}
+
+.section.hidden {
+  display: none;
+}
