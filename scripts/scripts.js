@@ -197,7 +197,6 @@ export const LIBS = setLibs(window.location);
   const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${LIBS}/utils/utils.js`);
   if (getMetadata('template') === '404') window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
 
-  // TODO: Discuss with Malik and remove below metaCTA code in favor of widget
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
     const isMetaCtaDisabled = metaCta?.content === 'off';
@@ -208,7 +207,6 @@ export const LIBS = setLibs(window.location);
     }
   }
 
-  // Enables the chatWidget to be added to a page as a fragment
   const chatWidgetFrag = document.querySelector('meta[name="chat-widget"');
   if (chatWidgetFrag) {
     const a = createTag('a', { href: chatWidgetFrag.content }, chatWidgetFrag.content);
