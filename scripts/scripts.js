@@ -128,7 +128,7 @@ const CONFIG = {
   },
   geoRouting: 'on',
   productionDomain: 'business.adobe.com',
-  prodDomains: ['business.adobe.com', 'www.adobe.com'],
+  prodDomains: ['business.adobe.com', 'www.adobe.com', 'news.adobe.com'],
   autoBlocks: [
     { iframe: 'https://adobe-ideacloud.forgedx.com' },
     { iframe: 'https://adobe.ideacloud.com' },
@@ -141,6 +141,10 @@ const CONFIG = {
   stageDomainsMap: {
     'business.stage.adobe.com': { 'business.adobe.com': 'origin' },
     '.business-graybox.adobe.com': { 'business.adobe.com': 'origin' },
+    '--bacom--adobecom.hlx.live': {
+      'business.adobe.com': 'origin',
+      'news.adobe.com': 'main--news--adobecom.hlx.live',
+    },
   },
   jarvis: {
     id: 'BACOMChat1-Worldwide',
