@@ -196,6 +196,7 @@ export const LIBS = setLibs(window.location);
 (async function loadPage() {
   const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${LIBS}/utils/utils.js`);
   if (getMetadata('template') === '404') window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
+
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
     const isMetaCtaDisabled = metaCta?.content === 'off';
@@ -205,6 +206,14 @@ export const LIBS = setLibs(window.location);
       if (lastSection) lastSection.insertAdjacentElement('beforeend', chatDiv);
     }
   }
+
+  const chatWidgetFrag = document.querySelector('meta[name="chat-widget"');
+  if (chatWidgetFrag) {
+    const a = createTag('a', { href: chatWidgetFrag.content }, chatWidgetFrag.content);
+    const lastSection = document.body.querySelector('main > div:last-of-type');
+    if (lastSection) lastSection.insertAdjacentElement('beforeend', a);
+  }
+
   setConfig({ ...CONFIG, miloLibs: LIBS });
   loadLana({ clientId: 'bacom', tags: 'info' });
   await loadArea();
