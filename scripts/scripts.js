@@ -215,7 +215,7 @@ export const LIBS = setLibs(window.location);
   }
 
   setConfig({ ...CONFIG, miloLibs: LIBS });
-  loadLana({ clientId: 'bacom', tags: 'info' });
+  loadLana({ clientId: 'bacom', tags: 'info', endpoint: 'https://business.adobe.com/lana/ll', endpointStage: 'https://business.stage.adobe.com/lana/ll' });
   await loadArea();
 
   if (document.querySelector('meta[name="aa-university"]')) {
