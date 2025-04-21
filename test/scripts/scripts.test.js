@@ -1,5 +1,6 @@
+import { readFile, setViewport } from '@web/test-runner-commands';
 import { expect } from '@esm-bundle/chai';
-import { setLibs, LIBS } from '../../scripts/scripts.js';
+import { setLibs, LIBS, getLCPImages } from '../../scripts/scripts.js';
 
 describe('Libs', () => {
   const tests = [
@@ -32,5 +33,72 @@ describe('Libs', () => {
 
   it('Sets LIBS', () => {
     expect(LIBS).to.equal('https://main--milo--adobecom.aem.live/libs');
+  });
+});
+
+const marqueeByDeviceBody = await readFile({ path: './mocks/marquee-by-device.html' });
+const heroMarqueeByDeviceBody = await readFile({ path: './mocks/hero-marquee-by-device.html' });
+
+describe('getLCPImages', () => {
+  it('Gets background image from marquee', async () => {
+    document.body.innerHTML = await readFile({ path: './mocks/marquee.html' });
+    await setViewport({ width: 1400, height: 700 });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#correct-image'));
+  });
+
+  it('Gets foreground image from marquee if no background for width', async () => {
+    document.body.innerHTML = await readFile({ path: './mocks/marquee-foreground.html' });
+    await setViewport({ width: 400, height: 200 });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#mobile-image'));
+  });
+
+  it('Gets mobile background image from marquee', async () => {
+    document.body.innerHTML = marqueeByDeviceBody;
+    await setViewport({ width: 400, height: 200 });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#mobile-image'));
+  });
+
+  it('Gets tablet background image from marquee', async () => {
+    document.body.innerHTML = marqueeByDeviceBody;
+    await setViewport({ width: 900, height: 400 });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#tablet-image'));
+  });
+
+  it('Gets desktop background image from marquee', async () => {
+    document.body.innerHTML = marqueeByDeviceBody;
+    await setViewport({ width: 1400, height: 700 });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#desktop-image'));
+  });
+
+  it('Gets mobile background image from hero marquee', async () => {
+    document.body.innerHTML = heroMarqueeByDeviceBody;
+    await setViewport({ width: 400, height: 200 });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#mobile-image'));
+  });
+
+  it('Gets tablet background image from hero marquee', async () => {
+    document.body.innerHTML = heroMarqueeByDeviceBody;
+    await setViewport({ width: 900, height: 400 });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#tablet-image'));
+  });
+
+  it('Gets desktop foreground image from hero marquee', async () => {
+    document.body.innerHTML = heroMarqueeByDeviceBody;
+    await setViewport({ width: 1400, height: 700 });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#desktop-image'));
+  });
+
+  it('Gets background image from section', async () => {
+    document.body.innerHTML = await readFile({ path: './mocks/section.html' });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#correct-image'));
   });
 });
