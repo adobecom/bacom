@@ -83,12 +83,6 @@ main > .section[class*='-up'] > .content {
   margin: 0;
 }
 
-main .section[class*='grid-width-'] {
-  padding-left: unset;
-  padding-right: unset;
-  display: block;
-}
-
 main .section.two-up,
 main .section.three-up,
 main .section.four-up,
@@ -96,6 +90,16 @@ main .section.five-up {
   display: grid;
   padding-left: var(--grid-margins-width);
   padding-right: var(--grid-margins-width);
+}
+
+main .section.grid-width-12.milo-card-section {
+  padding-left: unset;
+  padding-right: unset;
+}
+
+main .section[class*='grid-width-'] .columns.contained {
+  width: 100%;
+  max-width: 100%;
 }
 
 @media screen and (min-width: 1200px) {
