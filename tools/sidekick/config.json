@@ -1,6 +1,7 @@
 {
   "project": "BACOM",
   "host": "business.adobe.com",
+  "trustedHosts": ["milo.adobe.com", "main--milo--adobecom.hlx.page"],
   "plugins": [
     {
       "id": "path",
