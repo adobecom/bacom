@@ -3,6 +3,7 @@
   "host": "business.adobe.com",
   "previewHost": "main--bacom--adobecom.aem.page",
   "liveHost": "main--bacom--adobecom.aem.live",
+  "trustedHosts": ["milo.adobe.com"],
   "plugins": [
     {
       "id": "path",
