@@ -41,9 +41,7 @@ export default async function init(el) {
   const widgetParent = ctaSection.parentElement;
 
   widgetParent?.classList.add('hide-until-ready');
-  window.addEventListener('adobedx.conversations.ready', async () => {
-    // The below await is to solve a timing issue witht he dialogue and the above event firing
-    await new Promise((resolve) => { setTimeout(resolve, 2500); });
+  window.addEventListener('adobedx.conversations.triggered', async () => {
     widgetParent?.classList.remove('hide-until-ready');
 
     const chatNowButton = document.querySelectorAll('.cta-widget-body .con-button')[0];
