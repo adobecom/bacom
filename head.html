@@ -46,7 +46,6 @@
 
   const hrefLangMeta = document.querySelector('meta[name="hreflang"]');
   if (hrefLangMeta) {
-    // locale regex
     const { origin, pathname } = window.location;
     const defaults = [{locale: '', lang: 'x-default'}, {locale: '', lang: 'en-us'}]
     const localeMap = parseHrefLangString(hrefLangMeta.content);
@@ -56,6 +55,8 @@
     });
 
     const defaultPath = pageLocale ? pathname.replace(`/${pageLocale}`, '') : pathname;
+
+    console.log('Page locale', pageLocale, defaultPath)
     // build defaults 
     const xDefault = buildLink('x-default', defaultPath);
     const enUs = buildLink('en-us', defaultPath);
