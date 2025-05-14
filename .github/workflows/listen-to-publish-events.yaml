@@ -1,9 +1,8 @@
 name: DA Rolling Import
 
 on: 
-    repository_dispatch:
-      types:
-        - resource-published
+  repository_dispatch:
+    types: [resource-published, resources-published]
 
 env:
   AEM_PATH: ${{ github.event.client_payload.path }}
@@ -13,7 +12,7 @@ env:
   GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
   IMS_URL: ${{ secrets.IMS_URL }}
   ROLLING_IMPORT_SLACK: ${{ secrets.ROLLING_IMPORT_SLACK }}
-      
+
 permissions:
   contents: read
 
