@@ -6,7 +6,13 @@ on:
 
 env:
   AEM_PATH: ${{ github.event.client_payload.path }}
-      
+  CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  CODE: ${{ secrets.CODE }}
+  GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
+  IMS_URL: ${{ secrets.IMS_URL }}
+  ROLLING_IMPORT_SLACK: ${{ secrets.ROLLING_IMPORT_SLACK }}
+
 permissions:
   contents: read
 
