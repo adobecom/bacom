@@ -33,7 +33,6 @@ async function importMedia(pageUrl, text) {
   const results = dom.window.document.body.querySelectorAll(LINK_SELECTORS.join(', '));
   const linkedMedia = [...results].reduce((acc, a) => {
     let href = a.getAttribute('href') || a.getAttribute('alt');
-
     // Don't add any off origin content.
     const isSameDomain = prefixes.some((prefix) => href.startsWith(prefix));
     if (!isSameDomain) return acc;
@@ -42,7 +41,6 @@ async function importMedia(pageUrl, text) {
 
     // Match the URL and remove extras
     href = href.match(/^[^?#| ]+/)[0];
-
     // Convert relative to current project origin
     const url = new URL(href);
 
@@ -69,7 +67,6 @@ async function importMedia(pageUrl, text) {
 }
 
 async function saveAllToDa(url, blob) {
-  console.log("Saving the document itself to DA")
   const { destPath, editPath, route } = url;
 
   url.daHref = `https://da.live${route}#/${toOrg}/${toRepo}${editPath}`;
@@ -94,8 +91,14 @@ async function previewOrPublish({path, action}) {
   const previewUrl = `https://admin.hlx.page/${action}/${toOrg}/${toRepo}/main${path}`;
   const opts = { method: 'POST' };
   const resp = await fetch(previewUrl, opts);
-  if (!resp.ok) throw new Error(`Failed to post to preview: ${resp.statusText}`)
-  console.log(`Posted to ${action} successfully ${action}/${toOrg}/${toRepo}/main${path}`);
+  if (!resp.ok){
+    console.log(`Posting to ${action} failed. ${action}/${toOrg}/${toRepo}/main${path}`);
+    await slackNotification(
+      `Failed ${action}/${toOrg}/${toRepo}/main${path}. Error: ${resp.status} ${resp.statusText}`
+    );
+  } else {
+    console.log(`Posted to ${action} successfully ${action}/${toOrg}/${toRepo}/main${path}`);
+  }
 }
 
 const slackNotification = (text) => {
