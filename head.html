@@ -50,6 +50,7 @@
     const defaults = [{locale: '', lang: 'x-default'}, {locale: '', lang: 'en-us'}]
     const localeMap = parseHrefLangString(hrefLangMeta.content);
     const pageLocale = localeMap.filter((pair) => {
+      console.log(pathname, `/${pair.locale.toLowerCase()}/`)
       if (pathname.includes(`/${pair.locale.toLowerCase()}/`)) return pair.locale;
       return false;
     });
