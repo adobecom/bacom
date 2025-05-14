@@ -56,8 +56,8 @@
    
     const defaultPath = pageLocale ? pathname.replace(`/${pageLocale}`, '') : pathname;
     // build defaults 
-    const xDefault = buildLink('x-default', defaultPath);
-    const enUs = buildLink('en-us', defaultPath);
+    const xDefault = buildLink('x-default', `${origin}${defaultPath}`);
+    const enUs = buildLink('en-us', `${origin}${defaultPath}`);
     const links = localeMap.reduce((rdx, { locale, lang }) => {
       rdx.push(buildLink(lang, `${origin}/${locale}${defaultPath}`))
       return rdx;
