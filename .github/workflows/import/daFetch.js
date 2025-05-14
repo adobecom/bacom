@@ -22,13 +22,12 @@ async function getImsToken() {
   const data = await response.json();
   return data.access_token;
 }
-let token
 
+let token
 export const daFetch = async (url, opts = {}) => {
-  if (token) return token
   opts.headers ||= {};
   console.log("Fetching IMS token")
-  token = await getImsToken();
+  token = token || await getImsToken();
   console.log("Fetched IMS token")
   opts.headers.Authorization = `Bearer ${token}`;
   const resp = await fetch(url, opts);
