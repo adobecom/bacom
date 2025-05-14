@@ -26,9 +26,9 @@ async function getImsToken() {
 let token
 export const daFetch = async (url, opts = {}) => {
   opts.headers ||= {};
-  console.log("Fetching IMS token")
+  if(!token) console.log("Fetching IMS token")
   token = token || await getImsToken();
-  console.log("Fetched IMS token")
+  if(!token) console.log("Fetched IMS token")
   opts.headers.Authorization = `Bearer ${token}`;
   const resp = await fetch(url, opts);
   if(!resp.ok) throw new Error("DA import failed")
