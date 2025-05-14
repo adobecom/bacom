@@ -118,8 +118,8 @@ async function importUrl(url) {
   console.log("Started path: ", url.href);
   const [fromRepo, fromOrg] = url.hostname.split('.')[0].split('--').slice(1).slice(-2);
   if (!(fromRepo || fromOrg)) {
-    console.log(liveDomain, url.origin.startsWith(liveDomain));
-    if (!(liveDomain && url.origin.startsWith(liveDomain))) {
+    console.log(liveDomain, url.origin === liveDomain);
+    if (url.origin !== liveDomain) {
       url.status = '403';
       url.error = 'URL is not from AEM.';
       return;
