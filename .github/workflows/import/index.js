@@ -40,8 +40,8 @@ async function importMedia(pageUrl, text) {
 
     href = href.replace('.hlx.', '.aem.');
 
-    [href] = href.split('#');
-    [href] = href.split('?');
+    // Match the URL and remove extras
+    href = href.match(/^[^?#| ]+/)[0];
 
     // Convert relative to current project origin
     const url = new URL(href);
