@@ -38,9 +38,9 @@
 
   function buildLink(language, url) {
     const link = document.createElement('link');
-    hrefLangLink.setAttribute('rel', 'alternate');
-    hrefLangLink.setAttribute('hreflang', language?.toLowerCase());
-    hrefLangLink.setAttribute('href', url);
+    link.setAttribute('rel', 'alternate');
+    link.setAttribute('hreflang', language?.toLowerCase());
+    link.setAttribute('href', url);
     return link;
   }
 
