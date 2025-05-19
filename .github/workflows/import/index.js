@@ -10,6 +10,7 @@ const toOrg = 'adobecom';
 const toRepo = 'da-bacom';
 const importFrom = "https://main--bacom--adobecom.aem.live"
 const liveDomain = "https://business.adobe.com";
+const excludedFiles = ["/redirects.json", "/metadata.json", "/metadata-seo.json", "/redirects_fancy.json"];
 const LINK_SELECTORS = [
   'a[href*="/fragments/"]',
   'a[href*=".mp4"]',
@@ -150,9 +151,9 @@ function safeguardMetadataImages(dom) {
 }
 
 async function importUrl(url) {
-  // Exclude auto publishing redirects for bacom https://jira.corp.adobe.com/browse/MWPW-173107
-  if(url.pathname.includes("redirects.json")) {
-    console.log("Stopped processing redirects.json");
+  // Exclude auto publishing files from Sharepoint
+  if(excludedFiles.some((excludedFile => url.pathname === excludedFile))) {
+    console.log(`Stopped processing ${url.pathname}`);
     return
   }
 
