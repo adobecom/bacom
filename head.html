@@ -45,6 +45,7 @@
   }
 
   const hrefLangMeta = document.querySelector('meta[name="hreflang"]');
+  
   if (hrefLangMeta) {
     const { origin, pathname } = window.location;
     const defaults = [{locale: '', lang: 'x-default'}, {locale: '', lang: 'en-us'}]
@@ -53,11 +54,10 @@
       if (pathname.includes(`/${pair.locale.toLowerCase()}/`)) rdx += pair.locale;
       return rdx;
     }, '');
-   
     const defaultPath = pageLocale ? pathname.replace(`/${pageLocale}`, '') : pathname;
-    // build defaults 
     const xDefault = buildLink('x-default', `${origin}${defaultPath}`);
     const enUs = buildLink('en-us', `${origin}${defaultPath}`);
+
     const links = localeMap.reduce((rdx, { locale, lang }) => {
       rdx.push(buildLink(lang, `${origin}/${locale}${defaultPath}`))
       return rdx;
