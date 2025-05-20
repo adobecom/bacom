@@ -36,22 +36,34 @@
     });
   }
 
+  function buildLink(language, url) {
+    const link = document.createElement('link');
+    link.setAttribute('rel', 'alternate');
+    link.setAttribute('hreflang', language?.toLowerCase());
+    link.setAttribute('href', url);
+    return link;
+  }
+
   const hrefLangMeta = document.querySelector('meta[name="hreflang"]');
+  
   if (hrefLangMeta) {
-    const defaults = [{locale: '', lang: 'x-default'}, {locale: '', lang: 'en-us'}]
-    const hrefLangValues = [...defaults, ...parseHrefLangString(hrefLangMeta.content)];
     const { origin, pathname } = window.location;
-    const links = hrefLangValues.reduce((rdx, { locale, lang }) => {
-      const hrefLangLink = document.createElement('link');
-      const correctedPathLocale = locale !== '' ? `/${locale}` : locale;
-      hrefLangLink.setAttribute('rel', 'alternate');
-      hrefLangLink.setAttribute('hreflang', lang?.toLowerCase());
-      hrefLangLink.setAttribute('href', `${origin}${correctedPathLocale}${pathname}`);
-      rdx.push(hrefLangLink);
+    const defaults = [{locale: '', lang: 'x-default'}, {locale: '', lang: 'en-us'}]
+    const localeMap = parseHrefLangString(hrefLangMeta.content);
+    const pageLocale = localeMap.reduce((rdx, pair) => {
+      if (pathname.includes(`/${pair.locale.toLowerCase()}/`)) rdx += pair.locale;
+      return rdx;
+    }, '');
+    const defaultPath = pageLocale ? pathname.replace(`/${pageLocale}`, '') : pathname;
+    const xDefault = buildLink('x-default', `${origin}${defaultPath}`);
+    const enUs = buildLink('en-us', `${origin}${defaultPath}`);
+
+    const links = localeMap.reduce((rdx, { locale, lang }) => {
+      rdx.push(buildLink(lang, `${origin}/${locale}${defaultPath}`))
       return rdx;
     }, []);
-    document.head.querySelector('title').after(...links);
-    
+
+    document.head.querySelector('title').after(xDefault, enUs, ...links);
   }
 </script>
 <script src="/scripts/scripts.js" type="module"></script>
