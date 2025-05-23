@@ -39,7 +39,7 @@ async function importMedia(pageUrl, text) {
   // const pattern = /https:\/\/[^"'\s]+\.(?:svg|mp4|pdf)/g;
   // const results = text.match(pattern) ?
   const matches = text.match(LINK_SELECTOR_REGEX)?.map((svgUrl) => {
-    const a = window.document.createElement('a');
+    const a = dom.window.document.createElement('a');
     a.href = svgUrl;
     return a;
   }) || [];
