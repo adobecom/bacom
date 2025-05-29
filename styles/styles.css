@@ -102,6 +102,7 @@ main .section[class*='grid-width-'] .columns.contained {
   max-width: 100%;
 }
 
+.feds-localnav--active ~ #hb_chatbot-root,
 body.disable-scroll #hb_chatbot-root,
 body.disable-scroll #adbMsgClientWrapper #adbmsgContainer .adbmsgCta {
   z-index: 1;
