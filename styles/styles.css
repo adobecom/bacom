@@ -1,4 +1,4 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, selector-id-pattern */
 .white-columns .columns > .row {
   padding: 80px 0;
 }
@@ -100,6 +100,13 @@ main .section.grid-width-12.milo-card-section {
 main .section[class*='grid-width-'] .columns.contained {
   width: 100%;
   max-width: 100%;
+}
+
+.feds-localnav--active ~ #hb_chatbot-root,
+body.disable-scroll #hb_chatbot-root,
+body.disable-scroll #adbMsgClientWrapper #adbmsgContainer .adbmsgCta {
+  z-index: 1;
+  position: relative;
 }
 
 @media screen and (min-width: 1200px) {

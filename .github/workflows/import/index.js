@@ -10,6 +10,7 @@ const toOrg = 'adobecom';
 const toRepo = 'da-bacom';
 const importFrom = "https://main--bacom--adobecom.aem.live"
 const liveDomain = "https://business.adobe.com";
+const excludedFiles = ["/redirects.json", "/metadata.json", "/metadata-seo.json", "/redirects_fancy.json"];
 const LINK_SELECTORS = [
   'a[href*="/fragments/"]',
   'a[href*=".mp4"]',
@@ -17,6 +18,8 @@ const LINK_SELECTORS = [
   'a[href*=".svg"]',
   'img[alt*=".mp4"]',
 ];
+// For any case where we need to find SVGs outside of any elements // in their text.
+const LINK_SELECTOR_REGEX = /https:\/\/[^"'\s]+\.svg/g;
 
 export function calculateTime(startTime) {
   const totalTime = Date.now() - startTime;
@@ -31,7 +34,17 @@ async function importMedia(pageUrl, text) {
 
   const dom = new JSDOM(text)
   const results = dom.window.document.body.querySelectorAll(LINK_SELECTORS.join(', '));
-  const linkedMedia = [...results].reduce((acc, a) => {
+
+  // TODO clean this up to be ready to be contributed to the DA-Importer
+  // const pattern = /https:\/\/[^"'\s]+\.(?:svg|mp4|pdf)/g;
+  // const results = text.match(pattern) ?
+  const matches = text.match(LINK_SELECTOR_REGEX)?.map((svgUrl) => {
+    const a = dom.window.document.createElement('a');
+    a.href = svgUrl;
+    return a;
+  }) || [];
+
+  const linkedMedia = [...results, ...matches].reduce((acc, a) => {
     let href = a.getAttribute('href') || a.getAttribute('alt');
     // Don't add any off origin content.
     const isSameDomain = prefixes.some((prefix) => href.startsWith(prefix));
@@ -39,9 +52,8 @@ async function importMedia(pageUrl, text) {
 
     href = href.replace('.hlx.', '.aem.');
 
-    // Match the URL and remove extras
-    href = href.match(/^[^?#| ]+/)[0];
-    // Convert relative to current project origin
+    [href] = href.match(/^[^?#| ]+/);
+
     const url = new URL(href);
 
     // Check if its already in our URL list
@@ -62,7 +74,13 @@ async function importMedia(pageUrl, text) {
     // This would be something such as
     // '/assets/videos/customer-success-stories/media_12c330631cac835def2ef03bc64ae94ee23cff8ef.mp4'
     console.log(`Importing media: ${mediaUrl.href}`);
-    await importUrl(mediaUrl);
+    try {
+      await importUrl(mediaUrl);
+    } catch (error) {
+      await slackNotification(
+        `Failed importing media /${toOrg}/${toRepo}/main${mediaUrl.href}. Error: ${error.message}`
+      );
+    }
   }
 }
 
@@ -111,10 +129,31 @@ const slackNotification = (text) => {
   })
 };
 
+// If an image in metadata starts with new line
+// we'll need to remove the new line to prevent losing the reference to the img
+// IMPORTANT: This currently not used as we only found this occuring on one page.
+// It's still left in to enable in case we find more cases of this.
+function safeguardMetadataImages(dom) {
+  const metadata = dom.window.document.querySelector('.metadata')
+  if (metadata) {
+    metadata.querySelectorAll('div').forEach(row => {
+      const metadataKey = row.querySelector('div:first-child')?.textContent.trim().toLowerCase();
+      if (metadataKey === 'image') row.querySelectorAll('br')?.forEach(br => br.remove());
+    });
+  }
+  const cardMetadata = dom.window.document.querySelector('.card-metadata')
+  if (cardMetadata) {
+    cardMetadata.querySelectorAll('div').forEach(row => {
+      const metadataKey = row.querySelector('div:first-child')?.textContent.trim().toLowerCase();
+      if (metadataKey === 'cardImage') row.querySelectorAll('br')?.forEach(br => br.remove());
+    });
+  }
+}
+
 async function importUrl(url) {
-  // Exclude auto publishing redirects for bacom https://jira.corp.adobe.com/browse/MWPW-173107
-  if(url.pathname.includes("redirects.json")) {
-    console.log("Stopped processing redirects.json");
+  // Exclude auto publishing files from Sharepoint
+  if(excludedFiles.some((excludedFile => url.pathname === excludedFile))) {
+    console.log(`Stopped processing ${url.pathname}`);
     return
   }
 
@@ -157,15 +196,22 @@ async function importUrl(url) {
     console.log("fetched resource from AEM at:", `${url.origin}${srcPath}`)
     if (resp.redirected && !(srcPath.endsWith('.mp4') || srcPath.endsWith('.png') || srcPath.endsWith('.jpg'))) {
       url.status = 'redir';
-      throw new Error('redir');
+      console.log("Skipped importing redirected resource")
+      return
     }
     if (!resp.ok && resp.status !== 304) {
       url.status = 'error';
-      throw new Error('error');
+      console.log(`Failed Status ${resp.status} /${toOrg}/${toRepo}/main${path}. Error: ${resp.status} ${resp.statusText}`)
+      await slackNotification(
+        `Failed Status ${resp.status} /${toOrg}/${toRepo}/main${path}. Error: ${resp.status} ${resp.statusText}`
+      );
+      return
     }
     let content = isExt ? await resp.blob() : await resp.text();
     if (!isExt) {
-      const aemHtml = docDomToAemHtml(mdToDocDom(content))
+      const dom = mdToDocDom(content)
+      // safeguardMetadataImages(dom);
+      const aemHtml = docDomToAemHtml(dom)
       // Difference to nexter: "findFragments" alternative, since we always import on publish
       // we always import fragments when they are published, we don't need to discover them here
       // nexter uses "findFragments" to discover mp4/svg/pdf files though
@@ -180,7 +226,7 @@ async function importUrl(url) {
     console.log(`Resource: https://main--${toRepo}--${toOrg}.aem.live${url.pathname}`);
   } catch (e) {
     await slackNotification(`Resource: https://main--${toRepo}--${toOrg}.aem.live${url.pathname} failed to publish. Error: ${e.message}`);
-    console.log("Failed to import resource to DA " + toOrg + "/" + toRepo + " | destination: " + url.pathname, + " | error: " + e.message);
+    console.log("Failed to import resource to DA " + toOrg + "/" + toRepo + " | destination: " + url.pathname + " | error: " + e.message);
     if (!url.status) url.status = 'error';
     throw e;
   }
