@@ -1,6 +1,6 @@
 import { readFile, setViewport } from '@web/test-runner-commands';
 import { expect } from '@esm-bundle/chai';
-import { setLibs, LIBS, getLCPImages } from '../../scripts/scripts.js';
+import { setLibs, LIBS, getLCPImages, transformExlLinks } from '../../scripts/scripts.js';
 
 describe('Libs', () => {
   const tests = [
@@ -106,5 +106,60 @@ describe('getLCPImages', () => {
     document.body.innerHTML = await readFile({ path: './mocks/img-outside-marquee.html' });
     const lcpImages = getLCPImages(document);
     expect(lcpImages[0]).to.equal(document.querySelector('#correct-image'));
+  });
+});
+
+describe('Transform Experience League Links', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <a href="https://experienceleague.adobe.com/en/docs/experience-manager">Link 1</a>
+      <a href="https://experienceleague.adobe.com/docs/experience-manager.html?lang=en">Link 2</a>
+      <a href="https://experienceleague.adobe.com/en/docs/experience-manager#_dnt">Link 3</a>
+      <a href="https://business.adobe.com">Link 4</a>
+    `;
+  });
+
+  it('does not transform links when locale is US', () => {
+    const locale = { ietf: 'en-US' };
+    transformExlLinks(locale);
+    const links = document.querySelectorAll('a');
+    expect(links[0].href).to.equal('https://experienceleague.adobe.com/en/docs/experience-manager');
+    expect(links[1].href).to.equal('https://experienceleague.adobe.com/docs/experience-manager.html?lang=en');
+  });
+
+  it('does not transform links when locale has no exl property', () => {
+    const locale = { ietf: 'fr-FR' };
+    transformExlLinks(locale);
+    const links = document.querySelectorAll('a');
+    expect(links[0].href).to.equal('https://experienceleague.adobe.com/en/docs/experience-manager');
+    expect(links[1].href).to.equal('https://experienceleague.adobe.com/docs/experience-manager.html?lang=en');
+  });
+
+  it('transforms links with .html?lang=en', () => {
+    const locale = { ietf: 'fr-FR', exl: 'fr' };
+    transformExlLinks(locale);
+    const links = document.querySelectorAll('a');
+    expect(links[1].href).to.equal('https://experienceleague.adobe.com/fr/docs/experience-manager');
+  });
+
+  it('transforms links with /en/', () => {
+    const locale = { ietf: 'fr-FR', exl: 'fr' };
+    transformExlLinks(locale);
+    const links = document.querySelectorAll('a');
+    expect(links[0].href).to.equal('https://experienceleague.adobe.com/fr/docs/experience-manager');
+  });
+
+  it('does not transform links with #_dnt', () => {
+    const locale = { ietf: 'fr-FR', exl: 'fr' };
+    transformExlLinks(locale);
+    const links = document.querySelectorAll('a');
+    expect(links[2].href).to.equal('https://experienceleague.adobe.com/en/docs/experience-manager#_dnt');
+  });
+
+  it('does not transform non-experienceleague links', () => {
+    const locale = { ietf: 'fr-FR', exl: 'fr' };
+    transformExlLinks(locale);
+    const links = document.querySelectorAll('a');
+    expect(links[3].href).to.equal('https://business.adobe.com/');
   });
 });
