@@ -173,7 +173,7 @@ export const getLCPImages = (doc) => {
     if (window.innerWidth >= 600 && window.innerWidth < 1200) return [marqueeDiv.querySelector(':scope > div:nth-child(2) img') || foregroundImg];
     if (window.innerWidth >= 1200) return [marqueeDiv.querySelector(':scope > div:last-child img') || foregroundImg];
   }
-  return [lcpSection.querySelector('img')];
+  return [lcpSection.querySelector('img') || doc.querySelector('img')];
 };
 
 (async function loadLCPImage() {
