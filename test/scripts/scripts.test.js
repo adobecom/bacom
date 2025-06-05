@@ -101,4 +101,10 @@ describe('getLCPImages', () => {
     const lcpImages = getLCPImages(document);
     expect(lcpImages[0]).to.equal(document.querySelector('#correct-image'));
   });
+
+  it('Gets image from outside marquee section', async () => {
+    document.body.innerHTML = await readFile({ path: './mocks/img-outside-marquee.html' });
+    const lcpImages = getLCPImages(document);
+    expect(lcpImages[0]).to.equal(document.querySelector('#correct-image'));
+  });
 });
