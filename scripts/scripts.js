@@ -126,33 +126,9 @@ const CONFIG = {
     vn_vi: { ietf: 'vi', tk: 'qxw8hzm.css' },
     za: { ietf: 'en-GB', tk: 'hah7vzn.css' },
   },
-  // languages: {
-  //   en: {
-  //     tk: 'hah7vzn.css',
-  //     regions: [
-  //       { region: 'us' },
-  //       { region: 'gb' },
-  //       { region: 'apac', ietf: 'en' },
-  //     ],
-  //   },
-  //   de: {
-  //     tk: 'hah7vzn.css',
-  //     regions: [
-  //       { region: 'ch' },
-  //       { region: 'de' },
-  //     ],
-  //   },
-  //   fr: {
-  //     tk: 'hah7vzn.css',
-  //     regions: [
-  //       { region: 'ca_fr', ietf: 'fr-CA' },
-  //       { region: 'fr' },
-  //     ],
-  //   },
-  // },
   geoRouting: 'on',
   productionDomain: 'business.adobe.com',
-  prodDomains: ['business.adobe.com', 'www.adobe.com', 'experienceleague.adobe.com'],
+  prodDomains: ['business.adobe.com', 'www.adobe.com'],
   autoBlocks: [
     { iframe: 'https://adobe-ideacloud.forgedx.com' },
     { iframe: 'https://adobe.ideacloud.com' },
