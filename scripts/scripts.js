@@ -36,40 +36,40 @@ const CONFIG = {
     ae_ar: { ietf: 'ar', tk: 'qxw8hzm.css', dir: 'rtl' },
     ae_en: { ietf: 'en', tk: 'hah7vzn.css' },
     africa: { ietf: 'en', tk: 'hah7vzn.css' },
-    ar: { ietf: 'es-AR', tk: 'hah7vzn.css' },
-    at: { ietf: 'de-AT', tk: 'hah7vzn.css' },
+    ar: { ietf: 'es-AR', tk: 'hah7vzn.css', exl: 'es' },
+    at: { ietf: 'de-AT', tk: 'hah7vzn.css', exl: 'de' },
     au: { ietf: 'en-AU', tk: 'hah7vzn.css' },
     be_en: { ietf: 'en-BE', tk: 'hah7vzn.css' },
-    be_fr: { ietf: 'fr-BE', tk: 'hah7vzn.css' },
-    be_nl: { ietf: 'nl-BE', tk: 'qxw8hzm.css' },
+    be_fr: { ietf: 'fr-BE', tk: 'hah7vzn.css', exl: 'fr' },
+    be_nl: { ietf: 'nl-BE', tk: 'qxw8hzm.css', exl: 'nl' },
     bg: { ietf: 'bg-BG', tk: 'qxw8hzm.css' },
-    br: { ietf: 'pt-BR', tk: 'hah7vzn.css' },
-    ca_fr: { ietf: 'fr-CA', tk: 'hah7vzn.css' },
+    br: { ietf: 'pt-BR', tk: 'hah7vzn.css', exl: 'pt-br' },
+    ca_fr: { ietf: 'fr-CA', tk: 'hah7vzn.css', exl: 'fr' },
     ca: { ietf: 'en-CA', tk: 'hah7vzn.css' },
-    ch_de: { ietf: 'de-CH', tk: 'hah7vzn.css' },
-    ch_fr: { ietf: 'fr-CH', tk: 'hah7vzn.css' },
-    ch_it: { ietf: 'it-CH', tk: 'hah7vzn.css' },
-    cl: { ietf: 'es-CL', tk: 'hah7vzn.css' },
-    cn: { ietf: 'zh-CN', tk: 'qxw8hzm' },
-    co: { ietf: 'es-CO', tk: 'hah7vzn.css' },
+    ch_de: { ietf: 'de-CH', tk: 'hah7vzn.css', exl: 'de' },
+    ch_fr: { ietf: 'fr-CH', tk: 'hah7vzn.css', exl: 'fr' },
+    ch_it: { ietf: 'it-CH', tk: 'hah7vzn.css', exl: 'it' },
+    cl: { ietf: 'es-CL', tk: 'hah7vzn.css', exl: 'es' },
+    cn: { ietf: 'zh-CN', tk: 'qxw8hzm', exl: 'zh-hans' },
+    co: { ietf: 'es-CO', tk: 'hah7vzn.css', exl: 'es' },
     cr: { ietf: 'es-419', tk: 'hah7vzn.css' },
     cy_en: { ietf: 'en-CY', tk: 'hah7vzn.css' },
     cz: { ietf: 'cs-CZ', tk: 'qxw8hzm.css' },
-    de: { ietf: 'de-DE', tk: 'hah7vzn.css' },
+    de: { ietf: 'de-DE', tk: 'hah7vzn.css', exl: 'de' },
     dk: { ietf: 'da-DK', tk: 'qxw8hzm.css' },
     ec: { ietf: 'es-419', tk: 'hah7vzn.css' },
     ee: { ietf: 'et-EE', tk: 'qxw8hzm.css' },
     eg_ar: { ietf: 'ar', tk: 'qxw8hzm.css', dir: 'rtl' },
     eg_en: { ietf: 'en-GB', tk: 'hah7vzn.css' },
     el: { ietf: 'el', tk: 'qxw8hzm.css' },
-    es: { ietf: 'es-ES', tk: 'hah7vzn.css' },
+    es: { ietf: 'es-ES', tk: 'hah7vzn.css', exl: 'es' },
     fi: { ietf: 'fi-FI', tk: 'qxw8hzm.css' },
-    fr: { ietf: 'fr-FR', tk: 'hah7vzn.css' },
+    fr: { ietf: 'fr-FR', tk: 'hah7vzn.css', exl: 'fr' },
     gr_el: { ietf: 'el', tk: 'qxw8hzm.css' },
     gr_en: { ietf: 'en-GR', tk: 'hah7vzn.css' },
     gt: { ietf: 'es-419', tk: 'hah7vzn.css' },
     hk_en: { ietf: 'en-HK', tk: 'hah7vzn.css' },
-    hk_zh: { ietf: 'zh-HK', tk: 'jay0ecd' },
+    hk_zh: { ietf: 'zh-HK', tk: 'jay0ecd', exl: 'zh-hant' },
     hu: { ietf: 'hu-HU', tk: 'qxw8hzm.css' },
     id_en: { ietf: 'en', tk: 'hah7vzn.css' },
     id_id: { ietf: 'id', tk: 'qxw8hzm.css' },
@@ -78,48 +78,48 @@ const CONFIG = {
     il_he: { ietf: 'he', tk: 'qxw8hzm.css', dir: 'rtl' },
     in_hi: { ietf: 'hi', tk: 'qxw8hzm.css' },
     in: { ietf: 'en-IN', tk: 'hah7vzn.css' },
-    it: { ietf: 'it-IT', tk: 'hah7vzn.css' },
-    jp: { ietf: 'ja-JP', tk: 'dvg6awq' },
-    kr: { ietf: 'ko-KR', tk: 'qjs5sfm' },
+    it: { ietf: 'it-IT', tk: 'hah7vzn.css', exl: 'it' },
+    jp: { ietf: 'ja-JP', tk: 'dvg6awq', exl: 'ja' },
+    kr: { ietf: 'ko-KR', tk: 'qjs5sfm', exl: 'ko' },
     kw_ar: { ietf: 'ar', tk: 'qxw8hzm.css', dir: 'rtl' },
     kw_en: { ietf: 'en-GB', tk: 'hah7vzn.css' },
-    la: { ietf: 'es-LA', tk: 'hah7vzn.css' },
+    la: { ietf: 'es-LA', tk: 'hah7vzn.css', exl: 'es' },
     langstore: { ietf: 'en-US', tk: 'hah7vzn.css' },
     lt: { ietf: 'lt-LT', tk: 'qxw8hzm.css' },
-    lu_de: { ietf: 'de-LU', tk: 'hah7vzn.css' },
+    lu_de: { ietf: 'de-LU', tk: 'hah7vzn.css', exl: 'de' },
     lu_en: { ietf: 'en-LU', tk: 'hah7vzn.css' },
-    lu_fr: { ietf: 'fr-LU', tk: 'hah7vzn.css' },
+    lu_fr: { ietf: 'fr-LU', tk: 'hah7vzn.css', exl: 'fr' },
     lv: { ietf: 'lv-LV', tk: 'qxw8hzm.css' },
     mena_ar: { ietf: 'ar', tk: 'qxw8hzm.css', dir: 'rtl' },
     mena_en: { ietf: 'en', tk: 'hah7vzn.css' },
     mt: { ietf: 'en-MT', tk: 'hah7vzn.css' },
-    mx: { ietf: 'es-MX', tk: 'hah7vzn.css' },
+    mx: { ietf: 'es-MX', tk: 'hah7vzn.css', exl: 'es' },
     my_en: { ietf: 'en-GB', tk: 'hah7vzn.css' },
     my_ms: { ietf: 'ms', tk: 'qxw8hzm.css' },
     ng: { ietf: 'en-GB', tk: 'hah7vzn.css' },
-    nl: { ietf: 'nl-NL', tk: 'qxw8hzm.css' },
+    nl: { ietf: 'nl-NL', tk: 'qxw8hzm.css', exl: 'nl' },
     no: { ietf: 'no-NO', tk: 'qxw8hzm.css' },
     nz: { ietf: 'en-GB', tk: 'hah7vzn.css' },
-    pe: { ietf: 'es-PE', tk: 'hah7vzn.css' },
+    pe: { ietf: 'es-PE', tk: 'hah7vzn.css', exl: 'es' },
     ph_en: { ietf: 'en', tk: 'hah7vzn.css' },
     ph_fil: { ietf: 'fil-PH', tk: 'qxw8hzm.css' },
     pl: { ietf: 'pl-PL', tk: 'qxw8hzm.css' },
     pr: { ietf: 'es-419', tk: 'hah7vzn.css' },
-    pt: { ietf: 'pt-PT', tk: 'hah7vzn.css' },
+    pt: { ietf: 'pt-PT', tk: 'hah7vzn.css', exl: 'pt-br' },
     qa_ar: { ietf: 'ar', tk: 'qxw8hzm.css', dir: 'rtl' },
     qa_en: { ietf: 'en-GB', tk: 'hah7vzn.css' },
     ro: { ietf: 'ro-RO', tk: 'qxw8hzm.css' },
     ru: { ietf: 'ru-RU', tk: 'qxw8hzm.css' },
     sa_ar: { ietf: 'ar', tk: 'qxw8hzm.css', dir: 'rtl' },
     sa_en: { ietf: 'en', tk: 'hah7vzn.css' },
-    se: { ietf: 'sv-SE', tk: 'qxw8hzm.css' },
+    se: { ietf: 'sv-SE', tk: 'qxw8hzm.css', exl: 'sv' },
     sg: { ietf: 'en-SG', tk: 'hah7vzn.css' },
     si: { ietf: 'sl-SI', tk: 'qxw8hzm.css' },
     sk: { ietf: 'sk-SK', tk: 'qxw8hzm.css' },
     th_en: { ietf: 'en', tk: 'hah7vzn.css' },
     th_th: { ietf: 'th', tk: 'lqo2bst.css' },
     tr: { ietf: 'tr-TR', tk: 'qxw8hzm.css' },
-    tw: { ietf: 'zh-TW', tk: 'jay0ecd' },
+    tw: { ietf: 'zh-TW', tk: 'jay0ecd', exl: 'zh-hant' },
     ua: { ietf: 'uk-UA', tk: 'qxw8hzm.css' },
     uk: { ietf: 'en-GB', tk: 'hah7vzn.css' },
     vn_en: { ietf: 'en-GB', tk: 'hah7vzn.css' },
@@ -199,8 +199,22 @@ export const LIBS = setLibs(window.location);
   paths.forEach(loadStyle);
 }());
 
+export function transformExlLinks(locale) {
+  if (locale.ietf === 'en-US' || !locale.exl) return;
+  const exLinks = document.querySelectorAll('a[href*="experienceleague.adobe.com"]');
+  exLinks.forEach((link) => {
+    if (link.href.includes('#_dnt')) return;
+    if (link.href.includes('.html?lang=en')) {
+      link.href = link.href.replace('.html?lang=en', '').replace('https://experienceleague.adobe.com/', `https://experienceleague.adobe.com/${locale.exl}/`);
+    }
+    link.href = link.href.replace('/en/', `/${locale.exl}/`);
+  });
+}
+
 (async function loadPage() {
-  const { loadArea, loadLana, setConfig, createTag, getMetadata } = await import(`${LIBS}/utils/utils.js`);
+  const {
+    loadArea, loadLana, setConfig, createTag, getMetadata, getLocale,
+  } = await import(`${LIBS}/utils/utils.js`);
   if (getMetadata('template') === '404') window.SAMPLE_PAGEVIEWS_AT_RATE = 'high';
 
   const metaCta = document.querySelector('meta[name="chat-cta"]');
@@ -222,6 +236,7 @@ export const LIBS = setLibs(window.location);
 
   setConfig({ ...CONFIG, miloLibs: LIBS });
   loadLana({ clientId: 'bacom', tags: 'info', endpoint: 'https://business.adobe.com/lana/ll', endpointStage: 'https://business.stage.adobe.com/lana/ll' });
+  transformExlLinks(getLocale(CONFIG.locales));
   await loadArea();
 
   if (document.querySelector('meta[name="aa-university"]')) {
