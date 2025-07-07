@@ -9,7 +9,7 @@ describe('CTA Widget', () => {
     await init(document.querySelector('.cta-widget'));
   });
 
-  it('Toggles body on click', () => {
+  it('Toggles body on click', async () => {
     const cta = document.querySelector('.cta-widget');
     const body = document.querySelector('.cta-widget-body');
     const curtain = document.querySelector('.cta-curtain');
@@ -25,7 +25,7 @@ describe('CTA Widget', () => {
     expect(cta.classList.contains('hidden')).to.be.false;
   });
 
-  it('Decorates the button correctly for mobile', () => {
+  it('Decorates the button correctly for mobile', async () => {
     const anchor = document.querySelector('a');
     expect(anchor.classList.contains('con-button')).to.be.true;
     expect(anchor.classList.contains('outline')).to.be.true;
