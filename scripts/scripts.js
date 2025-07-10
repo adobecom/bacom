@@ -128,7 +128,7 @@ const CONFIG = {
   },
   geoRouting: 'on',
   productionDomain: 'business.adobe.com',
-  prodDomains: ['business.adobe.com', 'www.adobe.com'],
+  prodDomains: ['business.adobe.com', 'www.adobe.com', 'helpx.adobe.com'],
   autoBlocks: [
     { iframe: 'https://adobe-ideacloud.forgedx.com' },
     { iframe: 'https://adobe.ideacloud.com' },
@@ -139,7 +139,10 @@ const CONFIG = {
   useDotHtml: true,
   dynamicNavKey: 'bacom',
   stageDomainsMap: {
-    'business.stage.adobe.com': { 'business.adobe.com': 'origin' },
+    'business.stage.adobe.com': {
+      'business.adobe.com': 'origin',
+      'helpx.adobe.com': 'helpx.stage.adobe.com',
+    },
     '.business-graybox.adobe.com': { 'business.adobe.com': 'origin' },
   },
   jarvis: {
