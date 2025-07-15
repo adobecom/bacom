@@ -189,6 +189,7 @@ export function setLibs(location) {
   if (!['.hlx.', '.aem.', '.stage.', 'local'].some((i) => hostname.includes(i))) return '/libs';
   const branch = new URLSearchParams(search).get('milolibs') || 'main';
   if (branch === 'local') return 'http://localhost:6456/libs';
+  if (branch === 'main') return `${window.location.origin}/libs`
   return branch.includes('--') ? `https://${branch}.aem.live/libs` : `https://${branch}--milo--adobecom.aem.live/libs`;
 }
 
