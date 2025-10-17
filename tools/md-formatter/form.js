@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/no-unresolved */
 import 'https://da.live/nx/public/sl/components.js';
@@ -139,17 +140,18 @@ class MdForm extends LitElement {
     `);
   }
 
+
   renderSelectField() {
-    console.log(this._selectOptions);
+    console.log(this._selectOptions, 'select options');
     return html`
-      <select name='key' id='key-select'>
-        <option value="select-key">Select key</option>
-        <option value="key-opt">Opt 2</option>
-      </select>
-      <select name='choice' id='choice-select'>
-        <option value="select-choice">Select your choice here</option>
-        <option value="choice-opt">Opt 2</option>
-      </select> 
+      ${this._selectOptions.map((group) => {
+        return html`
+          <select name='${group.keyName}' id='${group.keyName}'>
+            <option value="select-key">Select key</option>
+            ${group.values.map((option) => html`<option value='${option}'>${option}</option>`)}
+          </seclect>
+        `
+      })}
     `;
   }
 
