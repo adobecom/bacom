@@ -18,6 +18,11 @@ class MdForm extends LitElement {
     _addFields: { state: true },
     _optionsErrorMessage: { type: String },
     _metadataOptions: { state: true },
+    _availabileFieldKeys: { type: Array },
+    _selectOptions: { type: Array },
+    _currentPropertySelect: { state: true },
+    _currentValueList: { state: true },
+    _addedFields: { type: Array },
   };
 
   constructor() {
@@ -30,6 +35,11 @@ class MdForm extends LitElement {
     this._addedFields = [];
     this._optionsErrorMessage = '';
     this._metadataOptions = {};
+    this._availabileFieldKeys = [];
+    this._selectOptions = [];
+    this._currentPropertySelect = '';
+    this._currentValueList = [];
+    this._addedFields = [];
   }
 
   async getMetadataOptions() {
@@ -94,6 +104,7 @@ class MdForm extends LitElement {
 
     // Initialize the result structure
     const selectOptions = keys.map((key) => ({ keyName: key, values: [] }));
+    const fieldKeys = [];
 
     // Single pass through the data to populate all values
     this._metadataOptions.data.forEach((item) => {
@@ -101,57 +112,71 @@ class MdForm extends LitElement {
         if (item[key]) {
           selectOptions.find((option) => option.keyName === key).values.push(item[key]);
         }
+        if (!fieldKeys.includes(key)) {
+          fieldKeys.push(key);
+        }
       });
     });
 
-    return selectOptions;
+    return [selectOptions, fieldKeys];
   }
 
   async connectedCallback() {
     super.connectedCallback();
     this.shadowRoot.adoptedStyleSheets = [style];
     this._metadataOptions = await this.getMetadataOptions();
-    this._selectOptions = this.setSelectOptions();
+    [this._selectOptions, this._availabileFieldKeys] = this.setSelectOptions();
+    console.log('Set select options', this._selectOptions, this._availabileFieldKeys);
   }
 
   handleAdd(e) {
     e.preventDefault();
-    const formData = new FormData(e.target.closest('form'));
-    console.log(formData, e.target.closest('form'));
-    const entries = Object.fromEntries(formData.entries());
-    const empty = Object.keys(entries).some((key) => !entries[key]);
-
-    if (empty) {
-      // this._status = { type: 'error', message: 'Some fields empty.' };
-      // return;
-      console.log('empty');
-    }
-
-    console.log(entries);
-    this._formFields = [...this._formFields, entries];
+    const fieldToAdd = { keyName: this._currentPropertySelect, values: this._currentValueList };
+    this._addedFields = [...this._addedFields, fieldToAdd];
+    const addedPropIndex = this._availabileFieldKeys.indexOf(this._currentPropertySelect);
+    const availableCopy = this._availabileFieldKeys.slice();
+    availableCopy.splice(addedPropIndex, 1);
+    console.log(this._availabileFieldKeys, addedPropIndex, availableCopy);
+    this._availabileFieldKeys = availableCopy;
+    this._currentPropertySelect = '';
+    this._currentValueList = [];
   }
 
-  renderDefaultFields() {
-    return this._defaultFields.map(({ key, value }) => html`
-      <div class='fieldgroup'>
-        <label for=${key}>${key}</label>
-        <input type='text' name=${key} id=${key} placeholder=${value}></input>
-      </div>
-    `);
+  handlePropertySelect(e) {
+    e.preventDefault();
+    const selectedProperty = e.target.value;
+    if (selectedProperty === 'Select property') return;
+    this._currentPropertySelect = selectedProperty;
+    const [list] = this._selectOptions.filter((option) => option.keyName === selectedProperty);
+    this._currentValueList = list.values;
   }
 
+  renderAddedFields() {
+    return this._addedFields.map((fieldObj) => {
+      const { keyName, values } = fieldObj;
+      return html`
+        <div>
+          <label for='${keyName}'>${keyName}</lable>
+          <select name=${keyName} id=${keyName}>
+            ${values.map((val) => html`<option value=${val}>${val}</option>`)}
+          </select>
+        </div>
+      `;
+    });
+  }
 
-  renderSelectField() {
-    console.log(this._selectOptions, 'select options');
+  renderKeyValueSelect() {
     return html`
-      ${this._selectOptions.map((group) => {
-        return html`
-          <select name='${group.keyName}' id='${group.keyName}'>
-            <option value="select-key">Select key</option>
-            ${group.values.map((option) => html`<option value='${option}'>${option}</option>`)}
-          </seclect>
-        `
-      })}
+      <section class='key-value-select'>
+        <select @change="${this.handlePropertySelect}"> 
+          <option value="select-key">Select property</option>
+          ${this._availabileFieldKeys.map((property) => html`<option value=${property}>${property}</option>`)}
+        </select>
+        <select>
+          <option value="select-key">select value</option>
+          ${this._currentValueList.map((value) => html`<option value=${value}>${value}</option>`)}
+        </select>
+      </section>
     `;
   }
 
@@ -166,12 +191,17 @@ class MdForm extends LitElement {
               <!-- this is the submit button -->
               <button><span class='copy-icon'></span>Copy as table</button>
             </div>
-            ${this.renderDefaultFields()}
-          </key
-          <form class='add-fields'>
-            ${this._selectOptions ? this.renderSelectField() : nothing}
+            <div>
+              <label for='title'>title:</label>
+              <input type='text' id='title' name='title' placeholder='page title'></input>
+            </div>
+            <div>
+              <label for='description'>description:</label>
+              <input type='text' id='description' name='description' placeholder='page description'></input>
+            </div>
+            ${this.renderAddedFields()}
+            ${this.renderKeyValueSelect()}
             <button @click=${this.handleAdd}>Add</button>
-          </form>
         </div>
       </section>
     </section>`;
