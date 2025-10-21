@@ -53,49 +53,6 @@ class MdForm extends LitElement {
     return json;
   }
 
-  /**
-   *
-   * @returns
-   *   "data": [
-    {
-      "primaryProductName": "Marketo Engage",
-      "serp-content-type": "product"
-    },
-    {
-      "primaryProductName": "Adobe Experience Platform",
-      "serp-content-type": "service"
-    },
-    {
-      "primaryProductName": "RTCDP",
-      "serp-content-type": "b2b"
-    },
-    {
-      "primaryProductName": "GenStudio",
-      "serp-content-type": "b2c"
-    },
-    {
-      "primaryProductName": "Experience Manager Sites",
-      "serp-content-type": "caas"
-    },
-    {
-      "primaryProductName": "Adobe Analytics",
-      "serp-content-type": "adobe"
-    },
-    {
-      "primaryProductName": "Adobe Firefly",
-      "serp-content-type": "product"
-    },
-    {
-      "primaryProductName": "Marketo",
-      "serp-content-type": "marketing"
-    },
-    {
-      "primaryProductName": "Adobe-Business",
-      "serp-content-type": "AB"
-    }
-  ],
-   */
-
   setSelectOptions() {
     if (!this._metadataOptions?.data?.length) return [];
 
@@ -131,12 +88,17 @@ class MdForm extends LitElement {
 
   handleAdd(e) {
     e.preventDefault();
-    const fieldToAdd = { keyName: this._currentPropertySelect, values: this._currentValueList };
+    const selectedValue = this.renderRoot?.querySelector('.select-value');
+    console.log(selectedValue, selectedValue.value);
+    const fieldToAdd = {
+      keyName: this._currentPropertySelect,
+      values: this._currentValueList,
+      selectedValue: selectedValue.value,
+    };
     this._addedFields = [...this._addedFields, fieldToAdd];
     const addedPropIndex = this._availabileFieldKeys.indexOf(this._currentPropertySelect);
     const availableCopy = this._availabileFieldKeys.slice();
     availableCopy.splice(addedPropIndex, 1);
-    console.log(this._availabileFieldKeys, addedPropIndex, availableCopy);
     this._availabileFieldKeys = availableCopy;
     this._currentPropertySelect = '';
     this._currentValueList = [];
@@ -148,17 +110,17 @@ class MdForm extends LitElement {
     if (selectedProperty === 'Select property') return;
     this._currentPropertySelect = selectedProperty;
     const [list] = this._selectOptions.filter((option) => option.keyName === selectedProperty);
-    this._currentValueList = list.values;
+    this._currentValueList = list?.values;
   }
 
   renderAddedFields() {
     return this._addedFields.map((fieldObj) => {
-      const { keyName, values } = fieldObj;
+      const { keyName, values, selectedValue } = fieldObj;
       return html`
         <div>
-          <label for='${keyName}'>${keyName}</lable>
-          <select name=${keyName} id=${keyName}>
-            ${values.map((val) => html`<option value=${val}>${val}</option>`)}
+          <label for='${keyName}'>${keyName}</label>
+          <select class="select-value" name=${keyName} id=${keyName}>
+            ${values.map((val) => html`<option ?selected=${selectedValue === val} value=${val}>${val}</option>`)}
           </select>
         </div>
       `;
@@ -168,14 +130,15 @@ class MdForm extends LitElement {
   renderKeyValueSelect() {
     return html`
       <section class='key-value-select'>
-        <select @change="${this.handlePropertySelect}"> 
-          <option value="select-key">Select property</option>
+        <select class="select-property" ?disabled=${this._availabileFieldKeys.length === 0} @change="${this.handlePropertySelect}"> 
+          <option value="select-key" .value="" ?selected=${!this._currentPropertySelect}>Select property</option>
           ${this._availabileFieldKeys.map((property) => html`<option value=${property}>${property}</option>`)}
         </select>
-        <select>
-          <option value="select-key">select value</option>
-          ${this._currentValueList.map((value) => html`<option value=${value}>${value}</option>`)}
+        <select class="select-value" ?disabled=${!this._currentPropertySelect}>
+          <option value="select-key" .value="">select value</option>
+          ${this._currentValueList && this._currentValueList.map((value) => html`<option value=${value}>${value}</option>`)}
         </select>
+        <button @click=${this.handleAdd}>Add</button>
       </section>
     `;
   }
@@ -189,6 +152,7 @@ class MdForm extends LitElement {
           <form>
             <div class='copy-as-table'>
               <!-- this is the submit button -->
+              <h4>Metadata</h4>
               <button><span class='copy-icon'></span>Copy as table</button>
             </div>
             <div>
@@ -201,7 +165,6 @@ class MdForm extends LitElement {
             </div>
             ${this.renderAddedFields()}
             ${this.renderKeyValueSelect()}
-            <button @click=${this.handleAdd}>Add</button>
         </div>
       </section>
     </section>`;

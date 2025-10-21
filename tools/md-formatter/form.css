@@ -1,0 +1,52 @@
+.builder-form form {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.builder-form form > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.copy-as-table h4{
+  margin: 10px 0;
+}
+
+.copy-as-table button {
+  height: 32px;
+  margin: 10px 0;
+}
+
+.builder-form label {
+  min-width: 150px;
+}
+
+.builder-form input,
+.select-value {
+  width: 100%;
+}
+
+.builder-form input,
+.builder-form label,
+.builder-form select {
+  margin: 10px;
+  padding: 5px 2px;
+}
+
+.key-value-select {
+  display: flex;
+}
+
+.key-value-select select {
+  height: 34px;
+  min-width: 150px;
+}
+
+
+.select-value {
+  flex-shrink: 1;
+}
