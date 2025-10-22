@@ -30,6 +30,19 @@ const add = html`
   <rect id="Canvas" fill="#ff13dc" opacity="0" width="18" height="18" /><path class="fill" d="M14.5,8H10V3.5A.5.5,0,0,0,9.5,3h-1a.5.5,0,0,0-.5.5V8H3.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5H8v4.5a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5V10h4.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,14.5,8Z" />
 </svg>`;
 
+const mdTable = `<div>
+        <div class="section-metadata">
+          <div>
+            <div>title</div>
+            <div></div>
+          </div>
+          <div>
+            <div>description</div>
+            <div></div>
+          </div>
+        </div>
+      </div>`;
+
 const style = await getStyle(import.meta.url);
 
 // For testing purposes, to remove later
@@ -149,6 +162,30 @@ class MdForm extends LitElement {
     this._currentValueList = list?.values;
   }
 
+  handleCopy(e) {
+    // We need to piggyback off of whatever DA_SDK provides to interact with prose mirror. 
+    // There are examples in the da-live library.js files, but also within this repo in 
+    // tag selector, which imports actions from the sdk
+    e.preventDefault();
+    if (!navigator?.clipboard) return;
+    navigator.clipboard.writeText(mdTable).then(
+      () => {
+        // copyButton.innerText = 'Copied';
+        // setTimeout(() => {
+        //   copyButton.innerText = COPY_TO_CLIPBOARD;
+        // }, 1500);
+        console.log('copy');
+      },
+      () => {
+        // copyButton.innerText = 'Error!';
+        // setTimeout(() => {
+        //   copyButton.innerText = COPY_TO_CLIPBOARD;
+        // }, 1500);
+        console.log('oopsie');
+      },
+    );
+  }
+
   renderAddedFields() {
     return this._addedFields.map((fieldObj) => {
       const { keyName, values, selectedValue } = fieldObj;
@@ -190,7 +227,7 @@ class MdForm extends LitElement {
             <div class='copy-as-table'>
               <!-- this is the submit button -->
               <h4>Metadata</h4>
-              <button><span class='copy-icon'></span>Copy as table</button>
+              <button @click=${this.handleCopy}><span class='copy-icon'></span>Copy as table</button>
             </div>
             <div>
               <label for='title'>title:</label>
