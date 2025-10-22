@@ -5,6 +5,31 @@ import 'https://da.live/nx/public/sl/components.js';
 import getStyle from 'https://da.live/nx/utils/styles.js';
 import { LitElement, html, nothing } from 'da-lit';
 
+const close = html`
+<svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 18 18" width="18">
+  <defs>
+    <style>
+      .fill {
+        fill: #464646;
+      }
+    </style>
+  </defs>
+  <title>S Close 18 N</title>
+  <rect id="Canvas" fill="#ff13dc" opacity="0" width="18" height="18" /><path class="fill" d="M13.2425,3.343,9,7.586,4.7575,3.343a.5.5,0,0,0-.707,0L3.343,4.05a.5.5,0,0,0,0,.707L7.586,9,3.343,13.2425a.5.5,0,0,0,0,.707l.707.7075a.5.5,0,0,0,.707,0L9,10.414l4.2425,4.243a.5.5,0,0,0,.707,0l.7075-.707a.5.5,0,0,0,0-.707L10.414,9l4.243-4.2425a.5.5,0,0,0,0-.707L13.95,3.343a.5.5,0,0,0-.70711-.00039Z" />
+</svg>`;
+const add = html`
+<svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 18 18" width="18">
+  <defs>
+    <style>
+      .fill {
+        fill: #464646;
+      }
+    </style>
+  </defs>
+  <title>S Add 18 N</title>
+  <rect id="Canvas" fill="#ff13dc" opacity="0" width="18" height="18" /><path class="fill" d="M14.5,8H10V3.5A.5.5,0,0,0,9.5,3h-1a.5.5,0,0,0-.5.5V8H3.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5H8v4.5a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5V10h4.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,14.5,8Z" />
+</svg>`;
+
 const style = await getStyle(import.meta.url);
 
 // For testing purposes, to remove later
@@ -88,8 +113,7 @@ class MdForm extends LitElement {
 
   handleAdd(e) {
     e.preventDefault();
-    const selectedValue = this.renderRoot?.querySelector('.select-value');
-    console.log(selectedValue, selectedValue.value);
+    const selectedValue = e.target.closest('.key-value-select').querySelector('.select-value');
     const fieldToAdd = {
       keyName: this._currentPropertySelect,
       values: this._currentValueList,
@@ -100,6 +124,18 @@ class MdForm extends LitElement {
     const availableCopy = this._availabileFieldKeys.slice();
     availableCopy.splice(addedPropIndex, 1);
     this._availabileFieldKeys = availableCopy;
+    this._currentPropertySelect = '';
+    this._currentValueList = [];
+  }
+
+  handleRemove(e) {
+    e.preventDefault();
+    const key = e.target.closest('div').querySelector('label').innerText;
+    const addedFieldsCopy = this._addedFields.slice();
+    const removalIndex = addedFieldsCopy.findIndex((added) => added.keyName === key);
+    addedFieldsCopy.splice(removalIndex, 1);
+    this._addedFields = addedFieldsCopy;
+    this._availabileFieldKeys = [...this._availabileFieldKeys, key];
     this._currentPropertySelect = '';
     this._currentValueList = [];
   }
@@ -122,6 +158,7 @@ class MdForm extends LitElement {
           <select class="select-value" name=${keyName} id=${keyName}>
             ${values.map((val) => html`<option ?selected=${selectedValue === val} value=${val}>${val}</option>`)}
           </select>
+          <button @click=${this.handleRemove} class='remove'>${close}</button>
         </div>
       `;
     });
@@ -138,7 +175,7 @@ class MdForm extends LitElement {
           <option value="select-key" .value="">select value</option>
           ${this._currentValueList && this._currentValueList.map((value) => html`<option value=${value}>${value}</option>`)}
         </select>
-        <button @click=${this.handleAdd}>Add</button>
+        <button @click=${this.handleAdd}>${add}</button>
       </section>
     `;
   }
