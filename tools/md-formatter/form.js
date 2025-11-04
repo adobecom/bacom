@@ -220,7 +220,7 @@ class MdForm extends LitElement {
           <option value="select-key" .value="">select value</option>
           ${this._currentValueList && this._currentValueList.map((value) => html`<option value=${value}>${value}</option>`)}
         </select>
-        <button @click=${this.handleAdd}>${add}</button>
+        <button ?disabled=${!this._currentPropertySelect} @click=${this.handleAdd}>${add}</button>
       </section>
     `;
   }
