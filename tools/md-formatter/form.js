@@ -4,6 +4,7 @@
 import 'https://da.live/nx/public/sl/components.js';
 import getStyle from 'https://da.live/nx/utils/styles.js';
 import { LitElement, html, nothing } from 'da-lit';
+import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 
 const close = html`
 <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 18 18" width="18">
@@ -29,19 +30,6 @@ const add = html`
   <title>S Add 18 N</title>
   <rect id="Canvas" fill="#ff13dc" opacity="0" width="18" height="18" /><path class="fill" d="M14.5,8H10V3.5A.5.5,0,0,0,9.5,3h-1a.5.5,0,0,0-.5.5V8H3.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5H8v4.5a.5.5,0,0,0,.5.5h1a.5.5,0,0,0,.5-.5V10h4.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,14.5,8Z" />
 </svg>`;
-
-const mdTable = `<div>
-        <div class="section-metadata">
-          <div>
-            <div>title</div>
-            <div></div>
-          </div>
-          <div>
-            <div>description</div>
-            <div></div>
-          </div>
-        </div>
-      </div>`;
 
 const style = await getStyle(import.meta.url);
 
@@ -162,28 +150,48 @@ class MdForm extends LitElement {
     this._currentValueList = list?.values;
   }
 
-  handleCopy(e) {
-    // We need to piggyback off of whatever DA_SDK provides to interact with prose mirror. 
-    // There are examples in the da-live library.js files, but also within this repo in 
-    // tag selector, which imports actions from the sdk
+  async handleAddToDoc(e) {
     e.preventDefault();
-    if (!navigator?.clipboard) return;
-    navigator.clipboard.writeText(mdTable).then(
-      () => {
-        // copyButton.innerText = 'Copied';
-        // setTimeout(() => {
-        //   copyButton.innerText = COPY_TO_CLIPBOARD;
-        // }, 1500);
-        console.log('copy');
-      },
-      () => {
-        // copyButton.innerText = 'Error!';
-        // setTimeout(() => {
-        //   copyButton.innerText = COPY_TO_CLIPBOARD;
-        // }, 1500);
-        console.log('oopsie');
-      },
-    );
+    const { actions } = await DA_SDK.catch(() => null);
+
+    const form = e.target.closest('form');
+    const formData = new FormData(form);
+    const entries = Object.fromEntries(formData.entries());
+
+    const mdTable = `
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <p>metadata</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+    const tableObject = new DOMParser().parseFromString(mdTable, 'text/html');
+    const table = tableObject.querySelector('table');
+    const body = table.querySelector('tbody');
+
+    Object.keys(entries).forEach((key) => {
+      const tr = document.createElement('tr');
+
+      const keyTd = document.createElement('td');
+      const keyP = document.createElement('p');
+      keyP.innerText = key.toLowerCase();
+      keyTd.append(keyP);
+
+      const valueTd = document.createElement('td');
+      const valueP = document.createElement('p');
+      valueP.innerText = entries[key];
+      valueTd.append(valueP);
+
+      tr.append(keyTd, valueTd);
+      body.append(tr);
+    });
+    actions.sendHTML(table.outerHTML);
+    actions.closeLibrary();
   }
 
   renderAddedFields() {
@@ -227,7 +235,7 @@ class MdForm extends LitElement {
             <div class='copy-as-table'>
               <!-- this is the submit button -->
               <h4>Metadata</h4>
-              <button @click=${this.handleCopy}><span class='copy-icon'></span>Copy as table</button>
+              <button @click=${this.handleAddToDoc}><span class='copy-icon'></span>Add to doc</button>
             </div>
             <div>
               <label for='title'>title:</label>
