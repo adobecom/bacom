@@ -3,7 +3,7 @@
 /* eslint-disable import/no-unresolved */
 import 'https://da.live/nx/public/sl/components.js';
 import getStyle from 'https://da.live/nx/utils/styles.js';
-import { LitElement, html, nothing } from 'da-lit';
+import { LitElement, html } from 'https://da.live/nx/deps/lit/lit-core.min.js';
 import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 
 const close = html`
@@ -18,6 +18,7 @@ const close = html`
   <title>S Close 18 N</title>
   <rect id="Canvas" fill="#ff13dc" opacity="0" width="18" height="18" /><path class="fill" d="M13.2425,3.343,9,7.586,4.7575,3.343a.5.5,0,0,0-.707,0L3.343,4.05a.5.5,0,0,0,0,.707L7.586,9,3.343,13.2425a.5.5,0,0,0,0,.707l.707.7075a.5.5,0,0,0,.707,0L9,10.414l4.2425,4.243a.5.5,0,0,0,.707,0l.7075-.707a.5.5,0,0,0,0-.707L10.414,9l4.243-4.2425a.5.5,0,0,0,0-.707L13.95,3.343a.5.5,0,0,0-.70711-.00039Z" />
 </svg>`;
+
 const add = html`
 <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 18 18" width="18">
   <defs>
@@ -33,15 +34,46 @@ const add = html`
 
 const style = await getStyle(import.meta.url);
 
-// For testing purposes, to remove later
-// const mdConfig = 'https://main--da-bacom--adobecom.aem.live/drafts/slavin/metadata-selector/md-config.json';
-// const pth = 'products'
+export function constructTable(entries) {
+  const mdTable = `
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <p>metadata</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    `;
 
-class MdForm extends LitElement {
+  const tableObject = new DOMParser().parseFromString(mdTable, 'text/html');
+  const table = tableObject.querySelector('table');
+  const body = table.querySelector('tbody');
+
+  Object.keys(entries).forEach((key) => {
+    const tr = document.createElement('tr');
+
+    const keyTd = document.createElement('td');
+    const keyP = document.createElement('p');
+    keyP.innerText = key.toLowerCase();
+    keyTd.append(keyP);
+
+    const valueTd = document.createElement('td');
+    const valueP = document.createElement('p');
+    valueP.innerText = entries[key];
+    valueTd.append(valueP);
+
+    tr.append(keyTd, valueTd);
+    body.append(tr);
+  });
+
+  return table;
+}
+export class MdForm extends LitElement {
   static properties = {
     _title: { state: true },
     _formFields: { state: true },
-    _addFields: { state: true },
     _optionsErrorMessage: { type: String },
     _metadataOptions: { state: true },
     _availabileFieldKeys: { type: Array },
@@ -84,12 +116,9 @@ class MdForm extends LitElement {
 
     const firstItem = this._metadataOptions.data[0];
     const keys = Object.keys(firstItem);
-
-    // Initialize the result structure
     const selectOptions = keys.map((key) => ({ keyName: key, values: [] }));
     const fieldKeys = [];
 
-    // Single pass through the data to populate all values
     this._metadataOptions.data.forEach((item) => {
       keys.forEach((key) => {
         if (item[key]) {
@@ -109,7 +138,6 @@ class MdForm extends LitElement {
     this.shadowRoot.adoptedStyleSheets = [style];
     this._metadataOptions = await this.getMetadataOptions();
     [this._selectOptions, this._availabileFieldKeys] = this.setSelectOptions();
-    console.log('Set select options', this._selectOptions, this._availabileFieldKeys);
   }
 
   handleAdd(e) {
@@ -150,6 +178,7 @@ class MdForm extends LitElement {
     this._currentValueList = list?.values;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   async handleAddToDoc(e) {
     e.preventDefault();
     const { actions } = await DA_SDK.catch(() => null);
@@ -158,38 +187,7 @@ class MdForm extends LitElement {
     const formData = new FormData(form);
     const entries = Object.fromEntries(formData.entries());
 
-    const mdTable = `
-      <table>
-        <tbody>
-          <tr>
-            <td colspan="2">
-              <p>metadata</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    `;
-
-    const tableObject = new DOMParser().parseFromString(mdTable, 'text/html');
-    const table = tableObject.querySelector('table');
-    const body = table.querySelector('tbody');
-
-    Object.keys(entries).forEach((key) => {
-      const tr = document.createElement('tr');
-
-      const keyTd = document.createElement('td');
-      const keyP = document.createElement('p');
-      keyP.innerText = key.toLowerCase();
-      keyTd.append(keyP);
-
-      const valueTd = document.createElement('td');
-      const valueP = document.createElement('p');
-      valueP.innerText = entries[key];
-      valueTd.append(valueP);
-
-      tr.append(keyTd, valueTd);
-      body.append(tr);
-    });
+    const table = constructTable(entries);
     actions.sendHTML(table.outerHTML);
     actions.closeLibrary();
   }
